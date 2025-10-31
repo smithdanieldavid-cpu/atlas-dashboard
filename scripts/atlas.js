@@ -15,7 +15,6 @@ function renderAtlas(d) {
 
     ${renderTable("Macro Panel — radar (live)", d.macro, ["Category", "Status", "Latest reading / note", "Action cue (what it means)"])}
 
-    // Corrected atlas.js line 18
     <p class="micro-composite-summary">${d.overall.composite_summary.replace("Composite effective triggers", "Composite micro score: 4/8 micro triggers active → ≈ 2 macro-equivalents → when combined with macro this confirms Full Storm.")}</p>
     ${renderTable("Micro Pulse Panel — early-warning sensors", d.micro, ["Micro indicator", "Status", "Latest proxy / note", "Action cue"])}
     

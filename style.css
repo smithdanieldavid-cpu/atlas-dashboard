@@ -19,6 +19,19 @@
   vertical-align: middle;
 }
 
+/* Define the traffic light colors */
+.status-dot.red {
+  background-color: #dc2626; /* Tailwind red-600 */
+}
+
+.status-dot.amber {
+  background-color: #f59e0b; /* Tailwind amber-500 */
+}
+
+.status-dot.green {
+  background-color: #10b981; /* Tailwind green-500 */
+}
+
 /* ensure table cells align nicely on very narrow screens */
 table td, table th {
   vertical-align: middle;

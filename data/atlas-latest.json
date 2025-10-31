@@ -1,30 +1,159 @@
 {
-    "overall": {
-      "date": "2025-10-29",
-      "status": "FULL-STORM",
-      "comment": "Macro 5/8 + Micro 2/8 triggers active — maintain defensive posture."
+  "overall": {
+    "date": "2025-10-29",
+    "status": "FULL-STORM",
+    "comment": "Macro 5/8 + Micro 2/8 triggers active — maintain defensive posture.",
+    "composite_summary": "Composite effective triggers ≈ 7 / 8 → FULL STORM posture confirmed."
+  },
+  "macro": [
+    {
+      "name": "VIX (US implied vol)",
+      "status": "Red",
+      "note": "~21–23 band; recent intraday spikes to ~22–23. Elevated and episodic.",
+      "action": "VIX ≥ 22 → partial de-risk; sustained >24–25 → escalate hedges / go to max Storm."
     },
-    "macro": [
-      {"name": "VIX (US volatility)", "status": "Red", "note": "~21–23; risk-off regime"},
-      {"name": "US 3-yr Treasury", "status": "Amber", "note": "~3.46–3.49 %"},
-      {"name": "US 10-yr Treasury", "status": "Amber", "note": "~4.0 %"},
-      {"name": "US 30-yr Treasury", "status": "Amber", "note": "~4.6 %"},
-      {"name": "US Gov shutdown", "status": "Red", "note": "Day 29 — fiscal paralysis risk"},
-      {"name": "Gold (USD/oz)", "status": "Red", "note": "Strong safe-haven flows"},
-      {"name": "ASX 200", "status": "Amber", "note": "Near 8 000 support"},
-      {"name": "Treasury Liquidity", "status": "Green", "note": "Market functioning"}
-    ],
-    "micro": [
-      {"name": "Credit Spreads (HY OAS)", "status": "Amber", "note": "~300 bps and widening"},
-      {"name": "Funding (SOFR–OIS)", "status": "Amber", "note": "~30 bps gap"},
-      {"name": "Put/Call Ratio", "status": "Amber", "note": "≈ 1.0 – 1.1"},
-      {"name": "Small-cap / Large-cap", "status": "Red", "note": "~0.42 – 0.44"},
-      {"name": "Earnings Revisions", "status": "Amber", "note": "≈ –3 % net"},
-      {"name": "Consumer Delinquencies", "status": "Green", "note": "≈ 2.3 % — stable"}
-    ],
-    "triggers": [
-      {"name": "Active Triggers", "status": "Red", "note": "5 macro + 2 micro = 7 / 8"},
-      {"name": "Composite Verdict", "status": "Red", "note": "FULL STORM posture active"}
-    ]
-  }
-  
+    {
+      "name": "US 3-yr Treasury yield",
+      "status": "Amber",
+      "note": "~3.46–3.49% (latest daily Treasury series / market quotes).",
+      "action": "Medium-term rate pressure — avoid intermediate locks; prefer short/floating rate instruments."
+    },
+    {
+      "name": "US 10-yr Treasury yield",
+      "status": "Amber",
+      "note": "~4.0% (latest market quotes / curve prints).",
+      "action": "Elevated yields — watch the Atlas pivot at 4.75%; favour short duration."
+    },
+    {
+      "name": "US 30-yr Treasury yield",
+      "status": "Amber",
+      "note": "~4.6% (long end still high).",
+      "action": "Long-duration exposure remains risky."
+    },
+    {
+      "name": "US Government shutdown / fiscal risk",
+      "status": "Red",
+      "note": "Shutdown continuing into its 29th day; CBO estimates material GDP cost.",
+      "action": "If >30 days or material funding breakdown → escalate to maximum Storm (operational/fiscal shock)."
+    },
+    {
+      "name": "Gold (USD/oz)",
+      "status": "Red",
+      "note": "Gold remains bid — recent prints much higher year-to-date (multi-thousand USD/oz).",
+      "action": "Institutional safe-haven signal — consider/maintain moderate gold hedges (5–10%)."
+    },
+    {
+      "name": "Central-bank gold buying",
+      "status": "Red",
+      "note": "Reports of elevated central-bank/institutional buying QoQ (~+14–15%) — reinforces gold signal.",
+      "action": "Central-bank accumulation = high-credibility systemic hedge indicator."
+    },
+    {
+      "name": "ASX 200 (Australia)",
+      "status": "Amber",
+      "note": "Domestic market volatile; monitor closes near local support (8,000 band).",
+      "action": "ASX close <8,000 = local escalation trigger; otherwise fragile."
+    },
+    {
+      "name": "AU 3-yr / 10-yr yields",
+      "status": "Amber",
+      "note": "Local curve shows material term premia (~3.4% / ~4.6%).",
+      "action": "Short/floating preferred in Australian fixed income."
+    },
+    {
+      "name": "US Treasury liquidity (ADTV / plumbing)",
+      "status": "Green",
+      "note": "Market functioning — no broad dealer freeze flagged.",
+      "action": "Liquidity present; price risk > liquidity freeze — hedges/options tradable."
+    },
+    {
+      "name": "Geopolitical (China/Russia/region)",
+      "status": "Amber",
+      "note": "Regional tensions elevated; keep monitoring",
+      "action": "Major escalation → immediate commodity & risk-off shock."
+    }
+  ],
+  "micro": [
+    {
+      "name": "Credit spreads (ICE BofA HY OAS)",
+      "status": "Amber",
+      "note": "~300–310 bps (HY OAS recent series) — widening trend.",
+      "action": ">400–500bps → red (contagion / funding stress)."
+    },
+    {
+      "name": "Funding spread (SOFR–OIS / repo)",
+      "status": "Amber",
+      "note": "SOFR elevated (~4.2%); implied SOFR–OIS estimates >30 bps — no systemic spike yet.",
+      "action": ">35–50 bps → micro-liquidity stress."
+    },
+    {
+      "name": "Put/Call ratio (CBOE)",
+      "status": "Amber",
+      "note": "~1.0–1.1 (put demand elevated vs calls) — hedging bias.",
+      "action": ">1.2 → panic; <0.7 → complacency."
+    },
+    {
+      "name": "Small-cap / Large-cap ratio (R2k/S&P)",
+      "status": "Red",
+      "note": "~0.42–0.44 — small caps underperforming.",
+      "action": "<0.40 → strong red; internals fragile."
+    },
+    {
+      "name": "Earnings-revision breadth",
+      "status": "Amber",
+      "note": "~-3% net revisions (consensus proxies)",
+      "action": "<-5% → red (earnings weakening)."
+    },
+    {
+      "name": "Leverage pulse (margin debt YoY)",
+      "status": "Green",
+      "note": "~+18% YoY proxies — elevated but not extreme.",
+      "action": ">+25% → amber."
+    },
+    {
+      "name": "Bank CDS / financial stress",
+      "status": "Amber",
+      "note": "Bank stress proxies mildly elevated (watch KBW/CDS reads).",
+      "action": "<80 → red."
+    },
+    {
+      "name": "Consumer delinquencies (30-day)",
+      "status": "Green",
+      "note": "~2.3% — household delinquencies not yet critical.",
+      "action": ">2.5–3% → amber."
+    }
+  ],
+  "triggers": [
+    {
+      "name": "Macro triggers active",
+      "status": "Red",
+      "note": "5 / 8",
+      "action": "FULL STORM posture confirmed."
+    },
+    {
+      "name": "Micro triggers (macro-equiv)",
+      "status": "Red",
+      "note": "≈2",
+      "action": ""
+    },
+    {
+      "name": "Composite effective triggers",
+      "status": "Red",
+      "note": "≈ 7 / 8",
+      "action": "FULL STORM posture confirmed."
+    }
+  ],
+  "escalation_triggers": [
+    { "name": "VIX", "note": ">25 sustained 3 trading days." },
+    { "name": "HY OAS", "note": ">400 bps." },
+    { "name": "US shutdown", "note": ">30 days or material funding default." },
+    { "name": "ASX close", "note": "<8,000." },
+    { "name": "SOFR–OIS", "note": ">45 bps (funding stress)." }
+  ],
+  "short_insight": [
+    { "text": "We’re in a policy + credibility + safe-haven regime (US shutdown + political risk + institutional hedging). That produces non-linear, headline-driven moves (short rallies on headlines that quickly reverse)." },
+    { "text": "The micro panel matters now — small-cap weakness + credit widening are classic early warnings. They often lead a bigger correction if a catalyst appears." },
+    { "text": "Liquidity is functioning, which is important — hedges and tactical buys are feasible. But functioning markets are not the same as safety; price risk is high." },
+    { "text": "Your defensive posture is correct — keep discipline, hold dry powder, and step in methodically only when both macro and micro relief conditions align." }
+  ]
+}

@@ -1,38 +1,45 @@
-body {
-  font-family: system-ui, sans-serif;
-  background: #fafafa;
-  color: #222;
-  margin: 0;
-  padding: 0 1rem;
+/* --- Additions for 4-Column Table Layout --- */
+.data-table th, .data-table td {
+  /* Adjust column widths for the new 4-column structure */
+  width: 25%; /* Default for 4 columns */
+}
+.data-table th:nth-child(1), .data-table td:nth-child(1) { width: 25%; } /* Category */
+.data-table th:nth-child(2), .data-table td:nth-child(2) { width: 10%; } /* Status (small) */
+.data-table th:nth-child(3), .data-table td:nth-child(3) { width: 35%; } /* Latest Reading / Note */
+.data-table th:nth-child(4), .data-table td:nth-child(4) { width: 30%; font-size: 0.85em; } /* Action Cue */
+
+/* --- Styling for New List Sections (Actions, Triggers, Insight) --- */
+.action-section, .trigger-section, .insight-section {
+  margin-top: 20px;
+  padding: 10px 0;
 }
 
-header, footer {
-  text-align: center;
-  margin: 1.5rem 0;
+.action-section ul, .trigger-section ul, .insight-section ul {
+  list-style: disc; /* Use standard bullet points */
+  margin-left: 20px;
+  padding-left: 0;
+  font-size: 14px;
 }
 
-h1 { font-size: 1.8rem; margin-bottom: 0.2rem; }
-h2 { margin-top: 2rem; }
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 1rem 0;
-  font-size: 0.9rem;
+.action-section li, .trigger-section li, .insight-section li {
+  margin-bottom: 8px;
+  line-height: 1.4;
 }
 
-th, td {
-  border-bottom: 1px solid #ddd;
-  padding: 0.6rem;
-  text-align: left;
+.comment, .micro-composite-summary, .status-summary {
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+.micro-composite-summary {
+  font-size: 13px;
+  font-style: italic;
+  color: #666;
+  margin-top: 5px;
 }
 
-tr.Green td { background: #e8f5e9; }
-tr.Amber td { background: #fff8e1; }
-tr.Red td   { background: #ffebee; }
-
-@media (max-width: 600px) {
-  table, thead, tbody, th, td, tr { display: block; }
-  tr { margin-bottom: 0.8rem; }
-  th { font-weight: bold; }
+/* Ensure font is slightly smaller for action cues */
+.action-cue {
+  font-style: italic;
+  color: #444;
 }

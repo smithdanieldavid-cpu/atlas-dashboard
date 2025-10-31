@@ -69,7 +69,7 @@
     {
       "name": "Geopolitical (China/Russia/region)",
       "status": "Amber",
-      "note": "Regional tensions elevated; keep monitoring",
+      "note": "Regional tensions elevated; keep monitoring.",
       "action": "Major escalation → immediate commodity & risk-off shock."
     }
   ],
@@ -101,7 +101,7 @@
     {
       "name": "Earnings-revision breadth",
       "status": "Amber",
-      "note": "~-3% net revisions (consensus proxies)",
+      "note": "~-3% net revisions (consensus proxies).",
       "action": "<-5% → red (earnings weakening)."
     },
     {
@@ -151,9 +151,17 @@
     { "name": "SOFR–OIS", "note": ">45 bps (funding stress)." }
   ],
   "short_insight": [
-    { "text": "We’re in a policy + credibility + safe-haven regime (US shutdown + political risk + institutional hedging). That produces non-linear, headline-driven moves (short rallies on headlines that quickly reverse)." },
-    { "text": "The micro panel matters now — small-cap weakness + credit widening are classic early warnings. They often lead a bigger correction if a catalyst appears." },
-    { "text": "Liquidity is functioning, which is important — hedges and tactical buys are feasible. But functioning markets are not the same as safety; price risk is high." },
-    { "text": "Your defensive posture is correct — keep discipline, hold dry powder, and step in methodically only when both macro and micro relief conditions align." }
+    {
+      "text": "We’re in a policy + credibility + safe-haven regime (US shutdown + political risk + institutional hedging). That produces non-linear, headline-driven moves (short rallies on headlines that quickly reverse)."
+    },
+    {
+      "text": "The micro panel matters now — small-cap weakness + credit widening are classic early warnings. They often lead a bigger correction if a catalyst appears."
+    },
+    {
+      "text": "Liquidity is functioning, which is important — hedges and tactical buys are feasible. But functioning markets are not the same as safety; price risk is high."
+    },
+    {
+      "text": "Your defensive posture is correct — keep discipline, hold dry powder, and step in methodically only when both macro and micro relief conditions align."
+    }
   ]
 }

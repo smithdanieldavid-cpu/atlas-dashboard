@@ -1,45 +1,25 @@
-/* --- Additions for 4-Column Table Layout --- */
-.data-table th, .data-table td {
-  /* Adjust column widths for the new 4-column structure */
-  width: 25%; /* Default for 4 columns */
-}
-.data-table th:nth-child(1), .data-table td:nth-child(1) { width: 25%; } /* Category */
-.data-table th:nth-child(2), .data-table td:nth-child(2) { width: 10%; } /* Status (small) */
-.data-table th:nth-child(3), .data-table td:nth-child(3) { width: 35%; } /* Latest Reading / Note */
-.data-table th:nth-child(4), .data-table td:nth-child(4) { width: 30%; font-size: 0.85em; } /* Action Cue */
-
-/* --- Styling for New List Sections (Actions, Triggers, Insight) --- */
-.action-section, .trigger-section, .insight-section {
-  margin-top: 20px;
-  padding: 10px 0;
+/* small additions beyond Tailwind for sticky header and zebra rows */
+.sticky-header th {
+  position: sticky;
+  top: 0;
+  background: white;
+  z-index: 10;
+  border-bottom: 1px solid #e5e7eb;
 }
 
-.action-section ul, .trigger-section ul, .insight-section ul {
-  list-style: disc; /* Use standard bullet points */
-  margin-left: 20px;
-  padding-left: 0;
-  font-size: 14px;
+/* alternate row shading handled by tailwind utility classes in JS render if desired */
+
+/* traffic dot */
+.status-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 9999px;
+  display: inline-block;
+  margin-right: 8px;
+  vertical-align: middle;
 }
 
-.action-section li, .trigger-section li, .insight-section li {
-  margin-bottom: 8px;
-  line-height: 1.4;
-}
-
-.comment, .micro-composite-summary, .status-summary {
-  font-size: 16px;
-  font-weight: 500;
-  margin-bottom: 15px;
-}
-.micro-composite-summary {
-  font-size: 13px;
-  font-style: italic;
-  color: #666;
-  margin-top: 5px;
-}
-
-/* Ensure font is slightly smaller for action cues */
-.action-cue {
-  font-style: italic;
-  color: #444;
+/* ensure table cells align nicely on very narrow screens */
+table td, table th {
+  vertical-align: middle;
 }

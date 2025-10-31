@@ -1,4 +1,4 @@
-fetch("data/atlas-latest.json")
+fetch("/data/atlas-latest.json")
   .then(res => res.json())
   .then(data => renderAtlas(data));
 

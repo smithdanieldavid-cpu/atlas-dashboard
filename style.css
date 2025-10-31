@@ -7,8 +7,6 @@
   border-bottom: 1px solid #e5e7eb;
 }
 
-/* alternate row shading handled by tailwind utility classes in JS render if desired */
-
 /* traffic dot */
 .status-dot {
   width: 10px;
@@ -19,7 +17,7 @@
   vertical-align: middle;
 }
 
-/* Define the traffic light colors */
+/* Define the traffic light colors (Required for visual status) */
 .status-dot.red {
   background-color: #dc2626; /* Tailwind red-600 */
 }

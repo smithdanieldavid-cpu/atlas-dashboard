@@ -1,0 +1,30 @@
+{
+    "overall": {
+      "date": "2025-10-29",
+      "status": "FULL-STORM",
+      "comment": "Macro 5/8 + Micro 2/8 triggers active — maintain defensive posture."
+    },
+    "macro": [
+      {"name": "VIX (US volatility)", "status": "Red", "note": "~21–23; risk-off regime"},
+      {"name": "US 3-yr Treasury", "status": "Amber", "note": "~3.46–3.49 %"},
+      {"name": "US 10-yr Treasury", "status": "Amber", "note": "~4.0 %"},
+      {"name": "US 30-yr Treasury", "status": "Amber", "note": "~4.6 %"},
+      {"name": "US Gov shutdown", "status": "Red", "note": "Day 29 — fiscal paralysis risk"},
+      {"name": "Gold (USD/oz)", "status": "Red", "note": "Strong safe-haven flows"},
+      {"name": "ASX 200", "status": "Amber", "note": "Near 8 000 support"},
+      {"name": "Treasury Liquidity", "status": "Green", "note": "Market functioning"}
+    ],
+    "micro": [
+      {"name": "Credit Spreads (HY OAS)", "status": "Amber", "note": "~300 bps and widening"},
+      {"name": "Funding (SOFR–OIS)", "status": "Amber", "note": "~30 bps gap"},
+      {"name": "Put/Call Ratio", "status": "Amber", "note": "≈ 1.0 – 1.1"},
+      {"name": "Small-cap / Large-cap", "status": "Red", "note": "~0.42 – 0.44"},
+      {"name": "Earnings Revisions", "status": "Amber", "note": "≈ –3 % net"},
+      {"name": "Consumer Delinquencies", "status": "Green", "note": "≈ 2.3 % — stable"}
+    ],
+    "triggers": [
+      {"name": "Active Triggers", "status": "Red", "note": "5 macro + 2 micro = 7 / 8"},
+      {"name": "Composite Verdict", "status": "Red", "note": "FULL STORM posture active"}
+    ]
+  }
+  

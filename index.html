@@ -11,7 +11,7 @@
 </script>
     <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Atlas — Economic Dashboard</title>
+  <title>Atlas dashboard</title>
 
   <script src="https://cdn.tailwindcss.com"></script>
 
@@ -32,7 +32,7 @@
                     <span class="font-extrabold text-xl tracking-wide text-gray-900">
                         Atlas<span class="text-indigo-600">Dashboard</span>
                     </span>
-                    <p class="text-xs text-gray-500 absolute bottom-[-18px] left-0 hidden sm:block">The data observes. The system predicts.</p>
+                    <p class="text-xs text-gray-500 absolute bottom-[-18px] left-0 hidden sm:block">Observe economic data. No surprises.</p>
                 </a>
                 
                 <div class="flex space-x-6 h-full">
@@ -43,13 +43,13 @@
                         Dashboard
                     </a>
                     
-                    <a href="/treasury-analysis.html" 
+                    <a href="/" 
                        class="flex items-center text-sm font-medium text-gray-500 hover:text-gray-900 
                               border-b-2 border-transparent hover:border-indigo-600 transition duration-150 ease-in-out">
                         Treasury Analysis
                     </a>
                     
-                    <a href="#" 
+                    <a href="/" 
                        class="flex items-center text-sm font-medium text-gray-500 hover:text-gray-900 
                               border-b-2 border-transparent hover:border-indigo-600 transition duration-150 ease-in-out">
                         Market Flow
@@ -71,7 +71,7 @@
       <section class="lg:col-span-2">
         <div class="bg-white rounded-xl shadow px-5 py-4">
           <div class="flex items-start justify-between">
-            <h2 class="text-lg font-medium">Macro Panel</h2>
+            <h2 class="text-lg font-medium">Macro panel</h2>
             <div id="lastUpdated" class="text-sm text-gray-500"></div>
           </div>
 
@@ -91,7 +91,7 @@
 
         <div class="bg-white rounded-xl shadow px-5 py-4 mt-6">
           <div class="flex items-center justify-between">
-            <h2 class="text-lg font-medium">Micro Pulse Panel (early-warning)</h2>
+            <h2 class="text-lg font-medium">Micro panel (early-warning)</h2>
             <div class="text-sm text-gray-500">Each micro trigger = 0.5 macro</div>
           </div>
 
@@ -112,7 +112,7 @@
 
       <aside>
         <div class="bg-white rounded-xl shadow px-5 py-4">
-          <h3 class="text-lg font-medium">Storm Trigger Bar</h3>
+          <h3 class="text-lg font-medium">Storm trigger bar</h3>
           <div class="mt-3 space-y-3 text-sm">
             <div id="triggerSummary" class="text-gray-700"></div>
             <div id="triggerDetails" class="text-sm text-gray-500"></div>
@@ -120,12 +120,12 @@
         </div>
 
         <div class="bg-white rounded-xl shadow px-5 py-4 mt-6">
-          <h3 class="text-lg font-medium">Immediate Actions</h3>
+          <h3 class="text-lg font-medium">Immediate actions</h3>
           <ul id="actionList" class="mt-3 list-disc pl-5 text-sm space-y-2 text-gray-700"></ul>
         </div>
 
         <div class="bg-white rounded-xl shadow px-5 py-4 mt-6">
-          <h3 class="text-lg font-medium">Escalation Watch</h3>
+          <h3 class="text-lg font-medium">Escalation watch</h3>
           <ul id="watchList" class="mt-3 list-disc pl-5 text-sm space-y-2 text-gray-700"></ul>
         </div>
       </aside>

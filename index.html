@@ -1,8 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-CVL5GTN45J"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CVL5GTN45J"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -14,31 +13,61 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Atlas — Economic Dashboard</title>
 
-  <!-- Tailwind CDN (no build step) -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Small extra styles for sticky header and table layout -->
   <link rel="stylesheet" href="style.css" />
 </head>
 <body class="bg-gray-50 text-gray-800 antialiased">
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-
-    <!-- Banner -->
-    <header class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
-      <div>
-        <h1 class="text-2xl font-semibold">ATLAS — Economic Dashboard</h1>
-        <p class="text-sm text-gray-600 mt-1">Macro + Micro pulse, Storm triggers & action cues</p>
-      </div>
-
-      <div id="bannerBadge" class="self-start sm:self-center">
-        <!-- badge populated by JS -->
-      </div>
+  
+    <header class="fixed top-0 w-full z-50 bg-white shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-14 relative"> <a href="/" class="flex-shrink-0 flex items-center">
+                    <svg class="w-6 h-6 mr-2 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="12" cy="12" r="10" stroke-width="2"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2a15.3 15.3 0 0110 10M2 12a15.3 15.3 0 0010 10M2 12h20"/>
+                        <rect x="7" y="14" width="2" height="4" rx="1" fill="currentColor"/>
+                        <rect x="11" y="12" width="2" height="6" rx="1" fill="currentColor"/>
+                        <rect x="15" y="15" width="2" height="3" rx="1" fill="currentColor"/>
+                    </svg>
+                    <span class="font-extrabold text-xl tracking-wide text-gray-900">
+                        Atlas<span class="text-indigo-600">Dashboard</span>
+                    </span>
+                    <p class="text-xs text-gray-500 absolute bottom-[-18px] left-0 hidden sm:block">The data observes. The system predicts.</p>
+                </a>
+                
+                <div class="flex space-x-6 h-full">
+                    
+                    <a href="/" 
+                       class="flex items-center text-sm font-bold text-gray-900 
+                              border-b-2 border-indigo-600 transition duration-150 ease-in-out">
+                        Dashboard
+                    </a>
+                    
+                    <a href="/treasury-analysis.html" 
+                       class="flex items-center text-sm font-medium text-gray-500 hover:text-gray-900 
+                              border-b-2 border-transparent hover:border-indigo-600 transition duration-150 ease-in-out">
+                        Treasury Analysis
+                    </a>
+                    
+                    <a href="#" 
+                       class="flex items-center text-sm font-medium text-gray-500 hover:text-gray-900 
+                              border-b-2 border-transparent hover:border-indigo-600 transition duration-150 ease-in-out">
+                        Market Flow
+                    </a>
+                </div>
+                
+                <div class="flex items-center">
+                    <div id="bannerBadge" class="self-start sm:self-center">
+                        </div>
+                </div>
+            </div>
+        </div>
     </header>
+    
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-20"> 
 
-    <!-- Main grid -->
     <main class="grid grid-cols-1 lg:grid-cols-3 gap-6">
 
-      <!-- Macro Panel (col-span 2 on large) -->
       <section class="lg:col-span-2">
         <div class="bg-white rounded-xl shadow px-5 py-4">
           <div class="flex items-start justify-between">
@@ -60,7 +89,6 @@
           </div>
         </div>
 
-        <!-- Micro Panel -->
         <div class="bg-white rounded-xl shadow px-5 py-4 mt-6">
           <div class="flex items-center justify-between">
             <h2 class="text-lg font-medium">Micro Pulse Panel (early-warning)</h2>
@@ -82,7 +110,6 @@
         </div>
       </section>
 
-      <!-- Storm + Actions (side column) -->
       <aside>
         <div class="bg-white rounded-xl shadow px-5 py-4">
           <h3 class="text-lg font-medium">Storm Trigger Bar</h3>
@@ -104,14 +131,11 @@
       </aside>
     </main>
 
-    <!-- Footer -->
     <footer class="mt-8 text-sm text-gray-500">
       <div>Data sources: FRED, CBOE, TradingEconomics, Reuters, WGC. Informational only — not financial advice.</div>
       <div class="mt-2">Version: Atlas v2 — Last update: <span id="footerDate"></span></div>
     </footer>
 
-  </div>
-
-  <script src="scripts/atlas.js" defer></script>
+  </div> <script src="scripts/atlas.js" defer></script>
 </body>
 </html>

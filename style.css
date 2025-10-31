@@ -1,11 +1,15 @@
 /* small additions beyond Tailwind for sticky header and zebra rows */
 .sticky-header th {
   position: sticky;
-  top: 0;
+  /* CORRECTED: Ensures the table header sticks 56px below the top of the viewport 
+     to clear the fixed h-14 (56px) navigation bar. */
+  top: 56px; 
   background: white;
   z-index: 10;
   border-bottom: 1px solid #e5e7eb;
 }
+
+/* alternate row shading handled by tailwind utility classes in JS render if desired */
 
 /* traffic dot */
 .status-dot {

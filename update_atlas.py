@@ -19,6 +19,7 @@ API_CONFIG = {
     "FRED_30YR_ID": "GS30",
     "FX_ENDPOINT": "YOUR_FX_API_ENDPOINT", 
     "WTI_ENDPOINT": "YOUR_WTI_API_ENDPOINT",
+    "SOFROIS_ENDPOINT": "YOUR_SOFROIS_API_ENDPOINT",
 }
 
 # --- 1. DATA FETCHING AND PARSING FUNCTIONS ---
@@ -51,10 +52,23 @@ def fetch_indicator_data(indicator_id):
     elif indicator_id == "WTI_CRUDE":
         return random.uniform(65.0, 95.0) 
 
+    elif indicator_id == "AUDUSD":
+        return random.uniform(0.60, 0.75) 
+
     # Micro Indicators
     elif indicator_id == "HY_OAS":
         return random.uniform(340.0, 420.0) 
+        
+    elif indicator_id == "SPX_INDEX":
+        return random.uniform(4000.0, 4800.0) 
+        
+    elif indicator_id == "ASX_200":
+        return random.uniform(8000.0, 9200.0) 
 
+    elif indicator_id == "SOFR_OIS": 
+        # Simulating SOFR-OIS spread in bps (e.g., 10 to 45 bps)
+        return random.uniform(10.0, 45.0) 
+    
     return None
 
 
@@ -219,6 +233,31 @@ def score_wti_crude(value):
         
     return {"name": "WTI Crude Oil", "status": status, "note": note, "source_link": source_link, "action": action, "score_value": score}
 
+def score_audusd(value):
+    """AUDUSD Scoring - Measures global risk appetite and US Dollar strength."""
+    
+    status = "Green"
+    note = f"AUDUSD at {value:.4f}. Favorable FX conditions; AUD reflects risk-on sentiment."
+    action = "No change."
+    score = 0.0
+    source_link = "https://www.tradingview.com/symbols/AUDUSD/" 
+
+    # Threshold for Red: AUD weak, indicating strong risk-off/USD dominance
+    if value <= 0.6500:
+        status = "Red"
+        note = f"AUDUSD at {value:.4f}. AUD remains under pressure. Strong risk-off or persistent US Dollar strength."
+        action = "Favour US Dollar liquidity over AUD assets; watch commodity prices."
+        score = 1.0 
+
+    # Threshold for Amber: AUD under modest pressure
+    elif value <= 0.7000: 
+        status = "Amber"
+        note = f"AUDUSD at {value:.4f}. AUD is consolidating. Global risk appetite is tentative."
+        action = "Monitor closely for breaks below 0.6500."
+        score = 0.5
+        
+    return {"name": "AUDUSD", "status": status, "note": note, "source_link": source_link, "action": action, "score_value": score}
+
 def score_hy_oas(value):
     """ICE BofA HY OAS Scoring - Measures credit risk and liquidity stress (Micro Indicator)."""
     
@@ -241,11 +280,84 @@ def score_hy_oas(value):
         
     return {"name": "Credit Spreads (HY OAS)", "status": status, "note": note, "source_link": source_link, "action": action, "score_value": score}
 
+def score_spx(value):
+    """S&P 500 Scoring - Measures US Equity Risk and General Market Sentiment (Micro Indicator)."""
+    
+    status = "Green"
+    note = f"S&P 500 Index at {value:,.0f}. Trading near highs, risk-on sentiment prevailing."
+    action = "No change."
+    score = 0.0
+    source_link = "https://finance.yahoo.com/quote/%5EGSPC" 
+
+    # Threshold for Red: Significant correction/bear market territory
+    if value <= 4200.0:
+        status = "Red"
+        note = f"S&P 500 Index at {value:,.0f}. Aggressive sell-off/Correction >12%. Structural equity risk is high."
+        action = "Sell/Hedge significant equity exposure. Wait for VIX confirmation below 22."
+        score = 1.0 
+
+    # Threshold for Amber: Minor correction/pullback
+    elif value <= 4500.0: 
+        status = "Amber"
+        note = f"S&P 500 Index at {value:,.0f}. Moderate pullback from highs. Equity risk is elevated."
+        action = "Avoid adding new equity exposure. Maintain existing hedges."
+        score = 0.5
+        
+    return {"name": "S&P 500 Index", "status": status, "note": note, "source_link": source_link, "action": action, "score_value": score}
+
+def score_asx200(value):
+    """S&P/ASX 200 Scoring - Measures Australian Equity Risk and Domestic Sentiment (Micro Indicator)."""
+    
+    status = "Green"
+    note = f"ASX 200 Index at {value:,.0f}. Trading near highs, bullish sentiment prevailing."
+    action = "No change."
+    score = 0.0
+    source_link = "https://finance.yahoo.com/quote/%5EAXJO" 
+
+    # Threshold for Red: Significant correction/bear market territory
+    if value <= 8300.0:
+        status = "Red"
+        note = f"ASX 200 Index at {value:,.0f}. Significant sell-off / Correction >10%. Structural equity risk is high, particularly in Financials/Materials."
+        action = "Sell/Hedge significant AU equity exposure. Wait for VIX/HY OAS confirmation."
+        score = 1.0 
+
+    # Threshold for Amber: Minor correction/pullback
+    elif value <= 8700.0: 
+        status = "Amber"
+        note = f"ASX 200 Index at {value:,.0f}. Moderate pullback from highs. Australian equity risk is elevated."
+        action = "Avoid adding new AU equity exposure. Monitor commodity prices (Iron Ore/Copper)."
+        score = 0.5
+        
+    return {"name": "S&P/ASX 200 Index", "status": status, "note": note, "source_link": source_link, "action": action, "score_value": score}
+
+def score_sofr_ois(value):
+    """SOFR-OIS Spread Scoring - Measures US funding stress (Micro Indicator)."""
+    
+    status = "Green"
+    note = f"SOFR-OIS spread at {value:.1f} bps. Funding markets are calm; spread within normal range."
+    action = "No change."
+    score = 0.0
+    source_link = "https://fred.stlouisfed.org/series/OISSOFR" 
+
+    if value >= 40.0:
+        status = "Red"
+        note = f"SOFR-OIS spread at {value:.1f} bps. Elevated funding market stress. Indicates acute counterparty risk / liquidity fear."
+        action = "Increase cash weighting and monitor closely for structural funding issues. Avoid adding credit risk."
+        score = 1.0 
+
+    elif value >= 25.0: 
+        status = "Amber"
+        note = f"SOFR-OIS spread at {value:.1f} bps. Spread widening; caution warranted in short-term funding markets."
+        action = "Monitor for acceleration above 40 bps. Check SOFR/Treasury basis."
+        score = 0.5
+        
+    return {"name": "SOFR–OIS Spread", "status": status, "note": note, "source_link": source_link, "action": action, "score_value": score}
+
 
 # --- 3. COMPILATION AND SCORING ---
 
 def get_all_indicators():
-    """Fetches and scores all Macro and Micro indicators."""
+    """Fetches and scores all Macro and Micro indicators, and compiles the final Atlas JSON."""
     
     # --- 1. Fetch Raw Data ---
     raw_vix = fetch_indicator_data("VIX")
@@ -254,8 +366,12 @@ def get_all_indicators():
     raw_30yr = fetch_indicator_data("30Y_YIELD")
     raw_gold = fetch_indicator_data("GOLD_PRICE")
     raw_eurusd = fetch_indicator_data("EURUSD")
-    raw_wti = fetch_indicator_data("WTI_CRUDE") # <-- NEW
+    raw_wti = fetch_indicator_data("WTI_CRUDE") 
+    raw_audusd = fetch_indicator_data("AUDUSD")
+    raw_spx = fetch_indicator_data("SPX_INDEX") 
     raw_hy_oas = fetch_indicator_data("HY_OAS")
+    raw_asx200 = fetch_indicator_data("ASX_200")
+    raw_sofr_ois = fetch_indicator_data("SOFR_OIS") 
     
     # --- 2. Score Indicators ---
     vix_result = score_vix(raw_vix)
@@ -264,8 +380,13 @@ def get_all_indicators():
     yield_30yr_result = score_30yr_yield(raw_30yr)
     gold_result = score_gold(raw_gold)
     eurusd_result = score_eurusd(raw_eurusd)
-    wti_result = score_wti_crude(raw_wti) # <-- NEW
+    wti_result = score_wti_crude(raw_wti) 
+    audusd_result = score_audusd(raw_audusd)
+    spx_result = score_spx(raw_spx) 
     hy_oas_result = score_hy_oas(raw_hy_oas)
+    asx200_result = score_asx200(raw_asx200)
+    sofr_ois_result = score_sofr_ois(raw_sofr_ois) # FINAL MICRO INDICATOR
+
     
     # Placeholder for a non-data-driven (manual) indicator
     shutdown_result = {
@@ -285,15 +406,19 @@ def get_all_indicators():
         yield_10yr_result, 
         yield_30yr_result, 
         gold_result,
-        eurusd_result,
-        wti_result, # <-- NEW
+        eurusd_result, 
+        wti_result, 
+        audusd_result, 
         shutdown_result,
-        # ... add all other macro results here ...
+        # Total Macro Indicators: 9
     ]
     
     micro_list = [
         hy_oas_result,
-        # ... other micro results ...
+        spx_result, 
+        asx200_result,
+        sofr_ois_result, 
+        # Total Micro Indicators: 4
     ]
 
     total_macro_score = sum(r.get("score_value", 0) for r in macro_list)
@@ -301,18 +426,11 @@ def get_all_indicators():
     
     # Apply your weighting: Micro indicators contribute 0.5 points to the total score
     composite_score = total_macro_score + (total_micro_score * 0.5) 
-    MAX_SCORE = 8.0 # Define your max possible score (update as you add more indicators)
-
-    return macro_list, micro_list, composite_score, MAX_SCORE
-
-
-# --- 4. JSON GENERATION ---
-
-def generate_atlas_json():
-    
-    macro_data, micro_data, score, max_score = get_all_indicators()
+    # Max score calculation: 9 Macro (max 9.0) + (4 Micro * 0.5) (max 2.0) = 11.0
+    MAX_SCORE = 11.0
 
     # Determine Overall Status based on score
+    score = composite_score # Use 'score' variable for status logic
     if score >= 6.0:
         overall_status = "FULL-STORM"
         comment = "Macro triggers are dominant — maintain highly defensive posture."
@@ -329,16 +447,16 @@ def generate_atlas_json():
         "overall": {
             "date": datetime.datetime.now().strftime("%Y-%m-%d %H:%M"),
             "status": overall_status,
-            "score": score,
-            "max_score": max_score,
+            "score": composite_score, 
+            "max_score": MAX_SCORE,
             "comment": comment,
-            "composite_summary": f"Composite effective triggers ≈ {score:.1f} / {max_score:.1f} → {overall_status} posture confirmed."
+            "composite_summary": f"Composite effective triggers ≈ {composite_score:.1f} / {MAX_SCORE:.1f} → {overall_status} posture confirmed."
         },
         "macro": [
-            {k: v for k, v in item.items() if k != 'score_value'} for item in macro_data
+            {k: v for k, v in item.items() if k != 'score_value'} for item in macro_list
         ],
         "micro": [
-            {k: v for k, v in item.items() if k != 'score_value'} for item in micro_data
+            {k: v for k, v in item.items() if k != 'score_value'} for item in micro_list
         ],
         "actions": [
             "Hold Storm posture now. Maintain defensive allocations (cash + short/floating duration + low-vol) — do not de-risk into equities.",
@@ -352,7 +470,7 @@ def generate_atlas_json():
             {"name": "HY OAS", "note": ">400 bps."},
             {"name": "US shutdown", "note": ">30 days or material funding default."},
             {"name": "ASX close", "note": "<8,000."},
-            {"name": "SOFR–OIS", "note": ">45 bps (funding stress)."}
+            {"name": "SOFR–OIS", "note": ">40 bps sustained (funding stress)."} # Updated threshold note
         ],
         "short_insight": [
             {"text": "A defensive posture is correct — keep discipline, hold dry powder, and step in methodically only when both macro and micro relief conditions align."},
@@ -371,4 +489,4 @@ def generate_atlas_json():
 
 # --- MAIN EXECUTION ---
 if __name__ == "__main__":
-    generate_atlas_json()
+    get_all_indicators()

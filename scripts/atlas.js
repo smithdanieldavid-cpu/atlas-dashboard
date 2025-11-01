@@ -1,202 +1,219 @@
 // scripts/atlas.js
 
-// --- 1. CORE DATA STRUCTURES (Legend and Utility) ---
+// 1. --- STATUS AND COLOR MAPPING UTILITY ---
+/**
+ * Maps the risk status string from the back-end JSON to a colour and icon, 
+ * using Tailwind CSS classes for styling.
+ */
+const getStatusDetails = (status) => {
+  const s = status.toUpperCase();
 
-// LEGEND DATA (Defined client-side as it is static explanation of the model)
-const legendData = [
-  {
-      status: 'RED',
-      class: 'red',
-      description: 'Risk Score ≥ 0.7. High probability of systemic stress. Adds **1.0 (Macro)** or **0.5 (Micro)** to Storm Trigger Bar.',
-  },
-  {
-      status: 'AMBER',
-      class: 'amber',
-      description: 'Risk Score ≥ 0.4. Elevated risk level. Monitor carefully.',
-  },
-  {
-      status: 'GREEN',
-      class: 'green',
-      description: 'Risk Score < 0.4. Normal/Low risk level. Stable conditions.',
-  },
-];
+  switch (s) {
+      // --- 4-Tier Overall Statuses ---
+      case 'FULL-STORM':
+          return { 
+              color: 'bg-red-800 text-white border-red-900', 
+              icon: '⛈️', 
+              badge: 'bg-red-100 text-red-800' 
+          };
+      case 'SEVERE RISK':
+          return { 
+              color: 'bg-red-600 text-white border-red-700', 
+              icon: '🔴', 
+              badge: 'bg-red-100 text-red-800' 
+          };
+      case 'ELEVATED RISK':
+          return { 
+              color: 'bg-amber-500 text-black border-amber-600', 
+              icon: '🟡', 
+              badge: 'bg-amber-100 text-amber-800' 
+          };
+      case 'MONITOR (GREEN)':
+          return { 
+              color: 'bg-green-600 text-white border-green-700', 
+              icon: '🟢', 
+              badge: 'bg-green-100 text-green-800' 
+          };
+
+      // --- 3-Tier Individual Indicator Statuses ---
+      case 'RED':
+          return { 
+              color: 'border-red-600', 
+              icon: '🟥', 
+              badge: 'bg-red-100 text-red-800' 
+          };
+      case 'AMBER':
+          return { 
+              color: 'border-amber-600', 
+              icon: '🟠', 
+              badge: 'bg-amber-100 text-amber-800' 
+          }; 
+      case 'GREEN':
+          return { 
+              color: 'border-green-600', 
+              icon: '✅', 
+              badge: 'bg-green-100 text-green-800' 
+          };
+          
+      default:
+          return { 
+              color: 'bg-gray-400 text-white border-gray-500', 
+              icon: '⚪', 
+              badge: 'bg-gray-100 text-gray-800' 
+          };
+  }
+};
 
 
-// --- 2. DATA FETCHING (AS PROVIDED BY USER) ---
+// 2. --- DATA FETCHING ---
+const ATLAS_DATA_PATH = 'data/atlas-latest.json'; 
 
-// Initial data fetch and rendering
-document.addEventListener('DOMContentLoaded', () => {
-  // Assuming your JSON is in a 'data' folder now
-  fetch("data/atlas-latest.json") 
-      .then(res => {
-          if (!res.ok) {
-              // Handle 404 or other errors
-              console.error("Failed to fetch atlas data:", res.statusText);
-              return Promise.reject('Data fetch failed');
+async function fetchAtlasData() {
+  try {
+      const response = await fetch(ATLAS_DATA_PATH);
+      if (!response.ok) {
+          // Throw a specific error if the file isn't found (HTTP 404)
+          if (response.status === 404) {
+              console.error(`Atlas data file not found at: ${ATLAS_DATA_PATH}`);
+              return null;
           }
-          return res.json();
-      })
-      .then(data => {
-          renderAtlas(data);
-          setupEventHandlers(); // Setup events after the initial render
-      })
-      .catch(error => {
-          console.error("Error during dashboard initialization:", error);
-          // Optionally update the UI to show a loading error
-          document.getElementById("lastUpdated").textContent = 'Data Load Error';
-      });
-});
-
-
-// --- 3. MAIN RENDERING FUNCTION ---
-
-function renderAtlas(d) {
-  // 1. Update the date in the new location (lastUpdated) and footer (footerDate)
-  const updateTime = d.overall.date + " AEST";
-  document.getElementById("lastUpdated").textContent = 'Updated: ' + updateTime;
-  document.getElementById("footerDate").textContent = updateTime;
-  
-  // 2. Populate the Banner Badge 
-  const isRed = d.overall.status.includes('RED') || d.overall.status.includes('FULL-STORM');
-  const badgeClass = isRed ? 'bg-red-100 text-red-800' : 'bg-yellow-100 text-yellow-800';
-
-  const badgeHtml = `
-      <span class="inline-flex items-center px-3 py-1.5 rounded-full text-sm font-medium ${badgeClass}">
-          ${d.overall.status} — ${d.overall.comment.split('—')[0].trim()}
-      </span>
-  `;
-  document.getElementById("bannerBadge").innerHTML = badgeHtml;
-
-  // 3. Populate Macro Table (Table Body)
-  document.getElementById("macroTable").innerHTML = renderRows(d.macro);
-  
-  // 4. Populate Micro Table (Table Body)
-  document.getElementById("microTable").innerHTML = renderRows(d.micro);
-
-  // 5. Populate Side Column (Storm Triggers)
-  const triggerSummary = document.getElementById("triggerSummary");
-  const triggerDetails = document.getElementById("triggerDetails");
-  
-  // Check if score is available, otherwise use status
-  let summaryText = `Overall Status: <strong>${d.overall.status}</strong>`;
-  if (d.overall.score !== undefined) {
-      summaryText = `
-          <span class="text-2xl font-bold ${isRed ? 'text-red-600' : 'text-amber-600'}">
-              ${d.overall.score.toFixed(1)} / ${d.overall.max_score.toFixed(1)} points
-          </span>
-          <div class="text-lg font-semibold mt-1">${d.overall.status}</div>
+          throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      return await response.json();
+  } catch (error) {
+      console.error("Failed to fetch Atlas data:", error);
+      // Display a simple error message on the page if fetch fails
+      document.getElementById('overallStatusCard').innerHTML = `
+          <div class="text-center text-red-600 font-bold">
+              ERROR: Could not load risk data. Check console for details.
+          </div>
       `;
+      return null;
   }
-  triggerSummary.innerHTML = summaryText;
+}
 
-  // Use the official composite summary from the data
-  triggerDetails.innerHTML = d.overall.composite_summary;
+
+// 3. --- RENDERING FUNCTIONS ---
+
+/**
+* Updates the overall status card with the score, status, and summary.
+* @param {object} overall - The overall status object from the JSON.
+*/
+function renderOverallStatus(overall) {
+  const card = document.getElementById('overallStatusCard');
+  const details = getStatusDetails(overall.status);
+
+  // Apply main color and structural classes to the card container
+  card.className = `p-6 mb-8 rounded-xl shadow-2xl border-4 transform transition duration-500 hover:scale-[1.01] hover:shadow-2xl ${details.color}`;
   
-  // 6. Populate Immediate Actions List (Uses hardcoded recommendations)
-  document.getElementById("actionList").innerHTML = renderActionCues();
-  
-  // 7. Populate Escalation Watch List
-  document.getElementById("watchList").innerHTML = renderTriggers(d.escalation_triggers);
-
-  // 8. Populate the Atlas Rating Legend
-  renderLegend(); 
-}
-
-
-// --- 4. HELPER RENDERING FUNCTIONS ---
-
-/**
-* Renders only the table rows (<tbody> content).
-* @param {Array} rows - Array of indicator objects.
-* @returns {string} HTML string for table rows.
-*/
-function renderRows(rows) {
-  return rows.map(r =>
-      // Use index for alternating row color if needed, but for now stick to hover
-      `<tr class="hover:bg-gray-100">
-          <td class="px-3 py-2 whitespace-nowrap text-sm font-medium text-gray-900">${r.name}</td>
-          <td class="w-24 px-3 py-2 whitespace-nowrap text-sm font-semibold text-gray-800">
-              <span class="status-dot ${r.status.toLowerCase().replace('→red', '')}"></span> 
-              ${r.status.replace('Amber→Red', '🟠→🔴')}
-          </td>
-          <td class="px-3 py-2 text-sm text-gray-500">
-              ${r.note}
-              <div class="mt-1 text-xs italic text-gray-400">
-                  ${r.action}
-                  ${r.source_link ? `<a href="${r.source_link}" target="_blank" rel="noopener noreferrer" 
-                  class="text-indigo-500 hover:text-indigo-600 underline **ml-2**">[Source]</a>` : ''}
-              </div>
-          </td>
-      </tr>`).join("");
-}
-
-/**
-* Renders the 'Immediate Recommended Actions' list items (<li> only).
-* @returns {string} HTML string for action list items.
-*/
-function renderActionCues() {
-  const actions = [
-      "Hold Storm posture now. Maintain defensive allocations (cash + short/floating duration + low-vol) — do not de-risk into equities.",
-      "Liquidity: keep ≥30% of capital liquid/unlocked for opportunistic buys or to meet operational calls.",
-      "Duration: avoid adding intermediate/long locks in fixed income; favour floating-rate notes and short ladders in US & AU sleeves.",
-      "Gold / safe-assets: maintain or modestly increase (5–10%) in liquid form (ETF/approved vehicles) — central-bank buying validates a tactical hedge.",
-      "Hedging: if you hold concentrated equity positions, buy protective puts sized to cover a 10–15% drawdown while VIX remains elevated."
-  ];
-  
-  // Return only <li> elements
-  return actions.map(a => `<li>${a}</li>`).join("");
-}
-
-/**
-* Renders the 'Escalation Triggers' list items (<li> only).
-* @param {Array} triggers - Array of escalation trigger objects.
-* @returns {string} HTML string for trigger list items.
-*/
-function renderTriggers(triggers) {
-  // Return only <li> elements
-  return triggers.map(t => `<li><strong>${t.name}:</strong> ${t.note}</li>`).join("");
-}
-
-/**
-* Renders the Legend panel based on static legendData.
-*/
-function renderLegend() {
-  const legendDiv = document.getElementById('ratingLegend');
-  if (!legendDiv) return;
-
-  legendDiv.innerHTML = legendData.map(item => `
-      <div class="flex items-start space-x-2">
-          <span class="status-dot ${item.class} flex-shrink-0 mt-1"></span>
-          <p class="text-xs text-gray-700 leading-snug">
-              <span class="font-bold text-gray-900">${item.status}:</span> ${item.description}
-          </p>
+  // Inject the content
+  card.innerHTML = `
+      <div class="flex justify-between items-center mb-2">
+          <h2 class="text-3xl font-black uppercase tracking-wider">
+              ${details.icon} ${overall.status}
+          </h2>
+          <span class="text-5xl font-mono font-bold">
+              ${overall.score.toFixed(1)} <span class="text-xl font-normal opacity-70">/${overall.max_score.toFixed(1)}</span>
+          </span>
       </div>
-  `).join('');
+      <p class="text-lg font-medium opacity-90">${overall.comment}</p>
+      <p class="mt-4 text-sm font-light italic">${overall.composite_summary}</p>
+  `;
+  
+  // Update the other side-bar elements
+  document.getElementById('triggerSummary').textContent = `${overall.status} (Score: ${overall.score.toFixed(1)} / ${overall.max_score.toFixed(1)})`;
+  document.getElementById('triggerDetails').textContent = overall.comment;
+  
+  // Update the last updated time in the header/footer
+  document.getElementById('lastUpdated').textContent = `Last Update: ${overall.date}`;
+  document.getElementById('footerDate').textContent = overall.date;
+}
+
+/**
+* Creates and inserts rows into the specified table (Macro or Micro).
+* @param {string} tableId - 'macroTable' or 'microTable'.
+* @param {Array<object>} indicators - List of indicator objects.
+*/
+function renderIndicatorTable(tableId, indicators) {
+  const tableBody = document.getElementById(tableId);
+  if (!tableBody) return;
+  tableBody.innerHTML = ''; // Clear existing rows
+
+  indicators.forEach(indicator => {
+      const details = getStatusDetails(indicator.status);
+      
+      const row = document.createElement('tr');
+      row.className = 'hover:bg-gray-50';
+      
+      row.innerHTML = `
+          <td class="w-1/3 px-3 py-3 text-sm font-medium text-gray-900">
+              <span class="mr-2">${details.icon}</span>${indicator.name}
+          </td>
+          <td class="w-24 px-3 py-3">
+              <span class="px-2 py-0.5 text-xs font-bold rounded-full uppercase ${details.badge}">
+                  ${indicator.status}
+              </span>
+          </td>
+          <td class="px-3 py-3 text-sm text-gray-700">
+              <span class="font-semibold">${indicator.note}</span>. Action: ${indicator.action}
+          </td>
+      `;
+      tableBody.appendChild(row);
+  });
+}
+
+/**
+* Renders simple bulleted lists for actions, watch list, and insights.
+* @param {string} listId - The ID of the UL element.
+* @param {Array<string> | Array<object>} items - List of strings or objects (for insights/escalations).
+* @param {string} type - 'action', 'watch', or 'insight' to choose the list style.
+*/
+function renderList(listId, items, type) {
+  const list = document.getElementById(listId);
+  if (!list) return;
+  list.innerHTML = ''; // Clear existing items
+
+  items.forEach(item => {
+      const li = document.createElement('li');
+      let text = item;
+      let icon = '';
+      
+      if (type === 'action') {
+          icon = '✅ ';
+      } else if (type === 'watch') {
+          text = `${item.name}: ${item.note}`;
+          icon = '🚨 ';
+      } else if (type === 'insight') {
+          text = item.text;
+          icon = '💡 ';
+          li.className = 'text-sm italic';
+      }
+
+      li.innerHTML = `${icon}<span>${text}</span>`;
+      list.appendChild(li);
+  });
 }
 
 
-// --- 5. EVENT HANDLERS (Copy Share Link) ---
+// 4. --- MAIN INITIALIZATION FUNCTION ---
+async function initializeDashboard() {
+  const data = await fetchAtlasData();
+  if (!data) return;
 
-function setupEventHandlers() {
-  const copyButton = document.getElementById('copyShareLink');
-  if (copyButton) {
-      copyButton.addEventListener('click', async () => {
-          const url = window.location.href;
-          try {
-              await navigator.clipboard.writeText(url);
-              
-              // Temporary visual feedback
-              const originalText = copyButton.innerHTML;
-              copyButton.innerHTML = 'Link Copied! ✅';
-              
-              setTimeout(() => {
-                  copyButton.innerHTML = originalText;
-              }, 1500); // Revert after 1.5 seconds
+  // 1. Overall Status Card
+  renderOverallStatus(data.overall);
 
-          } catch (err) {
-              console.error('Failed to copy text: ', err);
-              alert('Could not automatically copy link. Please copy the URL from your browser address bar.');
-          }
-      });
-  }
+  // 2. Macro and Micro Indicators
+  renderIndicatorTable('macroTable', data.macro);
+  renderIndicatorTable('microTable', data.micro);
+
+  // 3. Actions, Watch List, and Insights
+  renderList('actionList', data.actions, 'action');
+  renderList('watchList', data.escalation_triggers, 'watch');
+  renderList('insightList', data.short_insight, 'insight');
+
+  console.log("Atlas Dashboard successfully rendered data.");
 }
+
+// Execute the main function when the script loads (defer in HTML ensures DOM is ready)
+initializeDashboard();

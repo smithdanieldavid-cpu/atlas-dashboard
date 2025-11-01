@@ -1,8 +1,7 @@
 /* small additions beyond Tailwind for sticky header and zebra rows */
 .sticky-header th {
   position: sticky;
-  /* CORRECTED: Ensures the table header sticks 56px below the top of the viewport 
-     to clear the fixed h-14 (56px) navigation bar. */
+  /* Ensures the table header sticks 56px below the fixed navbar */
   top: 56px; 
   background: white;
   z-index: 10;
@@ -18,7 +17,8 @@
   border-radius: 9999px;
   display: inline-block;
   margin-right: 8px;
-  vertical-align: middle;
+  /* Keep vertical-align: middle for the dot itself */
+  vertical-align: middle; 
 }
 
 /* Define the traffic light colors (Required for visual status) */
@@ -36,5 +36,9 @@
 
 /* ensure table cells align nicely on very narrow screens */
 table td, table th {
-  vertical-align: middle;
+  /* CRITICAL FIX: Align text to the top so row height is determined by the longest content */
+  vertical-align: top; 
+  /* Add padding to the top of the cells to give the text breathing room */
+  padding-top: 0.5rem; /* Matches Tailwind's py-2 (which is 0.5rem) */
+  padding-bottom: 0.5rem;
 }

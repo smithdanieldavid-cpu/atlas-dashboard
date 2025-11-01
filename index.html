@@ -11,7 +11,7 @@
 </script>
     <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Atlas dashboard</title>
+  <title>Atlas — Economic Dashboard</title>
 
   <script src="https://cdn.tailwindcss.com"></script>
 
@@ -21,7 +21,9 @@
   
     <header class="fixed top-0 w-full z-50 bg-white shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-14 relative"> <a href="/" class="flex-shrink-0 flex items-center">
+            <div class="flex justify-between items-center h-14 relative">
+                
+                <a href="/" class="flex-shrink-0 flex items-center">
                     <svg class="w-6 h-6 mr-2 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <circle cx="12" cy="12" r="10" stroke-width="2"/>
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2a15.3 15.3 0 0110 10M2 12a15.3 15.3 0 0010 10M2 12h20"/>
@@ -32,7 +34,7 @@
                     <span class="font-extrabold text-xl tracking-wide text-gray-900">
                         Atlas<span class="text-indigo-600">Dashboard</span>
                     </span>
-                    <p class="text-xs text-gray-500 absolute bottom-[-18px] left-0 hidden sm:block">Observe economic data. No surprises.</p>
+                    <p class="text-xs text-gray-500 absolute bottom-[-18px] left-0 hidden sm:block">The data observes. The system predicts.</p>
                 </a>
                 
                 <div class="flex space-x-6 h-full">
@@ -43,13 +45,13 @@
                         Dashboard
                     </a>
                     
-                    <a href="/" 
+                    <a href="/treasury-analysis.html" 
                        class="flex items-center text-sm font-medium text-gray-500 hover:text-gray-900 
                               border-b-2 border-transparent hover:border-indigo-600 transition duration-150 ease-in-out">
                         Treasury Analysis
                     </a>
                     
-                    <a href="/" 
+                    <a href="#" 
                        class="flex items-center text-sm font-medium text-gray-500 hover:text-gray-900 
                               border-b-2 border-transparent hover:border-indigo-600 transition duration-150 ease-in-out">
                         Market Flow
@@ -66,76 +68,88 @@
     
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-20"> 
 
-    <main class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-
-      <section class="lg:col-span-2">
-        <div class="bg-white rounded-xl shadow px-5 py-4">
-          <div class="flex items-start justify-between">
-            <h2 class="text-lg font-medium">Macro panel</h2>
-            <div id="lastUpdated" class="text-sm text-gray-500"></div>
-          </div>
-
-          <div class="mt-4 overflow-x-auto">
-            <table class="min-w-full table-fixed">
-              <thead class="sticky-header">
-                <tr class="text-left">
-                  <th class="w-1/3 px-3 py-2 text-sm font-medium">Category</th>
-                  <th class="w-24 px-3 py-2 text-sm font-medium">Status</th>
-                  <th class="px-3 py-2 text-sm font-medium">Latest reading / note</th>
-                </tr>
-              </thead>
-              <tbody id="macroTable" class="divide-y"></tbody>
-            </table>
-          </div>
+        <div class="mb-8 p-5 bg-white border border-gray-200 rounded-xl shadow-sm">
+            <h2 class="text-xl font-extrabold text-gray-900 mb-2">ATLAS OBSERVES: The Global Engine and Its Friction</h2>
+            <p class="text-gray-700 leading-relaxed text-sm">
+                The architecture of global capital is undeniable. **Economic stability** for the world (including **Australia**) remains fundamentally subordinate to deviations in the **US economy**. Our purpose is to track data and stay ahead of the unknown.
+                <br><br>
+                Current vectors indicate exceptional **economic risk**. The conventional instruments for **economic forecast** (historically reliable US data sets) are declining in reliability and accuracy. **Global markets** are vulnerable to system ambiguity and exposed to sudden and severe fluctuations.
+                <br><br>
+                A current tension in current **economics** is the mounting threat of **stagflation**, the corrosive combination of persistent **inflation** and stagnation. Should this tension pivot to structural **recession**, the resultant **risk** transfer to the **global economy** will be immediate and will impact everything from commodity demand to capital flows. The **Australian economy** will experience direct, amplified pressure.
+                <br><br>
+                Atlas provides the critical objective position to inform intelligent actions when the traditional signals fail.
+            </p>
         </div>
+        <main class="grid grid-cols-1 lg:grid-cols-3 gap-6">
 
-        <div class="bg-white rounded-xl shadow px-5 py-4 mt-6">
-          <div class="flex items-center justify-between">
-            <h2 class="text-lg font-medium">Micro panel (early-warning)</h2>
-            <div class="text-sm text-gray-500">Each micro trigger = 0.5 macro</div>
-          </div>
+        <section class="lg:col-span-2">
+            <div class="bg-white rounded-xl shadow px-5 py-4">
+            <div class="flex items-start justify-between">
+                <h2 class="text-lg font-medium">Macro Panel</h2>
+                <div id="lastUpdated" class="text-sm text-gray-500"></div>
+            </div>
 
-          <div class="mt-4 overflow-x-auto">
-            <table class="min-w-full table-fixed">
-              <thead class="sticky-header">
-                <tr class="text-left">
-                  <th class="w-1/3 px-3 py-2 text-sm font-medium">Indicator</th>
-                  <th class="w-24 px-3 py-2 text-sm font-medium">Status</th>
-                  <th class="px-3 py-2 text-sm font-medium">Latest proxy / note</th>
-                </tr>
-              </thead>
-              <tbody id="microTable" class="divide-y"></tbody>
-            </table>
-          </div>
-        </div>
-      </section>
+            <div class="mt-4 overflow-x-auto">
+                <table class="min-w-full table-fixed">
+                <thead class="sticky-header">
+                    <tr class="text-left">
+                    <th class="w-1/3 px-3 py-2 text-sm font-medium">Category</th>
+                    <th class="w-24 px-3 py-2 text-sm font-medium">Status</th>
+                    <th class="px-3 py-2 text-sm font-medium">Latest reading / note</th>
+                    </tr>
+                </thead>
+                <tbody id="macroTable" class="divide-y"></tbody>
+                </table>
+            </div>
+            </div>
 
-      <aside>
-        <div class="bg-white rounded-xl shadow px-5 py-4">
-          <h3 class="text-lg font-medium">Storm trigger bar</h3>
-          <div class="mt-3 space-y-3 text-sm">
-            <div id="triggerSummary" class="text-gray-700"></div>
-            <div id="triggerDetails" class="text-sm text-gray-500"></div>
-          </div>
-        </div>
+            <div class="bg-white rounded-xl shadow px-5 py-4 mt-6">
+            <div class="flex items-center justify-between">
+                <h2 class="text-lg font-medium">Micro Pulse Panel (early-warning)</h2>
+                <div class="text-sm text-gray-500">Each micro trigger = 0.5 macro</div>
+            </div>
 
-        <div class="bg-white rounded-xl shadow px-5 py-4 mt-6">
-          <h3 class="text-lg font-medium">Immediate actions</h3>
-          <ul id="actionList" class="mt-3 list-disc pl-5 text-sm space-y-2 text-gray-700"></ul>
-        </div>
+            <div class="mt-4 overflow-x-auto">
+                <table class="min-w-full table-fixed">
+                <thead class="sticky-header">
+                    <tr class="text-left">
+                    <th class="w-1/3 px-3 py-2 text-sm font-medium">Indicator</th>
+                    <th class="w-24 px-3 py-2 text-sm font-medium">Status</th>
+                    <th class="px-3 py-2 text-sm font-medium">Latest proxy / note</th>
+                    </tr>
+                </thead>
+                <tbody id="microTable" class="divide-y"></tbody>
+                </table>
+            </div>
+            </div>
+        </section>
 
-        <div class="bg-white rounded-xl shadow px-5 py-4 mt-6">
-          <h3 class="text-lg font-medium">Escalation watch</h3>
-          <ul id="watchList" class="mt-3 list-disc pl-5 text-sm space-y-2 text-gray-700"></ul>
-        </div>
-      </aside>
-    </main>
+        <aside>
+            <div class="bg-white rounded-xl shadow px-5 py-4">
+            <h3 class="text-lg font-medium">Storm Trigger Bar</h3>
+            <div class="mt-3 space-y-3 text-sm">
+                <div id="triggerSummary" class="text-gray-700"></div>
+                <div id="triggerDetails" class="text-sm text-gray-500"></div>
+            </div>
+            </div>
 
-    <footer class="mt-8 text-sm text-gray-500">
-      <div>Data sources: FRED, CBOE, TradingEconomics, Reuters, WGC. Informational only — not financial advice.</div>
-      <div class="mt-2">Version: Atlas v2 — Last update: <span id="footerDate"></span></div>
-    </footer>
+            <div class="bg-white rounded-xl shadow px-5 py-4 mt-6">
+            <h3 class="text-lg font-medium">Immediate Actions</h3>
+            <ul id="actionList" class="mt-3 list-disc pl-5 text-sm space-y-2 text-gray-700"></ul>
+            </div>
 
-  </div> <script src="scripts/atlas.js" defer></script>
+            <div class="bg-white rounded-xl shadow px-5 py-4 mt-6">
+            <h3 class="text-lg font-medium">Escalation Watch</h3>
+            <ul id="watchList" class="mt-3 list-disc pl-5 text-sm space-y-2 text-gray-700"></ul>
+            </div>
+        </aside>
+        </main>
+
+        <footer class="mt-8 text-sm text-gray-500">
+        <div>Data sources: FRED, CBOE, TradingEconomics, Reuters, WGC. Informational only — not financial advice.</div>
+        <div class="mt-2">Version: Atlas v2 — Last update: <span id="footerDate"></span></div>
+        </footer>
+
+    </div> <script src="scripts/atlas.js" defer></script>
 </body>
 </html>

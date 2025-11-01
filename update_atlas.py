@@ -72,7 +72,7 @@ def fetch_indicator_data(indicator_id):
     return None
 
 
-# --- 2. RISK SCORING LOGIC ---
+# --- 2. RISK SCORING LOGIC (9 MACRO + 4 MICRO) ---
 
 def score_vix(value):
     """VIX (US implied vol) Scoring"""
@@ -354,7 +354,7 @@ def score_sofr_ois(value):
     return {"name": "SOFR–OIS Spread", "status": status, "note": note, "source_link": source_link, "action": action, "score_value": score}
 
 
-# --- 3. COMPILATION AND SCORING ---
+# --- 3. COMPILATION AND OVERALL SCORING (FINAL LOGIC) ---
 
 def get_all_indicators():
     """Fetches and scores all Macro and Micro indicators, and compiles the final Atlas JSON."""
@@ -385,7 +385,7 @@ def get_all_indicators():
     spx_result = score_spx(raw_spx) 
     hy_oas_result = score_hy_oas(raw_hy_oas)
     asx200_result = score_asx200(raw_asx200)
-    sofr_ois_result = score_sofr_ois(raw_sofr_ois) # FINAL MICRO INDICATOR
+    sofr_ois_result = score_sofr_ois(raw_sofr_ois) 
 
     
     # Placeholder for a non-data-driven (manual) indicator
@@ -429,17 +429,20 @@ def get_all_indicators():
     # Max score calculation: 9 Macro (max 9.0) + (4 Micro * 0.5) (max 2.0) = 11.0
     MAX_SCORE = 11.0
 
-    # Determine Overall Status based on score
-    score = composite_score # Use 'score' variable for status logic
-    if score >= 6.0:
+    # Determine Overall Status based on the NEW, CLARIFIED thresholds
+    score = composite_score 
+    if score > 8.5:
         overall_status = "FULL-STORM"
-        comment = "Macro triggers are dominant — maintain highly defensive posture."
-    elif score >= 4.0:
+        comment = "EXTREME RISK. Multiple systemic and funding triggers active. Maintain maximum defensive posture."
+    elif score > 5.5:
         overall_status = "SEVERE RISK"
-        comment = "Macro triggers rising — increase liquidity and hedges."
-    else:
+        comment = "HIGH RISK. Significant Macro and/or Micro triggers active. Aggressively increase liquidity and hedges (Storm Posture)."
+    elif score > 3.0:
         overall_status = "ELEVATED RISK"
-        comment = "Monitored triggers are active — proceed with caution."
+        comment = "MODERATE RISK. Core volatility/duration triggers active. Proceed with caution; maintain protective hedges."
+    else: # Score <= 3.0
+        overall_status = "MONITOR (GREEN)"
+        comment = "LOW RISK. Only minor triggers active. Favour moderate risk-on positioning."
 
 
     # Construct the final JSON dictionary
@@ -470,7 +473,7 @@ def get_all_indicators():
             {"name": "HY OAS", "note": ">400 bps."},
             {"name": "US shutdown", "note": ">30 days or material funding default."},
             {"name": "ASX close", "note": "<8,000."},
-            {"name": "SOFR–OIS", "note": ">40 bps sustained (funding stress)."} # Updated threshold note
+            {"name": "SOFR–OIS", "note": ">40 bps sustained (funding stress)."} 
         ],
         "short_insight": [
             {"text": "A defensive posture is correct — keep discipline, hold dry powder, and step in methodically only when both macro and micro relief conditions align."},

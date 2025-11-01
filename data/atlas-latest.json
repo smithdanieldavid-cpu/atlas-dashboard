@@ -1,68 +1,68 @@
 {
     "overall": {
-        "date": "2025-11-01 22:28",
-        "status": "SEVERE RISK",
-        "score": 4.0,
+        "date": "2025-11-01 22:35",
+        "status": "ELEVATED RISK",
+        "score": 5.0,
         "max_score": 11.0,
-        "comment": "Macro triggers rising \u2014 increase liquidity and hedges.",
-        "composite_summary": "Composite effective triggers \u2248 4.0 / 11.0 \u2192 SEVERE RISK posture confirmed."
+        "comment": "MODERATE RISK. Core volatility/duration triggers active. Proceed with caution; maintain protective hedges.",
+        "composite_summary": "Composite effective triggers \u2248 5.0 / 11.0 \u2192 ELEVATED RISK posture confirmed."
     },
     "macro": [
         {
             "name": "VIX (US implied vol)",
-            "status": "Red",
-            "note": "~23.03 band. Elevated and episodic. Recent intraday spikes to ~22\u201323.",
+            "status": "Amber",
+            "note": "~21.83 band. Volatility is elevated but contained.",
             "source_link": "https://finance.yahoo.com/quote/%5EVIX/",
-            "action": "VIX \u2265 22 \u2192 partial de-risk; sustained >24\u201325 \u2192 escalate hedges / go to max Storm."
+            "action": "Monitor closely for breaks above 22."
         },
         {
             "name": "US 3-yr Treasury yield",
-            "status": "Green",
-            "note": "Yield at 3.28%. Normal medium-term rate environment.",
+            "status": "Amber",
+            "note": "~3.55% (latest daily Treasury series / market quotes). Medium-term rate pressure.",
             "source_link": "https://www.treasury.gov/resource-center/data-chart-center/interest-rates/",
-            "action": "No change."
+            "action": "Avoid intermediate locks; prefer short/floating rate instruments."
         },
         {
             "name": "US 10-yr Treasury yield",
             "status": "Amber",
-            "note": "~4.53% (latest market quotes / curve prints). Elevated yields.",
+            "note": "~4.72% (latest market quotes / curve prints). Elevated yields.",
             "source_link": "https://www.treasury.gov/resource-center/data-chart-center/interest-rates/Pages/TextView.aspx?data=yield",
             "action": "Watch the Atlas pivot at 4.75%; favour short duration."
         },
         {
             "name": "US 30-yr Treasury yield",
             "status": "Amber",
-            "note": "~4.16% (latest market quotes). Elevated long-term yields reflecting fiscal risk/inflation concerns.",
+            "note": "~4.25% (latest market quotes). Elevated long-term yields reflecting fiscal risk/inflation concerns.",
             "source_link": "https://www.treasury.gov/resource-center/data-chart-center/interest-rates/",
             "action": "Watch the 5.0% threshold. Limit long duration locks."
         },
         {
             "name": "Gold (USD/oz)",
             "status": "Green",
-            "note": "Gold price at $1,972.02 USD/oz. Stable pricing.",
+            "note": "Gold price at $1,922.00 USD/oz. Stable pricing.",
             "source_link": "https://www.reuters.com/markets/commodities/gold/",
             "action": "No change."
         },
         {
             "name": "EURUSD",
             "status": "Green",
-            "note": "EURUSD at 1.1206. Normal FX conditions; US Dollar is stable.",
+            "note": "EURUSD at 1.1378. Normal FX conditions; US Dollar is stable.",
             "source_link": "https://www.tradingview.com/symbols/EURUSD/",
             "action": "No change."
         },
         {
             "name": "WTI Crude Oil",
-            "status": "Green",
-            "note": "WTI Crude at $67.53/bbl. Normal price range, favorable for growth.",
+            "status": "Amber",
+            "note": "WTI Crude at $87.31/bbl. Elevated price range, watch for breaks above $90/bbl.",
             "source_link": "https://www.eia.gov/dnav/pet/hist/rwtc.htm",
-            "action": "No change."
+            "action": "Ensure portfolio is hedged against inflation risks."
         },
         {
             "name": "AUDUSD",
-            "status": "Amber",
-            "note": "AUDUSD at 0.6704. AUD is consolidating. Global risk appetite is tentative.",
+            "status": "Red",
+            "note": "AUDUSD at 0.6367. AUD remains under pressure. Strong risk-off or persistent US Dollar strength.",
             "source_link": "https://www.tradingview.com/symbols/AUDUSD/",
-            "action": "Monitor closely for breaks below 0.6500."
+            "action": "Favour US Dollar liquidity over AUD assets; watch commodity prices."
         },
         {
             "name": "US Government shutdown / fiscal risk",
@@ -75,31 +75,31 @@
     "micro": [
         {
             "name": "Credit Spreads (HY OAS)",
-            "status": "Green",
-            "note": "HY OAS at 345 bps. Normal risk conditions.",
+            "status": "Red",
+            "note": "HY OAS at 419 bps. Credit stress is evident; market liquidity is impaired.",
             "source_link": "https://fred.stlouisfed.org/series/BAMLH0A0HYM2",
-            "action": "No change."
+            "action": "HY OAS \u2265 400 bps \u2192 aggressively favour cash and short-term US Treasuries."
         },
         {
             "name": "S&P 500 Index",
             "status": "Green",
-            "note": "S&P 500 Index at 4,564. Trading near highs, risk-on sentiment prevailing.",
+            "note": "S&P 500 Index at 4,560. Trading near highs, risk-on sentiment prevailing.",
             "source_link": "https://finance.yahoo.com/quote/%5EGSPC",
             "action": "No change."
         },
         {
             "name": "S&P/ASX 200 Index",
-            "status": "Amber",
-            "note": "ASX 200 Index at 8,456. Moderate pullback from highs. Australian equity risk is elevated.",
+            "status": "Green",
+            "note": "ASX 200 Index at 9,051. Trading near highs, bullish sentiment prevailing.",
             "source_link": "https://finance.yahoo.com/quote/%5EAXJO",
-            "action": "Avoid adding new AU equity exposure. Monitor commodity prices (Iron Ore/Copper)."
+            "action": "No change."
         },
         {
             "name": "SOFR\u2013OIS Spread",
-            "status": "Amber",
-            "note": "SOFR-OIS spread at 34.0 bps. Spread widening; caution warranted in short-term funding markets.",
+            "status": "Green",
+            "note": "SOFR-OIS spread at 13.4 bps. Funding markets are calm; spread within normal range.",
             "source_link": "https://fred.stlouisfed.org/series/OISSOFR",
-            "action": "Monitor for acceleration above 40 bps. Check SOFR/Treasury basis."
+            "action": "No change."
         }
     ],
     "actions": [

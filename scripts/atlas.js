@@ -116,7 +116,7 @@ function renderOverallStatus(overall) {
   // Apply main color and structural classes to the card container
   card.className = `p-6 mb-8 rounded-xl shadow-2xl border-4 transform transition duration-500 hover:scale-[1.01] hover:shadow-2xl ${details.color}`;
   
-  // INJECT THE FINAL, SMALLER CONTENT (text-base, text-2xl, text-sm, text-xs)
+  // FINAL SIZING IMPLEMENTED HERE (text-base, text-2xl, text-sm, text-xs)
   card.innerHTML = `
       <div class="flex justify-between items-center mb-2">
           <h2 class="text-base font-semibold uppercase">
@@ -155,6 +155,11 @@ function renderIndicatorTable(tableId, indicators) {
       const row = document.createElement('tr');
       row.className = 'hover:bg-gray-50';
       
+      // --- NEW LOGIC: Create the hyperlinked source tag ---
+      const sourceLink = indicator.source 
+          ? `<a href="${indicator.source}" target="_blank" rel="noopener noreferrer" class="text-indigo-600 hover:text-indigo-800">[Source]</a>`
+          : ''; 
+
       row.innerHTML = `
           <td class="w-1/3 px-3 py-3 text-sm font-medium text-gray-900">
               <span class="mr-2">${details.icon}</span>${indicator.name}
@@ -165,7 +170,7 @@ function renderIndicatorTable(tableId, indicators) {
               </span>
           </td>
           <td class="px-3 py-3 text-sm text-gray-700">
-              <span class="font-semibold">${indicator.note}</span>. Action: ${indicator.action}
+              <span class="font-semibold">${indicator.note}</span>. Action: ${indicator.action} ${sourceLink}
           </td>
       `;
       tableBody.appendChild(row);

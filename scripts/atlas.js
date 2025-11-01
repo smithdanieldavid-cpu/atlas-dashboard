@@ -116,17 +116,17 @@ function renderOverallStatus(overall) {
   // Apply main color and structural classes to the card container
   card.className = `p-6 mb-8 rounded-xl shadow-2xl border-4 transform transition duration-500 hover:scale-[1.01] hover:shadow-2xl ${details.color}`;
   
-  // Inject the content with adjusted text sizes for consistency with table text
+  // INJECT THE FINAL, SMALLER CONTENT (text-base, text-2xl, text-sm, text-xs)
   card.innerHTML = `
       <div class="flex justify-between items-center mb-2">
-          <h2 class="text-lg font-semibold uppercase">
+          <h2 class="text-base font-semibold uppercase">
               ${details.icon} ${overall.status}
           </h2>
-          <span class="text-3xl font-mono font-bold">
-              ${overall.score.toFixed(1)} <span class="text-base font-normal opacity-70">/${overall.max_score.toFixed(1)}</span>
+          <span class="text-2xl font-mono font-bold">
+              ${overall.score.toFixed(1)} <span class="text-sm font-normal opacity-70">/${overall.max_score.toFixed(1)}</span>
           </span>
       </div>
-      <p class="text-sm font-medium opacity-90">${overall.comment}</p>
+      <p class="text-xs font-medium opacity-90">${overall.comment}</p>
       <p class="mt-4 text-xs font-light italic">${overall.composite_summary}</p>
   `;
   

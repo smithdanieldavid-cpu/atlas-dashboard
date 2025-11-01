@@ -9,9 +9,11 @@
         gtag('js', new Date());
 
         gtag('config', 'G-VSTQ6CXJ4C');
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2505573687893335"
-            crossorigin="anonymous"></script>
     </script>
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2505573687893335"
+        crossorigin="anonymous"></script>
+
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Atlas — Economic Dashboard</title>
@@ -27,7 +29,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-14 relative">
 
-                <a href="/" class="flex-shrink-0 flex flex-col items-start">
+                <a href="/" class="flex-shrink-0 flex flex-col items-start justify-center h-full">
 
                     <div class="flex items-center">
                         <svg class="w-6 h-6 mr-2 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"
@@ -44,7 +46,7 @@
                         </span>
                     </div>
 
-                    <p class="text-xs text-gray-500 hidden sm:block **-mt-0.5**">Observe the data. Predict the system.
+                    <p class="text-xs text-gray-500 hidden sm:block -mt-1.5">Observe the data. Predict the system.
                     </p>
                 </a>
 
@@ -76,7 +78,7 @@
         </div>
     </header>
 
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 **pb-14**">
 
         <div class="mb-8 p-5 bg-white border border-gray-200 rounded-xl shadow-sm">
             <h2 class="text-xl font-extrabold text-gray-900 mb-2">Atlas observes the global engine</h2>
@@ -144,6 +146,12 @@
             </section>
 
             <aside>
+                
+                <div class="bg-white rounded-xl shadow px-5 py-4 **mb-6**">
+                    <h3 class="text-lg font-medium">Atlas Rating Legend</h3>
+                    <div id="ratingLegend" class="mt-3 space-y-3 text-sm"></div>
+                </div>
+
                 <div class="bg-white rounded-xl shadow px-5 py-4">
                     <h3 class="text-lg font-medium">Storm trigger bar</h3>
                     <div class="mt-3 space-y-3 text-sm">
@@ -173,6 +181,29 @@
     </div>
 
     <script src="scripts/atlas.js" defer></script>
+
+    <nav class="fixed bottom-0 w-full z-50 bg-white shadow-top">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-12 text-xs text-gray-500">
+                
+                <div class="hidden sm:block">
+                    Disclaimer: Not financial advice. Data for informational purposes only.
+                </div>
+                
+                <div class="flex items-center space-x-4">
+                    <button id="copyShareLink" class="text-indigo-600 hover:text-indigo-800 font-medium transition duration-150 ease-in-out flex items-center">
+                        <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.935 9 12.49 9 12c0-.51-.114-.955-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l-3 3m3-3l3-3m-9 3a3 3 0 110-2.684m0 2.684l-3-3m3 3l3-3m9-2c0 .51-.114.955-.316 1.342m0-2.684a3 3 0 100 2.684m0 2.684l-3 3m3-3l3-3m-9-2a3 3 0 100 2.684m0-2.684a3 3 0 110 2.684m0 2.684l-3 3m3-3l3-3"/>
+                        </svg>
+                        Copy Share Link
+                    </button>
+                    <a href="#" class="hover:text-gray-800 hidden md:block">Twitter</a>
+                    <a href="#" class="hover:text-gray-800 hidden md:block">LinkedIn</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
 </body>
 
 </html>

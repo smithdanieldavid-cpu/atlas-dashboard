@@ -9,7 +9,11 @@
   border-bottom: 1px solid #e5e7eb;
 }
 
-/* alternate row shading handled by tailwind utility classes in JS render if desired */
+/* --- BOTTOM NAV BAR SHADOW --- */
+/* Required to make the fixed bottom nav bar look professional and separate from the content */
+.shadow-top {
+    box-shadow: 0 -1px 3px 0 rgba(0, 0, 0, 0.1), 0 -1px 2px 0 rgba(0, 0, 0, 0.06);
+}
 
 /* traffic dot */
 .status-dot {
@@ -18,8 +22,8 @@
   border-radius: 9999px;
   display: inline-block;
   margin-right: 8px;
-  /* Keep vertical-align: middle for the dot itself */
-  vertical-align: middle; 
+  /* FIX: Using a specific baseline alignment helps center the dot vertically with the surrounding text */
+  vertical-align: baseline; 
 }
 
 /* Define the traffic light colors (Required for visual status) */

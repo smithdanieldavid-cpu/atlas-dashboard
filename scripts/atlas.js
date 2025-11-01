@@ -116,7 +116,7 @@ function renderOverallStatus(overall) {
   // Apply main color and structural classes to the card container
   card.className = `p-6 mb-8 rounded-xl shadow-2xl border-4 transform transition duration-500 hover:scale-[1.01] hover:shadow-2xl ${details.color}`;
   
-  // FINAL SIZING IMPLEMENTED HERE (text-base, text-2xl, text-sm, text-xs)
+  // FINAL SIZING IMPLEMENTED (text-base, text-2xl, text-sm, text-xs)
   card.innerHTML = `
       <div class="flex justify-between items-center mb-2">
           <h2 class="text-base font-semibold uppercase">
@@ -155,9 +155,13 @@ function renderIndicatorTable(tableId, indicators) {
       const row = document.createElement('tr');
       row.className = 'hover:bg-gray-50';
       
-      // --- NEW LOGIC: Create the hyperlinked source tag ---
-      const sourceLink = indicator.source 
-          ? `<a href="${indicator.source}" target="_blank" rel="noopener noreferrer" class="text-indigo-600 hover:text-indigo-800">[Source]</a>`
+      // --- LOGIC FOR HYPERLINKS ---
+      // Check for the source URL using multiple potential key names from the JSON
+      const sourceURL = indicator.source || indicator.source_url || indicator.url;
+      
+      // Create the hyperlinked source tag only if a URL exists
+      const sourceLink = sourceURL 
+          ? `<a href="${sourceURL}" target="_blank" rel="noopener noreferrer" class="text-indigo-600 hover:text-indigo-800">[Source]</a>`
           : ''; 
 
       row.innerHTML = `

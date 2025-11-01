@@ -122,9 +122,9 @@ function renderRows(rows) {
           <td class="px-3 py-2 text-sm text-gray-500">
               ${r.note}
               <div class="mt-1 text-xs italic text-gray-400">
-                  ${r.source_link ? `<a href="${r.source_link}" target="_blank" rel="noopener noreferrer" 
-                  class="text-indigo-500 hover:text-indigo-600 underline">[Source]</a>` : ''}
                   ${r.action}
+                  ${r.source_link ? `<a href="${r.source_link}" target="_blank" rel="noopener noreferrer" 
+                  class="text-indigo-500 hover:text-indigo-600 underline **ml-2**">[Source]</a>` : ''}
               </div>
           </td>
       </tr>`).join("");

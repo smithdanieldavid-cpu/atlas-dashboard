@@ -7,6 +7,11 @@
   /* High z-index to ensure it sits above all other scrolling content */
   z-index: 40; 
   border-bottom: 1px solid #e5e7eb;
+  
+  /* --- FIX FOR PADDING/SPACING IN TABLES --- */
+  /* Increase padding on the sticky header cells for better visual separation and height consistency. */
+  padding-top: 0.75rem; /* Equivalent to Tailwind py-3 */
+  padding-bottom: 0.75rem; /* Equivalent to Tailwind py-3 */
 }
 
 /* --- BOTTOM NAV BAR SHADOW --- */
@@ -22,7 +27,7 @@
   border-radius: 9999px;
   display: inline-block;
   margin-right: 8px;
-  /* FIX: Using a specific baseline alignment helps center the dot vertically with the surrounding text */
+  /* Using baseline alignment to help center the dot vertically with the surrounding text */
   vertical-align: baseline; 
 }
 
@@ -43,7 +48,8 @@
 table td, table th {
   /* Aligns content to the top so row height is dynamic */
   vertical-align: top; 
-  padding-top: 0.5rem; /* Matches Tailwind's py-2 */
+  /* Standard padding for all cells, matches Tailwind's py-2 */
+  padding-top: 0.5rem; 
   padding-bottom: 0.5rem;
 }
 

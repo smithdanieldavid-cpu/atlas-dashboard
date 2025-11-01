@@ -6,29 +6,34 @@
  * using Tailwind CSS classes for styling.
  */
 const getStatusDetails = (status) => {
+  // Normalize status to uppercase for consistent matching
   const s = status.toUpperCase();
 
   switch (s) {
       // --- 4-Tier Overall Statuses ---
       case 'FULL-STORM':
+          // Extreme Risk
           return { 
               color: 'bg-red-800 text-white border-red-900', 
               icon: '⛈️', 
               badge: 'bg-red-100 text-red-800' 
           };
       case 'SEVERE RISK':
+          // High Risk
           return { 
               color: 'bg-red-600 text-white border-red-700', 
               icon: '🔴', 
               badge: 'bg-red-100 text-red-800' 
           };
       case 'ELEVATED RISK':
+          // Moderate Risk
           return { 
               color: 'bg-amber-500 text-black border-amber-600', 
               icon: '🟡', 
               badge: 'bg-amber-100 text-amber-800' 
           };
       case 'MONITOR (GREEN)':
+          // Low Risk
           return { 
               color: 'bg-green-600 text-white border-green-700', 
               icon: '🟢', 
@@ -37,18 +42,21 @@ const getStatusDetails = (status) => {
 
       // --- 3-Tier Individual Indicator Statuses ---
       case 'RED':
+          // Individual Indicator Red
           return { 
               color: 'border-red-600', 
               icon: '🟥', 
               badge: 'bg-red-100 text-red-800' 
           };
       case 'AMBER':
+          // Individual Indicator Amber
           return { 
               color: 'border-amber-600', 
               icon: '🟠', 
               badge: 'bg-amber-100 text-amber-800' 
           }; 
       case 'GREEN':
+          // Individual Indicator Green
           return { 
               color: 'border-green-600', 
               icon: '✅', 
@@ -56,6 +64,7 @@ const getStatusDetails = (status) => {
           };
           
       default:
+          // Default/Unknown Status
           return { 
               color: 'bg-gray-400 text-white border-gray-500', 
               icon: '⚪', 
@@ -70,6 +79,7 @@ const ATLAS_DATA_PATH = 'data/atlas-latest.json';
 
 async function fetchAtlasData() {
   try {
+      // Fetch the JSON file relative to index.html
       const response = await fetch(ATLAS_DATA_PATH);
       if (!response.ok) {
           // Throw a specific error if the file isn't found (HTTP 404)
@@ -85,7 +95,7 @@ async function fetchAtlasData() {
       // Display a simple error message on the page if fetch fails
       document.getElementById('overallStatusCard').innerHTML = `
           <div class="text-center text-red-600 font-bold">
-              ERROR: Could not load risk data. Check console for details.
+              ERROR: Could not load risk data. Check console for details (F12).
           </div>
       `;
       return null;
@@ -189,7 +199,8 @@ function renderList(listId, items, type) {
           li.className = 'text-sm italic';
       }
 
-      li.innerHTML = `${icon}<span>${text}</span>`;
+      // Use innerHTML to allow for the emoji icon
+      li.innerHTML = `${icon}<span>${text}</span>`; 
       list.appendChild(li);
   });
 }
@@ -215,5 +226,5 @@ async function initializeDashboard() {
   console.log("Atlas Dashboard successfully rendered data.");
 }
 
-// Execute the main function when the script loads (defer in HTML ensures DOM is ready)
-initializeDashboard();
+// Ensure the HTML DOM is fully loaded before attempting to manipulate any elements.
+document.addEventListener('DOMContentLoaded', initializeDashboard);

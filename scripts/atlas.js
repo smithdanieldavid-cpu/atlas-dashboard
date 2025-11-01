@@ -155,9 +155,9 @@ function renderIndicatorTable(tableId, indicators) {
       const row = document.createElement('tr');
       row.className = 'hover:bg-gray-50';
       
-      // --- LOGIC FOR HYPERLINKS ---
-      // Check for the source URL using multiple potential key names from the JSON
-      const sourceURL = indicator.source || indicator.source_url || indicator.url;
+      // --- CORRECTED LOGIC FOR HYPERLINKS ---
+      // Now explicitly checking for 'source_link' which is in your JSON data.
+      const sourceURL = indicator.source_link || indicator.source || indicator.url;
       
       // Create the hyperlinked source tag only if a URL exists
       const sourceLink = sourceURL 

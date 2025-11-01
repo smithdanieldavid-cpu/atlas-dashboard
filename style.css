@@ -4,7 +4,7 @@
   /* Ensures the table header sticks 56px below the fixed navbar */
   top: 56px; 
   background: white;
-  /* CRITICAL FIX: Increased z-index to ensure it sits above any surrounding content */
+  /* High z-index to ensure it sits above all other scrolling content */
   z-index: 40; 
   border-bottom: 1px solid #e5e7eb;
 }
@@ -41,4 +41,9 @@ table td, table th {
   vertical-align: top; 
   padding-top: 0.5rem; /* Matches Tailwind's py-2 */
   padding-bottom: 0.5rem;
+}
+
+/* FIX: Creates a new stacking context for sticky elements within (Added to .bg-white wrapper in HTML) */
+.isolate-z {
+  transform: translateZ(0);
 }

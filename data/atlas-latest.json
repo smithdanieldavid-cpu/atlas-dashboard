@@ -1,6 +1,6 @@
 {
     "overall": {
-        "date": "2025-11-03 10:36",
+        "date": "2025-11-03 10:38",
         "status": "ELEVATED RISK",
         "score": 5.5,
         "max_score": 15.5,
@@ -68,9 +68,9 @@
         },
         {
             "name": "AUDUSD",
-            "value": 0.6549646258354187,
+            "value": 0.6547502279281616,
             "status": "Amber",
-            "note": "AUDUSD at 0.6550. AUD is consolidating. Global risk appetite is tentative.",
+            "note": "AUDUSD at 0.6548. AUD is consolidating. Global risk appetite is tentative.",
             "source_link": "https://www.tradingview.com/symbols/AUDUSD/",
             "action": "Monitor closely for breaks below 0.6500."
         },
@@ -174,9 +174,9 @@
         },
         {
             "name": "S&P/ASX 200 Index",
-            "value": 8856.5,
+            "value": 8855.2001953125,
             "status": "Green",
-            "note": "ASX 200 Index at 8,856. Trading near highs, bullish sentiment prevailing.",
+            "note": "ASX 200 Index at 8,855. Trading near highs, bullish sentiment prevailing.",
             "source_link": "https://finance.yahoo.com/quote/%5EAXJO",
             "action": "No change."
         }

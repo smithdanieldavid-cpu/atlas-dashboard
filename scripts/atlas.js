@@ -111,7 +111,7 @@ function renderOverallStatus(overall) {
 
 /**
  * Creates and inserts rows into the specified table (Macro or Micro).
- * CRITICAL FIX: Ensures the indicator 'value' is displayed.
+ * CRITICAL FIX: Adds high visual prominence for N/A or Error statuses.
  * @param {string} tableId - 'macroTable' or 'microTable'.
  * @param {Array<object>} indicators - List of indicator objects.
  */
@@ -126,15 +126,39 @@ function renderIndicatorTable(tableId, indicators) {
         const row = document.createElement('tr');
         row.className = 'hover:bg-gray-50';
         
-        // **NEW/FIXED LOGIC**: Ensure a value exists for display
+        // Ensure a value exists for display
         const indicatorValue = indicator.value || 'N/A'; 
         
-        const sourceURL = indicator.source_link || indicator.source || indicator.url;
-        
-        // Create the hyperlinked source tag only if a URL exists
-        const sourceLink = sourceURL 
-            ? `<a href="${sourceURL}" target="_blank" rel="noopener noreferrer" class="text-indigo-600 hover:text-indigo-800">[Source]</a>`
-            : ''; 
+        // --- START OF HIGH VISIBILITY FIX LOGIC (The updated part) ---
+        const currentStatus = (indicator.status || '').toUpperCase();
+        let displayNote;
+        let sourceLink = ''; // Initialized outside the conditional to ensure clean display
+
+        // Check for missing or erroneous data status
+        if (currentStatus === 'N/A' || currentStatus === 'ERROR') {
+            // HIGH VISIBILITY ALARM for missing/errored data
+            displayNote = `
+                <span class="font-bold text-red-600">🔴 DATA ${currentStatus}:</span> 
+                <span class="text-base font-bold">${indicator.note}</span> 
+                <span class="text-sm text-gray-500">(Action: ${indicator.action})</span>
+            `;
+            // sourceLink remains "" (empty) to suppress the [Source] button
+        } else {
+            // Normal display when data is Green, Amber, or Red
+            const sourceURL = indicator.source_link || indicator.source || indicator.url;
+            
+            // Create the hyperlinked source tag only if a valid URL exists
+            sourceLink = sourceURL && sourceURL.startsWith('http') 
+                               ? `<a href="${sourceURL}" target="_blank" rel="noopener noreferrer" class="text-indigo-600 hover:text-indigo-800">[Source]</a>`
+                               : '';
+
+            displayNote = `
+                <span class="font-semibold">${indicator.note}</span>. 
+                Action: ${indicator.action} 
+                ${sourceLink}
+            `;
+        }
+        // --- END OF HIGH VISIBILITY FIX LOGIC ---
 
         row.innerHTML = `
             <td class="w-1/4 px-3 py-3 text-sm font-medium text-gray-900">
@@ -149,7 +173,7 @@ function renderIndicatorTable(tableId, indicators) {
             </td>
 
             <td class="px-3 py-3 text-sm text-gray-700">
-                <span class="font-semibold">${indicator.note}</span>. Action: ${indicator.action} ${sourceLink}
+                ${displayNote}
             </td>
         `;
         tableBody.appendChild(row);

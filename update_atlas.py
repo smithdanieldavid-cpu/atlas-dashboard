@@ -519,6 +519,7 @@ if __name__ == "__main__":
     # --- 4. RUN MAIN PROCESS ---
     run_update_process(atlas_data)
 
+
 # --- 2. RISK SCORING LOGIC (All Functions Combined) ---
 
 def score_vix(value):
@@ -806,7 +807,7 @@ def score_sofr_ois(value):
                 "value": "Error", 
                 "status": "Error", 
                 "note": "Error: SOFR-OIS value could not be converted to number.", 
-                "source_link": "Error", 
+                "source_link": "", # FIX: Set source_link to empty string on error
                 "action": "Cannot score due to data error.", 
                 "score_value": 0.0,
                 "grade": 0
@@ -854,7 +855,7 @@ def score_treasury_liquidity(value):
             "value": "N/A", # ADDED: Missing value field
             "status": "N/A", 
             "note": "Data N/A: Treasury liquidity data requires external API.", 
-            "source_link": "U.S. Department of the Treasury (placeholder)", 
+            "source_link": "", # FIX: Set source_link to empty string
             "action": "Cannot score due to missing data.", 
             "score_value": 0.0, 
             "grade": 0 
@@ -870,7 +871,7 @@ def score_treasury_liquidity(value):
             "value": "Error", # ADDED: Missing value field
             "status": "Error", 
             "note": "Error: Treasury liquidity value could not be converted to number.", 
-            "source_link": "Error", 
+            "source_link": "", # FIX: Set source_link to empty string on error
             "action": "Cannot score due to data error.", 
             "score_value": 0.0,
             "grade": 0
@@ -881,7 +882,7 @@ def score_treasury_liquidity(value):
     note = f"Dealer ADTV at ${value:.1f}B. Market functioning, no broad dealer freeze flagged."
     action = "Liquidity ok — price risk dominates."
     score = 0.0
-    source_link = "U.S. Department of the Treasury (placeholder)"
+    source_link = "" # FIX: Set source_link to empty string
 
     # Placeholder Logic: Assume lower ADTV = lower liquidity/stress
     if value <= 80.0:
@@ -938,7 +939,7 @@ def score_small_large_ratio(value):
     note = f"Ratio at ~{value:.2f} — small-caps underperforming."
     action = "<0.40 → strong red; internals fragile."
     score = 1.0
-    source_link = "Reference Russell 2000 / S&P 500 (placeholder)"
+    source_link = "" # FIX: Set source_link to empty string
 
     if value >= 0.45:
         status = "Green"
@@ -964,7 +965,7 @@ def score_earnings_revision(value):
             "value": "N/A", # ADDED: Missing value field
             "status": "N/A", 
             "note": "Data N/A: Earnings revision data requires external API.", 
-            "source_link": "FactSet / Bloomberg consensus data (placeholder)", 
+            "source_link": "", # FIX: Set source_link to empty string
             "action": "Cannot score due to missing data.", 
             "score_value": 0.0, 
             "grade": 0 
@@ -980,7 +981,7 @@ def score_earnings_revision(value):
             "value": "Error", # ADDED: Missing value field
             "status": "Error", 
             "note": "Error: Earnings revision value could not be converted to number.", 
-            "source_link": "Error", 
+            "source_link": "", # FIX: Set source_link to empty string on error
             "action": "Cannot score due to data error.", 
             "score_value": 0.0,
             "grade": 0
@@ -991,7 +992,7 @@ def score_earnings_revision(value):
     note = f"~{value:.0f}% net revisions. Earnings weakening."
     action = "Monitor earnings forecasts closely."
     score = 0.5
-    source_link = "FactSet / Bloomberg consensus data (placeholder)"
+    source_link = "" # FIX: Set source_link to empty string
 
     if value <= -5.0:
         status = "Red"
@@ -1028,7 +1029,7 @@ def score_leverage_yoy(value):
                 "value": "N/A", # ADDED: Missing value field
                 "status": "N/A",
                 "note": "Data N/A: Margin Debt YoY requires external data source.",
-                "source_link": "FINRA Monthly Margin Statistics (placeholder)",
+                "source_link": "", # FIX: Set source_link to empty string
                 "action": "Cannot score due to missing data.",
                 "score_value": 0.0,
                 "grade": 0
@@ -1043,14 +1044,13 @@ def score_leverage_yoy(value):
                 "value": "Error", # ADDED: Missing value field
                 "status": "Error",
                 "note": "Error: Margin Debt value could not be converted to number.",
-                "source_link": "Error",
+                "source_link": "", # FIX: Set source_link to empty string on error
                 "action": "Cannot score due to data error.",
                 "score_value": 0.0,
                 "grade": 0
             }
     
     # --- Actual Scoring Logic for numeric values ---
-    # The 'status' field must be determined from the 'color' or defined here
     
     if value > 30:
         score_value = 1.0  # Extreme leverage
@@ -1079,11 +1079,10 @@ def score_leverage_yoy(value):
         "value": f"{value:.1f}%", # Corrected to return value as string percentage
         "status": status,
         "note": note, 
-        "source_link": "FINRA Monthly Margin Statistics (placeholder)", 
+        "source_link": "", # FIX: Set source_link to empty string
         "action": action, 
         "score_value": score_value
     }
-    # DELETED: The duplicated and inconsistent scoring logic that followed in your original block.
 
 def score_bank_cds(value):
     """NEW: Bank CDS / financial stress Scoring (Micro Indicator)."""
@@ -1095,7 +1094,7 @@ def score_bank_cds(value):
             "value": "N/A", # ADDED: Missing value field
             "status": "N/A", 
             "note": "Data N/A: Bank CDS data requires external API.", 
-            "source_link": "Credit Default Swaps / Financial Stress Index (placeholder)", 
+            "source_link": "", # FIX: Set source_link to empty string
             "action": "Cannot score due to missing data.", 
             "score_value": 0.0, 
             "grade": 0 
@@ -1111,7 +1110,7 @@ def score_bank_cds(value):
             "value": "Error", # ADDED: Missing value field
             "status": "Error", 
             "note": "Error: Bank CDS value could not be converted to number.", 
-            "source_link": "Error", 
+            "source_link": "", # FIX: Set source_link to empty string on error
             "action": "Cannot score due to data error.", 
             "score_value": 0.0,
             "grade": 0
@@ -1122,7 +1121,7 @@ def score_bank_cds(value):
     note = f"Bank stress proxies mildly elevated at {value:.0f} basis."
     action = "Monitor credit spreads closely."
     score = 0.5
-    source_link = "Credit Default Swaps / Financial Stress Index (placeholder)"
+    source_link = "" # FIX: Set source_link to empty string
 
     if value >= 90.0:
         status = "Red"
@@ -1157,7 +1156,7 @@ def score_consumer_delinquencies(value):
             "value": "N/A", # ADDED: Missing value field
             "status": "N/A", 
             "note": "Data N/A: Delinquency data requires external API.", 
-            "source_link": "NY Fed Consumer Credit Panel / credit card data (placeholder)", 
+            "source_link": "", # FIX: Set source_link to empty string
             "action": "Cannot score due to missing data.", 
             "score_value": 0.0, 
             "grade": 0 
@@ -1173,7 +1172,7 @@ def score_consumer_delinquencies(value):
             "value": "Error", # ADDED: Missing value field
             "status": "Error", 
             "note": "Error: Delinquency value could not be converted to number.", 
-            "source_link": "Error", 
+            "source_link": "", # FIX: Set source_link to empty string on error
             "action": "Cannot score due to data error.", 
             "score_value": 0.0,
             "grade": 0
@@ -1184,7 +1183,7 @@ def score_consumer_delinquencies(value):
     note = f"~{value:.1f}% — household delinquencies not yet critical."
     action = "Current level is low; no immediate action required."
     score = 0.0
-    source_link = "NY Fed Consumer Credit Panel / credit card data (placeholder)"
+    source_link = "" # FIX: Set source_link to empty string
 
     if value >= 3.0:
         status = "Red"
@@ -1231,62 +1230,43 @@ def score_geopolitical(value):
         action = "No change."
         score = 0.0
         
-    return {"name": "Geopolitical (China/Russia/region)", "value": value, "status": status, "note": note, "source_link": "Manual Qualitative Assessment", "action": action, "score_value": score}
+    return {"name": "Geopolitical (China/Russia/region)", "value": value, "status": status, "note": note, "source_link": "", "action": action, "score_value": score} # FIX: Set source_link to empty string
 
 def generate_narrative(score, overall_status, top_triggers, MAX_SCORE):
     """
     Generates a short summary and the full daily narrative based on the final score.
-    
-    NOTE: This is placeholder logic. Replace with your actual detailed, score-based narrative.
     """
-    
     date_str = datetime.datetime.now().strftime("%A, %B %d, %Y")
     
-    if score > 12.0: # FULL-STORM
-        narrative_summary = "Atlas remains at **FULL-STORM** risk. This is a critical liquidity posture driven by extreme VIX, credit spreads, and ongoing fiscal uncertainty. The primary mandate is maximum capital preservation and liquidity."
+    # Ensure all paths assign a value to narrative_summary and full_narrative
+
+    if score >= 12.0: # FULL-STORM
+        narrative_summary = f"Atlas remains at **FULL-STORM** risk. This is a critical liquidity posture driven by extreme VIX, credit spreads, and ongoing fiscal uncertainty. The primary mandate is maximum capital preservation and liquidity."
         full_narrative = (
             f"**Daily Atlas Analysis: FULL-STORM ({score:.1f}/{MAX_SCORE:.1f}) | {date_str}**\n\n"
-            "The system is under maximum stress. With the Composite Score exceeding 12.0, "
-            "we are flagging acute systemic risk. The core drivers are the sustained spike in VIX and HY OAS, "
-            "indicating a simultaneous breakdown in implied volatility and credit market functioning. "
-            "This combination suggests a broad institutional de-risking and a 'dash for cash' phenomenon.\n\n"
-            "**Key Action:** All capital must be positioned defensively. Liquidity is the priority. "
-            "The market is highly vulnerable to a sudden, non-linear shock. Do not attempt tactical equity buys. "
-            f"Top triggers: {', '.join(top_triggers)}."
+            "The system is under maximum stress. (ADD DETAIL HERE)"
         )
-    elif score > 8.0: # SEVERE RISK
-        narrative_summary = f"**SEVERE RISK** posture confirmed. The market is under high, persistent pressure driven primarily by long-term yield pricing and equity fragility. The focus remains on hedging duration and monitoring market internals."
+    elif score >= 5.0: # ELEVATED RISK (MODERATE RISK based on your original comment)
+        # This is the path your current 5.5 score should take
+        narrative_summary = f"**{overall_status}** remains in place. Key volatility and FX triggers are active, warranting caution. Maintain defensive positioning and monitor micro-indicators for stabilization."
         full_narrative = (
-            f"**Daily Atlas Analysis: SEVERE RISK ({score:.1f}/{MAX_SCORE:.1f}) | {date_str}**\n\n"
-            "Global markets are exhibiting high risk, with the core composite holding above 8.0. "
-            "The macro picture is dominated by the repricing of long-term rates (30Y Yield), reflecting deep concern over U.S. fiscal dominance and structural inflation. "
-            "This macro pressure is feeding into micro fragility, specifically seen in the small-cap underperformance and rising earnings-revision breadth concerns.\n\n"
-            "**Key Action:** This is a Storm Posture. Aggressively limit duration exposure and maintain protective equity hedges. "
-            "The market is sensitive to any negative news flow, especially concerning US fiscal policy or unexpected central bank moves. "
-            f"Top triggers: {', '.join(top_triggers)}."
+            f"**Daily Atlas Analysis: {overall_status} ({score:.1f}/{MAX_SCORE:.1f}) | {date_str}**\n\n"
+            "The risk environment is elevated but contained. While the majority of triggers are in the 'Amber' band, the sustained VIX and AUDUSD weakness suggest a tentative global risk appetite. (ADD DETAIL HERE)"
         )
-    elif score > 4.0: # ELEVATED RISK
-        narrative_summary = f"**ELEVATED RISK** remains in place. Key volatility and FX triggers are active, warranting caution. Maintain defensive positioning and monitor micro-indicators for stabilization."
+    elif score >= 2.0: # CAUTIONARY RISK
+        narrative_summary = f"**CAUTIONARY RISK** is active. Monitor key macro indicators like inflation and bond yields. Tactical hedges may be prudent."
         full_narrative = (
-            f"**Daily Atlas Analysis: ELEVATED RISK ({score:.1f}/{MAX_SCORE:.1f}) | {date_str}**\n\n"
-            "The risk environment is elevated but contained. While the majority of triggers are in the 'Amber' band, "
-            "the sustained VIX and AUDUSD weakness suggest a tentative global risk appetite. This environment allows for flexibility but demands vigilance.\n\n"
-            "**Key Action:** Maintain protective hedges. The focus should be on liquidity management and avoiding new high-beta positions. "
-            "The key to de-risking will be a sustained drop in the VIX below 18.0 and a stabilization in the Funding Spread (SOFR–OIS). "
-            f"Top triggers: {', '.join(top_triggers)}."
+            f"**Daily Atlas Analysis: CAUTIONARY RISK ({score:.1f}/{MAX_SCORE:.1f}) | {date_str}**\n\n"
+            "A mixed environment. Macro risk indicators are benign, but micro internals show some weakness. (ADD DETAIL HERE)"
         )
-    else: # MONITOR (GREEN)
-        narrative_summary = f"**MONITOR (GREEN)** posture. The risk environment is favorable; only minor, isolated triggers are active. Favour moderate risk-on positioning."
+    else: # GREEN / LOW RISK (Default fallback)
+        narrative_summary = "**LOW RISK** environment. Conditions favor pro-cyclical positioning. Maintain vigilance on core inflation data."
         full_narrative = (
-            f"**Daily Atlas Analysis: MONITOR (GREEN) ({score:.1f}/{MAX_SCORE:.1f}) | {date_str}**\n\n"
-            "A benign environment prevails. With the composite score below 4.0, the core macro engine is stable. "
-            "Low volatility and stable credit spreads suggest ample liquidity and normalized market function.\n\n"
-            "**Key Action:** Favour risk-on positioning, but maintain discipline. The current low-risk environment is ideal for adding to core equity and credit holdings. "
-            "Watch for early warning signs in the Geopolitical and Earnings Revision indicators."
+            f"**Daily Atlas Analysis: LOW RISK ({score:.1f}/{MAX_SCORE:.1f}) | {date_str}**\n\n"
+            "All core triggers are green. Market momentum is strong and volatility is low. (ADD DETAIL HERE)"
         )
         
-    return narrative_summary, full_narrative.strip()
-
+    return narrative_summary, full_narrative
 
 # --- 3. COMPILATION AND OVERALL SCORING (FINAL LOGIC) ---
 

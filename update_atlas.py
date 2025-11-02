@@ -256,7 +256,7 @@ def fetch_external_data(endpoint_key, api_key_key, indicator_id, fallback_value)
     
     # --- YFINANCE LOGIC (VIX, Gold, SPX, ASX, SMALL_LARGE_RATIO, WTI_CRUDE, AUDUSD) ---
     
-    # 2. YFINANCE LOGIC 
+  # 2. YFINANCE LOGIC 
     # Consolidated all reliable single-quote fetches here, including the previously failing WTI and AUDUSD.
     if indicator_id in ["VIX", "GOLD_PRICE", "SPX_INDEX", "ASX_200", 
                         "SMALL_LARGE_RATIO", "WTI_CRUDE", "AUDUSD"]:
@@ -265,11 +265,11 @@ def fetch_external_data(endpoint_key, api_key_key, indicator_id, fallback_value)
             if indicator_id not in ["SMALL_LARGE_RATIO"]:
                 symbol_map = {
                     "VIX": "^VIX",
-                    "GOLD_PRICE": "GC=F",
+                    "GOLD_PRICE": "GLD",     # CORRECTED
                     "SPX_INDEX": "^GSPC",
                     "ASX_200": "^AXJO",
-                    "WTI_CRUDE": "CL=F",       # Moved from Alpha Vantage
-                    "AUDUSD": "AUDUSD=X"       # Moved from Alpha Vantage
+                    "WTI_CRUDE": "USO",       
+                    "AUDUSD": "AUDUSD=X"       
                 }
                 symbol = symbol_map[indicator_id]
                 value = _fetch_yfinance_quote(symbol)
@@ -295,7 +295,7 @@ def fetch_external_data(endpoint_key, api_key_key, indicator_id, fallback_value)
         except Exception as e:
             print(f"{indicator_id} yfinance Error: Failed to fetch data: {e}. Returning fallback value {fallback_value}.")
             return fallback_value
-            
+        
     # --- POLYGON LOGIC (PUT_CALL_RATIO) ---
     
     # 3. POLYGON LOGIC (PUT_CALL_RATIO)

@@ -1,13 +1,13 @@
 {
     "overall": {
-        "date": "2025-11-02 15:08",
+        "date": "2025-11-02 15:25",
         "status": "ELEVATED RISK",
-        "score": 6.5,
+        "score": 5.5,
         "max_score": 15.5,
         "comment": "MODERATE RISK. Core volatility/duration triggers active. Proceed with caution; maintain protective hedges.",
-        "composite_summary": "Composite effective triggers \u2248 6.5 / 15.5 \u2192 ELEVATED RISK posture confirmed.",
+        "composite_summary": "Composite effective triggers \u2248 5.5 / 15.5 \u2192 ELEVATED RISK posture confirmed.",
         "narrative_summary": "**ELEVATED RISK** remains in place. Key volatility and FX triggers are active, warranting caution. Maintain defensive positioning and monitor micro-indicators for stabilization.",
-        "daily_narrative": "**Daily Atlas Analysis: ELEVATED RISK (6.5/15.5) | Sunday, November 02, 2025**\n\nThe risk environment is elevated but contained. While the majority of triggers are in the 'Amber' band, the sustained VIX and AUDUSD weakness suggest a tentative global risk appetite. This environment allows for flexibility but demands vigilance.\n\n**Key Action:** Maintain protective hedges. The focus should be on liquidity management and avoiding new high-beta positions. The key to de-risking will be a sustained drop in the VIX below 18.0 and a stabilization in the Funding Spread (SOFR\u2013OIS). Top triggers: US Government shutdown / fiscal risk, Put/Call ratio (CBOE), Small-cap / Large-cap ratio."
+        "daily_narrative": "**Daily Atlas Analysis: ELEVATED RISK (5.5/15.5) | Sunday, November 02, 2025**\n\nThe risk environment is elevated but contained. While the majority of triggers are in the 'Amber' band, the sustained VIX and AUDUSD weakness suggest a tentative global risk appetite. This environment allows for flexibility but demands vigilance.\n\n**Key Action:** Maintain protective hedges. The focus should be on liquidity management and avoiding new high-beta positions. The key to de-risking will be a sustained drop in the VIX below 18.0 and a stabilization in the Funding Spread (SOFR\u2013OIS). Top triggers: US Government shutdown / fiscal risk, Put/Call ratio (CBOE), Small-cap / Large-cap ratio."
     },
     "macro": [
         {
@@ -44,11 +44,11 @@
         },
         {
             "name": "Gold (USD/oz)",
-            "value": 2000.0,
-            "status": "Amber",
-            "note": "Gold price at $2,000.00 USD/oz. Elevated status due to persistent geopolitical/fiscal risk.",
+            "value": 368.1199951171875,
+            "status": "Green",
+            "note": "Gold price at $368.12 USD/oz. Stable pricing.",
             "source_link": "https://www.reuters.com/markets/commodities/gold/",
-            "action": "Monitor price action and central bank activity."
+            "action": "No change."
         },
         {
             "name": "EURUSD",
@@ -60,11 +60,11 @@
         },
         {
             "name": "WTI Crude Oil",
-            "value": 80.0,
-            "status": "Amber",
-            "note": "WTI Crude at $80.00/bbl. Elevated price range, watch for breaks above $90/bbl.",
+            "value": 72.55999755859375,
+            "status": "Green",
+            "note": "WTI Crude at $72.56/bbl. Normal price range, favorable for growth.",
             "source_link": "https://www.eia.gov/dnav/pet/hist/rwtc.htm",
-            "action": "Ensure portfolio is hedged against inflation risks."
+            "action": "No change."
         },
         {
             "name": "AUDUSD",

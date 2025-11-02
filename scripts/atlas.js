@@ -120,8 +120,6 @@ function renderIndicatorTable(tableId, indicators) {
         row.className = 'hover:bg-gray-50';
         
         // **NEW/FIXED LOGIC**: Ensure a value exists for display
-        // We assume your Python script now includes 'value' in the JSON object, 
-        // which can be a string ("17.44", "0.6548", or "N/A").
         const indicatorValue = indicator.value || 'N/A'; 
         
         const sourceURL = indicator.source_link || indicator.source || indicator.url;
@@ -136,14 +134,13 @@ function renderIndicatorTable(tableId, indicators) {
                 <span class="mr-2">${details.icon}</span>${indicator.name}
             </td>
 
-            <td class="px-3 py-3 text-sm font-semibold text-gray-700">
-                ${indicatorValue} </td>
-            
-            <td class="w-24 px-3 py-3">
-                <span class="px-2 py-0.5 text-xs font-bold rounded-full uppercase ${details.badge}">
+            <td class="w-24 px-3 py-3 text-sm font-semibold text-gray-700 whitespace-nowrap">
+                ${indicatorValue} 
+                <span class="px-2 py-0.5 ml-2 text-xs font-bold rounded-full uppercase ${details.badge}">
                     ${indicator.status || 'N/A'}
                 </span>
             </td>
+
             <td class="px-3 py-3 text-sm text-gray-700">
                 <span class="font-semibold">${indicator.note}</span>. Action: ${indicator.action} ${sourceLink}
             </td>
@@ -151,6 +148,7 @@ function renderIndicatorTable(tableId, indicators) {
         tableBody.appendChild(row);
     });
 }
+
 
 /**
  * Renders simple bulleted lists for actions, watch list, and insights.

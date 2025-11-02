@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atlas Narrative Archive | Daily Risk Posture</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles/main.css"> </head>
+<body class="bg-gray-50 min-h-screen">
+    <div class="container mx-auto px-4 py-10 max-w-4xl">
+
+        <header class="mb-10 border-b pb-4">
+            <h1 class="text-4xl font-extrabold text-gray-900">
+                Atlas Daily Narrative Archive 📜
+            </h1>
+            <p class="mt-2 text-lg text-gray-600">
+                A chronological history of risk posture analysis and commentary.
+            </p>
+            <a href="index.html" class="text-indigo-600 hover:text-indigo-800 text-sm font-medium mt-2 inline-block">← Back to Dashboard</a>
+        </header>
+
+        <main id="archiveContainer" class="space-y-12">
+            </main>
+
+        <div id="loadingIndicator" class="text-center py-8 text-gray-500 font-medium" style="display:none;">
+            Loading more narratives...
+        </div>
+        <div id="endOfArchive" class="text-center py-8 text-gray-400 font-medium hidden">
+            --- End of Archive ---
+        </div>
+    </div>
+
+    <script src="scripts/atlas.js"></script> 
+</body>
+</html>

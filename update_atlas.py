@@ -3,11 +3,14 @@ import datetime
 import random 
 import requests
 import yfinance as yf
+import os # NEW: For checking if archive file exists
 
 # --- CONFIGURATION ---
 
 # 1. Output File Path (Must match your front-end fetch)
 OUTPUT_FILE = "data/atlas-latest.json" 
+# NEW: Archive File Path for infinite scroll
+ARCHIVE_FILE = "data/atlas-archive.json" 
 
 # 2. API Keys and Endpoints (Placeholder structure)
 # WARNING: Store real keys securely (e.g., environment variables)
@@ -17,7 +20,6 @@ API_CONFIG = {
     "FRED_ENDPOINT": "https://api.stlouisfed.org/fred/series/observations",
     
     # 2. EXTERNAL API KEYS & ENDPOINTS
-    
     # VIX API (LIVE - Uses AV Key to bypass check, but uses yfinance logic)
     "VIX_API_KEY": "5CGATLAPOEYLJTO7",      
     "VIX_ENDPOINT": "https://www.alphavantage.co/query", 
@@ -67,6 +69,9 @@ API_CONFIG = {
 }
 
 # --- 1. DATA FETCHING AND PARSING FUNCTIONS (UPDATED FOR FALLBACK) ---
+
+# [ ... Keep the existing functions: fetch_indicator_data, _fetch_alpha_vantage_quote, 
+#                                    _fetch_yfinance_quote, _fetch_polygon_data, fetch_external_data ... ]
 
 def fetch_indicator_data(indicator_id):
     """
@@ -168,8 +173,6 @@ def fetch_indicator_data(indicator_id):
     
     return None # Should not be reached
 
-# Insert this new function near the top of your script
-
 def _fetch_alpha_vantage_quote(symbol, api_key, endpoint):
     """Internal function to fetch a single price quote using Alpha Vantage GLOBAL_QUOTE."""
     params = {
@@ -256,7 +259,7 @@ def fetch_external_data(endpoint_key, api_key_key, indicator_id, fallback_value)
     
     # --- YFINANCE LOGIC (VIX, Gold, SPX, ASX, SMALL_LARGE_RATIO, WTI_CRUDE, AUDUSD) ---
     
-  # 2. YFINANCE LOGIC 
+    # 2. YFINANCE LOGIC 
     # Consolidated all reliable single-quote fetches here, including the previously failing WTI and AUDUSD.
     if indicator_id in ["VIX", "GOLD_PRICE", "SPX_INDEX", "ASX_200", 
                         "SMALL_LARGE_RATIO", "WTI_CRUDE", "AUDUSD"]:
@@ -265,10 +268,10 @@ def fetch_external_data(endpoint_key, api_key_key, indicator_id, fallback_value)
             if indicator_id not in ["SMALL_LARGE_RATIO"]:
                 symbol_map = {
                     "VIX": "^VIX",
-                    "GOLD_PRICE": "GLD",     # CORRECTED
+                    "GOLD_PRICE": "GLD",     # ETF Proxy
                     "SPX_INDEX": "^GSPC",
                     "ASX_200": "^AXJO",
-                    "WTI_CRUDE": "USO",       
+                    "WTI_CRUDE": "USO",      # ETF Proxy
                     "AUDUSD": "AUDUSD=X"       
                 }
                 symbol = symbol_map[indicator_id]
@@ -347,6 +350,174 @@ def fetch_external_data(endpoint_key, api_key_key, indicator_id, fallback_value)
             # This is the final catch-all if an unexpected indicator is processed.
             print(f"Generic Success: {indicator_id} is correctly routed. Logic not implemented. Returning fallback value {fallback_value}.")
             return fallback_value  
+
+# --- NEW: SOURCE LINK UTILITY ---
+
+def _update_indicator_sources(indicators):
+    """Adds correct source links to indicators based on their fetch method."""
+    YFINANCE_BASE = "https://finance.yahoo.com/quote/"
+    
+    # Map indicator IDs to their YFinance ticker symbols (for source links)
+    # Use the ticker that was actually queried.
+    YFINANCE_SOURCES = {
+        "VIX": YFINANCE_BASE + "%5EVIX/",
+        "GOLD_PRICE": YFINANCE_BASE + "GLD/",
+        "SPX_INDEX": YFINANCE_BASE + "%5EGSPC/",
+        "ASX_200": YFINANCE_BASE + "%5EAXJO/",
+        "WTI_CRUDE": YFINANCE_BASE + "USO/",
+        "AUDUSD": YFINANCE_BASE + "AUDUSD=X/",
+        "SMALL_LARGE_RATIO": YFINANCE_BASE + "%5ERUT/", # Use Russell 2000 as the source for the ratio
+    }
+    
+    # Special case for FRED and Polygon (links are static/easy to assign)
+    FRED_SOURCES = {
+        "3Y_YIELD": "https://fred.stlouisfed.org/series/DGS3",
+        "30Y_YIELD": "https://fred.stlouisfed.org/series/DGS30",
+        "10Y_YIELD": "https://fred.stlouisfed.org/series/DGS10",
+        "HY_OAS": "https://fred.stlouisfed.org/series/BAMLH0A0HYM2",
+    }
+    
+    POLYGON_SOURCES = {
+        "PUT_CALL_RATIO": "https://polygon.io/docs/options/get_v2_aggs_ticker__tickervar__prev",
+    }
+    
+    # Alpha Vantage
+    AV_SOURCES = {
+        "EURUSD": "https://www.alphavantage.co/documentation/#currency-exchange",
+    }
+
+    for indicator in indicators:
+        indicator_id = indicator["id"]
+        
+        if indicator_id in YFINANCE_SOURCES:
+            indicator["source_link"] = YFINANCE_SOURCES[indicator_id]
+        elif indicator_id in FRED_SOURCES:
+            indicator["source_link"] = FRED_SOURCES[indicator_id]
+        elif indicator_id in POLYGON_SOURCES:
+            indicator["source_link"] = POLYGON_SOURCES[indicator_id]
+        elif indicator_id in AV_SOURCES:
+            indicator["source_link"] = AV_SOURCES[indicator_id]
+        else:
+            # Leave placeholders or unautomated indicators blank
+            indicator["source_link"] = indicator.get("source_link", "N/A") 
+            
+    return indicators
+
+# --- NEW: ARCHIVE LOGIC ---
+
+def save_to_archive(overall_data):
+    """
+    Saves the new narrative entry to the beginning of the central archive file.
+    """
+    archive_entry = {
+        "date": overall_data["date"],
+        "status": overall_data["status"],
+        "score": overall_data["score"],
+        "comment": overall_data["comment"],
+        "daily_narrative": overall_data["daily_narrative"],
+    }
+    
+    archive_list = []
+    
+    # 1. Load existing archive
+    if os.path.exists(ARCHIVE_FILE):
+        try:
+            with open(ARCHIVE_FILE, 'r') as f:
+                archive_list = json.load(f)
+        except json.JSONDecodeError:
+            print(f"Archive Warning: Could not decode {ARCHIVE_FILE}. Starting new archive.")
+            archive_list = []
+
+    # 2. Prepend the new entry (newest first)
+    archive_list.insert(0, archive_entry)
+    
+    # 3. Save the updated list back to the archive file
+    try:
+        with open(ARCHIVE_FILE, 'w') as f:
+            json.dump(archive_list, f, indent=4)
+        print(f"Archive Success: Narrative saved to {ARCHIVE_FILE}.")
+    except Exception as e:
+        print(f"Archive Error: Failed to save archive file: {e}")
+
+
+# --- MAIN LOGIC EXECUTION ---
+
+def run_update_process(atlas_data):
+    """
+    The main process that executes the scoring logic and data writing.
+    """
+    # 1. Update data sources
+    macro_indicators = _update_indicator_sources(atlas_data["macro"])
+    micro_indicators = _update_indicator_sources(atlas_data["micro"])
+    
+    # [ ... The rest of your scoring logic (Calculate Score, Assign Status, Generate Narrative) goes here ... ]
+    # NOTE: Assuming your logic modifies 'atlas_data' in place, and that the 'overall' field is generated
+    # along with 'daily_narrative' before the next step.
+    
+    # DUMMY SCORING/NARRATIVE GENERATION (Replace with your actual scoring logic)
+    atlas_data["overall"]["status"] = "MONITOR"
+    atlas_data["overall"]["score"] = 6.0
+    atlas_data["overall"]["max_score"] = 10.0
+    atlas_data["overall"]["comment"] = "Market risk remains low, but credit stress is emerging."
+    atlas_data["overall"]["daily_narrative"] = f"Today's Atlas analysis, dated {atlas_data['overall']['date']}, shows continued stability across global equities, supported by low implied volatility (VIX at {atlas_data['macro'][0]['value']:.2f}).\n\nHowever, the recent dip in Gold and Crude prices suggests a soft patch in commodity demand, and the spread between the 3Y and 30Y Treasury yield continues to indicate long-term economic deceleration. We are actively monitoring the high-yield credit market for further deterioration."
+    atlas_data["overall"]["composite_summary"] = "Overall risk posture is stable, but watch for credit signals."
+
+
+    # 2. Archive the daily narrative (FOR INFINITE SCROLL)
+    save_to_archive(atlas_data["overall"])
+
+    # 3. Write main data file
+    try:
+        with open(OUTPUT_FILE, 'w') as f:
+            json.dump(atlas_data, f, indent=4)
+        print(f"[{datetime.datetime.now().strftime('%Y-%m-%d %H:%M')}] Atlas JSON successfully generated and written to {OUTPUT_FILE}")
+    except Exception as e:
+        print(f"Error: Failed to write {OUTPUT_FILE}: {e}")
+
+
+if __name__ == "__main__":
+    
+    print(f"[{datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}] Starting Atlas data generation.")
+
+    # --- 2. INITIALIZE ATLAS DATA STRUCTURE ---
+    atlas_data = {
+        "overall": {
+            "date": datetime.datetime.now().strftime("%Y-%m-%d %H:%M"),
+            "status": "N/A",
+            "score": 0.0,
+            "max_score": 0.0,
+            "comment": "",
+            "composite_summary": "",
+            "daily_narrative": "", # This is the full blog post content
+        },
+        "macro": [
+             {"id": "VIX", "name": "Implied Volatility (VIX)", "value": 0.0, "status": "N/A", "note": "", "action": "No change.", "source_link": ""},
+             # ... (remaining macro indicators)
+        ],
+        "micro": [
+             {"id": "SPX_INDEX", "name": "S&P 500 Index Price", "value": 0.0, "status": "N/A", "note": "", "action": "No change.", "source_link": ""},
+             # ... (remaining micro indicators)
+        ],
+        "actions": ["Rebalance cash allocation.", "Monitor credit markets closely."],
+        "escalation_triggers": [],
+        "short_insight": [{"text": "Global equity risk remains muted despite rising long-end yields."}],
+    }
+    
+    # --- 3. SCORING AND PROCESSING (MUST BE REPLICATED FROM YOUR ACTUAL SCRIPT) ---
+    # NOTE: You MUST replace this section with your actual scoring logic from your original file!
+    # The scoring logic typically sets 'value', 'status', 'note', and calculates the 'overall' fields.
+    
+    # Placeholder loop to fetch data and fill in values before running the main process:
+    for category in ["macro", "micro"]:
+        for indicator in atlas_data[category]:
+            indicator["value"] = fetch_indicator_data(indicator["id"])
+            indicator["status"] = random.choice(["GREEN", "AMBER", "RED", "N/A"])
+            # The 'note' and 'action' would be generated by your actual scoring logic.
+            # Here we just set a dummy note for the fix:
+            indicator["note"] = f"Test Note. Value: {indicator['value']}." 
+
+    # --- 4. RUN MAIN PROCESS ---
+    run_update_process(atlas_data)
 
 # --- 2. RISK SCORING LOGIC (All Functions Combined) ---
 

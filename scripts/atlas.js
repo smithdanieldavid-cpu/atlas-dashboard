@@ -31,6 +31,13 @@ const getStatusDetails = (status) => {
 
 // --- 2. DATA FETCHING ---
 const ATLAS_DATA_PATH = 'data/atlas-latest.json'; 
+// NEW: Path to the archive file
+const ARCHIVE_DATA_PATH = 'data/atlas-archive.json';
+
+// NEW: Global variables for infinite scroll state
+let allArchivePosts = [];
+const POSTS_PER_LOAD = 5;
+let currentPostIndex = 0;
 
 async function fetchAtlasData() {
     try {
@@ -214,8 +221,115 @@ function initializeNarrativePage() {
     });
 }
 
+// --- 5. ARCHIVE PAGE RENDERING (NEW INFINITE SCROLL LOGIC) ---
 
-// --- 5. MAIN INITIALIZATION LOGIC ---
+/**
+ * Renders a batch of historical posts and advances the index.
+ * @param {number} startIndex - The starting index in allArchivePosts.
+ */
+function renderArchivePosts(startIndex) {
+    const container = document.getElementById('archiveContainer');
+    const loadingIndicator = document.getElementById('loadingIndicator');
+    const endOfArchive = document.getElementById('endOfArchive');
+
+    const postsToRender = allArchivePosts.slice(startIndex, startIndex + POSTS_PER_LOAD);
+    
+    // Hide loading indicator
+    if (loadingIndicator) loadingIndicator.style.display = 'none';
+
+    if (postsToRender.length === 0 && startIndex > 0) {
+        // Show end message only if we have rendered at least one post
+        if (endOfArchive) endOfArchive.classList.remove('hidden');
+        return;
+    } else if (postsToRender.length === 0 && startIndex === 0) {
+        // Handle an empty archive file
+         if (container) container.innerHTML = "<p class='text-gray-500'>No historical narratives found in the archive.</p>";
+         return;
+    }
+
+
+    postsToRender.forEach(post => {
+        const details = getStatusDetails(post.status);
+        const postElement = document.createElement('article');
+        
+        // Use a simple date format for the archive
+        // Check if date contains a space (time), if so, split it.
+        const datePart = post.date ? post.date.split(' ')[0] : 'N/A';
+        const displayDate = new Date(datePart).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+
+        postElement.className = 'border-b border-gray-200 pb-10';
+        
+        // Replace newline characters with <br> for HTML rendering, wrapping paragraphs in <p> tags
+        const narrativeHTML = (post.daily_narrative || "No detailed narrative provided.")
+            .split('\n\n')
+            .map(p => `<p class="mb-3">${p.trim()}</p>`)
+            .join('');
+
+        postElement.innerHTML = `
+            <div class="flex items-start justify-between mb-4">
+                <h2 class="text-2xl font-bold text-gray-900">${details.icon} Atlas Update: ${displayDate}</h2>
+                <span class="mt-1 inline-block px-3 py-1 text-xs font-bold rounded-full text-white ${details.narrativeBadge}">
+                    ${post.status} (Score: ${post.score.toFixed(1)})
+                </span>
+            </div>
+            <p class="text-base text-gray-700 leading-relaxed">${narrativeHTML}</p>
+        `;
+        container.appendChild(postElement);
+    });
+
+    // Update the index for the next load
+    currentPostIndex += POSTS_PER_LOAD;
+}
+
+/**
+ * Initializes the archive page, fetches all data, and sets up scroll listener.
+ */
+async function initializeArchivePage() {
+    const response = await fetch(ARCHIVE_DATA_PATH);
+    if (!response.ok) {
+        console.error("Failed to fetch archive data.");
+        document.getElementById('archiveContainer').innerHTML = "<p class='text-red-500'>Error loading archive. Check the console and confirm 'data/atlas-archive.json' exists.</p>";
+        return;
+    }
+    
+    // Reset state in case this function is called multiple times (though shouldn't be in this setup)
+    allArchivePosts = await response.json();
+    currentPostIndex = 0;
+    
+    // 1. Initial render of the first batch
+    renderArchivePosts(currentPostIndex);
+
+    // 2. Setup Infinite Scroll Listener
+    const scrollHandler = () => {
+        // Check if the user is near the bottom of the page (e.g., within 1000px)
+        if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 1000) {
+            
+            // Remove the handler temporarily to prevent multiple simultaneous calls
+            window.removeEventListener('scroll', scrollHandler);
+
+            if (currentPostIndex < allArchivePosts.length) {
+                // Show loading indicator
+                const loadingIndicator = document.getElementById('loadingIndicator');
+                if (loadingIndicator) loadingIndicator.style.display = 'block';
+
+                // Render the next batch after a short delay (for visual effect)
+                setTimeout(() => {
+                    renderArchivePosts(currentPostIndex);
+                    // Re-add the scroll listener only if there are more posts to load
+                    if (currentPostIndex < allArchivePosts.length) {
+                        window.addEventListener('scroll', scrollHandler);
+                    }
+                }, 500);
+            }
+        }
+    };
+
+    // Add the scroll listener
+    window.addEventListener('scroll', scrollHandler);
+}
+
+
+// --- 6. MAIN INITIALIZATION LOGIC ---
 
 // Determine which initialization function to run based on the current page
 document.addEventListener('DOMContentLoaded', () => {
@@ -223,6 +337,8 @@ document.addEventListener('DOMContentLoaded', () => {
     
     if (path.includes('narrative.html')) {
         initializeNarrativePage();
+    } else if (path.includes('archive.html')) {
+        initializeArchivePage(); // <-- NEW: Load archive logic
     } else {
         // Default to dashboard initialization (index.html)
         initializeDashboard();

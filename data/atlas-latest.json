@@ -1,13 +1,13 @@
 {
     "overall": {
-        "date": "2025-11-02 12:34",
+        "date": "2025-11-02 12:38",
         "status": "ELEVATED RISK",
-        "score": 7.5,
+        "score": 6.75,
         "max_score": 15.5,
         "comment": "MODERATE RISK. Core volatility/duration triggers active. Proceed with caution; maintain protective hedges.",
-        "composite_summary": "Composite effective triggers \u2248 7.5 / 15.5 \u2192 ELEVATED RISK posture confirmed.",
+        "composite_summary": "Composite effective triggers \u2248 6.8 / 15.5 \u2192 ELEVATED RISK posture confirmed.",
         "narrative_summary": "**ELEVATED RISK** remains in place. Key volatility and FX triggers are active, warranting caution. Maintain defensive positioning and monitor micro-indicators for stabilization.",
-        "daily_narrative": "**Daily Atlas Analysis: ELEVATED RISK (7.5/15.5) | Sunday, November 02, 2025**\n\nThe risk environment is elevated but contained. While the majority of triggers are in the 'Amber' band, the sustained VIX and AUDUSD weakness suggest a tentative global risk appetite. This environment allows for flexibility but demands vigilance.\n\n**Key Action:** Maintain protective hedges. The focus should be on liquidity management and avoiding new high-beta positions. The key to de-risking will be a sustained drop in the VIX below 18.0 and a stabilization in the Funding Spread (SOFR\u2013OIS). Top triggers: VIX (US implied vol), AUDUSD, US Government shutdown / fiscal risk."
+        "daily_narrative": "**Daily Atlas Analysis: ELEVATED RISK (6.8/15.5) | Sunday, November 02, 2025**\n\nThe risk environment is elevated but contained. While the majority of triggers are in the 'Amber' band, the sustained VIX and AUDUSD weakness suggest a tentative global risk appetite. This environment allows for flexibility but demands vigilance.\n\n**Key Action:** Maintain protective hedges. The focus should be on liquidity management and avoiding new high-beta positions. The key to de-risking will be a sustained drop in the VIX below 18.0 and a stabilization in the Funding Spread (SOFR\u2013OIS). Top triggers: VIX (US implied vol), US Government shutdown / fiscal risk, SOFR\u2013OIS Spread."
     },
     "macro": [
         {
@@ -48,23 +48,23 @@
         {
             "name": "EURUSD",
             "status": "Green",
-            "note": "EURUSD at 1.1253. Normal FX conditions; US Dollar is stable.",
+            "note": "EURUSD at 1.1631. Normal FX conditions; US Dollar is stable.",
             "source_link": "https://www.tradingview.com/symbols/EURUSD/",
             "action": "No change."
         },
         {
             "name": "WTI Crude Oil",
             "status": "Amber",
-            "note": "WTI Crude at $81.47/bbl. Elevated price range, watch for breaks above $90/bbl.",
+            "note": "WTI Crude at $80.00/bbl. Elevated price range, watch for breaks above $90/bbl.",
             "source_link": "https://www.eia.gov/dnav/pet/hist/rwtc.htm",
             "action": "Ensure portfolio is hedged against inflation risks."
         },
         {
             "name": "AUDUSD",
-            "status": "Red",
-            "note": "AUDUSD at 0.6397. AUD remains under pressure. Strong risk-off or persistent US Dollar strength.",
+            "status": "Green",
+            "note": "AUDUSD at 0.7369. Favorable FX conditions; AUD reflects risk-on sentiment.",
             "source_link": "https://www.tradingview.com/symbols/AUDUSD/",
-            "action": "Favour US Dollar liquidity over AUD assets; watch commodity prices."
+            "action": "No change."
         },
         {
             "name": "US Government shutdown / fiscal risk",
@@ -76,7 +76,7 @@
         {
             "name": "US Treasury liquidity (Dealer/ADTV)",
             "status": "Green",
-            "note": "Dealer ADTV at $119.7B. Market functioning, no broad dealer freeze flagged.",
+            "note": "Dealer ADTV at $108.4B. Market functioning, no broad dealer freeze flagged.",
             "source_link": "U.S. Department of the Treasury (placeholder)",
             "action": "Liquidity ok \u2014 price risk dominates."
         }
@@ -91,52 +91,52 @@
         },
         {
             "name": "SOFR\u2013OIS Spread",
-            "status": "Amber",
-            "note": "SOFR-OIS spread at 33.5 bps. Spread widening; caution warranted in short-term funding markets.",
+            "status": "Red",
+            "note": "SOFR-OIS spread at 43.7 bps. Elevated funding market stress. Indicates acute counterparty risk / liquidity fear.",
             "source_link": "https://fred.stlouisfed.org/series/OISSOFR",
-            "action": "Monitor for acceleration above 40 bps. Check SOFR/Treasury basis."
+            "action": "Increase cash weighting and monitor closely for structural funding issues. Avoid adding credit risk."
         },
         {
             "name": "Put/Call ratio (CBOE)",
             "status": "Amber",
-            "note": "P/C ratio at ~1.19 (hedging bias).",
+            "note": "P/C ratio at ~1.02 (hedging bias).",
             "source_link": "https://www.cboe.com/us/options/market_statistics/daily/",
             "action": ">1.2 \u2192 panic; <0.7 \u2192 complacency."
         },
         {
             "name": "Small-cap / Large-cap ratio",
-            "status": "Amber",
-            "note": "Ratio at ~0.41. Small-caps under pressure; monitor market breadth.",
+            "status": "Red",
+            "note": "Ratio at ~0.35 \u2014 small-caps underperforming.",
             "source_link": "Reference Russell 2000 / S&P 500 (placeholder)",
-            "action": "Monitor closely for breaks below 0.40."
+            "action": "<0.40 \u2192 strong red; internals fragile."
         },
         {
             "name": "Earnings-revision breadth",
             "status": "Amber",
-            "note": "~-5% net revisions. Earnings weakening.",
+            "note": "~-3% net revisions. Earnings weakening.",
             "source_link": "FactSet / Bloomberg consensus data (placeholder)",
             "action": "<-5% \u2192 red (earnings weakening)."
         },
         {
             "name": "Leverage (margin debt YoY)",
-            "status": "Green",
-            "note": "~+16% YoY proxies (elevated but not extreme).",
+            "status": "Amber",
+            "note": "~+29% YoY. Leverage is building up; elevated risk of episodic volatility.",
             "source_link": "FINRA Margin Debt data (placeholder)",
-            "action": ">+25% \u2192 amber."
+            "action": "Monitor closely for a break above 30%."
         },
         {
             "name": "Bank CDS / financial stress",
-            "status": "Amber",
-            "note": "Bank stress proxies mildly elevated at 86 basis.",
+            "status": "Green",
+            "note": "Bank stress proxies low at 72 basis. Stable financial conditions.",
             "source_link": "Credit Default Swaps / Financial Stress Index (placeholder)",
-            "action": "<80 base \u2192 red (placeholder for specific bank stress index)."
+            "action": "No change."
         },
         {
             "name": "Consumer delinquencies (30-day)",
-            "status": "Amber",
-            "note": "~2.7% \u2014 delinquencies are rising; watch for acceleration towards 3.0%.",
+            "status": "Green",
+            "note": "~2.1% \u2014 household delinquencies not yet critical.",
             "source_link": "NY Fed Consumer Credit Panel / credit card data (placeholder)",
-            "action": "Monitor consumer credit quality closely."
+            "action": ">2.5\u20133% \u2192 amber (stress rising)."
         },
         {
             "name": "Geopolitical (China/Russia/region)",
@@ -148,14 +148,14 @@
         {
             "name": "S&P 500 Index",
             "status": "Amber",
-            "note": "S&P 500 Index at 4,409. Moderate pullback from highs. Equity risk is elevated.",
+            "note": "S&P 500 Index at 4,230. Moderate pullback from highs. Equity risk is elevated.",
             "source_link": "https://finance.yahoo.com/quote/%5EGSPC",
             "action": "Avoid adding new equity exposure. Maintain existing hedges."
         },
         {
             "name": "S&P/ASX 200 Index",
             "status": "Green",
-            "note": "ASX 200 Index at 8,918. Trading near highs, bullish sentiment prevailing.",
+            "note": "ASX 200 Index at 8,831. Trading near highs, bullish sentiment prevailing.",
             "source_link": "https://finance.yahoo.com/quote/%5EAXJO",
             "action": "No change."
         }

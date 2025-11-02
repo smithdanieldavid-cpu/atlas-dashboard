@@ -1,6 +1,6 @@
 {
     "overall": {
-        "date": "2025-11-03 10:20",
+        "date": "2025-11-03 10:22",
         "status": "ELEVATED RISK",
         "score": 5.5,
         "max_score": 15.5,
@@ -174,9 +174,9 @@
         },
         {
             "name": "S&P/ASX 200 Index",
-            "value": 8858.599609375,
+            "value": 8860.599609375,
             "status": "Green",
-            "note": "ASX 200 Index at 8,859. Trading near highs, bullish sentiment prevailing.",
+            "note": "ASX 200 Index at 8,861. Trading near highs, bullish sentiment prevailing.",
             "source_link": "https://finance.yahoo.com/quote/%5EAXJO",
             "action": "No change."
         }

@@ -1,13 +1,13 @@
 {
     "overall": {
-        "date": "2025-11-03 09:58",
+        "date": "2025-11-03 10:00",
         "status": "ELEVATED RISK",
-        "score": 5.5,
+        "score": 5.75,
         "max_score": 15.5,
         "comment": "MODERATE RISK. Core volatility/duration triggers active. Proceed with caution; maintain protective hedges.",
-        "composite_summary": "Composite effective triggers \u2248 5.5 / 15.5 \u2192 ELEVATED RISK posture confirmed.",
+        "composite_summary": "Composite effective triggers \u2248 5.8 / 15.5 \u2192 ELEVATED RISK posture confirmed.",
         "narrative_summary": "**ELEVATED RISK** remains in place. Key volatility and FX triggers are active, warranting caution. Maintain defensive positioning and monitor micro-indicators for stabilization.",
-        "daily_narrative": "**Daily Atlas Analysis: ELEVATED RISK (5.5/15.5) | Monday, November 03, 2025**\n\nThe risk environment is elevated but contained. While the majority of triggers are in the 'Amber' band, the sustained VIX and AUDUSD weakness suggest a tentative global risk appetite. (ADD DETAIL HERE)"
+        "daily_narrative": "**Daily Atlas Analysis: ELEVATED RISK (5.8/15.5) | Monday, November 03, 2025**\n\nThe risk environment is elevated but contained. While the majority of triggers are in the 'Amber' band, the sustained VIX and AUDUSD weakness suggest a tentative global risk appetite. (ADD DETAIL HERE)"
     },
     "macro": [
         {
@@ -68,9 +68,9 @@
         },
         {
             "name": "AUDUSD",
-            "value": 0.6543645858764648,
+            "value": 0.6541078090667725,
             "status": "Amber",
-            "note": "AUDUSD at 0.6544. AUD is consolidating. Global risk appetite is tentative.",
+            "note": "AUDUSD at 0.6541. AUD is consolidating. Global risk appetite is tentative.",
             "source_link": "https://www.tradingview.com/symbols/AUDUSD/",
             "action": "Monitor closely for breaks below 0.6500."
         },
@@ -174,11 +174,11 @@
         },
         {
             "name": "S&P/ASX 200 Index",
-            "value": 8881.900390625,
-            "status": "Green",
-            "note": "ASX 200 Index at 8,882. Trading near highs, bullish sentiment prevailing.",
+            "value": 8600.0,
+            "status": "Amber",
+            "note": "ASX 200 Index at 8,600. Moderate pullback from highs. Australian equity risk is elevated.",
             "source_link": "https://finance.yahoo.com/quote/%5EAXJO",
-            "action": "No change."
+            "action": "Avoid adding new AU equity exposure. Monitor commodity prices (Iron Ore/Copper)."
         }
     ],
     "actions": [

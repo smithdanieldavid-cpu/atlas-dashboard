@@ -1,6 +1,6 @@
 {
     "overall": {
-        "date": "2025-11-03 09:54",
+        "date": "2025-11-03 09:56",
         "status": "ELEVATED RISK",
         "score": 5.5,
         "max_score": 15.5,
@@ -68,7 +68,7 @@
         },
         {
             "name": "AUDUSD",
-            "value": 0.6543645858764648,
+            "value": 0.6544074416160583,
             "status": "Amber",
             "note": "AUDUSD at 0.6544. AUD is consolidating. Global risk appetite is tentative.",
             "source_link": "https://www.tradingview.com/symbols/AUDUSD/",

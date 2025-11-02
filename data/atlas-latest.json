@@ -1,13 +1,13 @@
 {
     "overall": {
-        "date": "2025-11-02 16:19",
+        "date": "2025-11-02 16:32",
         "status": "ELEVATED RISK",
         "score": 5.5,
         "max_score": 15.5,
         "comment": "MODERATE RISK. Core volatility/duration triggers active. Proceed with caution; maintain protective hedges.",
         "composite_summary": "Composite effective triggers \u2248 5.5 / 15.5 \u2192 ELEVATED RISK posture confirmed.",
         "narrative_summary": "**ELEVATED RISK** remains in place. Key volatility and FX triggers are active, warranting caution. Maintain defensive positioning and monitor micro-indicators for stabilization.",
-        "daily_narrative": "**Daily Atlas Analysis: ELEVATED RISK (5.5/15.5) | Sunday, November 02, 2025**\n\nThe risk environment is elevated but contained. While the majority of triggers are in the 'Amber' band, the sustained VIX and AUDUSD weakness suggest a tentative global risk appetite. This environment allows for flexibility but demands vigilance.\n\n**Key Action:** Maintain protective hedges. The focus should be on liquidity management and avoiding new high-beta positions. The key to de-risking will be a sustained drop in the VIX below 18.0 and a stabilization in the Funding Spread (SOFR\u2013OIS). Top triggers: US Government shutdown / fiscal risk, Put/Call ratio (CBOE), Small-cap / Large-cap ratio."
+        "daily_narrative": "**Daily Atlas Analysis: ELEVATED RISK (5.5/15.5) | Sunday, November 02, 2025**\n\nThe risk environment is elevated but contained. While the majority of triggers are in the 'Amber' band, the sustained VIX and AUDUSD weakness suggest a tentative global risk appetite. (ADD DETAIL HERE)"
     },
     "macro": [
         {
@@ -86,7 +86,7 @@
             "value": "100.0",
             "status": "Green",
             "note": "Dealer ADTV at $100.0B. Market functioning, no broad dealer freeze flagged.",
-            "source_link": "U.S. Department of the Treasury (placeholder)",
+            "source_link": "",
             "action": "Liquidity ok \u2014 price risk dominates."
         }
     ],
@@ -120,7 +120,7 @@
             "value": 0.362471830065966,
             "status": "Red",
             "note": "Ratio at ~0.36 \u2014 small-caps underperforming.",
-            "source_link": "Reference Russell 2000 / S&P 500 (placeholder)",
+            "source_link": "",
             "action": "<0.40 \u2192 strong red; internals fragile."
         },
         {
@@ -128,7 +128,7 @@
             "value": "-2.0%",
             "status": "Amber",
             "note": "~-2% net revisions. Earnings weakening.",
-            "source_link": "FactSet / Bloomberg consensus data (placeholder)",
+            "source_link": "",
             "action": "Monitor earnings forecasts closely."
         },
         {
@@ -136,7 +136,7 @@
             "value": "N/A",
             "status": "N/A",
             "note": "Data N/A: Margin Debt YoY requires external data source.",
-            "source_link": "FINRA Monthly Margin Statistics (placeholder)",
+            "source_link": "",
             "action": "Cannot score due to missing data.",
             "grade": 0
         },
@@ -145,7 +145,7 @@
             "value": "80",
             "status": "Amber",
             "note": "Bank stress proxies mildly elevated at 80 basis.",
-            "source_link": "Credit Default Swaps / Financial Stress Index (placeholder)",
+            "source_link": "",
             "action": "Monitor credit spreads closely."
         },
         {
@@ -153,7 +153,7 @@
             "value": "3.00%",
             "status": "Red",
             "note": "~3.0% \u2014 household stress is acute. Significant pressure on consumer-facing businesses.",
-            "source_link": "NY Fed Consumer Credit Panel / credit card data (placeholder)",
+            "source_link": "",
             "action": "Avoid cyclical consumer stocks and local businesses dependent on household spending."
         },
         {
@@ -161,7 +161,7 @@
             "value": 0.5,
             "status": "Amber",
             "note": "Tensions elevated (e.g., Ukraine/China/Middle East); still monitor escalation.",
-            "source_link": "Manual Qualitative Assessment",
+            "source_link": "",
             "action": "Maintain commodity hedging (e.g., gold/oil) as tactical insurance."
         },
         {

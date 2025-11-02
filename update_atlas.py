@@ -606,11 +606,13 @@ def score_asx200(value):
         
     return {"name": "S&P/ASX 200 Index", "value": value, "status": status, "note": note, "source_link": source_link, "action": action, "score_value": score}
 
+# The score_sofr_ois function is now correctly structured and complete from the previous step.
 def score_sofr_ois(value):
     """SOFR-OIS Spread Scoring - Measures US funding stress (Micro Indicator)."""
     
-    # 1. Handle String Inputs ("N/A")
+    # --- 1. Handle and Validate Input (Strings first) ---
     if isinstance(value, str):
+        # Handle explicit "N/A" input
         if value.upper() == 'N/A':
             return {
                 "name": "SOFR–OIS Spread", 
@@ -623,10 +625,11 @@ def score_sofr_ois(value):
                 "grade": 0 
             }
         
-        # Handle unparseable strings (e.g., "Error" or gibberish)
+        # Try to convert any other string (numeric string) to float
         try:
-            numeric_value = float(value)
+            value = float(value)
         except ValueError:
+            # Handle unparseable strings (e.g., "Error" or gibberish)
             return {
                 "name": "SOFR–OIS Spread", 
                 "value": "Error", 
@@ -638,11 +641,10 @@ def score_sofr_ois(value):
                 "grade": 0
             }
         # If it was a numeric string, continue with the numeric value
-        value = numeric_value
+        # Note: The 'value' variable is updated here if conversion succeeds
     
-    # If the input was a float/int, no conversion needed. If it was a numeric string, it's converted now.
-
-    # --- Scoring Logic for numeric values ---
+    # --- 2. Scoring Logic (Only runs if 'value' is a float) ---
+    # The 'value' variable here is guaranteed to be a float.  
     status = "Green"
     note = f"SOFR-OIS spread at {value:.1f} bps. Funding markets are calm; spread within normal range."
     action = "No change."
@@ -662,94 +664,7 @@ def score_sofr_ois(value):
         
     return {
         "name": "SOFR–OIS Spread", 
-        "value": f"{value:.2f}", # Return the numeric value as a formatted string for display
-        "status": status, 
-        "note": note, 
-        "source_link": source_link, 
-        "action": action, 
-        "score_value": score
-        # Note: Add 'grade' and 'color' if they are used by your dashboard
-    }
-
-    # --- Scoring Logic for numeric values ---
-    status = "Green"
-    note = f"SOFR-OIS spread at {value:.1f} bps. Funding markets are calm; spread within normal range."
-    action = "No change."
-    score = 0.0
-    source_link = "https://fred.stlouisfed.org/series/OISSOFR" 
-
-    if value >= 40.0:
-        status = "Red"
-        note = f"SOFR-OIS spread at {value:.1f} bps. Elevated funding market stress. Indicates acute counterparty risk / liquidity fear."
-        action = "Increase cash weighting and monitor closely for structural funding issues. Avoid adding credit risk."
-        score = 1.0 
-
-    elif value >= 25.0: 
-        status = "Amber"
-        note = f"SOFR-OIS spread at {value:.1f} bps. Spread widening; caution warranted in short-term funding markets."
-        action = "Monitor for acceleration above 40 bps. Check SOFR/Treasury basis."
-        score = 0.5
-        
-    return {
-        "name": "SOFR–OIS Spread", 
-        "status": status, 
-        "note": note, 
-        "source_link": source_link, 
-        "action": action, 
-        "score_value": score
-        # Note: Add 'grade' and 'color' if they are used by your dashboard
-    }
-def score_sofr_ois(value):
-    """SOFR-OIS Spread Scoring - Measures US funding stress (Micro Indicator)."""
-    
-    # CRITICAL FIX: Handle "N/A" and other string inputs to prevent KeyError
-    if isinstance(value, str):
-        return {
-            "name": "SOFR–OIS Spread", 
-            "status": "N/A", 
-            "note": "Data N/A: SOFR-OIS Spread requires external API.", 
-            "source_link": "https://fred.stlouisfed.org/series/OISSOFR", 
-            "action": "Cannot score due to missing data.", 
-            "score_value": 0.0, # Neutral score to allow sorting
-            "grade": 0 # Assuming 'grade' is used elsewhere, set to neutral
-        }
-
-    # Convert to float for comparison if it was a numeric string before this check
-    try:
-        value = float(value)
-    except ValueError:
-        # Fallback if the string wasn't "N/A" but still failed conversion
-        return {
-            "name": "SOFR–OIS Spread", 
-            "status": "Error", 
-            "note": "Error: SOFR-OIS value could not be converted to number.", 
-            "source_link": "Error", 
-            "action": "Cannot score due to data error.", 
-            "score_value": 0.0,
-            "grade": 0
-        }
-
-    # --- Scoring Logic for numeric values ---
-    status = "Green"
-    note = f"SOFR-OIS spread at {value:.1f} bps. Funding markets are calm; spread within normal range."
-    action = "No change."
-    score = 0.0
-    source_link = "https://fred.stlouisfed.org/series/OISSOFR" 
-
-    if value >= 40.0:
-        status = "Red"
-        note = f"SOFR-OIS spread at {value:.1f} bps. Elevated funding market stress. Indicates acute counterparty risk / liquidity fear."
-        action = "Increase cash weighting and monitor closely for structural funding issues. Avoid adding credit risk."
-        score = 1.0 
-
-    elif value >= 25.0: 
-        status = "Amber"
-        note = f"SOFR-OIS spread at {value:.1f} bps. Spread widening; caution warranted in short-term funding markets."
-        action = "Monitor for acceleration above 40 bps. Check SOFR/Treasury basis."
-        score = 0.5
-        
-    return {
-        "name": "SOFR–OIS Spread", 
+        "value": f"{value:.2f}", # Returns the successful numeric value as a formatted string
         "status": status, 
         "note": note, 
         "source_link": source_link, 
@@ -765,12 +680,13 @@ def score_treasury_liquidity(value):
     if isinstance(value, str):
         return {
             "name": "US Treasury liquidity (Dealer/ADTV)", 
+            "value": "N/A", # ADDED: Missing value field
             "status": "N/A", 
             "note": "Data N/A: Treasury liquidity data requires external API.", 
             "source_link": "U.S. Department of the Treasury (placeholder)", 
             "action": "Cannot score due to missing data.", 
-            "score_value": 0.0, # Neutral score to allow sorting
-            "grade": 0 # Assuming 'grade' is used elsewhere, set to neutral
+            "score_value": 0.0, 
+            "grade": 0 
         }
 
     # Convert to float for comparison if it was a numeric string before this check
@@ -780,6 +696,7 @@ def score_treasury_liquidity(value):
         # Fallback if the string wasn't "N/A" but still failed conversion
         return {
             "name": "US Treasury liquidity (Dealer/ADTV)", 
+            "value": "Error", # ADDED: Missing value field
             "status": "Error", 
             "note": "Error: Treasury liquidity value could not be converted to number.", 
             "source_link": "Error", 
@@ -809,6 +726,7 @@ def score_treasury_liquidity(value):
         
     return {
         "name": "US Treasury liquidity (Dealer/ADTV)", 
+        "value": f"{value:.1f}", # ADDED: Missing value field
         "status": status, 
         "note": note, 
         "source_link": source_link, 
@@ -819,6 +737,8 @@ def score_treasury_liquidity(value):
 
 def score_put_call_ratio(value):
     """NEW: Put/Call ratio (CBOE) Scoring (Micro Indicator)."""
+    
+    # Must ensure 'value' is returned for the numeric scoring functions
     status = "Amber"
     note = f"P/C ratio at ~{value:.2f} (hedging bias)."
     action = ">1.2 → panic; <0.7 → complacency."
@@ -834,13 +754,15 @@ def score_put_call_ratio(value):
         status = "Green"
         note = f"P/C ratio at ~{value:.2f}. Extreme complacency; low hedging activity."
         action = "Extreme complacency is a long-term risk signal; maintain protective hedges."
-        score = 0.0 # Low score is intentional as it signals structural risk, not immediate panic
+        score = 0.0 
     # 0.7 < value < 1.2 is Amber (Normal or hedging bias)
         
-    return {"name": "Put/Call ratio (CBOE)", "status": status, "note": note, "source_link": source_link, "action": action, "score_value": score}
+    return {"name": "Put/Call ratio (CBOE)", "value": value, "status": status, "note": note, "source_link": source_link, "action": action, "score_value": score}
 
 def score_small_large_ratio(value):
     """NEW: Small-cap / Large-cap ratio Scoring (Micro Indicator)."""
+    
+    # Must ensure 'value' is returned for the numeric scoring functions
     status = "Red"
     note = f"Ratio at ~{value:.2f} — small-caps underperforming."
     action = "<0.40 → strong red; internals fragile."
@@ -859,7 +781,7 @@ def score_small_large_ratio(value):
         score = 0.5
     # value < 0.40 is Red
 
-    return {"name": "Small-cap / Large-cap ratio", "status": status, "note": note, "source_link": source_link, "action": action, "score_value": score}
+    return {"name": "Small-cap / Large-cap ratio", "value": value, "status": status, "note": note, "source_link": source_link, "action": action, "score_value": score}
 
 def score_earnings_revision(value):
     """NEW: Earnings-revision breadth Scoring (Micro Indicator)."""
@@ -868,12 +790,13 @@ def score_earnings_revision(value):
     if isinstance(value, str):
         return {
             "name": "Earnings-revision breadth", 
+            "value": "N/A", # ADDED: Missing value field
             "status": "N/A", 
             "note": "Data N/A: Earnings revision data requires external API.", 
             "source_link": "FactSet / Bloomberg consensus data (placeholder)", 
             "action": "Cannot score due to missing data.", 
-            "score_value": 0.0, # Neutral score to allow sorting
-            "grade": 0 # Assuming 'grade' is used elsewhere, set to neutral
+            "score_value": 0.0, 
+            "grade": 0 
         }
 
     # Convert to float for comparison if it was a numeric string before this check
@@ -883,6 +806,7 @@ def score_earnings_revision(value):
         # Fallback if the string wasn't "N/A" but still failed conversion
         return {
             "name": "Earnings-revision breadth", 
+            "value": "Error", # ADDED: Missing value field
             "status": "Error", 
             "note": "Error: Earnings revision value could not be converted to number.", 
             "source_link": "Error", 
@@ -912,6 +836,7 @@ def score_earnings_revision(value):
         
     return {
         "name": "Earnings-revision breadth", 
+        "value": f"{value:.1f}%", # ADDED: Missing value field, formatted as string
         "status": status, 
         "note": note, 
         "source_link": source_link, 
@@ -923,79 +848,71 @@ def score_earnings_revision(value):
 def score_leverage_yoy(value):
     """NEW: Margin Debt YoY Scoring (Macro Indicator - using N/A handling)."""
     
-    # CRITICAL FIX: Handle "N/A" input and return the required 'score_value'
+    # CRITICAL FIX: Handle "N/A" input and return the required 'value' and 'score_value'
     if isinstance(value, str):
-        return {
-            "name": "Margin Debt YoY",
-            "status": "N/A",
-            "note": "Data N/A: Margin Debt YoY requires external data source.",
-            "source_link": "FINRA Monthly Margin Statistics (placeholder)",
-            "action": "Cannot score due to missing data.",
-            "score_value": 0.0,  # <--- MUST BE 'score_value'
-            "grade": 0
-        }
-
-    # Convert to float for comparison if it's a numeric string
-    try:
-        value = float(value)
-    except ValueError:
-        return {
-            "name": "Margin Debt YoY",
-            "status": "Error",
-            "note": "Error: Margin Debt value could not be converted to number.",
-            "source_link": "Error",
-            "action": "Cannot score due to data error.",
-            "score_value": 0.0,
-            "grade": 0
-        }
+        # Handle explicit "N/A" input
+        if value.upper() == 'N/A':
+            return {
+                "name": "Margin Debt YoY",
+                "value": "N/A", # ADDED: Missing value field
+                "status": "N/A",
+                "note": "Data N/A: Margin Debt YoY requires external data source.",
+                "source_link": "FINRA Monthly Margin Statistics (placeholder)",
+                "action": "Cannot score due to missing data.",
+                "score_value": 0.0,
+                "grade": 0
+            }
+        
+        # Try to convert any other string (numeric string) to float
+        try:
+            value = float(value)
+        except ValueError:
+            return {
+                "name": "Margin Debt YoY",
+                "value": "Error", # ADDED: Missing value field
+                "status": "Error",
+                "note": "Error: Margin Debt value could not be converted to number.",
+                "source_link": "Error",
+                "action": "Cannot score due to data error.",
+                "score_value": 0.0,
+                "grade": 0
+            }
     
     # --- Actual Scoring Logic for numeric values ---
+    # The 'status' field must be determined from the 'color' or defined here
+    
     if value > 30:
         score_value = 1.0  # Extreme leverage
-        grade = -3
+        status = "Red" # Use "Red"
         note = f"~+{value:.0f}% YoY (Extreme leverage is building)."
-        color = "red"
+        action = "Increase short hedges; prepare for structural equity risk."
     elif value > 15:
-        score_value = 0.75  # Elevated leverage
-        grade = -2
+        score_value = 0.5  # Elevated leverage
+        status = "Amber" # Use "Amber"
         note = f"~+{value:.0f}% YoY proxies (elevated but not extreme)."
-        color = "orange"
+        action = "Monitor leverage data closely."
     elif value > 0:
-        score_value = 0.5  # Modest increase
-        grade = -1
+        score_value = 0.25  # Modest increase (Treat as Green/Monitor for Atlas)
+        status = "Monitor (Green)"
         note = f"~+{value:.0f}% YoY proxies (modest increase)."
-        color = "yellow"
+        action = "No change."
     else:
         score_value = 0.0  # No growth or shrinking
-        grade = 1
+        status = "Green"
         note = f"~{value:.0f}% YoY (Shrinking or flat leverage)."
-        color = "green"
-
-    return {"name": "Margin Debt YoY", "value": value, "score_value": score_value, "grade": grade, "note": note, "color": color, "source_link": "FINRA Monthly Margin Statistics (placeholder)", "action": "Score"}
-
-    # --- Actual Scoring Logic for numeric values ---
-    if value > 30:
-        score = 85  # Extreme leverage
-        grade = -3
-        note = f"~+{value:.0f}% YoY (Extreme leverage is building)."
-        color = "red"
-    elif value > 15:
-        score = 65  # Elevated leverage
-        grade = -2
-        note = f"~+{value:.0f}% YoY proxies (elevated but not extreme)."
-        color = "orange"
-    elif value > 0:
-        score = 50  # Modest increase
-        grade = -1
-        note = f"~+{value:.0f}% YoY proxies (modest increase)."
-        color = "yellow"
-    else:
-        score = 30  # No growth or shrinking
-        grade = 1
-        note = f"~{value:.0f}% YoY (Shrinking or flat leverage)."
-        color = "green"
-
-    return {"value": value, "score": score, "grade": grade, "note": note, "color": color}
+        action = "No change."
+        
+    # Final return must conform to the standard structure
+    return {
+        "name": "Margin Debt YoY", 
+        "value": f"{value:.1f}%", # Corrected to return value as string percentage
+        "status": status,
+        "note": note, 
+        "source_link": "FINRA Monthly Margin Statistics (placeholder)", 
+        "action": action, 
+        "score_value": score_value
+    }
+    # DELETED: The duplicated and inconsistent scoring logic that followed in your original block.
 
 def score_bank_cds(value):
     """NEW: Bank CDS / financial stress Scoring (Micro Indicator)."""
@@ -1004,12 +921,13 @@ def score_bank_cds(value):
     if isinstance(value, str):
         return {
             "name": "Bank CDS / financial stress", 
+            "value": "N/A", # ADDED: Missing value field
             "status": "N/A", 
             "note": "Data N/A: Bank CDS data requires external API.", 
             "source_link": "Credit Default Swaps / Financial Stress Index (placeholder)", 
             "action": "Cannot score due to missing data.", 
-            "score_value": 0.0, # Neutral score to allow sorting
-            "grade": 0 # Assuming 'grade' is also used elsewhere, set to neutral
+            "score_value": 0.0, 
+            "grade": 0 
         }
 
     # Convert to float for comparison if it was a numeric string before this check
@@ -1019,6 +937,7 @@ def score_bank_cds(value):
         # Fallback if the string wasn't "N/A" but still failed conversion
         return {
             "name": "Bank CDS / financial stress", 
+            "value": "Error", # ADDED: Missing value field
             "status": "Error", 
             "note": "Error: Bank CDS value could not be converted to number.", 
             "source_link": "Error", 
@@ -1048,6 +967,7 @@ def score_bank_cds(value):
         
     return {
         "name": "Bank CDS / financial stress", 
+        "value": f"{value:.0f}", # ADDED: Missing value field
         "status": status, 
         "note": note, 
         "source_link": source_link, 
@@ -1055,6 +975,7 @@ def score_bank_cds(value):
         "score_value": score
         # Note: Add 'grade' and 'color' if they are used by your dashboard
     }
+
 def score_consumer_delinquencies(value):
     """NEW: Consumer delinquencies (30-day) Scoring (Micro Indicator)."""
     
@@ -1062,12 +983,13 @@ def score_consumer_delinquencies(value):
     if isinstance(value, str):
         return {
             "name": "Consumer delinquencies (30-day)", 
+            "value": "N/A", # ADDED: Missing value field
             "status": "N/A", 
             "note": "Data N/A: Delinquency data requires external API.", 
             "source_link": "NY Fed Consumer Credit Panel / credit card data (placeholder)", 
             "action": "Cannot score due to missing data.", 
-            "score_value": 0.0, # Neutral score to allow sorting
-            "grade": 0 # Assuming 'grade' is also used elsewhere, set to neutral
+            "score_value": 0.0, 
+            "grade": 0 
         }
 
     # Convert to float for comparison if it was a numeric string before this check
@@ -1077,6 +999,7 @@ def score_consumer_delinquencies(value):
         # Fallback if the string wasn't "N/A" but still failed conversion
         return {
             "name": "Consumer delinquencies (30-day)", 
+            "value": "Error", # ADDED: Missing value field
             "status": "Error", 
             "note": "Error: Delinquency value could not be converted to number.", 
             "source_link": "Error", 
@@ -1106,6 +1029,7 @@ def score_consumer_delinquencies(value):
         
     return {
         "name": "Consumer delinquencies (30-day)", 
+        "value": f"{value:.2f}%", # ADDED: Missing value field
         "status": status, 
         "note": note, 
         "source_link": source_link, 
@@ -1136,8 +1060,7 @@ def score_geopolitical(value):
         action = "No change."
         score = 0.0
         
-    return {"name": "Geopolitical (China/Russia/region)", "status": status, "note": note, "source_link": "Manual Qualitative Assessment", "action": action, "score_value": score}
-
+    return {"name": "Geopolitical (China/Russia/region)", "value": value, "status": status, "note": note, "source_link": "Manual Qualitative Assessment", "action": action, "score_value": score}
 
 def generate_narrative(score, overall_status, top_triggers, MAX_SCORE):
     """

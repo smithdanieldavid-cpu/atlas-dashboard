@@ -369,7 +369,7 @@ def score_vix(value):
         action = "Monitor closely for breaks above 22."
         score = 0.5
 
-    return {"name": "VIX (US implied vol)", "status": status, "note": note, "source_link": source_link, "action": action, "score_value": score}
+    return {"name": "VIX (US implied vol)", "value": value, "status": status, "note": note, "source_link": source_link, "action": action, "score_value": score}
 
 def score_3yr_yield(value):
     """US 3-yr Treasury yield Scoring - Measures medium-term rate pressure."""
@@ -391,7 +391,7 @@ def score_3yr_yield(value):
         action = "Avoid intermediate locks; prefer short/floating rate instruments."
         score = 0.5
         
-    return {"name": "US 3-yr Treasury yield", "status": status, "note": note, "source_link": source_link, "action": action, "score_value": score}
+    return {"name": "US 3-yr Treasury yield", "value": value, "status": status, "note": note, "source_link": source_link, "action": action, "score_value": score}
 
 def score_10yr_yield(value):
     """US 10-yr Treasury yield Scoring"""
@@ -412,7 +412,7 @@ def score_10yr_yield(value):
         action = "Watch the Atlas pivot at 4.75%; favour short duration."
         score = 0.5
         
-    return {"name": "US 10-yr Treasury yield", "status": status, "note": note, "source_link": source_link, "action": action, "score_value": score}
+    return {"name": "US 10-yr Treasury yield", "value": value, "status": status, "note": note, "source_link": source_link, "action": action, "score_value": score}
 
 def score_30yr_yield(value):
     """US 30-yr Treasury yield Scoring - Measures long-term inflation/fiscal risk."""
@@ -434,7 +434,7 @@ def score_30yr_yield(value):
         action = "Watch the 5.0% threshold. Limit long duration locks."
         score = 0.5
         
-    return {"name": "US 30-yr Treasury yield", "status": status, "note": note, "source_link": source_link, "action": action, "score_value": score}
+    return {"name": "US 30-yr Treasury yield", "value": value, "status": status, "note": note, "source_link": source_link, "action": action, "score_value": score}
 
 def score_gold(value):
     """Gold (USD/oz) Scoring - High prices signal risk-off/safe-haven regime."""
@@ -457,7 +457,7 @@ def score_gold(value):
         action = "Monitor price action and central bank activity."
         score = 0.5
         
-    return {"name": "Gold (USD/oz)", "status": status, "note": note, "source_link": source_link, "action": action, "score_value": score}
+    return {"name": "Gold (USD/oz)", "value": value, "status": status, "note": note, "source_link": source_link, "action": action, "score_value": score}
 
 def score_eurusd(value):
     """EURUSD Scoring - Measures global liquidity and US Dollar strength."""
@@ -482,7 +482,7 @@ def score_eurusd(value):
         action = "Monitor for acceleration towards parity (1.00)."
         score = 0.5
         
-    return {"name": "EURUSD", "status": status, "note": note, "source_link": source_link, "action": action, "score_value": score}
+    return {"name": "EURUSD", "value": value, "status": status, "note": note, "source_link": source_link, "action": action, "score_value": score}
 
 def score_wti_crude(value):
     """WTI Crude Oil Scoring - Measures global inflation and geopolitical risk."""
@@ -507,7 +507,7 @@ def score_wti_crude(value):
         action = "Ensure portfolio is hedged against inflation risks."
         score = 0.5
         
-    return {"name": "WTI Crude Oil", "status": status, "note": note, "source_link": source_link, "action": action, "score_value": score}
+    return {"name": "WTI Crude Oil", "value": value, "status": status, "note": note, "source_link": source_link, "action": action, "score_value": score}
 
 def score_audusd(value):
     """AUDUSD Scoring - Measures global risk appetite and US Dollar strength."""
@@ -532,7 +532,7 @@ def score_audusd(value):
         action = "Monitor closely for breaks below 0.6500."
         score = 0.5
         
-    return {"name": "AUDUSD", "status": status, "note": note, "source_link": source_link, "action": action, "score_value": score}
+    return {"name": "AUDUSD", "value": value, "status": status, "note": note, "source_link": source_link, "action": action, "score_value": score}
 
 def score_hy_oas(value):
     """ICE BofA HY OAS Scoring - Measures credit risk and liquidity stress (Micro Indicator)."""
@@ -554,7 +554,7 @@ def score_hy_oas(value):
         action = "Monitor HY OAS closely."
         score = 0.5
         
-    return {"name": "Credit Spreads (HY OAS)", "status": status, "note": note, "source_link": source_link, "action": action, "score_value": score}
+    return {"name": "Credit Spreads (HY OAS)", "value": value, "status": status, "note": note, "source_link": source_link, "action": action, "score_value": score}
 
 def score_spx(value):
     """S&P 500 Scoring - Measures US Equity Risk and General Market Sentiment (Micro Indicator)."""
@@ -579,7 +579,7 @@ def score_spx(value):
         action = "Avoid adding new equity exposure. Maintain existing hedges."
         score = 0.5
         
-    return {"name": "S&P 500 Index", "status": status, "note": note, "source_link": source_link, "action": action, "score_value": score}
+    return {"name": "S&P 500 Index", "value": value, "status": status, "note": note, "source_link": source_link, "action": action, "score_value": score}
 
 def score_asx200(value):
     """S&P/ASX 200 Scoring - Measures Australian Equity Risk and Domestic Sentiment (Micro Indicator)."""
@@ -604,37 +604,72 @@ def score_asx200(value):
         action = "Avoid adding new AU equity exposure. Monitor commodity prices (Iron Ore/Copper)."
         score = 0.5
         
-    return {"name": "S&P/ASX 200 Index", "status": status, "note": note, "source_link": source_link, "action": action, "score_value": score}
+    return {"name": "S&P/ASX 200 Index", "value": value, "status": status, "note": note, "source_link": source_link, "action": action, "score_value": score}
 
 def score_sofr_ois(value):
     """SOFR-OIS Spread Scoring - Measures US funding stress (Micro Indicator)."""
     
-    # CRITICAL FIX: Handle "N/A" and other string inputs to prevent KeyError
+    # 1. Handle String Inputs ("N/A")
     if isinstance(value, str):
-        return {
-            "name": "SOFR–OIS Spread", 
-            "status": "N/A", 
-            "note": "Data N/A: SOFR-OIS Spread requires external API.", 
-            "source_link": "https://fred.stlouisfed.org/series/OISSOFR", 
-            "action": "Cannot score due to missing data.", 
-            "score_value": 0.0, # Neutral score to allow sorting
-            "grade": 0 # Assuming 'grade' is used elsewhere, set to neutral
-        }
+        if value.upper() == 'N/A':
+            return {
+                "name": "SOFR–OIS Spread", 
+                "value": "N/A",  # Explicitly returns "N/A"
+                "status": "N/A", 
+                "note": "Data N/A: SOFR-OIS Spread requires external API.", 
+                "source_link": "https://fred.stlouisfed.org/series/OISSOFR", 
+                "action": "Cannot score due to missing data.", 
+                "score_value": 0.0, 
+                "grade": 0 
+            }
+        
+        # Handle unparseable strings (e.g., "Error" or gibberish)
+        try:
+            numeric_value = float(value)
+        except ValueError:
+            return {
+                "name": "SOFR–OIS Spread", 
+                "value": "Error", 
+                "status": "Error", 
+                "note": "Error: SOFR-OIS value could not be converted to number.", 
+                "source_link": "Error", 
+                "action": "Cannot score due to data error.", 
+                "score_value": 0.0,
+                "grade": 0
+            }
+        # If it was a numeric string, continue with the numeric value
+        value = numeric_value
+    
+    # If the input was a float/int, no conversion needed. If it was a numeric string, it's converted now.
 
-    # Convert to float for comparison if it was a numeric string before this check
-    try:
-        value = float(value)
-    except ValueError:
-        # Fallback if the string wasn't "N/A" but still failed conversion
-        return {
-            "name": "SOFR–OIS Spread", 
-            "status": "Error", 
-            "note": "Error: SOFR-OIS value could not be converted to number.", 
-            "source_link": "Error", 
-            "action": "Cannot score due to data error.", 
-            "score_value": 0.0,
-            "grade": 0
-        }
+    # --- Scoring Logic for numeric values ---
+    status = "Green"
+    note = f"SOFR-OIS spread at {value:.1f} bps. Funding markets are calm; spread within normal range."
+    action = "No change."
+    score = 0.0
+    source_link = "https://fred.stlouisfed.org/series/OISSOFR" 
+
+    if value >= 40.0:
+        status = "Red"
+        note = f"SOFR-OIS spread at {value:.1f} bps. Elevated funding market stress. Indicates acute counterparty risk / liquidity fear."
+        action = "Increase cash weighting and monitor closely for structural funding issues. Avoid adding credit risk."
+        score = 1.0 
+    elif value >= 25.0: 
+        status = "Amber"
+        note = f"SOFR-OIS spread at {value:.1f} bps. Spread widening; caution warranted in short-term funding markets."
+        action = "Monitor for acceleration above 40 bps. Check SOFR/Treasury basis."
+        score = 0.5
+        
+    return {
+        "name": "SOFR–OIS Spread", 
+        "value": f"{value:.2f}", # Return the numeric value as a formatted string for display
+        "status": status, 
+        "note": note, 
+        "source_link": source_link, 
+        "action": action, 
+        "score_value": score
+        # Note: Add 'grade' and 'color' if they are used by your dashboard
+    }
 
     # --- Scoring Logic for numeric values ---
     status = "Green"

@@ -1,8 +1,8 @@
 // scripts/atlas.js
 
-// 1. --- STATUS AND COLOR MAPPING UTILITY ---
+// --- 1. STATUS AND COLOR MAPPING UTILITY ---
 const getStatusDetails = (status) => {
-    const s = status.toUpperCase();
+    const s = status ? status.toUpperCase() : 'N/A';
 
     switch (s) {
         // --- 4-Tier Overall Statuses ---
@@ -13,6 +13,7 @@ const getStatusDetails = (status) => {
         case 'ELEVATED RISK':
             return { color: 'bg-amber-500 text-black border-amber-600', icon: '🟡', badge: 'bg-amber-100 text-amber-800', narrativeBadge: 'bg-amber-500' };
         case 'MONITOR (GREEN)':
+        case 'MONITOR':
             return { color: 'bg-green-600 text-white border-green-700', icon: '🟢', badge: 'bg-green-100 text-green-800', narrativeBadge: 'bg-green-600' };
         // --- 3-Tier Individual Indicator Statuses ---
         case 'RED':
@@ -21,13 +22,14 @@ const getStatusDetails = (status) => {
             return { color: 'border-amber-600', icon: '🟠', badge: 'bg-amber-100 text-amber-800', narrativeBadge: 'bg-amber-500' }; 
         case 'GREEN':
             return { color: 'border-green-600', icon: '✅', badge: 'bg-green-100 text-green-800', narrativeBadge: 'bg-green-600' };
+        case 'N/A':
         default:
             return { color: 'bg-gray-400 text-white border-gray-500', icon: '⚪', badge: 'bg-gray-100 text-gray-800', narrativeBadge: 'bg-gray-400' };
     }
 };
 
 
-// 2. --- DATA FETCHING ---
+// --- 2. DATA FETCHING ---
 const ATLAS_DATA_PATH = 'data/atlas-latest.json'; 
 
 async function fetchAtlasData() {
@@ -36,17 +38,17 @@ async function fetchAtlasData() {
         if (!response.ok) {
             if (response.status === 404) {
                 console.error(`Atlas data file not found at: ${ATLAS_DATA_PATH}`);
-                return null;
             }
             throw new Error(`HTTP error! Status: ${response.status}`);
         }
         return await response.json();
     } catch (error) {
         console.error("Failed to fetch Atlas data:", error);
+        // Show error message on the main status card
         if (document.getElementById('overallStatusCard')) {
              document.getElementById('overallStatusCard').innerHTML = `
                 <div class="text-center text-red-600 font-bold">
-                    ERROR: Could not load risk data. Check console for details (F12).
+                    ERROR: Could not load risk data. Check console (F12).
                 </div>
             `;
         }
@@ -55,7 +57,7 @@ async function fetchAtlasData() {
 }
 
 
-// 3. --- RENDERING FUNCTIONS (DASHBOARD) ---
+// --- 3. RENDERING FUNCTIONS (DASHBOARD) ---
 
 /**
  * Updates the overall status card and the NEW narrative summary.
@@ -86,7 +88,9 @@ function renderOverallStatus(overall) {
     // Update the NEW narrative summary on the main dashboard
     const narrativeSummary = document.getElementById('narrativeSummaryText');
     if (narrativeSummary) {
-        narrativeSummary.textContent = overall.narrative_summary || overall.composite_summary;
+        // Ensure only the top line of the daily narrative is shown for the summary
+        const summaryText = overall.daily_narrative ? overall.daily_narrative.split('\n')[0] : overall.narrative_summary;
+        narrativeSummary.textContent = summaryText || overall.composite_summary;
     }
     
     // Update the other side-bar elements
@@ -100,6 +104,7 @@ function renderOverallStatus(overall) {
 
 /**
  * Creates and inserts rows into the specified table (Macro or Micro).
+ * CRITICAL FIX: Ensures the indicator 'value' is displayed.
  * @param {string} tableId - 'macroTable' or 'microTable'.
  * @param {Array<object>} indicators - List of indicator objects.
  */
@@ -114,7 +119,11 @@ function renderIndicatorTable(tableId, indicators) {
         const row = document.createElement('tr');
         row.className = 'hover:bg-gray-50';
         
-        // Corrected logic to check for source_link, source, or url
+        // **NEW/FIXED LOGIC**: Ensure a value exists for display
+        // We assume your Python script now includes 'value' in the JSON object, 
+        // which can be a string ("17.44", "0.6548", or "N/A").
+        const indicatorValue = indicator.value || 'N/A'; 
+        
         const sourceURL = indicator.source_link || indicator.source || indicator.url;
         
         // Create the hyperlinked source tag only if a URL exists
@@ -123,12 +132,16 @@ function renderIndicatorTable(tableId, indicators) {
             : ''; 
 
         row.innerHTML = `
-            <td class="w-1/3 px-3 py-3 text-sm font-medium text-gray-900">
+            <td class="w-1/4 px-3 py-3 text-sm font-medium text-gray-900">
                 <span class="mr-2">${details.icon}</span>${indicator.name}
             </td>
+
+            <td class="px-3 py-3 text-sm font-semibold text-gray-700">
+                ${indicatorValue} </td>
+            
             <td class="w-24 px-3 py-3">
                 <span class="px-2 py-0.5 text-xs font-bold rounded-full uppercase ${details.badge}">
-                    ${indicator.status}
+                    ${indicator.status || 'N/A'}
                 </span>
             </td>
             <td class="px-3 py-3 text-sm text-gray-700">
@@ -143,7 +156,6 @@ function renderIndicatorTable(tableId, indicators) {
  * Renders simple bulleted lists for actions, watch list, and insights.
  */
 function renderList(listId, items, type) {
-    // ... (This function remains the same as previous versions) ...
     const list = document.getElementById(listId);
     if (!list) return;
     list.innerHTML = ''; 
@@ -156,10 +168,11 @@ function renderList(listId, items, type) {
         if (type === 'action') {
             icon = '✅ ';
         } else if (type === 'watch') {
-            text = `${item.name}: ${item.note}`;
+            // Note: Escalation Triggers list contains 'name' and 'note' fields
+            text = `${item.name}: ${item.note}`; 
             icon = '🚨 ';
         } else if (type === 'insight') {
-            text = item.text;
+            text = item.text; // Short Insight list contains 'text' field
             icon = '💡 ';
             li.className = 'text-sm italic';
         }
@@ -170,7 +183,7 @@ function renderList(listId, items, type) {
 }
 
 
-// 4. --- NARRATIVE PAGE RENDERING ---
+// --- 4. NARRATIVE PAGE RENDERING ---
 
 /**
  * Renders the full narrative content on the narrative.html page.
@@ -195,7 +208,7 @@ function initializeNarrativePage() {
         if (narrativeContent) {
             // Using a simple split/join to wrap paragraphs in <p> tags for better formatting
             const paragraphs = overall.daily_narrative ? overall.daily_narrative.split('\n\n') : ["No detailed narrative provided for this update."];
-            narrativeContent.innerHTML = paragraphs.map(p => `<p class="mb-4">${p}</p>`).join('');
+            narrativeContent.innerHTML = paragraphs.map(p => `<p class="mb-4">${p.trim()}</p>`).join('');
         }
         
         // Update footer date
@@ -204,7 +217,7 @@ function initializeNarrativePage() {
 }
 
 
-// 5. --- MAIN INITIALIZATION LOGIC ---
+// --- 5. MAIN INITIALIZATION LOGIC ---
 
 // Determine which initialization function to run based on the current page
 document.addEventListener('DOMContentLoaded', () => {

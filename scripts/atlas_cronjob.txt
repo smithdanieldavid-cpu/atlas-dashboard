@@ -1,1 +1,1 @@
-0 3 * * * /Users/dansmith/PersonalProjects/atlas-dashboard/.venv/bin/python /Users/dansmith/PersonalProjects/atlas-dashboard/update_atlas.py
+0 3 * * * /bin/bash -l -c '/Users/dansmith/PersonalProjects/atlas-dashboard/.venv/bin/python /Users/dansmith/PersonalProjects/atlas-dashboard/update_atlas.py'

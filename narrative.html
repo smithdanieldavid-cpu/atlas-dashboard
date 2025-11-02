@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atlas Dashboard - Daily Narrative</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="scripts/atlas.js" defer></script>
+</head>
+<body class="bg-gray-50 min-h-screen">
+
+    <header class="bg-white shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center">
+            <h1 class="text-xl font-bold text-gray-900">
+                <span class="text-indigo-600">AtlasDashboard</span> | Daily Narrative
+            </h1>
+            <nav class="flex space-x-4">
+                <a href="index.html" class="text-gray-600 hover:text-indigo-600 font-medium">Dashboard</a>
+                <a href="#" class="text-indigo-600 font-bold">Narrative</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        
+        <div class="bg-white shadow-xl rounded-lg p-8">
+            <div class="text-center mb-6">
+                <h2 id="narrativeTitle" class="text-3xl font-extrabold text-gray-900 mb-2">
+                    Loading Daily Analysis...
+                </h2>
+                <p class="text-sm text-gray-500" id="narrativeDate">
+                    Updated: --
+                </p>
+                <div class="mt-4 inline-block px-3 py-1 text-sm font-semibold rounded-full text-white" id="narrativeStatusBadge">
+                    --
+                </div>
+            </div>
+
+            <div class="prose max-w-none text-gray-700" id="fullNarrativeContent">
+                <p>Please wait while the daily analysis loads. If this message persists, check the console for data errors.</p>
+            </div>
+            
+            <div class="mt-8 text-center text-sm text-gray-500">
+                <p>--- End of Daily Atlas Narrative ---</p>
+            </div>
+        </div>
+
+    </main>
+    
+    <footer class="mt-12 py-4 bg-gray-100 text-center text-xs text-gray-500">
+        <p>Data Status: <span id="footerDate">Loading...</span> | <span id="footerDisclaimer">Risk metrics are indicative only.</span></p>
+    </footer>
+
+</body>
+</html>

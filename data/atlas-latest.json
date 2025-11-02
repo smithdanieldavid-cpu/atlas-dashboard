@@ -1,21 +1,21 @@
 {
     "overall": {
-        "date": "2025-11-02 13:35",
+        "date": "2025-11-02 14:28",
         "status": "ELEVATED RISK",
-        "score": 7.0,
+        "score": 6.5,
         "max_score": 15.5,
         "comment": "MODERATE RISK. Core volatility/duration triggers active. Proceed with caution; maintain protective hedges.",
-        "composite_summary": "Composite effective triggers \u2248 7.0 / 15.5 \u2192 ELEVATED RISK posture confirmed.",
+        "composite_summary": "Composite effective triggers \u2248 6.5 / 15.5 \u2192 ELEVATED RISK posture confirmed.",
         "narrative_summary": "**ELEVATED RISK** remains in place. Key volatility and FX triggers are active, warranting caution. Maintain defensive positioning and monitor micro-indicators for stabilization.",
-        "daily_narrative": "**Daily Atlas Analysis: ELEVATED RISK (7.0/15.5) | Sunday, November 02, 2025**\n\nThe risk environment is elevated but contained. While the majority of triggers are in the 'Amber' band, the sustained VIX and AUDUSD weakness suggest a tentative global risk appetite. This environment allows for flexibility but demands vigilance.\n\n**Key Action:** Maintain protective hedges. The focus should be on liquidity management and avoiding new high-beta positions. The key to de-risking will be a sustained drop in the VIX below 18.0 and a stabilization in the Funding Spread (SOFR\u2013OIS). Top triggers: VIX (US implied vol), US Government shutdown / fiscal risk, Consumer delinquencies (30-day)."
+        "daily_narrative": "**Daily Atlas Analysis: ELEVATED RISK (6.5/15.5) | Sunday, November 02, 2025**\n\nThe risk environment is elevated but contained. While the majority of triggers are in the 'Amber' band, the sustained VIX and AUDUSD weakness suggest a tentative global risk appetite. This environment allows for flexibility but demands vigilance.\n\n**Key Action:** Maintain protective hedges. The focus should be on liquidity management and avoiding new high-beta positions. The key to de-risking will be a sustained drop in the VIX below 18.0 and a stabilization in the Funding Spread (SOFR\u2013OIS). Top triggers: Gold (USD/oz), US Government shutdown / fiscal risk, Put/Call ratio (CBOE)."
     },
     "macro": [
         {
             "name": "VIX (US implied vol)",
-            "status": "Red",
-            "note": "~22.00 band. Elevated and episodic. Recent intraday spikes to ~22\u201323.",
+            "status": "Green",
+            "note": "VIX close at 17.44. Low implied volatility.",
             "source_link": "https://finance.yahoo.com/quote/%5EVIX/",
-            "action": "VIX \u2265 22 \u2192 partial de-risk; sustained >24\u201325 \u2192 escalate hedges / go to max Storm."
+            "action": "No change."
         },
         {
             "name": "US 3-yr Treasury yield",
@@ -40,29 +40,29 @@
         },
         {
             "name": "Gold (USD/oz)",
-            "status": "Amber",
-            "note": "Gold price at $2,000.00 USD/oz. Elevated status due to persistent geopolitical/fiscal risk.",
+            "status": "Red",
+            "note": "Gold remains bid\u2014current price at $3,982.20 USD/oz. Institutional safe-haven signal.",
             "source_link": "https://www.reuters.com/markets/commodities/gold/",
-            "action": "Monitor price action and central bank activity."
+            "action": "Consider/maintain moderate gold hedges (5\u201310%)."
         },
         {
             "name": "EURUSD",
             "status": "Green",
-            "note": "EURUSD at 1.1534. Normal FX conditions; US Dollar is stable.",
+            "note": "EURUSD at 1.1400. Normal FX conditions; US Dollar is stable.",
             "source_link": "https://www.tradingview.com/symbols/EURUSD/",
             "action": "No change."
         },
         {
             "name": "WTI Crude Oil",
             "status": "Green",
-            "note": "WTI Crude at $72.56/bbl. Normal price range, favorable for growth.",
+            "note": "WTI Crude at $60.98/bbl. Normal price range, favorable for growth.",
             "source_link": "https://www.eia.gov/dnav/pet/hist/rwtc.htm",
             "action": "No change."
         },
         {
             "name": "AUDUSD",
             "status": "Amber",
-            "note": "AUDUSD at 0.6543. AUD is consolidating. Global risk appetite is tentative.",
+            "note": "AUDUSD at 0.6548. AUD is consolidating. Global risk appetite is tentative.",
             "source_link": "https://www.tradingview.com/symbols/AUDUSD/",
             "action": "Monitor closely for breaks below 0.6500."
         },
@@ -98,38 +98,39 @@
         },
         {
             "name": "Put/Call ratio (CBOE)",
-            "status": "Amber",
-            "note": "P/C ratio at ~0.90 (hedging bias).",
+            "status": "Red",
+            "note": "P/C ratio at ~13.82. Extreme hedging and fear (Panic).",
             "source_link": "https://www.cboe.com/us/options/market_statistics/daily/",
-            "action": ">1.2 \u2192 panic; <0.7 \u2192 complacency."
+            "action": "Tactically use extreme fear as a potential (short-term) contrarian entry signal."
         },
         {
             "name": "Small-cap / Large-cap ratio",
-            "status": "Amber",
-            "note": "Ratio at ~0.42. Small-caps under pressure; monitor market breadth.",
+            "status": "Red",
+            "note": "Ratio at ~0.36 \u2014 small-caps underperforming.",
             "source_link": "Reference Russell 2000 / S&P 500 (placeholder)",
-            "action": "Monitor closely for breaks below 0.40."
+            "action": "<0.40 \u2192 strong red; internals fragile."
         },
         {
             "name": "Earnings-revision breadth",
             "status": "Amber",
             "note": "~-2% net revisions. Earnings weakening.",
             "source_link": "FactSet / Bloomberg consensus data (placeholder)",
-            "action": "<-5% \u2192 red (earnings weakening)."
+            "action": "Monitor earnings forecasts closely."
         },
         {
-            "name": "Leverage (margin debt YoY)",
-            "status": "Green",
-            "note": "~+20% YoY proxies (elevated but not extreme).",
-            "source_link": "FINRA Margin Debt data (placeholder)",
-            "action": ">+25% \u2192 amber."
+            "name": "Margin Debt YoY",
+            "status": "N/A",
+            "note": "Data N/A: Margin Debt YoY requires external data source.",
+            "source_link": "FINRA Monthly Margin Statistics (placeholder)",
+            "action": "Cannot score due to missing data.",
+            "grade": 0
         },
         {
             "name": "Bank CDS / financial stress",
             "status": "Amber",
             "note": "Bank stress proxies mildly elevated at 80 basis.",
             "source_link": "Credit Default Swaps / Financial Stress Index (placeholder)",
-            "action": "<80 base \u2192 red (placeholder for specific bank stress index)."
+            "action": "Monitor credit spreads closely."
         },
         {
             "name": "Consumer delinquencies (30-day)",
@@ -147,17 +148,17 @@
         },
         {
             "name": "S&P 500 Index",
-            "status": "Amber",
-            "note": "S&P 500 Index at 4,400. Moderate pullback from highs. Equity risk is elevated.",
+            "status": "Green",
+            "note": "S&P 500 Index at 6,840. Trading near highs, risk-on sentiment prevailing.",
             "source_link": "https://finance.yahoo.com/quote/%5EGSPC",
-            "action": "Avoid adding new equity exposure. Maintain existing hedges."
+            "action": "No change."
         },
         {
             "name": "S&P/ASX 200 Index",
-            "status": "Amber",
-            "note": "ASX 200 Index at 8,600. Moderate pullback from highs. Australian equity risk is elevated.",
+            "status": "Green",
+            "note": "ASX 200 Index at 8,882. Trading near highs, bullish sentiment prevailing.",
             "source_link": "https://finance.yahoo.com/quote/%5EAXJO",
-            "action": "Avoid adding new AU equity exposure. Monitor commodity prices (Iron Ore/Copper)."
+            "action": "No change."
         }
     ],
     "actions": [

@@ -1,70 +1,70 @@
 {
     "overall": {
-        "date": "2025-11-02 12:21",
+        "date": "2025-11-02 12:23",
         "status": "ELEVATED RISK",
-        "score": 6.75,
+        "score": 6.0,
         "max_score": 15.5,
         "comment": "MODERATE RISK. Core volatility/duration triggers active. Proceed with caution; maintain protective hedges.",
-        "composite_summary": "Composite effective triggers \u2248 6.8 / 15.5 \u2192 ELEVATED RISK posture confirmed.",
+        "composite_summary": "Composite effective triggers \u2248 6.0 / 15.5 \u2192 ELEVATED RISK posture confirmed.",
         "narrative_summary": "**ELEVATED RISK** remains in place. Key volatility and FX triggers are active, warranting caution. Maintain defensive positioning and monitor micro-indicators for stabilization.",
-        "daily_narrative": "**Daily Atlas Analysis: ELEVATED RISK (6.8/15.5) | Sunday, November 02, 2025**\n\nThe risk environment is elevated but contained. While the majority of triggers are in the 'Amber' band, the sustained VIX and AUDUSD weakness suggest a tentative global risk appetite. This environment allows for flexibility but demands vigilance.\n\n**Key Action:** Maintain protective hedges. The focus should be on liquidity management and avoiding new high-beta positions. The key to de-risking will be a sustained drop in the VIX below 18.0 and a stabilization in the Funding Spread (SOFR\u2013OIS). Top triggers: US Government shutdown / fiscal risk, Consumer delinquencies (30-day), S&P 500 Index."
+        "daily_narrative": "**Daily Atlas Analysis: ELEVATED RISK (6.0/15.5) | Sunday, November 02, 2025**\n\nThe risk environment is elevated but contained. While the majority of triggers are in the 'Amber' band, the sustained VIX and AUDUSD weakness suggest a tentative global risk appetite. This environment allows for flexibility but demands vigilance.\n\n**Key Action:** Maintain protective hedges. The focus should be on liquidity management and avoiding new high-beta positions. The key to de-risking will be a sustained drop in the VIX below 18.0 and a stabilization in the Funding Spread (SOFR\u2013OIS). Top triggers: US Government shutdown / fiscal risk, Consumer delinquencies (30-day), S&P/ASX 200 Index."
     },
     "macro": [
         {
             "name": "VIX (US implied vol)",
             "status": "Amber",
-            "note": "~21.41 band. Volatility is elevated but contained.",
+            "note": "~19.78 band. Volatility is elevated but contained.",
             "source_link": "https://finance.yahoo.com/quote/%5EVIX/",
             "action": "Monitor closely for breaks above 22."
         },
         {
             "name": "US 3-yr Treasury yield",
             "status": "Amber",
-            "note": "~3.50% (latest daily Treasury series / market quotes). Medium-term rate pressure.",
+            "note": "~3.61% (latest daily Treasury series / market quotes). Medium-term rate pressure.",
             "source_link": "https://www.treasury.gov/resource-center/data-chart-center/interest-rates/",
             "action": "Avoid intermediate locks; prefer short/floating rate instruments."
         },
         {
             "name": "US 10-yr Treasury yield",
             "status": "Amber",
-            "note": "~4.30% (latest market quotes / curve prints). Elevated yields.",
+            "note": "~4.11% (latest market quotes / curve prints). Elevated yields.",
             "source_link": "https://www.treasury.gov/resource-center/data-chart-center/interest-rates/Pages/TextView.aspx?data=yield",
             "action": "Watch the Atlas pivot at 4.75%; favour short duration."
         },
         {
             "name": "US 30-yr Treasury yield",
             "status": "Amber",
-            "note": "~4.25% (latest market quotes). Elevated long-term yields reflecting fiscal risk/inflation concerns.",
+            "note": "~4.65% (latest market quotes). Elevated long-term yields reflecting fiscal risk/inflation concerns.",
             "source_link": "https://www.treasury.gov/resource-center/data-chart-center/interest-rates/",
             "action": "Watch the 5.0% threshold. Limit long duration locks."
         },
         {
             "name": "Gold (USD/oz)",
             "status": "Amber",
-            "note": "Gold price at $2,049.59 USD/oz. Elevated status due to persistent geopolitical/fiscal risk.",
+            "note": "Gold price at $2,077.09 USD/oz. Elevated status due to persistent geopolitical/fiscal risk.",
             "source_link": "https://www.reuters.com/markets/commodities/gold/",
             "action": "Monitor price action and central bank activity."
         },
         {
             "name": "EURUSD",
             "status": "Green",
-            "note": "EURUSD at 1.1230. Normal FX conditions; US Dollar is stable.",
+            "note": "EURUSD at 1.1519. Normal FX conditions; US Dollar is stable.",
             "source_link": "https://www.tradingview.com/symbols/EURUSD/",
             "action": "No change."
         },
         {
             "name": "WTI Crude Oil",
             "status": "Green",
-            "note": "WTI Crude at $68.91/bbl. Normal price range, favorable for growth.",
+            "note": "WTI Crude at $68.43/bbl. Normal price range, favorable for growth.",
             "source_link": "https://www.eia.gov/dnav/pet/hist/rwtc.htm",
             "action": "No change."
         },
         {
             "name": "AUDUSD",
-            "status": "Amber",
-            "note": "AUDUSD at 0.6545. AUD is consolidating. Global risk appetite is tentative.",
+            "status": "Green",
+            "note": "AUDUSD at 0.7373. Favorable FX conditions; AUD reflects risk-on sentiment.",
             "source_link": "https://www.tradingview.com/symbols/AUDUSD/",
-            "action": "Monitor closely for breaks below 0.6500."
+            "action": "No change."
         },
         {
             "name": "US Government shutdown / fiscal risk",
@@ -76,7 +76,7 @@
         {
             "name": "US Treasury liquidity (Dealer/ADTV)",
             "status": "Green",
-            "note": "Dealer ADTV at $96.3B. Market functioning, no broad dealer freeze flagged.",
+            "note": "Dealer ADTV at $97.7B. Market functioning, no broad dealer freeze flagged.",
             "source_link": "U.S. Department of the Treasury (placeholder)",
             "action": "Liquidity ok \u2014 price risk dominates."
         }
@@ -92,49 +92,49 @@
         {
             "name": "SOFR\u2013OIS Spread",
             "status": "Green",
-            "note": "SOFR-OIS spread at 12.1 bps. Funding markets are calm; spread within normal range.",
+            "note": "SOFR-OIS spread at 23.8 bps. Funding markets are calm; spread within normal range.",
             "source_link": "https://fred.stlouisfed.org/series/OISSOFR",
             "action": "No change."
         },
         {
             "name": "Put/Call ratio (CBOE)",
             "status": "Amber",
-            "note": "P/C ratio at ~0.88 (hedging bias).",
+            "note": "P/C ratio at ~1.18 (hedging bias).",
             "source_link": "https://www.cboe.com/us/options/market_statistics/daily/",
             "action": ">1.2 \u2192 panic; <0.7 \u2192 complacency."
         },
         {
             "name": "Small-cap / Large-cap ratio",
-            "status": "Green",
-            "note": "Ratio at ~0.50. Small-caps performing well; strong market internals.",
+            "status": "Amber",
+            "note": "Ratio at ~0.40. Small-caps under pressure; monitor market breadth.",
             "source_link": "Reference Russell 2000 / S&P 500 (placeholder)",
-            "action": "No change."
+            "action": "Monitor closely for breaks below 0.40."
         },
         {
             "name": "Earnings-revision breadth",
             "status": "Amber",
-            "note": "~-1% net revisions. Earnings weakening.",
+            "note": "~-5% net revisions. Earnings weakening.",
             "source_link": "FactSet / Bloomberg consensus data (placeholder)",
             "action": "<-5% \u2192 red (earnings weakening)."
         },
         {
             "name": "Leverage (margin debt YoY)",
-            "status": "Amber",
-            "note": "~+26% YoY. Leverage is building up; elevated risk of episodic volatility.",
+            "status": "Green",
+            "note": "~+15% YoY proxies (elevated but not extreme).",
             "source_link": "FINRA Margin Debt data (placeholder)",
-            "action": "Monitor closely for a break above 30%."
+            "action": ">+25% \u2192 amber."
         },
         {
             "name": "Bank CDS / financial stress",
             "status": "Amber",
-            "note": "Bank stress proxies mildly elevated at 81 basis.",
+            "note": "Bank stress proxies mildly elevated at 76 basis.",
             "source_link": "Credit Default Swaps / Financial Stress Index (placeholder)",
             "action": "<80 base \u2192 red (placeholder for specific bank stress index)."
         },
         {
             "name": "Consumer delinquencies (30-day)",
             "status": "Red",
-            "note": "~3.4% \u2014 household stress is acute. Significant pressure on consumer-facing businesses.",
+            "note": "~3.6% \u2014 household stress is acute. Significant pressure on consumer-facing businesses.",
             "source_link": "NY Fed Consumer Credit Panel / credit card data (placeholder)",
             "action": "Avoid cyclical consumer stocks and local businesses dependent on household spending."
         },
@@ -147,15 +147,15 @@
         },
         {
             "name": "S&P 500 Index",
-            "status": "Red",
-            "note": "S&P 500 Index at 4,053. Aggressive sell-off/Correction >12%. Structural equity risk is high.",
+            "status": "Amber",
+            "note": "S&P 500 Index at 4,498. Moderate pullback from highs. Equity risk is elevated.",
             "source_link": "https://finance.yahoo.com/quote/%5EGSPC",
-            "action": "Sell/Hedge significant equity exposure. Wait for VIX confirmation below 22."
+            "action": "Avoid adding new equity exposure. Maintain existing hedges."
         },
         {
             "name": "S&P/ASX 200 Index",
             "status": "Red",
-            "note": "ASX 200 Index at 8,164. Significant sell-off / Correction >10%. Structural equity risk is high, particularly in Financials/Materials.",
+            "note": "ASX 200 Index at 8,239. Significant sell-off / Correction >10%. Structural equity risk is high, particularly in Financials/Materials.",
             "source_link": "https://finance.yahoo.com/quote/%5EAXJO",
             "action": "Sell/Hedge significant AU equity exposure. Wait for VIX/HY OAS confirmation."
         }

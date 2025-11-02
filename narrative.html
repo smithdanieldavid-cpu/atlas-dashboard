@@ -1,56 +1,97 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Atlas Dashboard - Daily Narrative</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Atlas Narrative — Daily Risk Posture</title>
+
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="style.css">
-    <script src="scripts/atlas.js" defer></script>
+    <link rel="stylesheet" href="style.css" />
 </head>
-<body class="bg-gray-50 min-h-screen">
 
-    <header class="bg-white shadow-md">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center">
-            <h1 class="text-xl font-bold text-gray-900">
-                <span class="text-indigo-600">AtlasDashboard</span> | Daily Narrative
-            </h1>
-            <nav class="flex space-x-4">
-                <a href="index.html" class="text-gray-600 hover:text-indigo-600 font-medium">Dashboard</a>
-                <a href="#" class="text-indigo-600 font-bold">Narrative</a>
-            </nav>
-        </div>
-    </header>
+<body class="bg-gray-50 text-gray-800 antialiased">
 
-    <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        
-        <div class="bg-white shadow-xl rounded-lg p-8">
-            <div class="text-center mb-6">
-                <h2 id="narrativeTitle" class="text-3xl font-extrabold text-gray-900 mb-2">
-                    Loading Daily Analysis...
-                </h2>
-                <p class="text-sm text-gray-500" id="narrativeDate">
-                    Updated: --
-                </p>
-                <div class="mt-4 inline-block px-3 py-1 text-sm font-semibold rounded-full text-white" id="narrativeStatusBadge">
-                    --
+    <header class="fixed top-0 w-full z-50 bg-white shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-14 relative">
+
+                <a href="/" class="flex-shrink-0 flex flex-col items-start justify-center h-full">
+                    <div class="flex items-center">
+                        <svg class="w-6 h-6 mr-2 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="12" cy="12" r="10" stroke-width="2" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 2a15.3 15.3 0 0110 10M2 12a15.3 15.3 0 0010 10M2 12h20" />
+                            <rect x="7" y="14" width="2" height="4" rx="1" fill="currentColor" />
+                            <rect x="11" y="12" width="2" height="6" rx="1" fill="currentColor" />
+                            <rect x="15" y="15" width="2" height="3" rx="1" fill="currentColor" />
+                        </svg>
+                        <span class="font-extrabold text-xl tracking-wide text-gray-900">
+                            Atlas<span class="text-indigo-600">Dashboard</span>
+                        </span>
+                    </div>
+                </a>
+
+                <div class="flex space-x-6 h-full">
+
+                    <a href="/" class="flex items-center text-sm font-medium text-gray-500 hover:text-gray-900 
+                              border-b-2 border-transparent hover:border-indigo-600 transition duration-150 ease-in-out">
+                        Dashboard
+                    </a>
+                    
+                    <a href="narrative.html" class="flex items-center text-sm font-bold text-gray-900 
+                              border-b-2 border-indigo-600 transition duration-150 ease-in-out">
+                        Narrative
+                    </a>
+
+                    <a href="archive.html" class="flex items-center text-sm font-medium text-gray-500 hover:text-gray-900 
+                              border-b-2 border-transparent hover:border-indigo-600 transition duration-150 ease-in-out">
+                        Archive
+                    </a>
+                </div>
+
+                <div class="flex items-center">
+                    <div id="bannerBadge" class="self-start sm:self-center">
+                    </div>
                 </div>
             </div>
+        </div>
+    </header>
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-14">
+        <header class="mb-8 pb-4 border-b border-gray-200">
+            <h1 id="narrativeTitle" class="text-3xl font-extrabold text-gray-900">Risk Posture Analysis</h1>
+            <p id="narrativeDate" class="text-sm text-gray-500 mt-1">Updated: Loading...</p>
+            <span id="narrativeStatusBadge" class="mt-4 inline-block px-3 py-1 text-sm font-bold rounded-full text-white bg-gray-400">Loading Status</span>
+        </header>
 
-            <div class="prose max-w-none text-gray-700" id="fullNarrativeContent">
-                <p>Please wait while the daily analysis loads. If this message persists, check the console for data errors.</p>
-            </div>
-            
-            <div class="mt-8 text-center text-sm text-gray-500">
-                <p>--- End of Daily Atlas Narrative ---</p>
+        <main id="fullNarrativeContent" class="bg-white rounded-xl shadow p-6 lg:p-8 text-lg text-gray-700 leading-relaxed">
+            <p>Loading the daily analysis...</p>
+        </main>
+    </div>
+
+    <nav class="fixed bottom-0 w-full z-50 bg-white shadow-top">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-12 text-xs text-gray-500">
+                
+                <div class="hidden sm:block">
+                    Disclaimer: Not financial advice. Data for informational purposes only. Not financial advice.
+                </div>
+                
+                <div class="flex items-center space-x-4">
+                    <button id="copyShareLink" class="text-indigo-600 hover:text-indigo-800 font-medium transition duration-150 ease-in-out flex items-center">
+                        <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.935 9 12.49 9 12c0-.51-.114-.955-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l-3 3m3-3l3-3m-9 3a3 3 0 110-2.684m0 2.684l-3-3m3 3l3-3m9-2c0 .51-.114.955-.316 1.342m0-2.684a3 3 0 100 2.684m0 2.684l-3 3m3-3l3-3m-9-2a3 3 0 100 2.684m0-2.684a3 3 0 110 2.684m0 2.684l-3 3m3-3l3-3"/>
+                        </svg>
+                        Copy Share Link
+                    </button>
+                    <a href="#" class="hover:text-gray-800 hidden md:block">Twitter</a>
+                    <a href="#" class="hover:text-gray-800 hidden md:block">LinkedIn</a>
+                </div>
             </div>
         </div>
-
-    </main>
-    
-    <footer class="mt-12 py-4 bg-gray-100 text-center text-xs text-gray-500">
-        <p>Data Status: <span id="footerDate">Loading...</span> | <span id="footerDisclaimer">Risk metrics are indicative only.</span></p>
-    </footer>
-
+    </nav>
+    <script src="scripts/atlas.js" defer></script>
 </body>
+
 </html>

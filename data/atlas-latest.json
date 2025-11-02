@@ -1,17 +1,18 @@
 {
     "overall": {
-        "date": "2025-11-02 14:28",
+        "date": "2025-11-02 15:08",
         "status": "ELEVATED RISK",
         "score": 6.5,
         "max_score": 15.5,
         "comment": "MODERATE RISK. Core volatility/duration triggers active. Proceed with caution; maintain protective hedges.",
         "composite_summary": "Composite effective triggers \u2248 6.5 / 15.5 \u2192 ELEVATED RISK posture confirmed.",
         "narrative_summary": "**ELEVATED RISK** remains in place. Key volatility and FX triggers are active, warranting caution. Maintain defensive positioning and monitor micro-indicators for stabilization.",
-        "daily_narrative": "**Daily Atlas Analysis: ELEVATED RISK (6.5/15.5) | Sunday, November 02, 2025**\n\nThe risk environment is elevated but contained. While the majority of triggers are in the 'Amber' band, the sustained VIX and AUDUSD weakness suggest a tentative global risk appetite. This environment allows for flexibility but demands vigilance.\n\n**Key Action:** Maintain protective hedges. The focus should be on liquidity management and avoiding new high-beta positions. The key to de-risking will be a sustained drop in the VIX below 18.0 and a stabilization in the Funding Spread (SOFR\u2013OIS). Top triggers: Gold (USD/oz), US Government shutdown / fiscal risk, Put/Call ratio (CBOE)."
+        "daily_narrative": "**Daily Atlas Analysis: ELEVATED RISK (6.5/15.5) | Sunday, November 02, 2025**\n\nThe risk environment is elevated but contained. While the majority of triggers are in the 'Amber' band, the sustained VIX and AUDUSD weakness suggest a tentative global risk appetite. This environment allows for flexibility but demands vigilance.\n\n**Key Action:** Maintain protective hedges. The focus should be on liquidity management and avoiding new high-beta positions. The key to de-risking will be a sustained drop in the VIX below 18.0 and a stabilization in the Funding Spread (SOFR\u2013OIS). Top triggers: US Government shutdown / fiscal risk, Put/Call ratio (CBOE), Small-cap / Large-cap ratio."
     },
     "macro": [
         {
             "name": "VIX (US implied vol)",
+            "value": 17.440000534057617,
             "status": "Green",
             "note": "VIX close at 17.44. Low implied volatility.",
             "source_link": "https://finance.yahoo.com/quote/%5EVIX/",
@@ -19,6 +20,7 @@
         },
         {
             "name": "US 3-yr Treasury yield",
+            "value": 3.61,
             "status": "Amber",
             "note": "~3.61% (latest daily Treasury series / market quotes). Medium-term rate pressure.",
             "source_link": "https://www.treasury.gov/resource-center/data-chart-center/interest-rates/",
@@ -26,6 +28,7 @@
         },
         {
             "name": "US 10-yr Treasury yield",
+            "value": 4.11,
             "status": "Amber",
             "note": "~4.11% (latest market quotes / curve prints). Elevated yields.",
             "source_link": "https://www.treasury.gov/resource-center/data-chart-center/interest-rates/Pages/TextView.aspx?data=yield",
@@ -33,6 +36,7 @@
         },
         {
             "name": "US 30-yr Treasury yield",
+            "value": 4.65,
             "status": "Amber",
             "note": "~4.65% (latest market quotes). Elevated long-term yields reflecting fiscal risk/inflation concerns.",
             "source_link": "https://www.treasury.gov/resource-center/data-chart-center/interest-rates/",
@@ -40,27 +44,31 @@
         },
         {
             "name": "Gold (USD/oz)",
-            "status": "Red",
-            "note": "Gold remains bid\u2014current price at $3,982.20 USD/oz. Institutional safe-haven signal.",
+            "value": 2000.0,
+            "status": "Amber",
+            "note": "Gold price at $2,000.00 USD/oz. Elevated status due to persistent geopolitical/fiscal risk.",
             "source_link": "https://www.reuters.com/markets/commodities/gold/",
-            "action": "Consider/maintain moderate gold hedges (5\u201310%)."
+            "action": "Monitor price action and central bank activity."
         },
         {
             "name": "EURUSD",
+            "value": 1.1534,
             "status": "Green",
-            "note": "EURUSD at 1.1400. Normal FX conditions; US Dollar is stable.",
+            "note": "EURUSD at 1.1534. Normal FX conditions; US Dollar is stable.",
             "source_link": "https://www.tradingview.com/symbols/EURUSD/",
             "action": "No change."
         },
         {
             "name": "WTI Crude Oil",
-            "status": "Green",
-            "note": "WTI Crude at $60.98/bbl. Normal price range, favorable for growth.",
+            "value": 80.0,
+            "status": "Amber",
+            "note": "WTI Crude at $80.00/bbl. Elevated price range, watch for breaks above $90/bbl.",
             "source_link": "https://www.eia.gov/dnav/pet/hist/rwtc.htm",
-            "action": "No change."
+            "action": "Ensure portfolio is hedged against inflation risks."
         },
         {
             "name": "AUDUSD",
+            "value": 0.6547930836677551,
             "status": "Amber",
             "note": "AUDUSD at 0.6548. AUD is consolidating. Global risk appetite is tentative.",
             "source_link": "https://www.tradingview.com/symbols/AUDUSD/",
@@ -75,6 +83,7 @@
         },
         {
             "name": "US Treasury liquidity (Dealer/ADTV)",
+            "value": "100.0",
             "status": "Green",
             "note": "Dealer ADTV at $100.0B. Market functioning, no broad dealer freeze flagged.",
             "source_link": "U.S. Department of the Treasury (placeholder)",
@@ -84,6 +93,7 @@
     "micro": [
         {
             "name": "Credit Spreads (HY OAS)",
+            "value": 2.85,
             "status": "Green",
             "note": "HY OAS at 3 bps. Normal risk conditions.",
             "source_link": "https://fred.stlouisfed.org/series/BAMLH0A0HYM2",
@@ -91,6 +101,7 @@
         },
         {
             "name": "SOFR\u2013OIS Spread",
+            "value": "25.00",
             "status": "Amber",
             "note": "SOFR-OIS spread at 25.0 bps. Spread widening; caution warranted in short-term funding markets.",
             "source_link": "https://fred.stlouisfed.org/series/OISSOFR",
@@ -98,6 +109,7 @@
         },
         {
             "name": "Put/Call ratio (CBOE)",
+            "value": 13.82,
             "status": "Red",
             "note": "P/C ratio at ~13.82. Extreme hedging and fear (Panic).",
             "source_link": "https://www.cboe.com/us/options/market_statistics/daily/",
@@ -105,6 +117,7 @@
         },
         {
             "name": "Small-cap / Large-cap ratio",
+            "value": 0.362471830065966,
             "status": "Red",
             "note": "Ratio at ~0.36 \u2014 small-caps underperforming.",
             "source_link": "Reference Russell 2000 / S&P 500 (placeholder)",
@@ -112,6 +125,7 @@
         },
         {
             "name": "Earnings-revision breadth",
+            "value": "-2.0%",
             "status": "Amber",
             "note": "~-2% net revisions. Earnings weakening.",
             "source_link": "FactSet / Bloomberg consensus data (placeholder)",
@@ -119,6 +133,7 @@
         },
         {
             "name": "Margin Debt YoY",
+            "value": "N/A",
             "status": "N/A",
             "note": "Data N/A: Margin Debt YoY requires external data source.",
             "source_link": "FINRA Monthly Margin Statistics (placeholder)",
@@ -127,6 +142,7 @@
         },
         {
             "name": "Bank CDS / financial stress",
+            "value": "80",
             "status": "Amber",
             "note": "Bank stress proxies mildly elevated at 80 basis.",
             "source_link": "Credit Default Swaps / Financial Stress Index (placeholder)",
@@ -134,6 +150,7 @@
         },
         {
             "name": "Consumer delinquencies (30-day)",
+            "value": "3.00%",
             "status": "Red",
             "note": "~3.0% \u2014 household stress is acute. Significant pressure on consumer-facing businesses.",
             "source_link": "NY Fed Consumer Credit Panel / credit card data (placeholder)",
@@ -141,6 +158,7 @@
         },
         {
             "name": "Geopolitical (China/Russia/region)",
+            "value": 0.5,
             "status": "Amber",
             "note": "Tensions elevated (e.g., Ukraine/China/Middle East); still monitor escalation.",
             "source_link": "Manual Qualitative Assessment",
@@ -148,6 +166,7 @@
         },
         {
             "name": "S&P 500 Index",
+            "value": 6840.2001953125,
             "status": "Green",
             "note": "S&P 500 Index at 6,840. Trading near highs, risk-on sentiment prevailing.",
             "source_link": "https://finance.yahoo.com/quote/%5EGSPC",
@@ -155,6 +174,7 @@
         },
         {
             "name": "S&P/ASX 200 Index",
+            "value": 8881.900390625,
             "status": "Green",
             "note": "ASX 200 Index at 8,882. Trading near highs, bullish sentiment prevailing.",
             "source_link": "https://finance.yahoo.com/quote/%5EAXJO",

@@ -1,5 +1,19 @@
 [
     {
+        "date": "2025-11-04 09:41",
+        "status": "\ud83d\udfe1 ELEVATED RISK",
+        "score": 6.0,
+        "comment": "MODERATE RISK. Core volatility/duration triggers active. Proceed with caution; maintain protective hedges.",
+        "daily_narrative": "The Atlas Dashboard signals an \"ELEVATED RISK\" environment, scoring 6.0 out of 22.5, urging investors to \"proceed with caution\" and \"maintain protective hedges.\" While headline systemic indicators like the VIX, High Yield OAS, and Bank CDS remain calm, a deeper dive reveals significant underlying vulnerabilities. Duration risk is pronounced, with 3-year, 10-year, and 30-year Treasury yields all elevated, reflecting persistent rate pressure and inflation concerns. Sentiment is mixed; major equity indices like the S&P 500 show bullish sentiment, yet market internals are fragile, evidenced by small-cap underperformance and a high Put/Call ratio suggesting underlying bearishness or contrarian opportunity. Critically, extreme leverage growth in Margin Debt (32.9% YoY) poses a substantial \"structural equity risk\" and potential for liquidation.\n\nGiven this backdrop, a disciplined approach is paramount. Investors should rebalance cash allocations and closely monitor credit markets. The elevated yield environment necessitates favoring short-duration and floating-rate instruments while limiting exposure to long-duration assets. Furthermore, the fragile market internals and extreme leverage warrant avoiding growth stocks, increasing short hedges, and preparing for potential structural equity corrections. With rising consumer delinquencies, a preference for defensive consumer sectors is advised. The overall message is clear: despite a seemingly calm surface, underlying risks are accumulating, demanding a defensive and vigilant portfolio posture."
+    },
+    {
+        "date": "2025-11-04 09:28",
+        "status": "\ud83d\udfe1 ELEVATED RISK",
+        "score": 6.0,
+        "comment": "MODERATE RISK. Core volatility/duration triggers active. Proceed with caution; maintain protective hedges.",
+        "daily_narrative": "Atlas's dashboard indicates an \"ELEVATED RISK\" environment, registering a moderate score of 6.0. While headline indicators such as the VIX, SOFR-OIS spread, and High Yield OAS suggest a calm market with no immediate systemic alarm, a deeper dive reveals significant underlying fragilities. Sentiment appears mixed; broad equity indices remain bullish, yet a high put/call ratio hints at underlying bearishness. More critically, rising long-end Treasury yields signal persistent duration risk and inflation concerns, while the sharp rally in gold further suggests rising systemic or inflation expectations.\n\nFor the disciplined investor, the current posture demands caution and protective measures. Key indicators point to structural weaknesses within the equity market, notably the underperformance of small-caps and an alarming 32.9% year-over-year surge in margin debt, implying high liquidation risk. Furthermore, rising consumer delinquencies warrant close monitoring of household debt and a preference for defensive consumer sectors. Given these signals, Atlas recommends favoring short-duration instruments, avoiding growth stocks, increasing short hedges to prepare for potential structural equity risk, and rebalancing cash allocations while closely monitoring credit markets."
+    },
+    {
         "date": "2025-11-04 09:14",
         "status": "\ud83d\udfe1 ELEVATED RISK",
         "score": 5.5,

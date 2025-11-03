@@ -1,144 +1,55 @@
 {
     "overall": {
-        "date": "2025-11-04 09:14",
-        "status": "\ud83d\udfe1 ELEVATED RISK",
-        "score": 5.5,
-        "max_score": 22.5,
-        "comment": "MODERATE RISK. Core volatility/duration triggers active. Proceed with caution; maintain protective hedges.",
-        "composite_summary": "Overall risk posture is stable, but watch for credit signals.",
-        "daily_narrative": "The Atlas Dashboard currently signals an **ELEVATED RISK** posture, with a score of 5.5, indicating \"MODERATE RISK\" where \"core volatility/duration triggers are active.\" While broad equity indices like the S&P 500 and ASX 200 reflect bullish sentiment and the VIX remains low, several amber and red flags suggest underlying fragilities. Gold's sharp rally points to rising inflation expectations or systemic concerns, and all key Treasury yields (3Y, 10Y, 30Y) are elevated, signaling persistent rate and fiscal risks. Critically, market internals show significant stress, with small-caps underperforming large-caps, and consumer delinquencies are on a concerning upward trend, indicating potential strain in household finances.\n\nDespite the apparent calm in credit markets, with tight HY OAS, SOFR-OIS, and Bank CDS spreads, the confluence of elevated long-term yields, deteriorating small-cap performance, and rising consumer stress necessitates a disciplined and defensive stance. Investors should **proceed with caution, maintain protective hedges, and rebalance cash allocations.** Specifically, favor short-duration and floating-rate instruments over intermediate or long-duration locks, avoid growth stocks given the fragile market internals, and consider defensive positioning within consumer sectors. Close monitoring of credit signals remains paramount to navigate these subtle but significant underlying risks.",
-        "escalation_triggers": [
-            {
-                "name": "Implied Volatility (VIX)",
-                "current_reading": "17.2",
-                "alarm_threshold": "VIX >= 22.0 (High Fear)"
-            },
-            {
-                "name": "High Yield OAS (Credit)",
-                "current_reading": "3",
-                "alarm_threshold": "OAS >= 400 bps (Severe Stress)"
-            },
-            {
-                "name": "SOFR-OIS Spread (Funding)",
-                "current_reading": "-4.0",
-                "alarm_threshold": "Spread >= 40.0 bps (Acute Counterparty Fear)"
-            },
-            {
-                "name": "Bank CDS Index (Systemic)",
-                "current_reading": "5",
-                "alarm_threshold": "Index >= 150.0 bps (High Banking Risk)"
-            }
-        ]
+        "date": "2025-11-04 10:36:41",
+        "status": "GREEN",
+        "score": 0.0,
+        "max_score": 10.0,
+        "comment": ""
     },
     "macro": [
         {
             "id": "VIX",
             "name": "Implied Volatility (VIX)",
             "value": 17.170000076293945,
-            "status": "Green",
-            "note": "VIX close at 17.17. Low implied volatility.",
-            "action": "No change.",
-            "source_link": "https://finance.yahoo.com/quote/%5EVIX/",
+            "score_value": 0.0
+        },
+        {
+            "id": "SNAP_BENEFITS",
+            "name": "SNAP Benefits (MoM % Chg)",
+            "value": [
+                0.0,
+                0.0
+            ],
+            "score_value": 0.0
+        },
+        {
+            "id": "TREASURY_LIQUIDITY",
+            "name": "Treasury Net Liquidity ($B)",
+            "value": 0.0,
+            "score_value": 0.0
+        },
+        {
+            "id": "FISCAL_RISK",
+            "name": "Fiscal Risk (Shutdown/Debt)",
+            "value": 27.75,
+            "score_value": 0.0
+        },
+        {
+            "id": "HY_OAS",
+            "name": "HY OAS (Credit Stress)",
+            "value": 380.0,
             "score_value": 0.0
         },
         {
             "id": "GOLD_PRICE",
             "name": "Gold Price (Proxy)",
             "value": 368.7799987792969,
-            "status": "Amber",
-            "note": "Gold (GLD) is rallying sharply at $368.78. Indicates rising inflation expectations or systemic risk.",
-            "action": "Consider increasing real asset allocation.",
-            "source_link": "https://finance.yahoo.com/quote/GLD/",
-            "score_value": 0.5
-        },
-        {
-            "id": "EURUSD",
-            "name": "EUR/USD",
-            "value": 1.14,
-            "status": "Green",
-            "note": "EUR/USD is stable at 1.1400. Indicates balanced global risk/economic outlook.",
-            "action": "No change.",
-            "source_link": "https://www.alphavantage.co/documentation/#currency-exchange",
             "score_value": 0.0
-        },
-        {
-            "id": "WTI_CRUDE",
-            "name": "WTI Crude Oil",
-            "value": 72.73999786376953,
-            "status": "Green",
-            "note": "WTI Crude at $72.74/bbl. Normal price range, favorable for growth.",
-            "action": "No change.",
-            "source_link": "https://www.eia.gov/dnav/pet/hist/rwtc.htm",
-            "score_value": 0.0
-        },
-        {
-            "id": "AUDUSD",
-            "name": "AUD/USD",
-            "value": 0.6538084149360657,
-            "status": "Amber",
-            "note": "AUDUSD at 0.6538. AUD is consolidating. Global risk appetite is tentative.",
-            "action": "Monitor closely for breaks below 0.6500.",
-            "source_link": "https://www.tradingview.com/symbols/AUDUSD/",
-            "score_value": 0.5
-        },
-        {
-            "id": "3Y_YIELD",
-            "name": "3-Year Yield",
-            "value": 3.6,
-            "status": "Amber",
-            "note": "Yield at 3.60%. Medium-term rate pressure.",
-            "action": "Avoid intermediate locks; prefer short/floating rate instruments.",
-            "source_link": "https://www.treasury.gov/resource-center/data-chart-center/interest-rates/",
-            "score_value": 0.5
-        },
-        {
-            "id": "30Y_YIELD",
-            "name": "30-Year Yield",
-            "value": 4.67,
-            "status": "Amber",
-            "note": "Yield at 4.67%. Elevated long-term yields reflecting fiscal risk/inflation concerns.",
-            "action": "Watch the 5.0% threshold. Limit long duration locks.",
-            "source_link": "https://www.treasury.gov/resource-center/data-chart-center/interest-rates/",
-            "score_value": 0.5
         },
         {
             "id": "10Y_YIELD",
             "name": "10-Year Yield",
-            "value": 4.11,
-            "status": "Amber",
-            "note": "Yield at 4.11%. Elevated yields.",
-            "action": "Watch the Atlas pivot at 4.75%; favour short duration.",
-            "source_link": "https://www.treasury.gov/resource-center/data-chart-center/interest-rates/Pages/TextView.aspx?data=yield",
-            "score_value": 0.5
-        },
-        {
-            "id": "HY_OAS",
-            "name": "HY OAS (Credit Stress)",
-            "value": 2.94,
-            "status": "Green",
-            "note": "HY OAS at 3 bps. Tight credit spreads, market calm.",
-            "action": "No change.",
-            "source_link": "https://fred.stlouisfed.org/series/BAMLH0A0HYM2",
-            "score_value": 0.0
-        },
-        {
-            "id": "TREASURY_LIQUIDITY",
-            "name": "Treasury Net Liquidity ($B)",
-            "value": 6586.05,
-            "status": "Green",
-            "note": "Dealer ADTV at $6586.1B. Market functioning.",
-            "action": "No change.",
-            "source_link": "https://www.treasury.gov/resource-center/data-chart-center/interest-rates/Pages/TextView.aspx?data=yield",
-            "score_value": 0.0
-        },
-        {
-            "id": "FISCAL_RISK",
-            "name": "Fiscal Risk (Shutdown/Debt)",
-            "value": 0.0,
-            "status": "Green",
-            "note": "Fiscal environment stable. No immediate risk flagged.",
-            "action": "No change.",
-            "source_link": "Manual Input/Qualitative Assessment",
+            "value": 4.3,
             "score_value": 0.0
         }
     ],
@@ -147,111 +58,27 @@
             "id": "SPX_INDEX",
             "name": "S&P 500 Index Price",
             "value": 6851.97021484375,
-            "status": "Green",
-            "note": "S&P 500 Index at 6,852. Bullish sentiment prevailing.",
-            "action": "No change.",
-            "source_link": "https://finance.yahoo.com/quote/%5EGSPC",
-            "score_value": 0.0
-        },
-        {
-            "id": "ASX_200",
-            "name": "S&P/ASX 200 Index Price",
-            "value": 8894.7998046875,
-            "status": "Green",
-            "note": "ASX 200 Index at 8,895. Trading near highs, bullish sentiment prevailing.",
-            "action": "No change.",
-            "source_link": "https://finance.yahoo.com/quote/%5EAXJO",
-            "score_value": 0.0
-        },
-        {
-            "id": "SOFR_OIS",
-            "name": "SOFR-OIS Spread (Funding)",
-            "value": -4.0,
-            "status": "Green",
-            "note": "SOFR-OIS spread at -4.0 bps. Funding markets are calm.",
-            "action": "No change.",
-            "source_link": "https://fred.stlouisfed.org/series/OISSOFR",
-            "score_value": 0.0
-        },
-        {
-            "id": "PUT_CALL_RATIO",
-            "name": "Put/Call Ratio (Sentiment)",
-            "value": 13.82,
-            "status": "Amber",
-            "note": "Put/Call Ratio at 13.82. High put volume suggests bearish sentiment, which can be contrarian bullish.",
-            "action": "Watch for technical reversal signals.",
-            "source_link": "https://polygon.io/docs/options/get_v2_aggs_ticker__tickervar__prev",
-            "score_value": 0.5
-        },
-        {
-            "id": "SMALL_LARGE_RATIO",
-            "name": "Small/Large Cap Ratio (Internals)",
-            "value": 0.360660907079717,
-            "status": "Red",
-            "note": "Ratio at 0.36 \u2014 small-caps underperforming. Internals fragile.",
-            "action": "Avoid growth stocks.",
-            "source_link": "",
-            "score_value": 1.0
-        },
-        {
-            "id": "EARNINGS_REVISION",
-            "name": "Earnings Revision Breadth",
-            "value": "N/A",
-            "status": "N/A",
-            "note": "Data N/A: Earnings revision data requires external API.",
-            "action": "Cannot score due to missing data.",
-            "source_link": "",
             "score_value": 0.0
         },
         {
             "id": "MARGIN_DEBT_YOY",
             "name": "Margin Debt YoY",
-            "value": 0.0,
-            "status": "Amber",
-            "note": "Leverage is stable.",
-            "action": "Monitor debt metrics.",
-            "source_link": "https://www.finra.org/investors/market-and-financial-data/margin-statistics",
-            "score_value": 0.5
-        },
-        {
-            "id": "BANK_CDS",
-            "name": "Bank CDS Index (Proxy)",
-            "value": 5.13,
-            "status": "Green",
-            "note": "Bank CDS Index at 5 bps. Low implied banking risk.",
-            "action": "No change.",
-            "source_link": "https://fred.stlouisfed.org/series/AAA",
+            "value": 32.94,
             "score_value": 0.0
-        },
-        {
-            "id": "CONSUMER_DELINQUENCIES",
-            "name": "Consumer Delinquencies",
-            "value": 3.05,
-            "status": "Amber",
-            "note": "Delinquency Rate at 3.0%. Rate is rising. Caution warranted for banks and consumer sectors.",
-            "action": "Monitor household debt metrics closely; prefer defensive consumer sectors.",
-            "source_link": "https://fred.stlouisfed.org/series/DRCCLACBS",
-            "score_value": 1.0
         },
         {
             "id": "GEOPOLITICAL",
             "name": "Geopolitical Risk",
             "value": 0.0,
-            "status": "Green",
-            "note": "Tensions stable. No immediate geopolitical shock flagged.",
-            "action": "No change.",
-            "source_link": "Manual Input/Qualitative Assessment",
             "score_value": 0.0
         }
     ],
-    "actions": [
-        "Rebalance cash allocation.",
-        "Monitor credit markets closely."
-    ],
-    "escalation_triggers": [],
-    "short_insight": [
-        {
-            "text": "Global equity risk remains muted despite rising long-end yields."
+    "meta": {
+        "fiscal_breakdown": {
+            "snap_score": 5,
+            "corruption_score": 7.75,
+            "civil_unrest_score": 5,
+            "reg_confidence_score": 10
         }
-    ]
+    }
 }

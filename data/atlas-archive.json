@@ -1,5 +1,12 @@
 [
     {
+        "date": "2025-11-04 09:14",
+        "status": "\ud83d\udfe1 ELEVATED RISK",
+        "score": 5.5,
+        "comment": "MODERATE RISK. Core volatility/duration triggers active. Proceed with caution; maintain protective hedges.",
+        "daily_narrative": "The Atlas Dashboard currently signals an **ELEVATED RISK** posture, with a score of 5.5, indicating \"MODERATE RISK\" where \"core volatility/duration triggers are active.\" While broad equity indices like the S&P 500 and ASX 200 reflect bullish sentiment and the VIX remains low, several amber and red flags suggest underlying fragilities. Gold's sharp rally points to rising inflation expectations or systemic concerns, and all key Treasury yields (3Y, 10Y, 30Y) are elevated, signaling persistent rate and fiscal risks. Critically, market internals show significant stress, with small-caps underperforming large-caps, and consumer delinquencies are on a concerning upward trend, indicating potential strain in household finances.\n\nDespite the apparent calm in credit markets, with tight HY OAS, SOFR-OIS, and Bank CDS spreads, the confluence of elevated long-term yields, deteriorating small-cap performance, and rising consumer stress necessitates a disciplined and defensive stance. Investors should **proceed with caution, maintain protective hedges, and rebalance cash allocations.** Specifically, favor short-duration and floating-rate instruments over intermediate or long-duration locks, avoid growth stocks given the fragile market internals, and consider defensive positioning within consumer sectors. Close monitoring of credit signals remains paramount to navigate these subtle but significant underlying risks."
+    },
+    {
         "date": "2025-11-03 18:34",
         "status": "\ud83d\udfe1 ELEVATED RISK",
         "score": 6.0,

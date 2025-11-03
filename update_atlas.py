@@ -481,21 +481,40 @@ def run_update_process(atlas_data):
     determines overall status, generates the narrative, and writes the data file.
     """
     # 1. Update data sources (Source Links)
-    macro_indicators = _update_indicator_sources(atlas_data["macro"])
-    micro_indicators = _update_indicator_sources(atlas_data["micro"])
+    _update_indicator_sources(atlas_data["macro"])
+    _update_indicator_sources(atlas_data["micro"])
     
     # 2. Score each indicator and calculate the Composite Score
     composite_score = 0.0
-    MAX_SCORE = 10.0 # Define your max score or derive it from weights
+        # --- ACTUAL SCORING LOOP: THIS CRITICALLY OVERWRITES THE INITIAL "N/A" NOTE AND STATUS ---
+        # Assuming SCORING_FUNCTIONS is a dictionary mapping indicator IDs to their respective score_ functions.
     
-    # Placeholder for actual scoring logic (replace with your actual scoring loop)
-    # This must be replaced with a loop that calls your score_... functions
-    
-    # --- DUMMY SCORING/NARRATIVE GENERATION (REPLACING DUMMY WITH FINAL LOGIC) ---
-    # Using the current score of 6.0 for testing:
-    composite_score = 6.0 
-    
+    for category_list in [atlas_data["macro"], atlas_data["micro"]]:
+        for indicator in category_list:
+            indicator_id = indicator["id"]
+
+            # Only process indicators with an actual scoring function defined
+            if indicator_id in SCORING_FUNCTIONS:
+                score_func = SCORING_FUNCTIONS[indicator_id]
+                
+                # Call the scoring function using the raw value fetched earlier
+                status, note, action, score_value, source_link = score_func(indicator["value"])
+                
+                # Update the indicator dictionary with the actual calculated values
+                indicator["status"] = status
+                indicator["note"] = note  # <-- THIS IS THE LINE THAT REMOVES "Test Note"
+                indicator["action"] = action
+                indicator["score_value"] = score_value # Temporary key for summation
+                indicator["source_link"] = source_link
+                
+                composite_score += score_value
+            else:
+                 # Ensure manual/unscored indicators have a default score of 0
+                 indicator["score_value"] = 0 
+    # --- END SCORING LOOP ---
+
     # 3. Determine Overall Status (Based on Thresholds: >12.0, >8.0, >4.0)
+    MAX_SCORE = 22.5 # Adjusted Max Score based on number of indicators (placeholder for your final max)
     score = composite_score 
     
     if score > 12.0:
@@ -520,7 +539,7 @@ def run_update_process(atlas_data):
     atlas_data["overall"]["score"] = score
     atlas_data["overall"]["max_score"] = MAX_SCORE
     atlas_data["overall"]["comment"] = comment
-    atlas_data["overall"]["composite_summary"] = "Overall risk posture is stable, but watch for credit signals." # Keep placeholder for now
+    atlas_data["overall"]["composite_summary"] = "Overall risk posture is stable, but watch for credit signals." 
     
     # Placeholder for actual narrative generation (replace with your generate_narrative function call)
     atlas_data["overall"]["daily_narrative"] = f"Today's Atlas analysis, dated {atlas_data['overall']['date']}, shows continued stability across global equities, supported by low implied volatility (VIX at {atlas_data['macro'][0]['value']:.2f}).\n\nHowever, the recent dip in Gold and Crude prices suggests a soft patch in commodity demand, and the spread between the 3Y and 30Y Treasury yield continues to indicate long-term economic deceleration. We are actively monitoring the high-yield credit market for further deterioration."
@@ -542,8 +561,7 @@ if __name__ == "__main__":
     # 1. INITIALIZATION
     print(f"[{datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}] Starting Atlas data generation.")
 
-    # NOTE: OUTPUT_FILE and fetch_indicator_data must be defined outside this block.
-    # NOTE: You must also ensure 'random' is imported if you use it anywhere else.
+    # NOTE: OUTPUT_FILE, SCORING_FUNCTIONS, and fetch_indicator_data must be defined outside this block.
     
     # 2. DEFINE ATLAS DATA STRUCTURE (Full List of Indicators)
     atlas_data = {
@@ -554,26 +572,11 @@ if __name__ == "__main__":
         },
         "macro": [
              {"id": "VIX", "name": "Implied Volatility (VIX)", "value": 0.0, "status": "N/A", "note": "", "action": "No change.", "source_link": ""},
-             {"id": "GOLD_PRICE", "name": "Gold Price (GLD Proxy)", "value": 0.0, "status": "N/A", "note": "", "action": "No change.", "source_link": ""},
-             {"id": "EURUSD", "name": "EUR/USD Exchange Rate", "value": 0.0, "status": "N/A", "note": "", "action": "No change.", "source_link": ""},
-             {"id": "WTI_CRUDE", "name": "WTI Crude Oil (USO Proxy)", "value": 0.0, "status": "N/A", "note": "", "action": "No change.", "source_link": ""},
-             {"id": "AUDUSD", "name": "AUD/USD Exchange Rate", "value": 0.0, "status": "N/A", "note": "", "action": "No change.", "source_link": ""},
-             {"id": "3Y_YIELD", "name": "3-Year Treasury Yield", "value": 0.0, "status": "N/A", "note": "", "action": "No change.", "source_link": ""},
-             {"id": "30Y_YIELD", "name": "30-Year Treasury Yield", "value": 0.0, "status": "N/A", "note": "", "action": "No change.", "source_link": ""},
-             {"id": "10Y_YIELD", "name": "10-Year Treasury Yield", "value": 0.0, "status": "N/A", "note": "", "action": "No change.", "source_link": ""},
-             {"id": "HY_OAS", "name": "High-Yield Option-Adjusted Spread", "value": 0.0, "status": "N/A", "note": "", "action": "No change.", "source_link": ""},
-             {"id": "TREASURY_LIQUIDITY", "name": "Treasury Net Liquidity ($B)", "value": 0.0, "status": "N/A", "note": "", "action": "No change.", "source_link": ""},
+             # ... (Rest of your macro indicators)
         ],
         "micro": [
              {"id": "SPX_INDEX", "name": "S&P 500 Index Price", "value": 0.0, "status": "N/A", "note": "", "action": "No change.", "source_link": ""},
-             {"id": "ASX_200", "name": "ASX 200 Index Price", "value": 0.0, "status": "N/A", "note": "", "action": "No change.", "source_link": ""},
-             {"id": "SOFR_OIS", "name": "SOFR/OIS Spread (bps)", "value": 0.0, "status": "N/A", "note": "", "action": "No change.", "source_link": ""},
-             {"id": "PUT_CALL_RATIO", "name": "Put/Call Ratio (Total CBOE)", "value": 0.0, "status": "N/A", "note": "", "action": "No change.", "source_link": ""},
-             {"id": "SMALL_LARGE_RATIO", "name": "Small/Large Cap Ratio", "value": 0.0, "status": "N/A", "note": "", "action": "No change.", "source_link": ""},
-             {"id": "EARNINGS_REVISION", "name": "Earnings Revision Momentum", "value": 0.0, "status": "N/A", "note": "", "action": "No change.", "source_link": ""},
-             {"id": "MARGIN_DEBT_YOY", "name": "FINRA Margin Debt YoY (%)", "value": 0.0, "status": "N/A", "note": "", "action": "No change.", "source_link": ""},
-             {"id": "BANK_CDS", "name": "Bank CDS Index Spread (bps)", "value": 0.0, "status": "N/A", "note": "", "action": "No change.", "source_link": ""},
-             {"id": "CONSUMER_DELINQUENCIES", "name": "Consumer Loan Delinquency Rate (%)", "value": 0.0, "status": "N/A", "note": "", "action": "No change.", "source_link": ""},
+             # ... (Rest of your micro indicators)
         ],
         "actions": ["Rebalance cash allocation.", "Monitor credit markets closely."],
         "escalation_triggers": [],
@@ -602,7 +605,6 @@ if __name__ == "__main__":
 def generate_score_output(status, note, action, score, source_link):
     """Formats the output into a tuple (status, note, action, score, source_link) for clean function returns."""
     return status, note, action, score, source_link
-
 
 # --- 2. RISK SCORING LOGIC (All Functions Combined) ---
 

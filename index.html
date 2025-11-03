@@ -78,6 +78,7 @@
         <div id="overallStatusCard" class="p-5 mb-8 rounded-xl shadow-2xl border-4 transform transition duration-500 hover:scale-[1.01] hover:shadow-2xl">
             <div class="text-center text-gray-400">Loading overall status...</div>
         </div>
+        
         <div class="mb-8 p-5 bg-white border border-gray-200 rounded-xl shadow-sm">
             <h2 class="text-xl font-extrabold text-gray-900 mb-2">Atlas observes the global engine</h2>
             
@@ -206,7 +207,7 @@
 
     </div>
 
-    <script src="scripts/atlas.js" defer></script>
+    <script src="scripts/atlas.js" defer></script> 
 
     <nav class="fixed bottom-0 w-full z-50 bg-white shadow-top">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -223,13 +224,46 @@
                         </svg>
                         Copy Share Link
                     </button>
-                    <a href="#" class="hover:text-gray-800 hidden md:block">Twitter</a>
-                    <a href="#" class="hover:text-gray-800 hidden md:block">LinkedIn</a>
+                    
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=YOUR_URL_GOES_HERE" target="_blank" class="hover:text-gray-800 hidden md:block">Facebook</a>
+                    
+                    <a href="https://twitter.com/intent/tweet?url=YOUR_URL_GOES_HERE" target="_blank" class="hover:text-gray-800 hidden md:block">Twitter</a>
+                    <a href="https://www.linkedin.com/shareArticle?mini=true&url=YOUR_URL_GOES_HERE" target="_blank" class="hover:text-gray-800 hidden md:block">LinkedIn</a>
                 </div>
             </div>
         </div>
     </nav>
     
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const copyButton = document.getElementById('copyShareLink');
+            
+            if (copyButton) {
+                copyButton.addEventListener('click', async () => {
+                    const shareUrl = window.location.href; // Gets the full current URL
+                    
+                    try {
+                        // Use the modern clipboard API
+                        await navigator.clipboard.writeText(shareUrl);
+                        
+                        // Give the user visual feedback
+                        const originalText = copyButton.innerHTML;
+                        copyButton.innerHTML = '<span class="text-green-600">Copied!</span>';
+                        
+                        // Revert the button text after a short delay
+                        setTimeout(() => {
+                            copyButton.innerHTML = originalText;
+                        }, 2000);
+                        
+                    } catch (err) {
+                        console.error('Failed to copy text: ', err);
+                        // Fallback method for older browsers (less reliable)
+                        prompt('Copy this link:', shareUrl); 
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 
 </html>

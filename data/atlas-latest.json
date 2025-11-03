@@ -1,12 +1,12 @@
 {
     "overall": {
-        "date": "2025-11-03 14:48",
+        "date": "2025-11-03 16:08",
         "status": "\ud83d\udfe1 ELEVATED RISK",
         "score": 6.0,
         "max_score": 22.5,
         "comment": "MODERATE RISK. Core volatility/duration triggers active. Proceed with caution; maintain protective hedges.",
         "composite_summary": "Overall risk posture is stable, but watch for credit signals.",
-        "daily_narrative": "Today's Atlas analysis, dated 2025-11-03 14:48, shows continued stability across global equities, supported by low implied volatility (VIX at 17.44).\n\nHowever, the recent dip in Gold and Crude prices suggests a soft patch in commodity demand, and the spread between the 3Y and 30Y Treasury yield continues to indicate long-term economic deceleration. We are actively monitoring the high-yield credit market for further deterioration."
+        "daily_narrative": "The Atlas Dashboard currently signals an **Elevated Risk** environment, registering a score of 6.0, which translates to a **Moderate Risk** posture. While the overall risk posture is noted as stable, and implied volatility (VIX) remains low alongside bullish sentiment in major equity indices like the S&P 500, a deeper dive reveals significant underlying concerns. Core duration triggers are active, with elevated 3, 10, and 30-year Treasury yields indicating persistent rate pressure and fiscal risk. Furthermore, a high Put/Call Ratio suggests an underlying layer of investor apprehension, even if it can be interpreted as contrarian bullish.\n\nCritical internal fragilities are evident, with small-cap stocks significantly underperforming large-caps, signaling fragile market internals. Most alarmingly, a staggering 32.9% year-over-year growth in margin debt points to extreme leverage and heightened liquidation risk within equities. Concurrently, a sharply rallying Gold price suggests rising inflation expectations or systemic risk, while increasing consumer delinquencies highlight emerging credit stress, despite tight high-yield spreads. Given these conflicting signals \u2013 a calm surface masking substantial internal and leverage-driven risks \u2013 a disciplined investor should **proceed with caution**. It is prudent to **rebalance cash allocation**, **maintain protective hedges**, and **monitor credit markets closely**, particularly household debt metrics. Favor short-duration instruments and defensive sectors, while avoiding growth stocks and limiting long-duration locks, to navigate this period of elevated, yet subtly manifest, risk."
     },
     "macro": [
         {
@@ -52,9 +52,9 @@
         {
             "id": "AUDUSD",
             "name": "AUD/USD",
-            "value": 0.6551362872123718,
+            "value": 0.6556516885757446,
             "status": "Amber",
-            "note": "AUDUSD at 0.6551. AUD is consolidating. Global risk appetite is tentative.",
+            "note": "AUDUSD at 0.6557. AUD is consolidating. Global risk appetite is tentative.",
             "action": "Monitor closely for breaks below 0.6500.",
             "source_link": "https://www.tradingview.com/symbols/AUDUSD/",
             "score_value": 0.5
@@ -134,9 +134,9 @@
         {
             "id": "ASX_200",
             "name": "S&P/ASX 200 Index Price",
-            "value": 8872.0,
+            "value": 8887.7998046875,
             "status": "Green",
-            "note": "ASX 200 Index at 8,872. Trading near highs, bullish sentiment prevailing.",
+            "note": "ASX 200 Index at 8,888. Trading near highs, bullish sentiment prevailing.",
             "action": "No change.",
             "source_link": "https://finance.yahoo.com/quote/%5EAXJO",
             "score_value": 0.0

@@ -1035,6 +1035,50 @@ def score_consumer_delinquencies(value):
     return generate_score_output(status, note, action, score, source_link)
 
 
+def _compile_escalation_watch(atlas_data):
+    """
+    Compiles the Escalation Watch list based on key systemic indicators,
+    explicitly separating current reading and alarm threshold.
+    """
+    escalation_list = []
+    
+    # Define the key systemic indicators and their RED-LEVEL thresholds
+    WATCH_INDICATORS = {
+        "VIX": {"name": "Implied Volatility (VIX)", "threshold_desc": "VIX >= 22.0 (High Fear)"}, 
+        "HY_OAS": {"name": "High Yield OAS (Credit)", "threshold_desc": "OAS >= 400 bps (Severe Stress)"},
+        "SOFR_OIS": {"name": "SOFR-OIS Spread (Funding)", "threshold_desc": "Spread >= 40.0 bps (Acute Counterparty Fear)"},
+        "BANK_CDS": {"name": "Bank CDS Index (Systemic)", "threshold_desc": "Index >= 150.0 bps (High Banking Risk)"},
+    }
+    
+    # Create a unified dictionary for easy lookup
+    all_indicators = {item['id']: item for item in atlas_data["macro"] + atlas_data["micro"]}
+
+    for indicator_id, watch_info in WATCH_INDICATORS.items():
+        if indicator_id in all_indicators:
+            indicator = all_indicators[indicator_id]
+            current_value = indicator.get("value")
+            
+            # Format the current reading appropriately
+            if isinstance(current_value, (int, float)):
+                if indicator_id in ["HY_OAS", "BANK_CDS"]:
+                    formatted_value = f"{current_value:.0f}"
+                elif indicator_id in ["SOFR_OIS", "VIX"]:
+                    formatted_value = f"{current_value:.1f}"
+                else:
+                    formatted_value = str(current_value)
+            else:
+                formatted_value = "N/A"
+                
+            
+            escalation_list.append({
+                "name": watch_info["name"],
+                "current_reading": formatted_value, 
+                "alarm_threshold": watch_info["threshold_desc"]
+            })
+
+    return escalation_list
+
+
 def score_geopolitical(value):
     """Geopolitical (China/Russia/region) Scoring (Micro Indicator)."""
     manual_score = value
@@ -1179,6 +1223,7 @@ def run_update_process(atlas_data):
     atlas_data["overall"]["max_score"] = MAX_SCORE
     atlas_data["overall"]["comment"] = comment
     atlas_data["overall"]["composite_summary"] = "Overall risk posture is stable, but watch for credit signals." 
+    atlas_data["overall"]["escalation_triggers"] = _compile_escalation_watch(atlas_data)
     
     # 🚨 NEW LINE ADDED TO FIX THE ERROR
     ai_commentary = None 

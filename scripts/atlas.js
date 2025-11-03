@@ -183,11 +183,16 @@ function renderIndicatorTable(tableId, indicators) {
 
 /**
  * Renders simple bulleted lists for actions, watch list, and insights.
+ * NOTE: The render logic for 'watch' (Escalation Triggers) has been REMOVED from this function
+ * and placed directly into initializeDashboard to handle the new explicit fields.
  */
 function renderList(listId, items, type) {
     const list = document.getElementById(listId);
     if (!list) return;
     list.innerHTML = ''; 
+    
+    // This function will now only handle 'action' and 'insight' lists.
+    if (type !== 'action' && type !== 'insight') return;
 
     items.forEach(item => {
         const li = document.createElement('li');
@@ -196,10 +201,7 @@ function renderList(listId, items, type) {
         
         if (type === 'action') {
             icon = '✅ ';
-        } else if (type === 'watch') {
-            // Note: Escalation Triggers list contains 'name' and 'note' fields
-            text = `${item.name}: ${item.note}`; 
-            icon = '🚨 ';
+            text = item;
         } else if (type === 'insight') {
             text = item.text; // Short Insight list contains 'text' field
             icon = '💡 ';
@@ -381,10 +383,34 @@ async function initializeDashboard() {
     renderIndicatorTable('macroTable', data.macro);
     renderIndicatorTable('microTable', data.micro);
 
-    // 3. Actions, Watch List, and Insights
+    // 3. Actions and Insights (Note: renderList for 'watch' is now unused)
     renderList('actionList', data.actions, 'action');
-    renderList('watchList', data.escalation_triggers, 'watch');
     renderList('insightList', data.short_insight, 'insight');
+    
+    // ------------------------------------------------------------------
+    // NEW: Explicit Rendering for Escalation Watch List
+    // This uses the new Python structure (name, current_reading, alarm_threshold)
+    // ------------------------------------------------------------------
+    const watchList = document.getElementById('watchList');
+    watchList.innerHTML = ''; // Clear existing content
+
+    if (data.overall && data.overall.escalation_triggers) {
+        data.overall.escalation_triggers.forEach(trigger => {
+            const listItem = document.createElement('li');
+            
+            listItem.innerHTML = `
+                <span class="font-semibold">${trigger.name}</span> 
+                (Current: <span class="text-indigo-600">${trigger.current_reading}</span>)
+                — Threshold: <span class="text-red-600">${trigger.alarm_threshold}</span>
+            `;
+            
+            watchList.appendChild(listItem);
+        });
+    } else {
+        watchList.innerHTML = '<li>Escalation Watch data is unavailable.</li>';
+    }
+    // ------------------------------------------------------------------
+
 
     console.log("Atlas Dashboard successfully rendered data.");
 }

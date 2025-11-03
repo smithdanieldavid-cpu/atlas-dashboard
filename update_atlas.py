@@ -477,26 +477,58 @@ def save_to_archive(overall_data):
 
 def run_update_process(atlas_data):
     """
-    The main process that executes the scoring logic and data writing.
+    The main process that executes the scoring logic, calculates the total score,
+    determines overall status, generates the narrative, and writes the data file.
     """
     # 1. Update data sources (Source Links)
     macro_indicators = _update_indicator_sources(atlas_data["macro"])
     micro_indicators = _update_indicator_sources(atlas_data["micro"])
     
-    # [ ... The rest of your scoring logic (Calculate Score, Assign Status, Generate Narrative) goes here ... ]
-    # DUMMY SCORING/NARRATIVE GENERATION (Replace with your actual scoring logic)
-    atlas_data["overall"]["status"] = "MONITOR"
-    atlas_data["overall"]["score"] = 6.0
-    atlas_data["overall"]["max_score"] = 10.0
-    atlas_data["overall"]["comment"] = "Market risk remains low, but credit stress is emerging."
+    # 2. Score each indicator and calculate the Composite Score
+    composite_score = 0.0
+    MAX_SCORE = 10.0 # Define your max score or derive it from weights
+    
+    # Placeholder for actual scoring logic (replace with your actual scoring loop)
+    # This must be replaced with a loop that calls your score_... functions
+    
+    # --- DUMMY SCORING/NARRATIVE GENERATION (REPLACING DUMMY WITH FINAL LOGIC) ---
+    # Using the current score of 6.0 for testing:
+    composite_score = 6.0 
+    
+    # 3. Determine Overall Status (Based on Thresholds: >12.0, >8.0, >4.0)
+    score = composite_score 
+    
+    if score > 12.0:
+        overall_status_emoji = "⛈️"
+        overall_status_name = "FULL-STORM"
+        comment = "EXTREME RISK. Multiple systemic and funding triggers active. Maintain maximum defensive posture."
+    elif score > 8.0:
+        overall_status_emoji = "🔴"
+        overall_status_name = "SEVERE RISK"
+        comment = "HIGH RISK. Significant Macro and/or Micro triggers active. Aggressively increase liquidity and hedges (Storm Posture)."
+    elif score > 4.0: # Score of 6.0 lands here
+        overall_status_emoji = "🟡"
+        overall_status_name = "ELEVATED RISK"
+        comment = "MODERATE RISK. Core volatility/duration triggers active. Proceed with caution; maintain protective hedges."
+    else: # Score <= 4.0
+        overall_status_emoji = "🟢"
+        overall_status_name = "MONITOR"
+        comment = "LOW RISK. Only minor triggers active. Favour moderate risk-on positioning."
+
+    # 4. Update the Atlas Data Structure
+    atlas_data["overall"]["status"] = f"{overall_status_emoji} {overall_status_name}"
+    atlas_data["overall"]["score"] = score
+    atlas_data["overall"]["max_score"] = MAX_SCORE
+    atlas_data["overall"]["comment"] = comment
+    atlas_data["overall"]["composite_summary"] = "Overall risk posture is stable, but watch for credit signals." # Keep placeholder for now
+    
+    # Placeholder for actual narrative generation (replace with your generate_narrative function call)
     atlas_data["overall"]["daily_narrative"] = f"Today's Atlas analysis, dated {atlas_data['overall']['date']}, shows continued stability across global equities, supported by low implied volatility (VIX at {atlas_data['macro'][0]['value']:.2f}).\n\nHowever, the recent dip in Gold and Crude prices suggests a soft patch in commodity demand, and the spread between the 3Y and 30Y Treasury yield continues to indicate long-term economic deceleration. We are actively monitoring the high-yield credit market for further deterioration."
-    atlas_data["overall"]["composite_summary"] = "Overall risk posture is stable, but watch for credit signals."
 
-
-    # 2. Archive the daily narrative (FOR INFINITE SCROLL)
+    # 5. Archive the daily narrative (FOR INFINITE SCROLL)
     save_to_archive(atlas_data["overall"])
 
-    # 3. Write main data file
+    # 6. Write main data file
     try:
         with open(OUTPUT_FILE, 'w') as f:
             json.dump(atlas_data, f, indent=4)
@@ -507,10 +539,13 @@ def run_update_process(atlas_data):
 
 if __name__ == "__main__":
     
+    # 1. INITIALIZATION
     print(f"[{datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}] Starting Atlas data generation.")
 
-    # --- 2. INITIALIZE ATLAS DATA STRUCTURE ---
-    # This structure must contain ALL 17 indicators.
+    # NOTE: OUTPUT_FILE and fetch_indicator_data must be defined outside this block.
+    # NOTE: You must also ensure 'random' is imported if you use it anywhere else.
+    
+    # 2. DEFINE ATLAS DATA STRUCTURE (Full List of Indicators)
     atlas_data = {
         "overall": {
             "date": datetime.datetime.now().strftime("%Y-%m-%d %H:%M"),
@@ -545,20 +580,24 @@ if __name__ == "__main__":
         "short_insight": [{"text": "Global equity risk remains muted despite rising long-end yields."}],
     }
     
-    # --- 3. SCORING AND PROCESSING (FETCH DATA) ---
-    # Placeholder loop to fetch data and fill in values before running the main process:
-    for category in ["macro", "micro"]:
-        for indicator in atlas_data[category]:
+    # 3. FETCH RAW DATA
+    print("Fetching data from all accredited APIs...")
+    for category_list in [atlas_data["macro"], atlas_data["micro"]]:
+        for indicator in category_list:
+            # Skip manual indicators from API fetching
+            if indicator["id"] in ["GEOPOLITICAL", "FISCAL_RISK"]:
+                continue
+            
+            # Fetch the raw value using the appropriate API
             indicator["value"] = fetch_indicator_data(indicator["id"])
             
-            # Placeholder for status and note (will be overwritten by your actual scoring logic)
-            indicator["status"] = random.choice(["GREEN", "AMBER", "RED", "N/A"]) if indicator["value"] != "N/A" else "N/A"
-            indicator["note"] = f"Test Note. Value: {indicator['value']}. Status: {indicator['status']}" 
+    print("Data fetching complete. Starting scoring process.")
 
-    # --- 4. RUN MAIN PROCESS ---
+    # 4. RUN MAIN PROCESS (Scoring, Narrative, and Saving)
     run_update_process(atlas_data)
 
 # --- UTILITY FUNCTION FOR SCORING OUTPUT ---
+
 # NOTE: This function must be defined before all score_ functions.
 def generate_score_output(status, note, action, score, source_link):
     """Formats the output into a tuple (status, note, action, score, source_link) for clean function returns."""
@@ -1281,20 +1320,36 @@ def get_all_indicators():
     composite_score = total_macro_score + (total_micro_score * 0.5) 
     MAX_SCORE = 15.5 # Updated Max Score
     
-    # Determine Overall Status based on the NEW thresholds (Adjusted for higher Max Score)
+# Determine Overall Status based on the NEW thresholds (Adjusted for higher Max Score)
     score = composite_score 
-    if score > 12.0: # ADJUSTED for new MAX_SCORE
-        overall_status = "FULL-STORM"
+    
+    # 1. FULL-STORM: Score > 12.0
+    if score > 12.0:
+        overall_status_emoji = "⛈️"
+        overall_status_name = "FULL-STORM"
         comment = "EXTREME RISK. Multiple systemic and funding triggers active. Maintain maximum defensive posture."
-    elif score > 8.0: # ADJUSTED for new MAX_SCORE
-        overall_status = "SEVERE RISK"
+    
+    # 2. SEVERE RISK: Score > 8.0
+    elif score > 8.0:
+        overall_status_emoji = "🔴"
+        overall_status_name = "SEVERE RISK"
         comment = "HIGH RISK. Significant Macro and/or Micro triggers active. Aggressively increase liquidity and hedges (Storm Posture)."
-    elif score > 4.0: # ADJUSTED for new MAX_SCORE
-        overall_status = "ELEVATED RISK"
+        
+    # 3. ELEVATED RISK: Score > 4.0 (Your score of 6.0 lands here)
+    elif score > 4.0: 
+        overall_status_emoji = "🟡"
+        overall_status_name = "ELEVATED RISK"
         comment = "MODERATE RISK. Core volatility/duration triggers active. Proceed with caution; maintain protective hedges."
+        
+    # 4. MONITOR (GREEN): Score <= 4.0
     else: # Score <= 4.0
-        overall_status = "MONITOR (GREEN)"
+        overall_status_emoji = "🟢"
+        overall_status_name = "MONITOR"
         comment = "LOW RISK. Only minor triggers active. Favour moderate risk-on positioning."
+        
+    # Set the overall status and comment fields in the atlas_data dictionary
+    atlas_data["overall"]["status"] = f"{overall_status_emoji} {overall_status_name}"
+    atlas_data["overall"]["comment"] = comment
     
     # Get top 3 red/amber triggers for narrative
     all_triggers = sorted(macro_list + micro_list, key=lambda x: x['score_value'], reverse=True)

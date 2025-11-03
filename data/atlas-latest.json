@@ -1,221 +1,196 @@
 {
     "overall": {
-        "date": "2025-11-03 10:40",
-        "status": "ELEVATED RISK",
-        "score": 5.5,
-        "max_score": 15.5,
-        "comment": "MODERATE RISK. Core volatility/duration triggers active. Proceed with caution; maintain protective hedges.",
-        "composite_summary": "Composite effective triggers \u2248 5.5 / 15.5 \u2192 ELEVATED RISK posture confirmed.",
-        "narrative_summary": "**ELEVATED RISK** remains in place. Key volatility and FX triggers are active, warranting caution. Maintain defensive positioning and monitor micro-indicators for stabilization.",
-        "daily_narrative": "**Daily Atlas Analysis: ELEVATED RISK (5.5/15.5) | Monday, November 03, 2025**\n\nThe risk environment is elevated but contained. While the majority of triggers are in the 'Amber' band, the sustained VIX and AUDUSD weakness suggest a tentative global risk appetite. (ADD DETAIL HERE)"
+        "date": "2025-11-03 13:37",
+        "status": "MONITOR",
+        "score": 6.0,
+        "max_score": 10.0,
+        "comment": "Market risk remains low, but credit stress is emerging.",
+        "composite_summary": "Overall risk posture is stable, but watch for credit signals.",
+        "daily_narrative": "Today's Atlas analysis, dated 2025-11-03 13:37, shows continued stability across global equities, supported by low implied volatility (VIX at 17.44).\n\nHowever, the recent dip in Gold and Crude prices suggests a soft patch in commodity demand, and the spread between the 3Y and 30Y Treasury yield continues to indicate long-term economic deceleration. We are actively monitoring the high-yield credit market for further deterioration."
     },
     "macro": [
         {
-            "name": "VIX (US implied vol)",
+            "id": "VIX",
+            "name": "Implied Volatility (VIX)",
             "value": 17.440000534057617,
-            "status": "Green",
-            "note": "VIX close at 17.44. Low implied volatility.",
-            "source_link": "https://finance.yahoo.com/quote/%5EVIX/",
-            "action": "No change."
+            "status": "RED",
+            "note": "Test Note. Value: 17.440000534057617. Status: RED",
+            "action": "No change.",
+            "source_link": "https://finance.yahoo.com/quote/%5EVIX/"
         },
         {
-            "name": "US 3-yr Treasury yield",
-            "value": 3.61,
-            "status": "Amber",
-            "note": "~3.61% (latest daily Treasury series / market quotes). Medium-term rate pressure.",
-            "source_link": "https://www.treasury.gov/resource-center/data-chart-center/interest-rates/",
-            "action": "Avoid intermediate locks; prefer short/floating rate instruments."
-        },
-        {
-            "name": "US 10-yr Treasury yield",
-            "value": 4.11,
-            "status": "Amber",
-            "note": "~4.11% (latest market quotes / curve prints). Elevated yields.",
-            "source_link": "https://www.treasury.gov/resource-center/data-chart-center/interest-rates/Pages/TextView.aspx?data=yield",
-            "action": "Watch the Atlas pivot at 4.75%; favour short duration."
-        },
-        {
-            "name": "US 30-yr Treasury yield",
-            "value": 4.65,
-            "status": "Amber",
-            "note": "~4.65% (latest market quotes). Elevated long-term yields reflecting fiscal risk/inflation concerns.",
-            "source_link": "https://www.treasury.gov/resource-center/data-chart-center/interest-rates/",
-            "action": "Watch the 5.0% threshold. Limit long duration locks."
-        },
-        {
-            "name": "Gold (USD/oz)",
+            "id": "GOLD_PRICE",
+            "name": "Gold Price (GLD Proxy)",
             "value": 368.1199951171875,
-            "status": "Green",
-            "note": "Gold price at $368.12 USD/oz. Stable pricing.",
-            "source_link": "https://www.reuters.com/markets/commodities/gold/",
-            "action": "No change."
+            "status": "GREEN",
+            "note": "Test Note. Value: 368.1199951171875. Status: GREEN",
+            "action": "No change.",
+            "source_link": "https://finance.yahoo.com/quote/GLD/"
         },
         {
-            "name": "EURUSD",
+            "id": "EURUSD",
+            "name": "EUR/USD Exchange Rate",
             "value": 1.14,
-            "status": "Green",
-            "note": "EURUSD at 1.1400. Normal FX conditions; US Dollar is stable.",
-            "source_link": "https://www.tradingview.com/symbols/EURUSD/",
-            "action": "No change."
+            "status": "AMBER",
+            "note": "Test Note. Value: 1.14. Status: AMBER",
+            "action": "No change.",
+            "source_link": "https://www.alphavantage.co/documentation/#currency-exchange"
         },
         {
-            "name": "WTI Crude Oil",
+            "id": "WTI_CRUDE",
+            "name": "WTI Crude Oil (USO Proxy)",
             "value": 72.55999755859375,
-            "status": "Green",
-            "note": "WTI Crude at $72.56/bbl. Normal price range, favorable for growth.",
-            "source_link": "https://www.eia.gov/dnav/pet/hist/rwtc.htm",
-            "action": "No change."
+            "status": "N/A",
+            "note": "Test Note. Value: 72.55999755859375. Status: N/A",
+            "action": "No change.",
+            "source_link": "https://finance.yahoo.com/quote/USO/"
         },
         {
-            "name": "AUDUSD",
-            "value": 0.6547502279281616,
-            "status": "Amber",
-            "note": "AUDUSD at 0.6548. AUD is consolidating. Global risk appetite is tentative.",
-            "source_link": "https://www.tradingview.com/symbols/AUDUSD/",
-            "action": "Monitor closely for breaks below 0.6500."
+            "id": "AUDUSD",
+            "name": "AUD/USD Exchange Rate",
+            "value": 0.6549646258354187,
+            "status": "RED",
+            "note": "Test Note. Value: 0.6549646258354187. Status: RED",
+            "action": "No change.",
+            "source_link": "https://finance.yahoo.com/quote/AUDUSD=X/"
         },
         {
-            "name": "US Government shutdown / fiscal risk",
-            "status": "Red",
-            "note": "Shutdown continuing into its 29th day; CBO estimates material GDP cost.",
-            "source_link": "https://www.cbo.gov/",
-            "action": "If >30 days or material funding breakdown \u2192 escalate to full storm (operational/fiscal shock)."
+            "id": "3Y_YIELD",
+            "name": "3-Year Treasury Yield",
+            "value": 3.61,
+            "status": "AMBER",
+            "note": "Test Note. Value: 3.61. Status: AMBER",
+            "action": "No change.",
+            "source_link": "https://fred.stlouisfed.org/series/DGS3"
         },
         {
-            "name": "US Treasury liquidity (Dealer/ADTV)",
-            "value": "100.0",
-            "status": "Green",
-            "note": "Dealer ADTV at $100.0B. Market functioning, no broad dealer freeze flagged.",
-            "source_link": "",
-            "action": "Liquidity ok \u2014 price risk dominates."
+            "id": "30Y_YIELD",
+            "name": "30-Year Treasury Yield",
+            "value": 4.65,
+            "status": "GREEN",
+            "note": "Test Note. Value: 4.65. Status: GREEN",
+            "action": "No change.",
+            "source_link": "https://fred.stlouisfed.org/series/DGS30"
+        },
+        {
+            "id": "10Y_YIELD",
+            "name": "10-Year Treasury Yield",
+            "value": 4.11,
+            "status": "GREEN",
+            "note": "Test Note. Value: 4.11. Status: GREEN",
+            "action": "No change.",
+            "source_link": "https://fred.stlouisfed.org/series/DGS10"
+        },
+        {
+            "id": "HY_OAS",
+            "name": "High-Yield Option-Adjusted Spread",
+            "value": 2.85,
+            "status": "N/A",
+            "note": "Test Note. Value: 2.85. Status: N/A",
+            "action": "No change.",
+            "source_link": "https://fred.stlouisfed.org/series/BAMLH0A0HYM2"
+        },
+        {
+            "id": "TREASURY_LIQUIDITY",
+            "name": "Treasury Net Liquidity ($B)",
+            "value": 6586.02,
+            "status": "GREEN",
+            "note": "Test Note. Value: 6586.02. Status: GREEN",
+            "action": "No change.",
+            "source_link": "https://fred.stlouisfed.org/series/WALCL"
         }
     ],
     "micro": [
         {
-            "name": "Credit Spreads (HY OAS)",
-            "value": 2.85,
-            "status": "Green",
-            "note": "HY OAS at 3 bps. Normal risk conditions.",
-            "source_link": "https://fred.stlouisfed.org/series/BAMLH0A0HYM2",
-            "action": "No change."
+            "id": "SPX_INDEX",
+            "name": "S&P 500 Index Price",
+            "value": 6840.2001953125,
+            "status": "GREEN",
+            "note": "Test Note. Value: 6840.2001953125. Status: GREEN",
+            "action": "No change.",
+            "source_link": "https://finance.yahoo.com/quote/%5EGSPC/"
         },
         {
-            "name": "SOFR\u2013OIS Spread",
-            "value": "25.00",
-            "status": "Amber",
-            "note": "SOFR-OIS spread at 25.0 bps. Spread widening; caution warranted in short-term funding markets.",
-            "source_link": "https://fred.stlouisfed.org/series/OISSOFR",
-            "action": "Monitor for acceleration above 40 bps. Check SOFR/Treasury basis."
+            "id": "ASX_200",
+            "name": "ASX 200 Index Price",
+            "value": 8864.400390625,
+            "status": "AMBER",
+            "note": "Test Note. Value: 8864.400390625. Status: AMBER",
+            "action": "No change.",
+            "source_link": "https://finance.yahoo.com/quote/%5EAXJO/"
         },
         {
-            "name": "Put/Call ratio (CBOE)",
+            "id": "SOFR_OIS",
+            "name": "SOFR/OIS Spread (bps)",
+            "value": 5.0,
+            "status": "AMBER",
+            "note": "Test Note. Value: 5.0. Status: AMBER",
+            "action": "No change.",
+            "source_link": "https://fred.stlouisfed.org/series/SOFR3MAD"
+        },
+        {
+            "id": "PUT_CALL_RATIO",
+            "name": "Put/Call Ratio (Total CBOE)",
             "value": 13.82,
-            "status": "Red",
-            "note": "P/C ratio at ~13.82. Extreme hedging and fear (Panic).",
-            "source_link": "https://www.cboe.com/us/options/market_statistics/daily/",
-            "action": "Tactically use extreme fear as a potential (short-term) contrarian entry signal."
+            "status": "N/A",
+            "note": "Test Note. Value: 13.82. Status: N/A",
+            "action": "No change.",
+            "source_link": "https://polygon.io/docs/options/get_v2_aggs_ticker__tickervar__prev"
         },
         {
-            "name": "Small-cap / Large-cap ratio",
+            "id": "SMALL_LARGE_RATIO",
+            "name": "Small/Large Cap Ratio",
             "value": 0.362471830065966,
-            "status": "Red",
-            "note": "Ratio at ~0.36 \u2014 small-caps underperforming.",
-            "source_link": "",
-            "action": "<0.40 \u2192 strong red; internals fragile."
+            "status": "RED",
+            "note": "Test Note. Value: 0.362471830065966. Status: RED",
+            "action": "No change.",
+            "source_link": "https://finance.yahoo.com/quote/%5ERUT/"
         },
         {
-            "name": "Earnings-revision breadth",
-            "value": "-2.0%",
-            "status": "Amber",
-            "note": "~-2% net revisions. Earnings weakening.",
-            "source_link": "",
-            "action": "Monitor earnings forecasts closely."
-        },
-        {
-            "name": "Margin Debt YoY",
+            "id": "EARNINGS_REVISION",
+            "name": "Earnings Revision Momentum",
             "value": "N/A",
             "status": "N/A",
-            "note": "Data N/A: Margin Debt YoY requires external data source.",
-            "source_link": "",
-            "action": "Cannot score due to missing data.",
-            "grade": 0
+            "note": "Test Note. Value: N/A. Status: N/A",
+            "action": "No change.",
+            "source_link": ""
         },
         {
-            "name": "Bank CDS / financial stress",
-            "value": "80",
-            "status": "Amber",
-            "note": "Bank stress proxies mildly elevated at 80 basis.",
-            "source_link": "",
-            "action": "Monitor credit spreads closely."
+            "id": "MARGIN_DEBT_YOY",
+            "name": "FINRA Margin Debt YoY (%)",
+            "value": 32.94,
+            "status": "AMBER",
+            "note": "Test Note. Value: 32.94. Status: AMBER",
+            "action": "No change.",
+            "source_link": "https://www.finra.org/investors/market-and-financial-data/margin-statistics"
         },
         {
-            "name": "Consumer delinquencies (30-day)",
-            "value": "3.00%",
-            "status": "Red",
-            "note": "~3.0% \u2014 household stress is acute. Significant pressure on consumer-facing businesses.",
-            "source_link": "",
-            "action": "Avoid cyclical consumer stocks and local businesses dependent on household spending."
+            "id": "BANK_CDS",
+            "name": "Bank CDS Index Spread (bps)",
+            "value": 5.21,
+            "status": "GREEN",
+            "note": "Test Note. Value: 5.21. Status: GREEN",
+            "action": "No change.",
+            "source_link": ""
         },
         {
-            "name": "Geopolitical (China/Russia/region)",
-            "value": 0.5,
-            "status": "Amber",
-            "note": "Tensions elevated (e.g., Ukraine/China/Middle East); still monitor escalation.",
-            "source_link": "",
-            "action": "Maintain commodity hedging (e.g., gold/oil) as tactical insurance."
-        },
-        {
-            "name": "S&P 500 Index",
-            "value": 6840.2001953125,
-            "status": "Green",
-            "note": "S&P 500 Index at 6,840. Trading near highs, risk-on sentiment prevailing.",
-            "source_link": "https://finance.yahoo.com/quote/%5EGSPC",
-            "action": "No change."
-        },
-        {
-            "name": "S&P/ASX 200 Index",
-            "value": 8856.900390625,
-            "status": "Green",
-            "note": "ASX 200 Index at 8,857. Trading near highs, bullish sentiment prevailing.",
-            "source_link": "https://finance.yahoo.com/quote/%5EAXJO",
-            "action": "No change."
+            "id": "CONSUMER_DELINQUENCIES",
+            "name": "Consumer Loan Delinquency Rate (%)",
+            "value": 3.05,
+            "status": "AMBER",
+            "note": "Test Note. Value: 3.05. Status: AMBER",
+            "action": "No change.",
+            "source_link": ""
         }
     ],
     "actions": [
-        "Hold Storm posture now. Maintain defensive allocations (cash + short/floating duration + low-vol) \u2014 do not de-risk into equities.",
-        "Liquidity: keep \u226530% of capital liquid/unlocked for opportunistic buys or to meet operational calls.",
-        "Duration: avoid adding intermediate/long locks in fixed income; favour floating-rate notes and short ladders in US & AU sleeves.",
-        "Gold / safe-assets: maintain or modestly increase (5\u201310%) in liquid form (ETF/approved vehicles) \u2014 central-bank buying validates a tactical hedge.",
-        "Hedging: if you hold concentrated equity positions, buy protective puts sized to cover a 10\u201315% drawdown while VIX remains elevated."
+        "Rebalance cash allocation.",
+        "Monitor credit markets closely."
     ],
-    "escalation_triggers": [
-        {
-            "name": "VIX",
-            "note": ">25 sustained 3 trading days."
-        },
-        {
-            "name": "HY OAS",
-            "note": ">400 bps."
-        },
-        {
-            "name": "US shutdown",
-            "note": ">30 days or material funding default."
-        },
-        {
-            "name": "ASX close",
-            "note": "<8,000."
-        },
-        {
-            "name": "SOFR\u2013OIS",
-            "note": ">40 bps sustained (funding stress)."
-        }
-    ],
+    "escalation_triggers": [],
     "short_insight": [
         {
-            "text": "A defensive posture is correct \u2014 keep discipline, hold dry powder, and step in methodically only when both macro and micro relief conditions align."
-        },
-        {
-            "text": "Liquidity is functioning, which is important \u2014 hedges and tactical buys are feasible. But functioning markets are not the same as safety; price risk is high."
+            "text": "Global equity risk remains muted despite rising long-end yields."
         }
     ]
 }

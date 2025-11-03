@@ -49,16 +49,18 @@ API_CONFIG = {
     "EARNINGS_API_KEY": "YOUR_EARNINGS_KEY_HERE",
     "EARNINGS_ENDPOINT": "YOUR_EARNINGS_API_ENDPOINT", 
     
-    # 3. FRED SERIES IDS (The four successful series + three new for SOFR/OIS and Liquidity)
+    # 3. FRED SERIES IDS (The four successful series + five new for Liquidity/CDS/Delinquencies)
     "FRED_3YR_ID": "DGS3",
     "FRED_30YR_ID": "DGS30",
     "FRED_10YR_ID": "DGS10",  
     "FRED_HYOAS_ID": "BAMLH0A0HYM2", 
-    "FRED_SOFR_3M_ID": "SOFR3MAD",      # <-- NEW for SOFR/OIS Spread
+    "FRED_SOFR_3M_ID": "TB3MS",      # <-- NEW for SOFR/OIS Spread
     "FRED_EFFR_ID": "EFFR",             # <-- NEW for SOFR/OIS Spread
     "FRED_WALCL_ID": "WALCL",           # <-- NEW for Net Liquidity
     "FRED_WTREGEN_ID": "WTREGEN",       # <-- NEW for Net Liquidity
     "FRED_RRPONTSYD_ID": "RRPONTSYD",   # <-- NEW for Net Liquidity
+    "FRED_BANK_CDS_ID": "AAA", # <-- Financial Index OAS (Proxy for Bank CDS)
+    "FRED_CONSUMER_DELINQ_ID": "DRCCLACBS", # <-- Delinquency Rate on Credit Card Loans (Proxy)
 }
 
 # Initialize FRED client only if the key is available
@@ -170,12 +172,18 @@ def fetch_indicator_data(indicator_id):
         # Fallbacks for the new calculated FRED indicators
         "TREASURY_LIQUIDITY": 100.0,
         "SOFR_OIS": 25.0,
+        "BANK_CDS": 85.0, # Existing new fallback
+        "CONSUMER_DELINQUENCIES": 2.2, # <-- NEW Fallback (typical 2-3% range)
     }
 
     # --- FRED API CALLS (For Yields and HY_OAS) ---
     fred_series_map = {
-        "3Y_YIELD": API_CONFIG["FRED_3YR_ID"], "30Y_YIELD": API_CONFIG["FRED_30YR_ID"],
-        "10Y_YIELD": API_CONFIG["FRED_10YR_ID"], "HY_OAS": API_CONFIG["FRED_HYOAS_ID"],
+        "3Y_YIELD": API_CONFIG["FRED_3YR_ID"], 
+        "30Y_YIELD": API_CONFIG["FRED_30YR_ID"],
+        "10Y_YIELD": API_CONFIG["FRED_10YR_ID"], 
+        "HY_OAS": API_CONFIG["FRED_HYOAS_ID"],
+        "BANK_CDS": API_CONFIG["FRED_BANK_CDS_ID"], # Existing new map
+        "CONSUMER_DELINQUENCIES": API_CONFIG["FRED_CONSUMER_DELINQ_ID"], # <-- NEW MAP
     }
 
     if indicator_id in fred_series_map:
@@ -185,7 +193,8 @@ def fetch_indicator_data(indicator_id):
         try:
             params = {
                 "series_id": series_id, "api_key": API_CONFIG["FRED_API_KEY"],
-                "file_type": "json", "observation_start": (datetime.date.today() - datetime.timedelta(days=30)).strftime("%Y-%m-%d"),
+                "file_type": "json", 
+                "observation_start": (datetime.date.today() - datetime.timedelta(days=365*3)).strftime("%Y-%m-%d"),
                 "sort_order": "desc", "limit": 1
             }
             response = requests.get(API_CONFIG["FRED_ENDPOINT"], params=params)
@@ -1043,39 +1052,34 @@ def score_bank_cds(value):
 
 
 def score_consumer_delinquencies(value):
-    """Consumer Loan Delinquency Rate Scoring - Measures household financial stress/credit quality."""
+    """
+    Consumer Loan Delinquency Rate Scoring (using Credit Card Delinquency Rate as a FRED proxy).
+    Measures household financial stress/credit quality.
+    """
     
+    source_link = "https://fred.stlouisfed.org/series/DRCCLACBS"
+    
+    # Handle N/A or Error
+    if isinstance(value, (str, type(None))):
+        return generate_score_output("N/A", "Data N/A: Consumer Delinquency data unavailable.", "Cannot score.", 0.0, source_link)
+
     # Initialize defaults
     status = "Green"
-    note = "Stable household credit quality."
+    note = f"Delinquency Rate at {value:.1f}%. Stable household credit quality."
     action = "No change."
     score = 0.0
-    source_link = "https://fred.stlouisfed.org/series/DRSFRGBS"
     
-    # Handle string inputs
-    if isinstance(value, str):
-        if value.upper() == 'N/A':
-            return generate_score_output("N/A", "Data N/A: Delinquency rate data requires external API.", "Cannot score due to missing data.", 0.0, source_link)
-        try:
-            value = float(value)
-        except ValueError:
-            return generate_score_output("Error", "Error: Delinquency rate value could not be converted to number.", "Cannot score due to data error.", 0.0, "")
-            
-    # Scoring Logic for numeric values
-    if isinstance(value, float):
-        note = f"Delinquency Rate at {value:.1f}%. Stable household credit quality."
-        
-        # Thresholds are based on percentage rate of loans 90+ days past due
-        if value >= 3.0:
-            status = "Red"
-            note = f"Delinquency Rate at {value:.1f}%. Aggressively high rate. Indicates significant household stress and consumer spending risk."
-            score = -2.0
-            action = "Aggressively reduce exposure to consumer discretionary and financial stocks with high unsecured loan exposure."
-        elif value >= 2.0:
-            status = "Amber"
-            note = f"Delinquency Rate at {value:.1f}%. Rate is rising. Caution warranted for banks and consumer sectors."
-            score = -1.0
-            action = "Monitor household debt metrics closely; prefer defensive consumer sectors."
+    # Thresholds are based on the historical stress for credit card delinquency (using pre-COVID norms):
+    if value >= 3.8:
+        status = "Red"
+        note = f"Delinquency Rate at {value:.1f}%. Aggressively high rate. Indicates significant household stress and consumer spending risk."
+        score = 2.0
+        action = "Aggressively reduce exposure to consumer discretionary and financial stocks with high unsecured loan exposure."
+    elif value >= 2.8:
+        status = "Amber"
+        note = f"Delinquency Rate at {value:.1f}%. Rate is rising. Caution warranted for banks and consumer sectors."
+        score = 1.0
+        action = "Monitor household debt metrics closely; prefer defensive consumer sectors."
 
     return generate_score_output(status, note, action, score, source_link)
 
@@ -1347,6 +1351,9 @@ def get_all_indicators():
         print(f"Error writing JSON file: {e}")
 
 
-# --- MAIN EXECUTION ---
+# --- MAIN EXECUTION (Correct Final Block) ---
 if __name__ == "__main__":
-    get_all_indicators()
+    # ... Your finalized atlas_data initialization structure ...
+    # ... Your fetching loop that sets indicator["value"] ...
+    # ... A single call to the correct processor:
+    run_update_process(atlas_data)

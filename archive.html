@@ -55,7 +55,8 @@
             </div>
         </div>
     </header>
-    <div class="container mx-auto px-4 py-10 max-w-4xl pt-20"> <header class="mb-10 border-b pb-4">
+    <div class="container mx-auto px-4 py-10 max-w-4xl pt-20"> 
+        <header class="mb-10 border-b pb-4">
             <h1 class="text-4xl font-extrabold text-gray-900">
                 Atlas Narrative Archive 📜
             </h1>
@@ -92,12 +93,55 @@
                         </svg>
                         Copy Share Link
                     </button>
-                    <a href="#" class="hover:text-gray-800 hidden md:block">Twitter</a>
-                    <a href="#" class="hover:text-gray-800 hidden md:block">LinkedIn</a>
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=YOUR_URL_GOES_HERE" target="_blank" class="hover:text-gray-800 hidden md:block">Facebook</a>
+                    <a href="https://twitter.com/intent/tweet?url=YOUR_URL_GOES_HERE" target="_blank" class="hover:text-gray-800 hidden md:block">Twitter</a>
+                    <a href="https://www.linkedin.com/shareArticle?mini=true&url=YOUR_URL_GOES_HERE" target="_blank" class="hover:text-gray-800 hidden md:block">LinkedIn</a>
                 </div>
             </div>
         </div>
     </nav>
     <script src="scripts/atlas.js"></script> 
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const copyButton = document.getElementById('copyShareLink');
+            
+            // 1. Copy Link Functionality
+            if (copyButton) {
+                copyButton.addEventListener('click', async () => {
+                    const shareUrl = window.location.href; // Gets the full current URL
+                    
+                    try {
+                        // Use the modern clipboard API
+                        await navigator.clipboard.writeText(shareUrl);
+                        
+                        // Give the user visual feedback
+                        const originalText = copyButton.innerHTML;
+                        copyButton.innerHTML = '<span class="text-green-600">Copied!</span>';
+                        
+                        // Revert the button text after a short delay
+                        setTimeout(() => {
+                            copyButton.innerHTML = originalText;
+                        }, 2000);
+                        
+                    } catch (err) {
+                        console.error('Failed to copy text: ', err);
+                        // Fallback method for older browsers (less reliable)
+                        prompt('Copy this link:', shareUrl); 
+                    }
+                });
+            }
+
+            // 2. Dynamic Social Sharing URL Update
+            const currentUrl = encodeURIComponent(window.location.href);
+            
+            document.querySelectorAll('a[href*="YOUR_URL_GOES_HERE"]').forEach(link => {
+                let href = link.getAttribute('href');
+                // Note: The Twitter intent URL doesn't need encoding if you aren't pre-filling text, but encoding is safest.
+                href = href.replace('YOUR_URL_GOES_HERE', currentUrl);
+                link.setAttribute('href', href);
+            });
+        });
+    </script>
 </body>
 </html>

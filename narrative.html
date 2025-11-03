@@ -89,8 +89,9 @@
                         </svg>
                         Copy Share Link
                     </button>
-                    <a href="#" class="hover:text-gray-800 hidden md:block">Twitter</a>
-                    <a href="#" class="hover:text-gray-800 hidden md:block">LinkedIn</a>
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=YOUR_URL_GOES_HERE" target="_blank" class="hover:text-gray-800 hidden md:block">Facebook</a>
+                    <a href="https://twitter.com/intent/tweet?url=YOUR_URL_GOES_HERE" target="_blank" class="hover:text-gray-800 hidden md:block">Twitter</a>
+                    <a href="https://www.linkedin.com/shareArticle?mini=true&url=YOUR_URL_GOES_HERE" target="_blank" class="hover:text-gray-800 hidden md:block">LinkedIn</a>
                 </div>
             </div>
         </div>
@@ -146,6 +147,46 @@
 
             // Run the function on page load
             updateNarrativePage();
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const copyButton = document.getElementById('copyShareLink');
+            
+            if (copyButton) {
+                copyButton.addEventListener('click', async () => {
+                    const shareUrl = window.location.href; // Gets the full current URL
+                    
+                    try {
+                        // Use the modern clipboard API
+                        await navigator.clipboard.writeText(shareUrl);
+                        
+                        // Give the user visual feedback
+                        const originalText = copyButton.innerHTML;
+                        copyButton.innerHTML = '<span class="text-green-600">Copied!</span>';
+                        
+                        // Revert the button text after a short delay
+                        setTimeout(() => {
+                            copyButton.innerHTML = originalText;
+                        }, 2000);
+                        
+                    } catch (err) {
+                        console.error('Failed to copy text: ', err);
+                        // Fallback method for older browsers (less reliable)
+                        prompt('Copy this link:', shareUrl); 
+                    }
+                });
+            }
+
+            // Also update the social sharing links dynamically
+            const currentUrl = encodeURIComponent(window.location.href);
+            
+            document.querySelectorAll('a[href*="YOUR_URL_GOES_HERE"]').forEach(link => {
+                let href = link.getAttribute('href');
+                href = href.replace('YOUR_URL_GOES_HERE', currentUrl);
+                link.setAttribute('href', href);
+            });
         });
     </script>
 </body>

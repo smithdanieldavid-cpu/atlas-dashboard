@@ -92,6 +92,58 @@
         </div>
     </nav>
     <script src="scripts/atlas.js" defer></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            function updateNarrativePage() {
+                // The AI-generated analysis is stored in data/atlas-latest.json
+                fetch('data/atlas-latest.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const narrativeContainer = document.getElementById('fullNarrativeContent');
+                        const dateElement = document.getElementById('narrativeDate');
+                        const statusBadge = document.getElementById('narrativeStatusBadge');
+                        
+                        const overall = data.overall;
+
+                        if (overall && overall.daily_narrative) {
+                            // 1. Inject the AI Commentary
+                            // Replace newline characters (\n) with HTML line breaks (<br><br>)
+                            const formattedNarrative = overall.daily_narrative.replace(/\n/g, '<br><br>');
+                            narrativeContainer.innerHTML = formattedNarrative;
+
+                            // 2. Update Header Information
+                            dateElement.textContent = `Updated: ${overall.date}`;
+                            statusBadge.textContent = overall.status;
+
+                            // 3. Update the badge color based on status (Optional, but good practice)
+                            const statusText = overall.status.toUpperCase();
+                            statusBadge.classList.remove('bg-gray-400', 'bg-green-500', 'bg-yellow-500', 'bg-orange-500', 'bg-red-600');
+                            
+                            if (statusText.includes('FULL-STORM')) {
+                                statusBadge.classList.add('bg-red-600');
+                            } else if (statusText.includes('SEVERE')) {
+                                statusBadge.classList.add('bg-orange-500');
+                            } else if (statusText.includes('ELEVATED')) {
+                                statusBadge.classList.add('bg-yellow-500');
+                            } else {
+                                statusBadge.classList.add('bg-green-500');
+                            }
+
+                        } else {
+                            narrativeContainer.innerHTML = '<p>AI analysis unavailable or JSON data missing. Check if the Python script ran successfully.</p>';
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error fetching Atlas data:', error);
+                        document.getElementById('fullNarrativeContent').innerHTML = '<p>Failed to load dynamic commentary. Check file path.</p>';
+                    });
+            }
+
+            // Run the function on page load
+            updateNarrativePage();
+        });
+    </script>
 </body>
 
 </html>

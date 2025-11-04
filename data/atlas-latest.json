@@ -2,7 +2,7 @@
     "date": "2025-11-05",
     "atlas_score": 0.0,
     "current_status": "N/A",
-    "last_updated": "9:52 am",
+    "last_updated": "10:18 am",
     "macro": [
         {
             "id": "VIX",
@@ -27,9 +27,9 @@
         {
             "id": "EURUSD",
             "name": "EUR/USD exchange rate",
-            "value": 1.1486331224441528,
+            "value": 1.1487650871276855,
             "status": "Green",
-            "note": "EUR/USD is stable at 1.1486. Indicates balanced global risk/economic outlook.",
+            "note": "EUR/USD is stable at 1.1488. Indicates balanced global risk/economic outlook.",
             "action": "No change.",
             "score_value": 0.0,
             "source_link": "https://www.alphavantage.co/documentation/#currency-exchange"
@@ -47,9 +47,9 @@
         {
             "id": "AUDUSD",
             "name": "AUD/USD exchange rate",
-            "value": 0.6490978002548218,
+            "value": 0.6491820216178894,
             "status": "Red",
-            "note": "AUDUSD at 0.6491. AUD remains under pressure. Strong risk-off or persistent US Dollar strength.",
+            "note": "AUDUSD at 0.6492. AUD remains under pressure. Strong risk-off or persistent US Dollar strength.",
             "action": "Favour US Dollar liquidity over AUD assets; watch commodity prices.",
             "score_value": 1.0,
             "source_link": "https://finance.yahoo.com/quote/AUDUSD=X/"
@@ -231,7 +231,7 @@
         }
     ],
     "overall": {
-        "date": "2025-11-05 09:52:59",
+        "date": "2025-11-05 10:18:43",
         "status": "\ud83d\udd34 HIGH RISK",
         "score": 8.5,
         "max_score": 15.0,
@@ -249,7 +249,7 @@
                 "alarm_threshold": "Above 4.0%"
             }
         ],
-        "daily_narrative": "The Atlas Dashboard signals a **HIGH RISK** environment, with an Atlas Score of 8.5 out of 15.0, indicating multiple severe triggers are active. Macro indicators are flashing amber: the VIX index at 19.0 suggests increasing market volatility, while a sharp rally in gold points to rising inflation expectations or systemic risk. US Treasury yields across the curve remain elevated, reflecting persistent fiscal and inflation concerns, further compounded by a risk-off sentiment evident in the weakening AUD/USD.\n\nDespite major equity indices like the S&P 500 trading near highs, underlying market health is deteriorating. Aggressive expansion of margin debt (32.9% YoY) presents a significant risk of forced liquidations, while small-cap underperformance and rising consumer delinquencies highlight poor market internals and increasing household stress. Given this confluence of factors, a disciplined investor should **aggressively hedge and reduce exposure**. Prioritize capital preservation by deleveraging equity positions, increasing cash holdings, and considering real asset allocations. Avoid high-risk small-cap exposure and intermediate-duration fixed income, as the current environment demands a highly defensive and cautious approach.",
+        "daily_narrative": "**Atlas Commentary - November 5, 2025**\n\nThe Atlas Dashboard indicates a **\ud83d\udd34 HIGH RISK** environment, with an overall score of 8.5, signaling that multiple severe triggers are active. While headline equity indices like the S&P 500 continue to trade near highs, this bullish momentum is increasingly contradicted by underlying market dynamics. We observe a clear shift towards risk-off sentiment, evidenced by a rising VIX index (19.0), a sharp rally in Gold ($362.32) suggesting inflation or systemic risk, and persistent pressure on the AUD/USD (0.6492). Furthermore, elevated US Treasury yields across the curve (3Y at 3.61%, 10Y at 4.13%, 30Y at 4.69%) reflect growing concerns over fiscal integrity and inflation, despite robust systemic liquidity and tight high-yield credit spreads.\n\nCrucially, micro-level indicators reveal significant vulnerabilities. Margin debt is expanding aggressively year-over-year (32.9%), creating a high risk of forced liquidations should markets turn. Market internals are deteriorating, with small-cap stocks heavily underperforming large-caps (ratio at 0.3585), indicating poor breadth. While the extreme bearishness in the put/call ratio (13.91) might suggest a short-term capitulation, it primarily underscores a deep-seated fear. Coupled with rising consumer delinquencies (3.0%), the aggregate picture points to an increasingly fragile market. Disciplined investors are advised to aggressively hedge existing exposures, deleverage, and increase cash positions to preserve capital amidst these escalating risks.",
         "news_articles": []
     },
     "meta": {

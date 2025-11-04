@@ -1378,7 +1378,17 @@ def run_update_process(atlas_data):
 
     # --- NEWS INTEGRATION ---
     print("Starting News Integration.")
-    query_base = atlas_data["overall"].get("composite_summary", "global economic risk")
+    # --- NEWS INTEGRATION ---
+    print("Starting News Integration.")
+    
+    # Prioritize the full AI narrative for the search query, then the composite summary, then a generic phrase
+    query_base = atlas_data["overall"].get("daily_narrative")
+    if not query_base:
+        query_base = atlas_data["overall"].get("composite_summary", "global economic risk")
+
+    news_articles = fetch_news_articles(query_base)
+    atlas_data["overall"]["news_articles"] = news_articles
+    print(f"News Integration complete. Found {len(news_articles)} articles.")
     news_articles = fetch_news_articles(query_base)
     atlas_data["overall"]["news_articles"] = news_articles
     print(f"News Integration complete. Found {len(news_articles)} articles.")

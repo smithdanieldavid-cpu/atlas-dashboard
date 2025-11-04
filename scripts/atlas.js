@@ -5,17 +5,24 @@ const getStatusDetails = (status) => {
     const s = status ? status.toUpperCase() : 'N/A';
 
     switch (s) {
-        // --- 4-Tier Overall Statuses ---
-        case 'FULL-STORM':
-            return { color: 'bg-red-800 text-white border-red-900', icon: '⛈️', badge: 'bg-red-100 text-red-800', narrativeBadge: 'bg-red-600' };
+        // --- 4-Tier Overall Statuses (ALIGNED WITH PYTHON OUTPUT) ---
+        case '🔴 HIGH RISK':
         case 'SEVERE RISK':
+        case 'FULL-STORM': // Kept for completeness, though not used by Python now
             return { color: 'bg-red-600 text-white border-red-700', icon: '🔴', badge: 'bg-red-100 text-red-800', narrativeBadge: 'bg-red-600' };
-        case 'ELEVATED RISK':
-            return { color: 'bg-amber-500 text-black border-amber-600', icon: '🟡', badge: 'bg-amber-100 text-amber-800', narrativeBadge: 'bg-amber-500' };
+        
+        case '🟠 ELEVATED RISK':
+            return { color: 'bg-amber-500 text-black border-amber-600', icon: '🟠', badge: 'bg-amber-100 text-amber-800', narrativeBadge: 'bg-amber-500' };
+            
+        case '🟡 WATCH':
+            return { color: 'bg-yellow-500 text-black border-yellow-600', icon: '🟡', badge: 'bg-yellow-100 text-yellow-800', narrativeBadge: 'bg-yellow-500' };
+            
+        case '🟢 LOW RISK':
         case 'MONITOR (GREEN)':
         case 'MONITOR':
             return { color: 'bg-green-600 text-white border-green-700', icon: '🟢', badge: 'bg-green-100 text-green-800', narrativeBadge: 'bg-green-600' };
-        // --- 3-Tier Individual Indicator Statuses ---
+
+        // --- 3-Tier Individual Indicator Statuses (ALIGNED WITH PYTHON OUTPUT) ---
         case 'RED':
             return { color: 'border-red-600', icon: '🟥', badge: 'bg-red-100 text-red-800', narrativeBadge: 'bg-red-600' };
         case 'AMBER':
@@ -31,7 +38,6 @@ const getStatusDetails = (status) => {
 
 // --- 2. DATA FETCHING ---
 const ATLAS_DATA_PATH = 'data/atlas-latest.json'; 
-// NEW: Path to the archive file
 const ARCHIVE_DATA_PATH = 'data/atlas-archive.json';
 
 // NEW: Global variables for infinite scroll state
@@ -72,16 +78,20 @@ async function fetchAtlasData() {
  */
 function renderOverallStatus(overall) {
     const card = document.getElementById('overallStatusCard');
-    const details = getStatusDetails(overall.status);
+    // NOTE: overall.status contains the emoji (e.g., "🟢 LOW RISK")
+    const details = getStatusDetails(overall.status); 
 
     // Apply main color and structural classes to the card container
     if (card) {
         card.className = `p-6 mb-8 rounded-xl shadow-2xl border-4 transform transition duration-500 hover:scale-[1.01] hover:shadow-2xl ${details.color}`;
         
+        // Remove emoji from status for display if present (e.g. show "LOW RISK" instead of "🟢 LOW RISK")
+        const cleanStatus = overall.status.replace(/(\u00a9|\u00ae|[\u2000-\u3300]|\ud83c[\ud000-\udfff]|\ud83d[\ud000-\udfff]|\ud83e[\ud000-\udfff])/g, '').trim();
+
         card.innerHTML = `
             <div class="flex justify-between items-center mb-2">
                 <h2 class="text-base font-semibold uppercase">
-                    ${details.icon} ${overall.status}
+                    ${details.icon} ${cleanStatus}
                 </h2>
                 <span class="text-2xl font-mono font-bold">
                     ${overall.score.toFixed(1)} <span class="text-sm font-normal opacity-70">/${overall.max_score.toFixed(1)}</span>
@@ -95,13 +105,13 @@ function renderOverallStatus(overall) {
     // Update the NEW narrative summary on the main dashboard
     const narrativeSummary = document.getElementById('narrativeSummaryText');
     if (narrativeSummary) {
-        // Ensure only the top line of the daily narrative is shown for the summary
-        const summaryText = overall.daily_narrative ? overall.daily_narrative.split('\n')[0] : overall.narrative_summary;
-        narrativeSummary.textContent = summaryText || overall.composite_summary;
+        // Use the first paragraph of the AI narrative for the summary text
+        const summaryText = overall.daily_narrative ? overall.daily_narrative.split('\n\n')[0] : overall.composite_summary;
+        narrativeSummary.textContent = summaryText;
     }
     
     // Update the other side-bar elements
-    document.getElementById('triggerSummary').textContent = `${overall.status} (Score: ${overall.score.toFixed(1)} / ${overall.max_score.toFixed(1)})`;
+    document.getElementById('triggerSummary').textContent = overall.status; // Shows full status with emoji
     document.getElementById('triggerDetails').textContent = overall.comment;
     
     // Update the last updated time in the header/footer
@@ -127,9 +137,34 @@ function renderIndicatorTable(tableId, indicators) {
         row.className = 'hover:bg-gray-50';
         
         // Ensure a value exists for display
-        const indicatorValue = indicator.value || 'N/A'; 
+        const indicatorValue = indicator.value === 0.0 || indicator.value === null ? 'N/A' : indicator.value; 
         
-        // --- START OF HIGH VISIBILITY FIX LOGIC (The updated part) ---
+        // Format the value display based on type (for arrays like SNAP_BENEFITS)
+        let displayValue;
+        if (Array.isArray(indicatorValue) && indicatorValue.length === 2) {
+            // Display MoM % change for SNAP
+            const prev = indicatorValue[0];
+            const curr = indicatorValue[1];
+            if (prev > 0) {
+                 const momChange = ((curr / prev) - 1) * 100;
+                 displayValue = `${momChange.toFixed(1)}% MoM`;
+            } else {
+                 displayValue = `${curr} (N/A MoM)`;
+            }
+        } else if (typeof indicatorValue === 'number') {
+             // Handle numeric values for display, forcing at least one decimal
+             if (indicator.id === 'SPX_INDEX' || indicator.id === 'ASX_200') {
+                 displayValue = indicatorValue.toLocaleString(undefined, { maximumFractionDigits: 0 });
+             } else if (indicator.id === 'FISCAL_RISK') {
+                 displayValue = indicatorValue.toFixed(0);
+             } else {
+                 displayValue = indicatorValue.toFixed(2);
+             }
+        } else {
+            displayValue = indicatorValue || 'N/A';
+        }
+        
+        // --- START OF HIGH VISIBILITY FIX LOGIC ---
         const currentStatus = (indicator.status || '').toUpperCase();
         let displayNote;
         let sourceLink = ''; // Initialized outside the conditional to ensure clean display
@@ -142,7 +177,6 @@ function renderIndicatorTable(tableId, indicators) {
                 <span class="text-base font-bold">${indicator.note}</span> 
                 <span class="text-sm text-gray-500">(Action: ${indicator.action})</span>
             `;
-            // sourceLink remains "" (empty) to suppress the [Source] button
         } else {
             // Normal display when data is Green, Amber, or Red
             const sourceURL = indicator.source_link || indicator.source || indicator.url;
@@ -166,7 +200,7 @@ function renderIndicatorTable(tableId, indicators) {
             </td>
 
             <td class="w-24 px-3 py-3 text-sm font-semibold text-gray-700 whitespace-nowrap">
-                ${indicatorValue} 
+                ${displayValue} 
                 <span class="px-2 py-0.5 ml-2 text-xs font-bold rounded-full uppercase ${details.badge}">
                     ${indicator.status || 'N/A'}
                 </span>
@@ -182,32 +216,9 @@ function renderIndicatorTable(tableId, indicators) {
 
 
 // ------------------------------------------------------------------
-// NEW UTILITY FUNCTION: Dedicated renderer for the Gemini API commentary lists
-// This replaces the old renderList, which could not handle the new structure.
+// OLD UTILITY FUNCTION: renderCommentaryList IS REMOVED as the Python output changed.
+// We will use direct DOM manipulation in initializeDashboard.
 // ------------------------------------------------------------------
-/**
- * Renders simple bulleted lists for commentary items (Actions, Watch, Insight).
- * Assumes the list items are objects with a 'text' property: [{"text": "..."}]
- */
-function renderCommentaryList(listId, items, icon, className = '') {
-    const list = document.getElementById(listId);
-    if (!list) return;
-    list.innerHTML = '';
-
-    // Check if the items array is valid and contains data
-    if (!items || !Array.isArray(items) || items.length === 0) {
-        list.innerHTML = '<li>No analysis provided.</li>';
-        return;
-    }
-
-    items.forEach(item => {
-        const li = document.createElement('li');
-        li.className = className;
-        // Access item.text, as all Gemini-generated lists are [{"text": "..."}]
-        li.innerHTML = `${icon}<span>${item.text}</span>`;
-        list.appendChild(li);
-    });
-}
 
 
 // --- 4. NARRATIVE PAGE RENDERING ---
@@ -220,17 +231,19 @@ function initializeNarrativePage() {
         if (!data) return;
 
         const overall = data.overall;
-        const details = getStatusDetails(overall.status);
+        // NOTE: overall.status contains the emoji (e.g., "🟢 LOW RISK")
+        const details = getStatusDetails(overall.status); 
 
         // Set title, date, and status badge
-        document.getElementById('narrativeTitle').textContent = `${overall.status} Risk Posture Analysis`;
+        const cleanStatus = overall.status.replace(/(\u00a9|\u00ae|[\u2000-\u3300]|\ud83c[\ud000-\udfff]|\ud83d[\ud000-\udfff]|\ud83e[\ud000-\udfff])/g, '').trim();
+        document.getElementById('narrativeTitle').textContent = `${cleanStatus} Risk Posture Analysis`;
         document.getElementById('narrativeDate').textContent = `Updated: ${overall.date}`;
         
         const statusBadge = document.getElementById('narrativeStatusBadge');
         statusBadge.textContent = `${overall.status} (Score: ${overall.score.toFixed(1)} / ${overall.max_score.toFixed(1)})`;
         statusBadge.className = `mt-4 inline-block px-3 py-1 text-sm font-bold rounded-full text-white ${details.narrativeBadge}`;
 
-        // Insert the full narrative text. We replace newline characters with <br> for HTML rendering.
+        // Insert the full narrative text.
         const narrativeContent = document.getElementById('fullNarrativeContent');
         if (narrativeContent) {
             // Using a simple split/join to wrap paragraphs in <p> tags for better formatting
@@ -271,6 +284,7 @@ function renderArchivePosts(startIndex) {
 
 
     postsToRender.forEach(post => {
+        // NOTE: post.status contains the emoji (e.g., "🟢 LOW RISK")
         const details = getStatusDetails(post.status);
         const postElement = document.createElement('article');
         
@@ -278,6 +292,10 @@ function renderArchivePosts(startIndex) {
         // Check if date contains a space (time), if so, split it.
         const datePart = post.date ? post.date.split(' ')[0] : 'N/A';
         const displayDate = new Date(datePart).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+        
+        // Remove emoji from status for the title display
+        const cleanStatus = post.status.replace(/(\u00a9|\u00ae|[\u2000-\u3300]|\ud83c[\ud000-\udfff]|\ud83d[\ud000-\udfff]|\ud83e[\ud000-\udfff])/g, '').trim();
+
 
         postElement.className = 'border-b border-gray-200 pb-10';
         
@@ -289,9 +307,9 @@ function renderArchivePosts(startIndex) {
 
         postElement.innerHTML = `
             <div class="flex items-start justify-between mb-4">
-                <h2 class="text-2xl font-bold text-gray-900">${details.icon} Atlas Update: ${displayDate}</h2>
+                <h2 class="text-2xl font-bold text-gray-900">${details.icon} Atlas Update: ${displayDate} (${cleanStatus})</h2>
                 <span class="mt-1 inline-block px-3 py-1 text-xs font-bold rounded-full text-white ${details.narrativeBadge}">
-                    ${post.status} (Score: ${post.score.toFixed(1)})
+                    Score: ${post.score.toFixed(1)}
                 </span>
             </div>
             <p class="text-base text-gray-700 leading-relaxed">${narrativeHTML}</p>
@@ -379,79 +397,54 @@ async function initializeDashboard() {
     renderIndicatorTable('macroTable', data.macro);
     renderIndicatorTable('microTable', data.micro);
 
-    // 3. Render Gemini Commentary (FIXED LOGIC)
+    // 3. Render Dashboard Commentary from OVERALL (Refactored due to Python changes)
 
-    // 3a. Short Insight (Single Sentence)
-    // CRITICAL FIX: Use ['Short insight'] and the dedicated renderer
-    renderCommentaryList(
-        'insightList', 
-        data.commentary['Short insight'], 
-        '💡 ', 
-        'text-base font-bold italic'
-    );
+    const overall = data.overall || {};
     
-    // 3b. Immediate Actions
-    // CRITICAL FIX: Use ['Immediate actions']
-    renderCommentaryList(
-        'actionList', 
-        data.commentary['Immediate actions'], 
-        '✅ '
-    );
-    
-    // Inside async function initializeDashboard() { ... }
-
-// 3c. Escalation Watch 🚨 (COMBINED LOGIC)
-const watchList = document.getElementById('watchList');
-if (!watchList) return; // Safety check
-watchList.innerHTML = ''; // Clear existing content
-
-const commentary = data.commentary || {};
-const overall = data.overall || {};
-
-// 1. Get AI-Generated Watch Items (Text Predictions)
-const aiWatchItems = commentary['Escalation watch'] || [];
-
-// Use the dedicated utility function for AI commentary
-if (aiWatchItems.length > 0) {
-    // Renders list items like: 🚨 Watch for VIX to break 22.0.
-    renderCommentaryList(
-        'watchList', 
-        aiWatchItems, 
-        '🚨 ', 
-        'text-red-700' 
-    );
-}
-
-// 2. Get System-Calculated Escalation Triggers (Threshold Breaches)
-const systemTriggers = overall.escalation_triggers || [];
-
-if (systemTriggers.length > 0) {
-    // Add a visual separator if both types of warnings exist
-    if (aiWatchItems.length > 0) {
-        const separator = document.createElement('li');
-        separator.className = 'mt-2 mb-1 border-t border-red-200';
-        watchList.appendChild(separator);
+    // --- 3a. INSIGHT (Use the main overall comment) ---
+    const insightList = document.getElementById('insightList');
+    if (insightList) {
+        insightList.innerHTML = `
+            <li class="text-base font-bold italic">
+                <span class="mr-1">💡</span> ${overall.comment}
+            </li>
+        `;
     }
     
-    // Add the system triggers to the *same* list element
-    systemTriggers.forEach(trigger => {
-        const listItem = document.createElement('li');
-        
-        listItem.innerHTML = `
-            <span class="font-bold text-red-700">⚠️ Threshold Breach:</span>
-            <span class="font-semibold">${trigger.name}</span> 
-            (Current: <span class="text-indigo-600">${trigger.current_reading}</span>)
-            — Alarm: <span class="text-red-600">${trigger.alarm_threshold}</span>
+    // --- 3b. IMMEDIATE ACTIONS (Use the composite summary) ---
+    const actionList = document.getElementById('actionList');
+    if (actionList) {
+        actionList.innerHTML = `
+            <li>
+                <span class="mr-1">⚠️</span> ${overall.composite_summary}
+            </li>
         `;
-        
-        watchList.appendChild(listItem);
-    });
-} 
+    }
+    
+    // --- 3c. ESCALATION WATCH (System-Calculated Triggers) ---
+    const watchList = document.getElementById('watchList');
+    if (!watchList) return; 
+    watchList.innerHTML = ''; 
 
-// 3. Handle the "No Risk" case
-if (aiWatchItems.length === 0 && systemTriggers.length === 0) {
-    watchList.innerHTML = '<li class="text-green-600">No immediate escalation risks flagged.</li>';
-}
+    const systemTriggers = overall.escalation_triggers || [];
+
+    if (systemTriggers.length > 0) {
+        // Add the system triggers to the list element
+        systemTriggers.forEach(trigger => {
+            const listItem = document.createElement('li');
+            
+            listItem.innerHTML = `
+                <span class="font-bold text-red-700">🚨 Breach:</span>
+                <span class="font-semibold">${trigger.name}</span> 
+                (Current: <span class="text-indigo-600">${trigger.current_reading}</span>)
+                — Alarm: <span class="text-red-600">${trigger.alarm_threshold}</span>
+            `;
+            
+            watchList.appendChild(listItem);
+        });
+    } else {
+        watchList.innerHTML = '<li class="text-green-600">No immediate escalation risks flagged.</li>';
+    }
 
     console.log("Atlas Dashboard successfully rendered data.");
 }

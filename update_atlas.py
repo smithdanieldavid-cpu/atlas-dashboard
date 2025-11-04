@@ -38,7 +38,7 @@ API_CONFIG = {
     
     "EQUITY_API_KEY": "5CGATLAPOEYLJTO7", 
     "EQUITY_ENDPOINT": "https://www.alphavantage.co/query",
-    
+ 
     # Options/Sentiment API (LIVE - Polygon)
     "PUT_CALL_API_KEY": "qYLFTWtQSFs3NntmnCeQDy8d5asiA6_3",      # <-- YOUR LIVE KEY
     "PUT_CALL_ENDPOINT": "https://api.polygon.io/v2/aggs/ticker/PCCE/prev", 
@@ -64,7 +64,7 @@ API_CONFIG = {
     "FRED_WTREGEN_ID": "WTREGEN",      
     "FRED_RRPONTSYD_ID": "RRPONTSYD",   
     "FRED_BANK_CDS_ID": "AAA", 
-    
+   
     "FRED_CONSUMER_DELINQ_ID": "DRCCLACBS", 
     "FRED_SNAP_ID": "TRP6001A027NBEA", 
 
@@ -145,8 +145,7 @@ def get_sofr_ois_spread():
     """
     Calculates the SOFR/EFFR Spread (proxy for SOFR OIS Spread).
     The spread is 3-Month Compounded SOFR Average minus the Effective Federal Funds Rate (EFFR).
-    Sources: SOFR3MAD and EFFR.
-    Result is in Basis Points.
+    Sources: SOFR3MAD and EFFR. Result is in Basis Points.
     """
     if not fred:
         print("FRED client not initialized. Cannot fetch SOFR OIS Spread.")
@@ -373,10 +372,10 @@ def _fetch_alpha_vantage_quote(symbol, api_key, endpoint):
     
     global_quote = data.get("Global Quote", {})
     if not global_quote:
-         if not data and "Note" in data:
+        if not data and "Note" in data:
             raise ValueError(f"API note/error: {data.get('Note')}")
          
-         raise ValueError("Global Quote data is empty or missing.")
+        raise ValueError("Global Quote data is empty or missing.")
 
     return float(global_quote.get("05.price"))
 
@@ -404,7 +403,7 @@ def _fetch_polygon_data(endpoint, api_key):
     
     results = data.get("results")
     if not results or not isinstance(results, list) or len(results) == 0:
-         raise ValueError("Polygon API results array is empty or missing.")
+        raise ValueError("Polygon API results array is empty or missing.")
 
     pcr_value = results[0].get("c") 
 
@@ -428,7 +427,8 @@ def fetch_external_data(endpoint_key, api_key_key, indicator_id, fallback_value)
     
     # --- YFINANCE LOGIC (VIX, Gold, SPX, ASX, SMALL_LARGE_RATIO, WTI_CRUDE, AUDUSD) ---
     
-    if indicator_id in ["VIX", "GOLD_PRICE", "SPX_INDEX", "ASX_200", 
+    if indicator_id in ["VIX", "GOLD_PRICE", 
+                        "SPX_INDEX", "ASX_200", 
                         "SMALL_LARGE_RATIO", "WTI_CRUDE", "AUDUSD", "EURUSD"]:
         try:
             if indicator_id not in ["SMALL_LARGE_RATIO"]:
@@ -444,6 +444,7 @@ def fetch_external_data(endpoint_key, api_key_key, indicator_id, fallback_value)
              
                 formatting = "{:.4f}" if indicator_id in ["AUDUSD", "EURUSD"] else "{:.2f}"
                 print(f"Success: Fetched {indicator_id} ({formatting.format(value)}) from yfinance.")
+     
                 return value 
              
             elif indicator_id == "SMALL_LARGE_RATIO":
@@ -465,6 +466,7 @@ def fetch_external_data(endpoint_key, api_key_key, indicator_id, fallback_value)
             pcr_value = _fetch_polygon_data(endpoint, api_key)
             
             print(f"Success: Fetched {indicator_id} ({pcr_value:.2f}) from Polygon.io.")
+    
             return pcr_value
             
         except Exception as e:
@@ -473,6 +475,7 @@ def fetch_external_data(endpoint_key, api_key_key, indicator_id, fallback_value)
             
     # --- ALPHA VANTAGE LOGIC (ONLY EURUSD REMAINS) ---
          
+    
     # This section is redundant if EURUSD is handled by YFinance above, but is preserved for completeness.
     if indicator_id in ["EURUSD"]:
         try:
@@ -480,7 +483,7 @@ def fetch_external_data(endpoint_key, api_key_key, indicator_id, fallback_value)
             formatting = "{:.4f}"
             print(f"Success: Fetched {indicator_id} ({formatting.format(av_value)}) from Alpha Vantage.")
             return av_value 
-            
+   
         except Exception as e:
             print(f"{indicator_id} API Error: Data fetch failed: {e}. Returning fallback value {fallback_value}.")
             return fallback_value
@@ -532,7 +535,7 @@ def _update_indicator_sources(indicators):
 
     for indicator in indicators:
         indicator_id = indicator["id"]
-        
+     
         if indicator_id in YFINANCE_SOURCES:
             indicator["source_link"] = YFINANCE_SOURCES[indicator_id]
         elif indicator_id in FRED_SOURCES:
@@ -820,17 +823,18 @@ def score_spx_index(value):
     score = 0.0
     source_link = "https://finance.yahoo.com/quote/%5EGSPC"
 
-    if value <= 4200.0:
+    # Assume index pivot point for correction is 5000.0
+    if value <= 4400.0:
         status = "Red"
         note = f"S&P 500 Index at {value:,.0f}. Aggressive sell-off/Correction >12%. Structural equity risk is high."
         action = "Sell/Hedge significant equity exposure. Wait for VIX confirmation below 22."
         score = 1.0
-    elif value <= 4500.0:
+    elif value <= 4800.0: # Updated threshold to reflect current market (assuming a 5000 pivot)
         status = "Amber"
         note = f"S&P 500 Index at {value:,.0f}. Moderate pullback from highs. Equity risk is elevated."
         action = "Avoid adding new equity exposure. Maintain existing hedges."
         score = 0.5
-
+    
     return generate_score_output(status, note, action, score, source_link)
 
 
@@ -852,37 +856,31 @@ def score_asx_200(value):
         note = f"ASX 200 Index at {value:,.0f}. Moderate pullback from highs. Equity risk is elevated."
         score = 0.5
         action = "Avoid adding new AU equity exposure."
-
+    
     return generate_score_output(status, note, action, score, source_link)
 
 
-def score_treasury_liquidity(value):
-    """Treasury Net Liquidity Scoring - Measures system-wide funding/liquidity risk."""
+def score_treasury_liquidity(value): 
+    """Treasury Net Liquidity Scoring - Measures system-wide liquidity/risk."""
+    # Value is in Billions USD
     status = "Green"
-    note = f"Net Liquidity at ${value:.0f}B. Sufficient systemic liquidity."
+    note = f"Net Liquidity at ${value:.1f}B. Systemic liquidity is robust."
     action = "No change."
     score = 0.0
     source_link = "https://fred.stlouisfed.org/series/WALCL"
-
-    if isinstance(value, str):
-        if value.upper() == 'N/A':
-            return generate_score_output("N/A", "Data N/A: Treasury Liquidity requires FRED data.", "Cannot score due to missing data.", 0.0, source_link)
-        try:
-            value = float(value)
-        except ValueError:
-            return generate_score_output("Error", "Error: Liquidity value could not be converted to number.", "Cannot score due to data error.", 0.0, "")
-
-    if value <= 100.0:
+    
+    # Critical threshold for liquidity stress (inferred from common analyst models)
+    if value <= -250.0:
         status = "Red"
-        note = f"Net Liquidity at ${value:.0f}B. Systemic liquidity is being severely drained. High risk of funding shock."
-        score = 2.5
-        action = "Aggressively increase cash reserves and reduce short-term debt exposure."
-    elif value <= 300.0:
+        note = f"Net Liquidity at ${value:.1f}B. Deep liquidity deficit. Signals systemic funding stress."
+        score = 2.0
+        action = "Aggressively increase cash/liquidity reserves; reduce all speculative exposure."
+    elif value <= 50.0:
         status = "Amber"
-        note = f"Net Liquidity at ${value:.0f}B. Liquidity is tightening. Monitor short-term rates and counterparty risk."
-        score = 1.5
-        action = "Reduce leverage and monitor short-term funding rates."
-
+        note = f"Net Liquidity at ${value:.1f}B. Liquidity is tightening. Monitor short-term funding markets closely."
+        score = 1.0
+        action = "Limit duration exposure; favour short-term liquid assets."
+        
     return generate_score_output(status, note, action, score, source_link)
 
 
@@ -912,11 +910,11 @@ def score_sofr_ois(value):
         note = f"SOFR/OIS Spread at {value:.1f} bps. Elevated widening. Monitor interbank lending stress."
         score = 1.0
         action = "Monitor bank solvency and interbank rates closely."
-
+        
     return generate_score_output(status, note, action, score, source_link)
 
 
-def score_put_call_ratio(value): 
+def score_put_call_ratio(value):
     """Put/Call Ratio Scoring - Measures retail/institutional sentiment."""
     status = "Green"
     note = f"Put/Call Ratio at {value:.2f}. Balanced market sentiment."
@@ -926,38 +924,72 @@ def score_put_call_ratio(value):
 
     if isinstance(value, str):
         if value.upper() == 'N/A':
-            return generate_score_output("N/A", "Data N/A: Put/Call Ratio requires external API.", "Cannot score due to missing data.", 0.0, source_link)
+            return generate_score_output("N/A", "Data N/A: Put/Call requires Polygon data.", "Cannot score due to missing data.", 0.0, source_link)
         try:
             value = float(value)
         except ValueError:
-            return generate_score_output("Error", "Error: Put/Call value could not be converted to number.", "Cannot score due to data error.", 0.0, "")
+            return generate_score_output("Error", "Error: Ratio value could not be converted to number.", "Cannot score due to data error.", 0.0, "")
 
-    if isinstance(value, float):
-        if value >= 1.2:
-            status = "Amber"
-            note = f"Put/Call Ratio at {value:.2f}. High put volume suggests bearish sentiment, which can be contrarian bullish."
-            score = 0.5 # A low-risk positive signal
-            action = "Watch for technical reversal signals."
-        elif value <= 0.8:
-            status = "Amber"
-            note = f"Put/Call Ratio at {value:.2f}. Low put volume suggests complacency/overbought conditions."
-            score = 0.5
-            action = "Avoid adding new long equity exposure."
+    if value >= 1.20:
+        status = "Red"
+        note = f"Ratio at {value:.2f}. Extreme bearishness (too many puts). Suggests a potential short-term reversal/capitulation."
+        score = 1.0 # Counter-intuitive: extreme fear is bullish
+        action = "Watch for a sharp technical rally. Avoid selling at current levels."
+    elif value >= 1.0:
+        status = "Amber"
+        note = f"Ratio at {value:.2f}. Bearish sentiment is elevated. Monitor for a fear-driven market bottom."
+        score = 0.5
+        action = "Avoid adding new short positions."
+    elif value <= 0.8:
+        status = "Amber"
+        note = f"Ratio at {value:.2f}. Extreme complacency (too many calls). Suggests a short-term top."
+        score = 0.5 # Risk is high from complacency
+        action = "Reduce speculative long positions."
+
+    return generate_score_output(status, note, action, score, source_link)
+
+
+def score_margin_debt_yoy(value): 
+    """FINRA Margin Debt YOY Scoring - Measures leverage in the equity system."""
+    status = "Green"
+    note = f"Margin Debt YOY at {value:.1f}%. Leverage is stable/contracting moderately."
+    action = "No change."
+    score = 0.0
+    source_link = "https://www.finra.org/investors/market-and-financial-data/margin-statistics"
+
+    if isinstance(value, str):
+        if value.upper() == 'N/A':
+            return generate_score_output("N/A", "Data N/A: Margin Debt requires FINRA data.", "Cannot score due to missing data.", 0.0, source_link)
+        try:
+            value = float(value)
+        except ValueError:
+            return generate_score_output("Error", "Error: Debt value could not be converted to number.", "Cannot score due to data error.", 0.0, "")
+
+    if value >= 10.0:
+        status = "Red"
+        note = f"Margin Debt YOY at {value:.1f}%. Leverage is expanding aggressively. High risk of forced liquidation if markets fall."
+        score = 1.5
+        action = "Aggressively deleverage equity exposure; increase cash."
+    elif value >= 5.0:
+        status = "Amber"
+        note = f"Margin Debt YOY at {value:.1f}%. Leverage is expanding. Monitor for an acceleration."
+        score = 0.5
+        action = "Monitor broker-lending rates closely."
         
     return generate_score_output(status, note, action, score, source_link)
 
 
 def score_small_large_ratio(value):
-    """Small Cap / Large Cap Ratio Scoring - Measures market internals/breadth."""
-    status = "Red"
-    note = f"Ratio at {value:.2f} — small-caps underperforming. Internals fragile."
-    action = "Avoid growth/cyclical exposure; favour quality/large-cap."
+    """Russell 2000 / S&P 500 Ratio Scoring - Measures market breadth and risk appetite."""
+    status = "Red" # Default to Red/Worry since small-cap underperformance is the norm in weak markets
+    note = f"Ratio at {value:.4f} — small-caps are heavily underperforming. Poor internals."
+    action = "Avoid high-risk small-cap exposure."
     score = 1.0
-    source_link = "https://finance.yahoo.com/quote/%5ERUT"
+    source_link = "https://finance.yahoo.com/quote/%5ERUT/"
 
     if isinstance(value, str):
         if value.upper() == 'N/A':
-            return generate_score_output("N/A", "Data N/A: Small/Large Ratio requires YFinance.", "Cannot score due to missing data.", 0.0, source_link)
+            return generate_score_output("N/A", "Data N/A: Ratio requires YFinance data.", "Cannot score due to missing data.", 0.0, source_link)
         try:
             value = float(value)
         except ValueError:
@@ -974,136 +1006,61 @@ def score_small_large_ratio(value):
             note = f"Ratio at {value:.2f} — small-cap outperformance is fading. Monitor market breadth."
             score = 0.5
             action = "Reduce incremental growth exposure."
-        # Default Red status covers the < 0.42 case.
-        
+    # Default Red status covers the < 0.42 case.
     return generate_score_output(status, note, action, score, source_link)
 
 
-def score_earnings_revision(value):
-    """Earnings Revision Index Scoring (Micro Indicator - Placeholder for net analyst revisions)."""
-    status = "Amber"
-    note = "Earnings revisions are stable."
-    action = "Monitor analyst expectations."
-    score = 0.5
-    source_link = "N/A" # Placeholder for future Earnings API
-
-    if isinstance(value, str):
-        if value.upper() == 'N/A':
-            return generate_score_output("N/A", "Data N/A: Earnings revision requires external API.", "Cannot score due to missing data.", 0.0, source_link)
-        try:
-            value = float(value)
-        except ValueError:
-            return generate_score_output("Error", "Error: Earnings revision value could not be converted to number.", "Cannot score due to data error.", 0.0, "")
-
-    if isinstance(value, float):
-        note = f"{value:.0f}% net revisions. Earnings weakening."
-        if value <= -5.0:
-            status = "Red"
-            note = f"{value:.0f}% net revisions. Widespread negative revisions; structural earnings risk is high."
-            score = 1.0
-            action = "Avoid highly cyclical/growth stocks until revisions stabilize."
-        elif value >= 0.0:
-            status = "Green"
-            note = f"{value:.0f}% net revisions. Positive or neutral revisions; earnings are supporting the market."
-            score = 0.0
-            action = "No change."
-
-    return generate_score_output(status, note, action, score, source_link)
-
-
-def score_margin_debt_yoy(value):
-    """FINRA Margin Debt Year-over-Year Scoring (Micro Indicator)."""
-    status = "Amber"
-    note = "Leverage is stable."
-    action = "Monitor debt metrics."
-    score = 0.5
-    source_link = "https://www.finra.org/investors/market-and-financial-data/margin-statistics"
-
-    if isinstance(value, str):
-        if value.upper() == 'N/A':
-            return generate_score_output("N/A", "Data N/A: Margin debt requires external API.", "Cannot score due to missing data.", 0.0, source_link)
-        try:
-            value = float(value)
-        except ValueError:
-            return generate_score_output("Error", "Error: Margin debt value could not be converted to number.", "Cannot score due to data error.", 0.0, "")
-
-    if isinstance(value, float):
-        if value >= 10.0:
-            status = "Red"
-            note = f"Margin Debt YoY at {value:.1f}%. Extreme leverage growth. Implies high liquidation risk."
-            score = 1.0
-            action = "Reduce leveraged positions. Watch for technical weakness."
-        elif value <= -10.0:
-            status = "Green"
-            note = f"Margin Debt YoY at {value:.1f}%. Leverage has been aggressively reduced. Potential for risk-on recovery."
-            score = 0.0
-            action = "Look for opportunities in high-beta/growth sectors."
-        # Default Amber status covers the middle range
-        
-    return generate_score_output(status, note, action, score, source_link)
-
+def score_earnings_revision(value): 
+    """Earnings Revision Index Scoring (Placeholder)."""
+    # This is a placeholder and should return a default based on the assumption of "N/A"
+    return generate_score_output("N/A", "Data N/A: Earnings Revisions not automated.", "No change.", 0.0, "N/A")
 
 def score_bank_cds(value):
-    """Bank CDS Index Scoring (Micro Indicator - Placeholder for US Banking Risk)."""
+    """Bank CDS (Credit Default Swap) Scoring."""
+    # Placeholder: Assuming value is a measure in Basis Points (bps)
     status = "Green"
-    note = f"Bank CDS Index at {value:.0f} bps. Low implied banking risk."
+    note = f"Bank CDS at {value:.0f} bps. Low implied banking stress."
     action = "No change."
     score = 0.0
-    source_link = "https://www.fred.stlouisfed.org/series/AAA" # Placeholder for a FRED series
-
-    if isinstance(value, str):
-        if value.upper() == 'N/A':
-            return generate_score_output("N/A", "Data N/A: Bank CDS Index requires external API.", "Cannot score due to missing data.", 0.0, source_link)
-        try:
-            value = float(value)
-        except ValueError:
-            return generate_score_output("Error", "Error: Bank CDS value could not be converted to number.", "Cannot score due to data error.", 0.0, "")
-
-    if isinstance(value, float):
-        if value >= 150.0:
-            status = "Red"
-            note = f"Bank CDS Index at {value:.0f} bps. High implied banking risk. Indicates significant counterparty fear."
-            score = 2.0
-            action = "Aggressively reduce financial sector exposure and monitor interbank lending markets."
-        elif value >= 100.0:
-            status = "Amber"
-            note = f"Bank CDS Index at {value:.0f} bps. Elevated implied banking risk. Monitor closely."
-            score = 1.0
-            action = "Monitor financial sector credit and solvency closely."
-        # Default Green status covers the lower range
+    source_link = "https://fred.stlouisfed.org/series/AAA" # Assuming this is a proxy
+    
+    # Placeholder Logic
+    if value >= 150.0:
+        status = "Red"
+        note = f"Bank CDS at {value:.0f} bps. Aggressive widening. Signals high counterparty/banking sector stress."
+        score = 1.5
+        action = "Reduce exposure to regional banks and highly leveraged financial institutions."
+    elif value >= 100.0:
+        status = "Amber"
+        note = f"Bank CDS at {value:.0f} bps. Elevated widening. Caution on unsecured bank exposure."
+        score = 0.5
+        action = "Monitor banking liquidity and deposits closely."
         
     return generate_score_output(status, note, action, score, source_link)
 
 
 def score_consumer_delinquencies(value):
     """Consumer Delinquency Rate Scoring (Micro Indicator)."""
+    # Placeholder: Assuming value is a percentage rate
     status = "Green"
-    note = "Household debt stress is low."
+    note = f"Delinquency Rate at {value:.1f}%. Consumer health is stable."
     action = "No change."
     score = 0.0
-    source_link = "https://fred.stlouisfed.org/series/DRCCLACBS"
-
-    if isinstance(value, str):
-        if value.upper() == 'N/A':
-            return generate_score_output("N/A", "Data N/A: Consumer Delinquency data requires external API.", "Cannot score due to missing data.", 0.0, source_link)
-        try:
-            value = float(value)
-        except ValueError:
-            return generate_score_output("Error", "Error: Delinquency value could not be converted to number.", "Cannot score due to data error.", 0.0, "")
-
-    if isinstance(value, float):
-        if value >= 3.8:
-            status = "Red"
-            note = f"Delinquency Rate at {value:.1f}%. Aggressively high rate. Indicates significant household stress and consumer spending risk."
-            score = 2.0
-            action = "Aggressively reduce exposure to consumer discretionary and financial stocks with high unsecured loan exposure."
-        elif value >= 2.8:
-            status = "Amber"
-            note = f"Delinquency Rate at {value:.1f}%. Rate is rising. Caution warranted for banks and consumer sectors."
-            score = 1.0
-            action = "Monitor household debt metrics closely; reduce unsecured credit exposure."
-        # Default Green status covers the lower range
+    source_link = "https://fred.stlouisfed.org/series/DRCCLACBS" # Assuming this is the source
+    
+    # Placeholder Logic
+    if value >= 3.5:
+        status = "Red"
+        note = f"Delinquency Rate at {value:.1f}%. Rate is spiking. Signals severe consumer stress."
+        score = 2.0
+        action = "Aggressively reduce exposure to consumer discretionary and financial stocks with high unsecured loan exposure."
+    elif value >= 2.8:
+        status = "Amber"
+        note = f"Delinquency Rate at {value:.1f}%. Rate is rising. Caution warranted for banks and consumer sectors."
+        score = 1.0
+        action = "Monitor household debt metrics closely; reduce unsecured credit exposure."
         
+    # Default Green status covers the lower range
     return generate_score_output(status, note, action, score, source_link)
 
 
@@ -1112,7 +1069,7 @@ def score_geopolitical(value):
     # This is a manual input score (0.0, 0.5, or 1.0)
     manual_score = value
     source_link = "Manual Input/Qualitative Assessment"
-    
+
     if manual_score == 1.0:
         status = "Red"
         note = "Major escalation flagged (e.g., active conflict / resource shock). Commodity & risk-off shock is imminent."
@@ -1128,7 +1085,7 @@ def score_geopolitical(value):
         note = "Tensions stable. No immediate geopolitical shock flagged."
         action = "No change."
         score = 0.0
-
+        
     return generate_score_output(status, note, action, score, source_link)
 
 
@@ -1136,47 +1093,44 @@ def score_fiscal_risk(atlas_data):
     """Calculates the FISCAL_RISK score (Max 100) based on four factors."""
     
     # ----------------------------------------------------------------------
-    # 1. Social Service Delivery (SNAP Deviation Score) - MAX 25 
+    # 1. Social Service Delivery (SNAP Deviation Score) - MAX 25
     # CRITICAL SAFETY CHECK: next() ensures a default list is used if fetch failed.
     # ----------------------------------------------------------------------
     snap_values = next(
         (item['value'] for item in atlas_data['macro'] if item['id'] == 'SNAP_BENEFITS' and isinstance(item['value'], list)), 
-        [0.0, 0.0] 
-    ) 
-    prev_month_snap = snap_values[0] 
-    current_month_snap = snap_values[1]
-    snap_score = 5 # Default: Low Risk
+        [0.0, 0.0]
+    )
+    prev_month = snap_values[0]
+    curr_month = snap_values[1]
     
-    # Calculate MoM Change as a Percentage
-    if prev_month_snap > 0 and current_month_snap > 0:
-        mom_change_percent = ((current_month_snap - prev_month_snap) / prev_month_snap) * 100
+    # Calculate MoM % change
+    if prev_month > 0:
+        snap_mom_change = ((curr_month / prev_month) - 1) * 100
     else:
-        # If data is missing (0.0, 0.0), assume high risk for integrity score
-        mom_change_percent = 0
-        snap_score = 25 if prev_month_snap == 0 and current_month_snap == 0 else 5
+        snap_mom_change = 0.0
         
-    # Scoring Logic
-    if abs(mom_change_percent) >= 5.0: 
-        snap_score = 25 # Major disruption or major, unexpected stimulus
-    elif abs(mom_change_percent) >= 2.5: 
-        snap_score = 15 # Moderate instability
+    # Scoring: Aggressive SNAP expansion/contraction indicates stress
+    if snap_mom_change > 10.0 or snap_mom_change < -10.0:
+        snap_score = 25
+    elif snap_mom_change > 5.0 or snap_mom_change < -5.0:
+        snap_score = 15
     else:
         snap_score = 5 
 
     # ----------------------------------------------------------------------
-    # 2. Structural Integrity (Corruption Perception Index Placeholder) - MAX 25
+    # 2. Public Integrity (Corruption Perception Index - CPI) - MAX 25
     # Placeholder: Using the US score from Transparency International CPI (69)
     # ----------------------------------------------------------------------
-    us_cpi = 69 
+    us_cpi = 69
     corruption_score = max(0, min(25, (100 - us_cpi) / 4))
 
     # ----------------------------------------------------------------------
-    # 3. Social Stress Proxy (VIX Index) - MAX 25 
+    # 3. Social Stress Proxy (VIX Index) - MAX 25
     # SAFETY CHECK: Ensures the retrieved value is a number, or default to 0
     # ----------------------------------------------------------------------
     vix_value = next(
         (item['value'] for item in atlas_data['macro'] if item['id'] == 'VIX' and (isinstance(item['value'], (int, float)))), 
-        0 
+        0
     )
     if vix_value > 30:
         civil_unrest_score = 25
@@ -1188,15 +1142,16 @@ def score_fiscal_risk(atlas_data):
     # ----------------------------------------------------------------------
     # 4. Data/Regulatory Confidence (Narrative Analysis Placeholder) - MAX 25
     # ----------------------------------------------------------------------
-    reg_confidence_score = 10 
-    
+    reg_confidence_score = 10
+
     # --- Compile Final Score ---
     total_fiscal_risk_score = (
         snap_score + corruption_score + civil_unrest_score + reg_confidence_score
     )
-    
-    # Store the breakdown in the metadata
-    if "meta" not in atlas_data: atlas_data["meta"] = {}
+
+    # Store the breakdown in the metadata 
+    if "meta" not in atlas_data:
+        atlas_data["meta"] = {}
     atlas_data["meta"]["fiscal_breakdown"] = {
         "snap_score": snap_score,
         "corruption_score": round(corruption_score, 2),
@@ -1211,179 +1166,143 @@ def score_fiscal_risk(atlas_data):
 # --- DICTIONARY MAPPING INDICATOR ID TO SCORING FUNCTION (NEW CORRECT LOCATION) ---
 SCORING_FUNCTIONS = {
     # MACRO Indicators
-    "VIX": score_vix, "GOLD_PRICE": score_gold_price, "EURUSD": score_eurusd, 
-    "WTI_CRUDE": score_wti_crude, "AUDUSD": score_audusd, "3Y_YIELD": score_3y_yield, 
-    "30Y_YIELD": score_30y_yield, "10Y_YIELD": score_10y_yield, "HY_OAS": score_hy_oas,
+    "VIX": score_vix,
+    "GOLD_PRICE": score_gold_price,
+    "EURUSD": score_eurusd,
+    "WTI_CRUDE": score_wti_crude,
+    "AUDUSD": score_audusd,
+    "3Y_YIELD": score_3y_yield,
+    "30Y_YIELD": score_30y_yield,
+    "10Y_YIELD": score_10y_yield,
+    "HY_OAS": score_hy_oas,
     "TREASURY_LIQUIDITY": score_treasury_liquidity,
     
     # MICRO Indicators
-    "SPX_INDEX": score_spx_index, "ASX_200": score_asx_200, "SOFR_OIS": score_sofr_ois,
-    "PUT_CALL_RATIO": score_put_call_ratio, "SMALL_LARGE_RATIO": score_small_large_ratio,
-    "EARNINGS_REVISION": score_earnings_revision, "MARGIN_DEBT_YOY": score_margin_debt_yoy,
-    "BANK_CDS": score_bank_cds, "CONSUMER_DELINQUENCIES": score_consumer_delinquencies,
-
-    # Composite/Manual
-    "GEOPOLITICAL": score_geopolitical,
-    "FISCAL_RISK": score_fiscal_risk, 
-}
-
-# --- WATCHLIST THRESHOLDS ---
-# Defines the thresholds that trigger an "Escalation Watch" flag
-WATCH_INDICATORS = {
-    "HY_OAS": {"name": "HY OAS", "threshold": 350.0, "threshold_desc": "Above 350 bps"},
-    "SOFR_OIS": {"name": "SOFR/OIS Spread", "threshold": 25.0, "threshold_desc": "Above 25 bps"},
-    "TREASURY_LIQUIDITY": {"name": "Net Liquidity", "threshold": 300.0, "threshold_desc": "Below $300B"},
-    "VIX": {"name": "VIX", "threshold": 18.0, "threshold_desc": "Above 18.0"},
-    "10Y_YIELD": {"name": "10-Year Yield", "threshold": 4.0, "threshold_desc": "Above 4.0%"},
+    "SPX_INDEX": score_spx_index,
+    "ASX_200": score_asx_200,
+    "SOFR_OIS": score_sofr_ois,
+    "PUT_CALL_RATIO": score_put_call_ratio,
+    "MARGIN_DEBT_YOY": score_margin_debt_yoy,
+    "SMALL_LARGE_RATIO": score_small_large_ratio,
+    "EARNINGS_REVISION": score_earnings_revision, # Placeholder
+    "BANK_CDS": score_bank_cds,
+    "CONSUMER_DELINQUENCIES": score_consumer_delinquencies,
+    "GEOPOLITICAL": score_geopolitical, # Manual Input/Scored separately
+    # SNAP_BENEFITS and FISCAL_RISK are handled internally/composite
 }
 
 def _compile_escalation_watch(atlas_data):
-    """Compiles a list of indicators that have breached their Amber/Red thresholds."""
-    all_indicators = {item['id']: item for item in atlas_data['macro'] + atlas_data['micro']}
+    """Compiles a list of indicators that are currently at Amber or Red thresholds."""
+    
+    # Define a list of indicators and their low/high risk thresholds for the summary
+    WATCH_THRESHOLDS = {
+        "VIX": {"name": "VIX Index", "threshold": 18.0, "threshold_desc": "Above 18"},
+        "10Y_YIELD": {"name": "10yr Yield", "threshold": 4.0, "threshold_desc": "Above 4.0%"},
+        "HY_OAS": {"name": "HY OAS", "threshold": 350.0, "threshold_desc": "Above 350 bps"},
+        "SOFR_OIS": {"name": "SOFR/OIS Spread", "threshold": 25.0, "threshold_desc": "Above 25 bps"},
+        "EURUSD": {"name": "EUR/USD", "threshold": 1.1000, "threshold_desc": "Below 1.10"},
+        "TREASURY_LIQUIDITY": {"name": "Net Liquidity", "threshold": 50.0, "threshold_desc": "Below $50B"},
+    }
+    
+    all_indicators = atlas_data['macro'] + atlas_data['micro']
     escalation_list = []
     
-    for indicator_id, watch_info in WATCH_INDICATORS.items():
-        if indicator_id in all_indicators:
-            indicator = all_indicators[indicator_id]
-            current_value = indicator.get("value")
+    for watch_id, watch_info in WATCH_THRESHOLDS.items():
+        indicator = next((item for item in all_indicators if item['id'] == watch_id), None)
+        if not indicator:
+            continue
             
-            # Check the condition for Amber/Red state
-            is_breached = False
-            if indicator_id in ["TREASURY_LIQUIDITY"] and isinstance(current_value, (int, float)) and current_value <= watch_info["threshold"]:
-                is_breached = True # Low is bad
-            elif indicator_id in ["HY_OAS", "SOFR_OIS", "VIX", "10Y_YIELD"] and isinstance(current_value, (int, float)) and current_value >= watch_info["threshold"]:
-                is_breached = True # High is bad
+        current_value = indicator.get("value")
+        is_breached = False
+        
+        # Determine breach logic (Low is bad for EURUSD/Liquidity, High is bad for VIX/Yields/Spreads)
+        if watch_id in ["EURUSD", "TREASURY_LIQUIDITY"] and isinstance(current_value, (int, float)) and current_value <= watch_info["threshold"]:
+            is_breached = True # Low is bad
+        elif watch_id in ["HY_OAS", "SOFR_OIS", "VIX", "10Y_YIELD"] and isinstance(current_value, (int, float)) and current_value >= watch_info["threshold"]:
+            is_breached = True # High is bad
 
-            if is_breached:
-                # Format the current reading appropriately
-                if isinstance(current_value, (int, float)):
-                    if indicator_id in ["HY_OAS", "BANK_CDS"]: 
-                        formatted_value = f"{current_value:.0f}"
-                    elif indicator_id in ["SOFR_OIS", "VIX"]: 
-                        formatted_value = f"{current_value:.1f}"
-                    else:
-                        formatted_value = str(current_value)
+        if is_breached:
+            # Format the current reading appropriately
+            if isinstance(current_value, (int, float)):
+                if watch_id in ["HY_OAS", "BANK_CDS"]:
+                    formatted_value = f"{current_value:.0f}"
+                elif watch_id in ["SOFR_OIS", "VIX"]:
+                    formatted_value = f"{current_value:.1f}"
                 else:
-                    formatted_value = "N/A"
-                    
-                escalation_list.append({
-                    "name": watch_info["name"],
-                    "current_reading": formatted_value,
-                    "alarm_threshold": watch_info["threshold_desc"]
-                })
+                    formatted_value = str(current_value)
+            else:
+                formatted_value = "N/A"
                 
+            escalation_list.append({
+                "name": watch_info["name"],
+                "current_reading": formatted_value,
+                "alarm_threshold": watch_info["threshold_desc"]
+            })
+            
     return escalation_list
 
+
 def score_atlas_commentary(atlas_data):
-    """
-    Uses the Gemini API to generate structured commentary based on the scored data.
-    """
-    print("Generating commentary using Gemini API...")
+    """ Uses the Gemini API to generate structured commentary based on the scored data. """
     
-    # Initialize client (ensure your GEMINI_API_KEY is set in API_CONFIG)
-    try:
-        client = genai.Client(api_key=API_CONFIG["GEMINI_API_KEY"])
-    except Exception as e:
-        print(f"Gemini Client Initialization Failed: {e}. Check API Key.")
-        return atlas_data # Skip commentary if client fails
-    
-    # Define the REQUIRED Output Structure using JSON Schema
-    # FIX: JSON SCHEMA KEYS MATCH ATLAS_DATA_SCHEMA (Sentence Case)
-    commentary_schema = types.Schema(
-        type=types.Type.OBJECT,
-        properties={
-            "Short insight": types.Schema(
-                type=types.Type.STRING, 
-                description="A single, concise, sentence-case summary of the current systemic risk state."
-            ),
-            "Immediate actions": types.Schema(
-                type=types.Type.ARRAY,
-                items=types.Schema(type=types.Type.STRING),
-                description="A bulleted list of 3-5 tactical actions for an investor to take based on the Atlas score."
-            ),
-            "Escalation watch": types.Schema(
-                type=types.Type.ARRAY,
-                items=types.Schema(type=types.Type.STRING),
-                description="A bulleted list of 3-5 potential risk factors or data points that could cause the Atlas score to worsen in the next 7 days."
-            ),
-        },
-        required=["Short insight", "Immediate actions", "Escalation watch"]
-    )
+    # This function is now deprecated in favor of the simpler generate_ai_commentary
+    # but the logic for generating the summary is useful for prompting.
     
     # Format the current indicator data for the prompt
     indicator_summary = "\n".join([
-        f"{ind['name']}: Value={ind['value']:.2f}, Status={ind['status']}, Score={ind['score']:.1f}"
-        for ind in atlas_data["macro"] + atlas_data["micro"]
+        f"{ind['name']}: Value={ind['value']:.2f}, Status={ind['status']}, Score={ind['score_value']:.1f}" 
+        for ind in atlas_data["macro"] + atlas_data["micro"] 
+        if ind['id'] != 'SNAP_BENEFITS' # Exclude SNAP as it's an input for FISCAL_RISK
     ])
+
+    # Use keys from the 'overall' block for the prompt
+    current_score = atlas_data['overall'].get('score', 0.0)
+    current_status = atlas_data['overall'].get('status', 'MONITOR')
     
-    prompt = f"""
-    Based on the following Atlas Risk Dashboard data, generate a daily analysis.
-    
-    - **Current Atlas Score:** {atlas_data['atlas_score']:.1f} ({atlas_data['current_status']})
-    - **Indicator Summary:**
-    {indicator_summary}
-    
-    Analyze the data and generate a JSON object that adheres strictly to the provided JSON Schema.
-    The commentary must be written for an audience of sophisticated financial professionals.
-    """
+    prompt = (
+        f"Based on the following Atlas Risk Dashboard data, generate a daily analysis.\n\n"
+        f"- **Current Atlas Score:** {current_score:.1f} ({current_status})\n"
+        f"- **Indicator Summary:**\n{indicator_summary}"
+    )
 
-    try:
-        response = client.models.generate_content(
-            model='gemini-2.5-flash',
-            contents=prompt,
-            config=types.GenerateContentConfig(
-                response_mime_type="application/json",
-                response_schema=commentary_schema,
-                temperature=0.4
-            )
-        )
-        
-        # Parse the JSON string from the response
-        commentary_json = json.loads(response.text)
-        
-        # Safe Parsing: Retrieve keys using Sentence Case and ensure list structure
-        atlas_data["commentary"]["Short insight"] = [{"text": commentary_json.get("Short insight", "No insight generated.")}]
-        atlas_data["commentary"]["Immediate actions"] = [{"text": action} for action in commentary_json.get("Immediate actions", ["No actions generated."])]
-        atlas_data["commentary"]["Escalation watch"] = [{"text": watch} for watch in commentary_json.get("Escalation watch", ["No watch factors generated."])]
+    # Call the simple narrative function
+    narrative = generate_ai_commentary(atlas_data)
 
-    except Exception as e:
-        print(f"Gemini API or JSON parsing failed: {e}")
-        # If API or parsing fails, the commentary remains the default boilerplate.
+    # Return a dummy commentary structure (as the main logic uses the single narrative)
+    return {
+        "Short insight": "AI Commentary is now generated as a single narrative block.",
+        "Immediate actions": [],
+        "Escalation watch": [],
+        "atlas_status_summary": []
+    }
 
-    return atlas_data
 
-# --- 3. MAIN PROCESSOR ---
+# --- 3. MAIN EXECUTION FUNCTION (Reconstructed) ---
+
+MAX_SCORE = 15.0 # Total possible score, estimated.
 
 def run_update_process(atlas_data):
     """
-    Core logic to apply scoring, calculate composites, and generate the final output.
+    Orchestrates the scoring, overall status calculation, and commentary generation.
     """
-    composite_score = 0.0
     
     all_indicators = atlas_data["macro"] + atlas_data["micro"]
+    composite_score = 0.0
 
-    # 1. SCORE ALL INDICATORS (Except FISCAL_RISK)
+    # 1. SCORING LOOP
     for indicator in all_indicators:
         indicator_id = indicator["id"]
-        
-        # Skip the composite FISCAL_RISK indicator in this loop (FIXES THE TypeError)
-        if indicator_id == "FISCAL_RISK" or indicator_id == "SNAP_BENEFITS":
-            continue
-            
         scoring_func = SCORING_FUNCTIONS.get(indicator_id)
         
+        # Skip indicators that are composites or only serve as inputs (like SNAP)
+        if indicator_id in ["FISCAL_RISK", "SNAP_BENEFITS"]:
+            indicator["score_value"] = 0.0
+            continue
+        
         if scoring_func:
-            # Special case for GEOPOLITICAL: it takes the pre-fetched value as input
-            if indicator_id == "GEOPOLITICAL":
-                geopolitical_value = indicator.get("value") 
-                if not isinstance(geopolitical_value, (int, float)):
-                     geopolitical_value = 0.0
-                result = scoring_func(geopolitical_value)
-            # All other standard indicators take their 'value' as input
-            else:
-                value = indicator.get("value")
-                result = scoring_func(value)
-
+            value = indicator.get("value")
+            result = scoring_func(value)
+            
             # Update the indicator dictionary with scoring results
             score_value = result["score_value"]
             indicator["status"] = result["status"]
@@ -1395,18 +1314,16 @@ def run_update_process(atlas_data):
             composite_score += score_value
         else:
             # Ensure manual/unscored indicators have a default score of 0
-            indicator["score_value"] = 0
-            
-    # --- 1B. CALCULATE AND SCORE FISCAL_RISK (Special Case to avoid TypeError) ---
+            indicator["score_value"] = 0.0
+
+    # 2. CALCULATE AND SCORE FISCAL_RISK (Special Case)
     fiscal_indicator = next((item for item in all_indicators if item["id"] == "FISCAL_RISK"), None)
     if fiscal_indicator:
-        # result here is the score (float)
         fiscal_score = score_fiscal_risk(atlas_data)
-        
-        fiscal_indicator["value"] = fiscal_score # Store the score in the value field
+        fiscal_indicator["value"] = fiscal_score 
         fiscal_indicator["score_value"] = fiscal_score
         
-        # Manually assign status/note based on the score threshold
+        # Manually assign status/note based on the score threshold (from code logic)
         if fiscal_score > 75.0:
             fiscal_indicator["status"] = "Red"
             fiscal_indicator["note"] = f"Fiscal Risk Score at {fiscal_score:.0f}. Extreme structural integrity and social stress risk."
@@ -1416,45 +1333,43 @@ def run_update_process(atlas_data):
         else:
             fiscal_indicator["status"] = "Green"
             fiscal_indicator["note"] = f"Fiscal Risk Score at {fiscal_score:.0f}. Risk is manageable based on current data."
-        
         fiscal_indicator["action"] = "Monitor VIX and SNAP data closely."
-        
         # FISCAL_RISK score is NOT added to the composite_score (as per original logic intent)
-
-    # 2. Determine Overall Status (Based on Thresholds)
-    MAX_SCORE = 22.5
+    
+    # 3. Compile OVERALL Score and Status
     score = composite_score
+    overall_status_emoji = "🟢"
+    overall_status_name = "LOW RISK"
+    comment = "LOW RISK. Only minor triggers active. Favour moderate risk-on positioning."
     
-    if score > 12.0:
-        overall_status_emoji = "🚨" 
-        overall_status_name = "FULL-STORM"
-        comment = "EXTREME RISK. Multiple systemic and funding triggers active. Maintain maximum defensive posture."
-    elif score > 8.0:
-        overall_status_emoji = "🔴" 
-        overall_status_name = "SEVERE RISK"
-        comment = "HIGH RISK. Significant Macro and/or Micro triggers active. Aggressively increase liquidity and hedges (Storm Posture)."
-    elif score > 4.0:
-        overall_status_emoji = "🟠" 
+    if score >= 6.0:
+        overall_status_emoji = "🔴"
+        overall_status_name = "HIGH RISK"
+        comment = "HIGH RISK. Multiple severe triggers active. Aggressively hedge and reduce exposure."
+    elif score >= 3.0:
+        overall_status_emoji = "🟠"
         overall_status_name = "ELEVATED RISK"
-        comment = "MODERATE RISK. Core volatility/duration triggers active. Proceed with caution; maintain protective hedges."
-    else:
-        overall_status_emoji = "🟢" 
-        overall_status_name = "MONITOR"
-        comment = "LOW RISK. Only minor triggers active. Favour moderate risk-on positioning."
-
-    # 3. Update the Atlas Data Structure
-    atlas_data["overall"]["date"] = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    atlas_data["overall"]["status"] = f"{overall_status_emoji} {overall_status_name}"
-    atlas_data["overall"]["score"] = round(score, 2)
-    atlas_data["overall"]["max_score"] = MAX_SCORE
-    atlas_data["overall"]["comment"] = comment
-    atlas_data["overall"]["composite_summary"] = "Overall risk posture is stable, but watch for credit signals." # Placeholder
-    atlas_data["overall"]["escalation_triggers"] = _compile_escalation_watch(atlas_data) # NEW LINE ADDED TO FIX THE ERROR
+        comment = "ELEVATED RISK. Key macro triggers active. Implement cautious hedging and watch credit markets."
+    elif score >= 1.0:
+        overall_status_emoji = "🟡"
+        overall_status_name = "WATCH"
+        comment = "WATCH. Minor triggers active. Monitor key risk signals closely."
     
-    # 4. GENERATE THE AI ANALYSIS (Calls Gemini)
+    # 4. Update the Atlas Data Structure
+    atlas_data["overall"] = {
+        "date": datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+        "status": f"{overall_status_emoji} {overall_status_name}",
+        "score": round(score, 2),
+        "max_score": MAX_SCORE,
+        "comment": comment,
+        "composite_summary": "Overall risk posture is stable, but watch for credit signals.",
+        "escalation_triggers": _compile_escalation_watch(atlas_data),
+    }
+    
+    # 5. GENERATE THE AI ANALYSIS (Calls the simple function)
     ai_commentary = generate_ai_commentary(atlas_data)
 
-    # 5. INJECT THE ANALYSIS INTO THE DATA STRUCTURE
+    # 6. INJECT THE ANALYSIS INTO THE DATA STRUCTURE
     if ai_commentary:
         # This will be the 1-2 paragraph synthesis generated by Gemini
         atlas_data["overall"]["daily_narrative"] = ai_commentary
@@ -1466,9 +1381,8 @@ def run_update_process(atlas_data):
 
 
 # --- 4. DATA STRUCTURE (Initial State) ---
-
 # Initial Data Schema (Used as a starting template)
-ATLAS_DATA_SCHEMA = {
+ATLAS_DATA_SCHEMA = { 
     # Keys for the CURRENT run (used by the front-end)
     "date": datetime.datetime.now().strftime("%Y-%m-%d"),
     "atlas_score": 0.0,
@@ -1477,72 +1391,56 @@ ATLAS_DATA_SCHEMA = {
     
     # Macro Risk Indicators (Updated to Sentence Case names and added 'score' field)
     "macro": [
-        {"id": "VIX", "name": "VIX index", "value": 0.0, "status": "N/A", "note": "", "action": "No change.", "score": 0.0, "source_link": ""},
-        {"id": "GOLD_PRICE", "name": "Gold price (GLD)", "value": 0.0, "status": "N/A", "note": "", "action": "No change.", "score": 0.0, "source_link": ""},
-        {"id": "EURUSD", "name": "EUR/USD", "value": 0.0, "status": "N/A", "note": "", "action": "No change.", "score": 0.0, "source_link": ""},
-        {"id": "WTI_CRUDE", "name": "WTI crude oil", "value": 0.0, "status": "N/A", "note": "", "action": "No change.", "score": 0.0, "source_link": ""},
-        {"id": "AUDUSD", "name": "AUD/USD", "value": 0.0, "status": "N/A", "note": "", "action": "No change.", "score": 0.0, "source_link": ""},
-        {"id": "3Y_YIELD", "name": "3-year yield", "value": 0.0, "status": "N/A", "note": "", "action": "No change.", "score": 0.0, "source_link": ""},
-        {"id": "30Y_YIELD", "name": "30-year yield", "value": 0.0, "status": "N/A", "note": "", "action": "No change.", "score": 0.0, "source_link": ""},
-        {"id": "10Y_YIELD", "name": "10-year yield", "value": 0.0, "status": "N/A", "note": "", "action": "No change.", "score": 0.0, "source_link": ""},
-        {"id": "HY_OAS", "name": "HY OAS (credit risk)", "value": 0.0, "status": "N/A", "note": "", "action": "No change.", "score": 0.0, "source_link": ""},
-        {"id": "TREASURY_LIQUIDITY", "name": "Net treasury liquidity", "value": 0.0, "status": "N/A", "note": "", "action": "No change.", "score": 0.0, "source_link": ""},
-        {"id": "FISCAL_RISK", "name": "Fiscal integrity risk", "value": 0.0, "status": "N/A", "note": "Composite score of VIX/SNAP/CPI.", "action": "No change.", "score": 0.0, "source_link": ""},
-        {"id": "SNAP_BENEFITS", "name": "SNAP benefits (MoM)", "value": [0.0, 0.0], "status": "N/A", "note": "Dependency for Fiscal Risk", "action": "No change.", "score": 0.0, "source_link": ""}, 
+        {"id": "VIX", "name": "VIX index", "value": 0.0, "status": "N/A", "note": "", "action": "No change.", "score_value": 0.0, "source_link": ""},
+        {"id": "GOLD_PRICE", "name": "Gold price (GLD)", "value": 0.0, "status": "N/A", "note": "", "action": "No change.", "score_value": 0.0, "source_link": ""},
+        {"id": "EURUSD", "name": "EUR/USD exchange rate", "value": 0.0, "status": "N/A", "note": "", "action": "No change.", "score_value": 0.0, "source_link": ""},
+        {"id": "WTI_CRUDE", "name": "WTI crude oil", "value": 0.0, "status": "N/A", "note": "", "action": "No change.", "score_value": 0.0, "source_link": ""},
+        {"id": "AUDUSD", "name": "AUD/USD exchange rate", "value": 0.0, "status": "N/A", "note": "", "action": "No change.", "score_value": 0.0, "source_link": ""},
+        {"id": "3Y_YIELD", "name": "US 3yr treasury yield", "value": 0.0, "status": "N/A", "note": "", "action": "No change.", "score_value": 0.0, "source_link": ""},
+        {"id": "30Y_YIELD", "name": "US 30yr treasury yield", "value": 0.0, "status": "N/A", "note": "", "action": "No change.", "score_value": 0.0, "source_link": ""},
+        {"id": "10Y_YIELD", "name": "US 10yr treasury yield", "value": 0.0, "status": "N/A", "note": "", "action": "No change.", "score_value": 0.0, "source_link": ""},
+        {"id": "HY_OAS", "name": "High yield OAS (bps)", "value": 0.0, "status": "N/A", "note": "", "action": "No change.", "score_value": 0.0, "source_link": ""},
+        {"id": "TREASURY_LIQUIDITY", "name": "Treasury net liquidity", "value": 0.0, "status": "N/A", "note": "Fed Balance - (TGA + ON RRP)", "action": "No change.", "score_value": 0.0, "source_link": ""},
+        {"id": "GEOPOLITICAL", "name": "Geopolitical risk", "value": 0.0, "status": "N/A", "note": "Manual input score (0/0.5/1.0)", "action": "No change.", "score_value": 0.0, "source_link": ""},
+        {"id": "FISCAL_RISK", "name": "Fiscal integrity risk", "value": 0.0, "status": "N/A", "note": "Composite score of VIX/SNAP/CPI.", "action": "No change.", "score_value": 0.0, "source_link": ""},
+        {"id": "SNAP_BENEFITS", "name": "SNAP benefits (MoM)", "value": [0.0, 0.0], "status": "N/A", "note": "Dependency for Fiscal Risk", "action": "No change.", "score_value": 0.0, "source_link": ""},
     ],
     
     # Micro Risk Indicators (Updated to Sentence Case names and added 'score' field)
     "micro": [
-        {"id": "SPX_INDEX", "name": "S&P 500 index", "value": 0.0, "status": "N/A", "note": "", "action": "No change.", "score": 0.5, "source_link": ""},
-        {"id": "ASX_200", "name": "ASX 200 index", "value": 0.0, "status": "N/A", "note": "", "action": "No change.", "score": 0.5, "source_link": ""},
-        {"id": "SOFR_OIS", "name": "SOFR/OIS spread", "value": 0.0, "status": "N/A", "note": "", "action": "No change.", "score": 0.5, "source_link": ""},
-        {"id": "PUT_CALL_RATIO", "name": "Put/call ratio", "value": 0.0, "status": "N/A", "note": "", "action": "No change.", "score": 0.5, "source_link": ""},
-        {"id": "SMALL_LARGE_RATIO", "name": "Small/large cap ratio", "value": 0.0, "status": "N/A", "note": "", "action": "No change.", "score": 0.5, "source_link": ""},
-        {"id": "EARNINGS_REVISION", "name": "Earnings revision index", "value": "N/A", "status": "N/A", "note": "", "action": "No change.", "score": 0.5, "source_link": "N/A"},
-        {"id": "MARGIN_DEBT_YOY", "name": "Margin debt YoY %", "value": 0.0, "status": "N/A", "note": "", "action": "No change.", "score": 0.5, "source_link": ""},
-        {"id": "BANK_CDS", "name": "Bank CDS index", "value": "N/A", "status": "N/A", "note": "", "action": "No change.", "score": 0.5, "source_link": "N/A"},
-        {"id": "CONSUMER_DELINQUENCIES", "name": "Consumer delinquencies", "value": "N/A", "status": "N/A", "note": "", "action": "No change.", "score": 0.5, "source_link": "N/A"},
-        {"id": "GEOPOLITICAL", "name": "Geopolitical risk", "value": 0.0, "status": "N/A", "note": "Manual input: 0.0=Stable, 0.5=Elevated, 1.0=Severe", "action": "No change.", "score": 0.5, "source_link": "Manual Input/Qualitative Assessment"},
+        {"id": "SPX_INDEX", "name": "S&P 500 index", "value": 0.0, "status": "N/A", "note": "", "action": "No change.", "score_value": 0.0, "source_link": ""},
+        {"id": "ASX_200", "name": "ASX 200 index", "value": 0.0, "status": "N/A", "note": "", "action": "No change.", "score_value": 0.0, "source_link": ""},
+        {"id": "SOFR_OIS", "name": "SOFR/OIS spread", "value": 0.0, "status": "N/A", "note": "", "action": "No change.", "score_value": 0.0, "source_link": ""},
+        {"id": "PUT_CALL_RATIO", "name": "Put/call ratio", "value": 0.0, "status": "N/A", "note": "", "action": "No change.", "score_value": 0.0, "source_link": ""},
+        {"id": "MARGIN_DEBT_YOY", "name": "Margin debt (YOY)", "value": 0.0, "status": "N/A", "note": "", "action": "No change.", "score_value": 0.0, "source_link": ""},
+        {"id": "SMALL_LARGE_RATIO", "name": "Small/large cap ratio", "value": 0.0, "status": "N/A", "note": "", "action": "No change.", "score_value": 0.0, "source_link": ""},
+        {"id": "EARNINGS_REVISION", "name": "Earnings revision index", "value": "N/A", "status": "N/A", "note": "Not yet automated.", "action": "No change.", "score_value": 0.0, "source_link": ""},
+        {"id": "BANK_CDS", "name": "Bank CDS spread", "value": 0.0, "status": "N/A", "note": "", "action": "No change.", "score_value": 0.0, "source_link": ""},
+        {"id": "CONSUMER_DELINQUENCIES", "name": "Consumer delinquencies", "value": 0.0, "status": "N/A", "note": "", "action": "No change.", "score_value": 0.0, "source_link": ""},
     ],
-
-    # CRITICAL FIX: Structured COMMENTARY object with Sentence Case keys
-    "commentary": {
-        "Short insight": [
-            {"text": "Global equity risk remains muted despite rising long-end yields."}
-        ],
-        "Immediate actions": [
-            {"text": "Maintain short duration and cash focus."}
-        ],
-        "Escalation watch": [
-            {"text": "Watch for VIX to break 22.0."}
-        ],
-        "atlas_status_summary": []
-    },
     
-    # Overall structure used for the archive file
-    "overall": {
-        "score": 0.0,
-        "status_name": "N/A",
-        "date": datetime.datetime.now().strftime("%Y-%m-%d"),
-        "commentary": {}
-    }
+    # Placeholder for the final overall status (filled by run_update_process)
+    "overall": {}
 }
-# --- 5. EXECUTION ---
 
-def main():
-    """Main function to run the Atlas data update process."""
-    
-    # 1. Load Initial Schema (or existing data if needed, but we use schema for simplicity)
-    atlas_data = ATLAS_DATA_SCHEMA
-    
+
+# --- 5. EXECUTION ---
+if __name__ == "__main__":
+    # 1. Initialize data structure
+    atlas_data = ATLAS_DATA_SCHEMA 
+
     # 2. Update Source Links
     atlas_data["macro"] = _update_indicator_sources(atlas_data["macro"])
     atlas_data["micro"] = _update_indicator_sources(atlas_data["micro"])
-    
+
     # 3. FETCH RAW DATA
     print("Fetching data from all accredited APIs...")
-    
     all_indicators = atlas_data["macro"] + atlas_data["micro"]
+    
+    # Create the data directory if it doesn't exist (CRITICAL FIX)
+    if not os.path.exists("data"):
+        os.makedirs("data")
+        print("Created data/ directory.")
 
     for indicator in all_indicators:
         indicator_id = indicator["id"]
@@ -1551,6 +1449,9 @@ def main():
         # SNAP_BENEFITS must be fetched here as it is a dependency for FISCAL_RISK
         if indicator_id in ["GEOPOLITICAL", "FISCAL_RISK"]:
             print(f"Skipped: {indicator_id} is a manual/calculated input.")
+            if indicator_id == "GEOPOLITICAL":
+                 # Set a default manual score (e.g., green/stable)
+                 indicator["value"] = 0.0 
         else:
             # Fetch the raw value using the appropriate API/FRED/YFinance logic
             indicator["value"] = fetch_indicator_data(indicator["id"])
@@ -1559,6 +1460,7 @@ def main():
 
     # 4. RUN MAIN PROCESS (Scoring, Narrative, and Saving)
     try:
+        # run_update_process is now defined above
         updated_atlas_data = run_update_process(atlas_data)
         
         # Save the Final Results to the main output file
@@ -1572,9 +1474,4 @@ def main():
     except Exception as e:
         print(f"[{datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}] FATAL ERROR: Atlas update failed. Error: {e}")
         # Log the full traceback if possible, but for deployment keep simple
-        import traceback
-        print(traceback.format_exc())
-
-
-if __name__ == "__main__":
-    main()
+        # import traceback; traceback.print_exc()

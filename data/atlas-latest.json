@@ -2,7 +2,7 @@
     "date": "2025-11-04",
     "atlas_score": 0.0,
     "current_status": "N/A",
-    "last_updated": "12:07 pm",
+    "last_updated": "12:45 pm",
     "macro": [
         {
             "id": "VIX",
@@ -11,9 +11,8 @@
             "status": "Green",
             "note": "VIX close at 17.17. Low implied volatility.",
             "action": "No change.",
-            "score": 0.0,
-            "source_link": "https://finance.yahoo.com/quote/%5EVIX/",
-            "score_value": 0.0
+            "score_value": 0.0,
+            "source_link": "https://finance.yahoo.com/quote/%5EVIX/"
         },
         {
             "id": "GOLD_PRICE",
@@ -22,20 +21,18 @@
             "status": "Amber",
             "note": "Gold (GLD) is rallying sharply at $368.78. Indicates rising inflation expectations or systemic risk.",
             "action": "Consider increasing real asset allocation.",
-            "score": 0.0,
-            "source_link": "https://finance.yahoo.com/quote/GLD/",
-            "score_value": 0.5
+            "score_value": 0.5,
+            "source_link": "https://finance.yahoo.com/quote/GLD/"
         },
         {
             "id": "EURUSD",
-            "name": "EUR/USD",
+            "name": "EUR/USD exchange rate",
             "value": 1.1508804559707642,
             "status": "Green",
             "note": "EUR/USD is stable at 1.1509. Indicates balanced global risk/economic outlook.",
             "action": "No change.",
-            "score": 0.0,
-            "source_link": "https://www.alphavantage.co/documentation/#currency-exchange",
-            "score_value": 0.0
+            "score_value": 0.0,
+            "source_link": "https://www.alphavantage.co/documentation/#currency-exchange"
         },
         {
             "id": "WTI_CRUDE",
@@ -44,75 +41,78 @@
             "status": "Green",
             "note": "WTI Crude at $72.74/bbl. Normal price range, favorable for growth.",
             "action": "No change.",
-            "score": 0.0,
-            "source_link": "https://finance.yahoo.com/quote/USO/",
-            "score_value": 0.0
+            "score_value": 0.0,
+            "source_link": "https://finance.yahoo.com/quote/USO/"
         },
         {
             "id": "AUDUSD",
-            "name": "AUD/USD",
-            "value": 0.6536802053451538,
+            "name": "AUD/USD exchange rate",
+            "value": 0.6537229418754578,
             "status": "Amber",
             "note": "AUDUSD at 0.6537. AUD is consolidating. Global risk appetite is tentative.",
             "action": "Monitor closely for breaks below 0.6500.",
-            "score": 0.0,
-            "source_link": "https://finance.yahoo.com/quote/AUDUSD=X/",
-            "score_value": 0.5
+            "score_value": 0.5,
+            "source_link": "https://finance.yahoo.com/quote/AUDUSD=X/"
         },
         {
             "id": "3Y_YIELD",
-            "name": "3-year yield",
+            "name": "US 3yr treasury yield",
             "value": 3.6,
             "status": "Amber",
             "note": "Yield at 3.60%. Medium-term rate pressure.",
             "action": "Avoid intermediate locks; prefer short/floating rate instruments.",
-            "score": 0.0,
-            "source_link": "https://fred.stlouisfed.org/series/DGS3",
-            "score_value": 0.5
+            "score_value": 0.5,
+            "source_link": "https://fred.stlouisfed.org/series/DGS3"
         },
         {
             "id": "30Y_YIELD",
-            "name": "30-year yield",
+            "name": "US 30yr treasury yield",
             "value": 4.67,
             "status": "Amber",
             "note": "Yield at 4.67%. Elevated long-term yields reflecting fiscal risk/inflation concerns.",
             "action": "Watch the 5.0% threshold. Limit long duration locks.",
-            "score": 0.0,
-            "source_link": "https://fred.stlouisfed.org/series/DGS30",
-            "score_value": 0.5
+            "score_value": 0.5,
+            "source_link": "https://fred.stlouisfed.org/series/DGS30"
         },
         {
             "id": "10Y_YIELD",
-            "name": "10-year yield",
+            "name": "US 10yr treasury yield",
             "value": 4.11,
             "status": "Amber",
             "note": "Yield at 4.11%. Elevated yields.",
             "action": "Watch the Atlas pivot at 4.75%; favour short duration.",
-            "score": 0.0,
-            "source_link": "https://fred.stlouisfed.org/series/DGS10",
-            "score_value": 0.5
+            "score_value": 0.5,
+            "source_link": "https://fred.stlouisfed.org/series/DGS10"
         },
         {
             "id": "HY_OAS",
-            "name": "HY OAS (credit risk)",
+            "name": "High yield OAS (bps)",
             "value": 2.94,
             "status": "Green",
             "note": "HY OAS at 3 bps. Tight credit spreads, market calm.",
             "action": "No change.",
-            "score": 0.0,
-            "source_link": "https://fred.stlouisfed.org/series/BAMLH0A0HYM2",
-            "score_value": 0.0
+            "score_value": 0.0,
+            "source_link": "https://fred.stlouisfed.org/series/BAMLH0A0HYM2"
         },
         {
             "id": "TREASURY_LIQUIDITY",
-            "name": "Net treasury liquidity",
+            "name": "Treasury net liquidity",
             "value": 6586.05,
             "status": "Green",
-            "note": "Net Liquidity at $6586B. Sufficient systemic liquidity.",
+            "note": "Net Liquidity at $6586.1B. Systemic liquidity is robust.",
             "action": "No change.",
-            "score": 0.0,
-            "source_link": "https://fred.stlouisfed.org/series/WALCL",
-            "score_value": 0.0
+            "score_value": 0.0,
+            "source_link": "https://fred.stlouisfed.org/series/WALCL"
+        },
+        {
+            "id": "GEOPOLITICAL",
+            "name": "Geopolitical risk",
+            "value": 0.0,
+            "status": "Green",
+            "note": "Tensions stable. No immediate geopolitical shock flagged.",
+            "action": "No change.",
+            "score_value": 0.0,
+            "source_link": "Manual Input/Qualitative Assessment"
         },
         {
             "id": "FISCAL_RISK",
@@ -121,9 +121,8 @@
             "status": "Green",
             "note": "Fiscal Risk Score at 48. Risk is manageable based on current data.",
             "action": "Monitor VIX and SNAP data closely.",
-            "score": 0.0,
-            "source_link": "Composite/Internal Model (VIX, SNAP, CPI)",
-            "score_value": 47.75
+            "score_value": 47.75,
+            "source_link": "Composite/Internal Model (VIX, SNAP, CPI)"
         },
         {
             "id": "SNAP_BENEFITS",
@@ -135,7 +134,7 @@
             "status": "N/A",
             "note": "Dependency for Fiscal Risk",
             "action": "No change.",
-            "score": 0.0,
+            "score_value": 0.0,
             "source_link": "https://fred.stlouisfed.org/series/SNPTA"
         }
     ],
@@ -147,20 +146,18 @@
             "status": "Green",
             "note": "S&P 500 Index at 6,852. Trading near highs, bullish momentum prevailing.",
             "action": "No change.",
-            "score": 0.5,
-            "source_link": "https://finance.yahoo.com/quote/%5EGSPC/",
-            "score_value": 0.0
+            "score_value": 0.0,
+            "source_link": "https://finance.yahoo.com/quote/%5EGSPC/"
         },
         {
             "id": "ASX_200",
             "name": "ASX 200 index",
-            "value": 8844.0,
+            "value": 8840.599609375,
             "status": "Green",
-            "note": "ASX 200 Index at 8,844. Trading near highs, bullish sentiment prevailing.",
+            "note": "ASX 200 Index at 8,841. Trading near highs, bullish sentiment prevailing.",
             "action": "No change.",
-            "score": 0.5,
-            "source_link": "https://finance.yahoo.com/quote/%5EAXJO/",
-            "score_value": 0.0
+            "score_value": 0.0,
+            "source_link": "https://finance.yahoo.com/quote/%5EAXJO/"
         },
         {
             "id": "SOFR_OIS",
@@ -169,64 +166,58 @@
             "status": "Green",
             "note": "SOFR/OIS Spread at -4.0 bps. Low implied counterparty risk.",
             "action": "No change.",
-            "score": 0.5,
-            "source_link": "https://fred.stlouisfed.org/series/SOFR3MAD",
-            "score_value": 0.0
+            "score_value": 0.0,
+            "source_link": "https://fred.stlouisfed.org/series/SOFR3MAD"
         },
         {
             "id": "PUT_CALL_RATIO",
             "name": "Put/call ratio",
             "value": 13.9138,
-            "status": "Amber",
-            "note": "Put/Call Ratio at 13.91. High put volume suggests bearish sentiment, which can be contrarian bullish.",
-            "action": "Watch for technical reversal signals.",
-            "score": 0.5,
-            "source_link": "https://polygon.io/docs/options/get_v2_aggs_ticker__tickervar__prev",
-            "score_value": 0.5
+            "status": "Red",
+            "note": "Ratio at 13.91. Extreme bearishness (too many puts). Suggests a potential short-term reversal/capitulation.",
+            "action": "Watch for a sharp technical rally. Avoid selling at current levels.",
+            "score_value": 1.0,
+            "source_link": "https://polygon.io/docs/options/get_v2_aggs_ticker__tickervar__prev"
+        },
+        {
+            "id": "MARGIN_DEBT_YOY",
+            "name": "Margin debt (YOY)",
+            "value": 32.94,
+            "status": "Red",
+            "note": "Margin Debt YOY at 32.9%. Leverage is expanding aggressively. High risk of forced liquidation if markets fall.",
+            "action": "Aggressively deleverage equity exposure; increase cash.",
+            "score_value": 1.5,
+            "source_link": "https://www.finra.org/investors/market-and-financial-data/margin-statistics"
         },
         {
             "id": "SMALL_LARGE_RATIO",
             "name": "Small/large cap ratio",
             "value": 0.360660907079717,
             "status": "Red",
-            "note": "Ratio at 0.36 \u2014 small-caps underperforming. Internals fragile.",
-            "action": "Avoid growth/cyclical exposure; favour quality/large-cap.",
-            "score": 0.5,
-            "source_link": "https://finance.yahoo.com/quote/%5ERUT/",
-            "score_value": 1.0
+            "note": "Ratio at 0.3607 \u2014 small-caps are heavily underperforming. Poor internals.",
+            "action": "Avoid high-risk small-cap exposure.",
+            "score_value": 1.0,
+            "source_link": "https://finance.yahoo.com/quote/%5ERUT/"
         },
         {
             "id": "EARNINGS_REVISION",
             "name": "Earnings revision index",
             "value": "N/A",
             "status": "N/A",
-            "note": "Data N/A: Earnings revision requires external API.",
-            "action": "Cannot score due to missing data.",
-            "score": 0.5,
-            "source_link": "N/A",
-            "score_value": 0.0
-        },
-        {
-            "id": "MARGIN_DEBT_YOY",
-            "name": "Margin debt YoY %",
-            "value": 32.94,
-            "status": "Red",
-            "note": "Margin Debt YoY at 32.9%. Extreme leverage growth. Implies high liquidation risk.",
-            "action": "Reduce leveraged positions. Watch for technical weakness.",
-            "score": 0.5,
-            "source_link": "https://www.finra.org/investors/market-and-financial-data/margin-statistics",
-            "score_value": 1.0
+            "note": "Data N/A: Earnings Revisions not automated.",
+            "action": "No change.",
+            "score_value": 0.0,
+            "source_link": ""
         },
         {
             "id": "BANK_CDS",
-            "name": "Bank CDS index",
+            "name": "Bank CDS spread",
             "value": 5.13,
             "status": "Green",
-            "note": "Bank CDS Index at 5 bps. Low implied banking risk.",
+            "note": "Bank CDS at 5 bps. Low implied banking stress.",
             "action": "No change.",
-            "score": 0.5,
-            "source_link": "N/A",
-            "score_value": 0.0
+            "score_value": 0.0,
+            "source_link": ""
         },
         {
             "id": "CONSUMER_DELINQUENCIES",
@@ -235,57 +226,25 @@
             "status": "Amber",
             "note": "Delinquency Rate at 3.0%. Rate is rising. Caution warranted for banks and consumer sectors.",
             "action": "Monitor household debt metrics closely; reduce unsecured credit exposure.",
-            "score": 0.5,
-            "source_link": "N/A",
-            "score_value": 1.0
-        },
-        {
-            "id": "GEOPOLITICAL",
-            "name": "Geopolitical risk",
-            "value": 0.0,
-            "status": "Green",
-            "note": "Tensions stable. No immediate geopolitical shock flagged.",
-            "action": "No change.",
-            "score": 0.5,
-            "source_link": "Manual Input/Qualitative Assessment",
-            "score_value": 0.0
+            "score_value": 1.0,
+            "source_link": ""
         }
     ],
-    "commentary": {
-        "Short insight": [
-            {
-                "text": "Global equity risk remains muted despite rising long-end yields."
-            }
-        ],
-        "Immediate actions": [
-            {
-                "text": "Maintain short duration and cash focus."
-            }
-        ],
-        "Escalation watch": [
-            {
-                "text": "Watch for VIX to break 22.0."
-            }
-        ],
-        "atlas_status_summary": []
-    },
     "overall": {
-        "score": 6.0,
-        "status_name": "N/A",
-        "date": "2025-11-04 12:07:14",
-        "commentary": {},
-        "status": "\ud83d\udfe0 ELEVATED RISK",
-        "max_score": 22.5,
-        "comment": "MODERATE RISK. Core volatility/duration triggers active. Proceed with caution; maintain protective hedges.",
+        "date": "2025-11-04 12:45:31",
+        "status": "\ud83d\udd34 HIGH RISK",
+        "score": 7.0,
+        "max_score": 15.0,
+        "comment": "HIGH RISK. Multiple severe triggers active. Aggressively hedge and reduce exposure.",
         "composite_summary": "Overall risk posture is stable, but watch for credit signals.",
         "escalation_triggers": [
             {
-                "name": "10-Year Yield",
+                "name": "10yr Yield",
                 "current_reading": "4.11",
                 "alarm_threshold": "Above 4.0%"
             }
         ],
-        "daily_narrative": "The Atlas Dashboard indicates an **ELEVATED RISK** posture, with an overall score of 6.0/22.5, suggesting a nuanced environment where surface-level stability belies underlying fragilities. While broad equity indices like the S&P 500 remain near highs, supported by low implied volatility (VIX) and tight credit spreads (HY OAS, Bank CDS), several key indicators signal caution. Notably, long-term bond yields across 3, 10, and 30 years are elevated, reflecting persistent inflation expectations and fiscal concerns, with the 10-year yield currently above its 4.0% escalation threshold. Concurrently, gold is rallying sharply, further reinforcing these inflationary or systemic risk signals. Micro-level data reveals concerning trends: small-cap underperformance points to fragile market internals, extreme margin debt growth suggests high liquidation risk, and rising consumer delinquencies warrant vigilance in credit-sensitive sectors, despite overall systemic liquidity remaining sufficient.\n\nFor the disciplined investor, the current environment calls for a cautious and defensive approach. We recommend maintaining a focus on short-duration assets and cash, as advised by the elevated yield environment, and limiting long-duration locks. Given the fragile market internals and extreme leverage, consider reducing exposure to growth/cyclical stocks in favor of quality and large-cap names, and actively reduce any leveraged positions. Furthermore, monitor household debt metrics closely and consider increasing real asset allocation as a hedge against inflation. While the overall risk posture is stable, the activation of core volatility and duration triggers necessitates proceeding with caution and maintaining protective hedges, particularly watching for a VIX break above 22.0."
+        "daily_narrative": "The Atlas Dashboard currently signals a **\"HIGH RISK\"** environment, with an overall score of 7.0, indicating multiple severe triggers are active. While headline equity indices like the S&P 500 are trading near highs and some systemic indicators such as the VIX, high-yield credit spreads, and bank CDS spreads suggest market calm and robust liquidity, a deeper dive reveals significant underlying vulnerabilities that warrant immediate attention. The apparent stability is contradicted by escalating internal pressures.\n\nThe primary concerns stem from aggressively expanding margin debt, which poses a high risk of forced liquidations should markets turn. Market internals are deteriorating, evidenced by the severe underperformance of small-caps, while elevated long-term treasury yields (with the 10-year yield above its 4.0% alarm threshold) and a rallying gold price point to persistent inflation expectations and fiscal integrity risks. Furthermore, rising consumer delinquencies add a layer of caution regarding household financial health. Although the extreme bearishness in the put/call ratio might suggest a short-term technical rally, the overarching message is clear: disciplined investors should aggressively deleverage equity exposure, increase cash holdings, avoid high-risk small-cap investments, and favor short-duration instruments to navigate this elevated risk landscape."
     },
     "meta": {
         "fiscal_breakdown": {

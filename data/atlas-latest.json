@@ -1,84 +1,258 @@
 {
     "overall": {
-        "date": "2025-11-04 10:36:41",
-        "status": "GREEN",
-        "score": 0.0,
-        "max_score": 10.0,
-        "comment": ""
+        "date": "2025-11-04 11:00:19",
+        "status": "\ud83d\udfe0 ELEVATED RISK",
+        "score": 6.0,
+        "max_score": 22.5,
+        "comment": "MODERATE RISK. Core volatility/duration triggers active. Proceed with caution; maintain protective hedges.",
+        "composite_summary": "Overall risk posture is stable, but watch for credit signals.",
+        "daily_narrative": "The Atlas Dashboard currently signals an **ELEVATED RISK** environment, with a score of 6.0, urging caution for the disciplined investor. While headline equity indices like the S&P 500 are trading near highs and the VIX indicates low implied volatility, several critical indicators suggest underlying fragility. Core duration triggers are active, with the 10-Year Treasury yield exceeding its 4.0% alarm threshold, reflecting persistent long-term fiscal and inflation concerns. This bond market pressure is further compounded by a sharp rally in gold, pointing towards rising inflation expectations or systemic risk.\n\nBeneath the surface calm, market internals are showing signs of stress. Extreme margin debt growth at 32.9% year-over-year presents a substantial liquidation risk, while the significant underperformance of small-cap stocks indicates fragile market breadth. Additionally, rising consumer delinquencies warrant caution for banks and consumer-facing sectors. For the disciplined investor, Atlas advises proceeding with caution: maintain protective hedges, reduce leveraged positions, and favor quality/large-cap exposures over growth/cyclical stocks. Limit exposure to long-duration assets, preferring short-term or floating-rate instruments, and consider increasing real asset allocation to mitigate inflation and systemic risks.",
+        "escalation_triggers": [
+            {
+                "name": "10-Year Yield",
+                "current_reading": "4.11",
+                "alarm_threshold": "Above 4.0%"
+            }
+        ]
     },
-    "macro": [
-        {
-            "id": "VIX",
-            "name": "Implied Volatility (VIX)",
-            "value": 17.170000076293945,
-            "score_value": 0.0
-        },
-        {
-            "id": "SNAP_BENEFITS",
-            "name": "SNAP Benefits (MoM % Chg)",
-            "value": [
-                0.0,
-                0.0
-            ],
-            "score_value": 0.0
-        },
-        {
-            "id": "TREASURY_LIQUIDITY",
-            "name": "Treasury Net Liquidity ($B)",
-            "value": 0.0,
-            "score_value": 0.0
-        },
-        {
-            "id": "FISCAL_RISK",
-            "name": "Fiscal Risk (Shutdown/Debt)",
-            "value": 27.75,
-            "score_value": 0.0
-        },
-        {
-            "id": "HY_OAS",
-            "name": "HY OAS (Credit Stress)",
-            "value": 380.0,
-            "score_value": 0.0
-        },
-        {
-            "id": "GOLD_PRICE",
-            "name": "Gold Price (Proxy)",
-            "value": 368.7799987792969,
-            "score_value": 0.0
-        },
-        {
-            "id": "10Y_YIELD",
-            "name": "10-Year Yield",
-            "value": 4.3,
-            "score_value": 0.0
-        }
-    ],
-    "micro": [
-        {
-            "id": "SPX_INDEX",
-            "name": "S&P 500 Index Price",
-            "value": 6851.97021484375,
-            "score_value": 0.0
-        },
-        {
-            "id": "MARGIN_DEBT_YOY",
-            "name": "Margin Debt YoY",
-            "value": 32.94,
-            "score_value": 0.0
-        },
-        {
-            "id": "GEOPOLITICAL",
-            "name": "Geopolitical Risk",
-            "value": 0.0,
-            "score_value": 0.0
-        }
-    ],
     "meta": {
+        "run_time": "2025-11-04 11:00:06",
         "fiscal_breakdown": {
             "snap_score": 5,
             "corruption_score": 7.75,
             "civil_unrest_score": 5,
             "reg_confidence_score": 10
         }
-    }
+    },
+    "macro": [
+        {
+            "id": "VIX",
+            "name": "VIX Index",
+            "value": 17.170000076293945,
+            "status": "Green",
+            "note": "VIX close at 17.17. Low implied volatility.",
+            "action": "No change.",
+            "source_link": "https://finance.yahoo.com/quote/%5EVIX/",
+            "score_value": 0.0
+        },
+        {
+            "id": "GOLD_PRICE",
+            "name": "Gold Price (GLD)",
+            "value": 368.7799987792969,
+            "status": "Amber",
+            "note": "Gold (GLD) is rallying sharply at $368.78. Indicates rising inflation expectations or systemic risk.",
+            "action": "Consider increasing real asset allocation.",
+            "source_link": "https://finance.yahoo.com/quote/GLD/",
+            "score_value": 0.5
+        },
+        {
+            "id": "EURUSD",
+            "name": "EUR/USD",
+            "value": 1.1522064208984375,
+            "status": "Green",
+            "note": "EUR/USD is stable at 1.1522. Indicates balanced global risk/economic outlook.",
+            "action": "No change.",
+            "source_link": "https://www.alphavantage.co/documentation/#currency-exchange",
+            "score_value": 0.0
+        },
+        {
+            "id": "WTI_CRUDE",
+            "name": "WTI Crude Oil",
+            "value": 72.73999786376953,
+            "status": "Green",
+            "note": "WTI Crude at $72.74/bbl. Normal price range, favorable for growth.",
+            "action": "No change.",
+            "source_link": "https://finance.yahoo.com/quote/USO/",
+            "score_value": 0.0
+        },
+        {
+            "id": "AUDUSD",
+            "name": "AUD/USD",
+            "value": 0.654022216796875,
+            "status": "Amber",
+            "note": "AUDUSD at 0.6540. AUD is consolidating. Global risk appetite is tentative.",
+            "action": "Monitor closely for breaks below 0.6500.",
+            "source_link": "https://finance.yahoo.com/quote/AUDUSD=X/",
+            "score_value": 0.5
+        },
+        {
+            "id": "3Y_YIELD",
+            "name": "3-Year Yield",
+            "value": 3.6,
+            "status": "Amber",
+            "note": "Yield at 3.60%. Medium-term rate pressure.",
+            "action": "Avoid intermediate locks; prefer short/floating rate instruments.",
+            "source_link": "https://fred.stlouisfed.org/series/DGS3",
+            "score_value": 0.5
+        },
+        {
+            "id": "30Y_YIELD",
+            "name": "30-Year Yield",
+            "value": 4.67,
+            "status": "Amber",
+            "note": "Yield at 4.67%. Elevated long-term yields reflecting fiscal risk/inflation concerns.",
+            "action": "Watch the 5.0% threshold. Limit long duration locks.",
+            "source_link": "https://fred.stlouisfed.org/series/DGS30",
+            "score_value": 0.5
+        },
+        {
+            "id": "10Y_YIELD",
+            "name": "10-Year Yield",
+            "value": 4.11,
+            "status": "Amber",
+            "note": "Yield at 4.11%. Elevated yields.",
+            "action": "Watch the Atlas pivot at 4.75%; favour short duration.",
+            "source_link": "https://fred.stlouisfed.org/series/DGS10",
+            "score_value": 0.5
+        },
+        {
+            "id": "HY_OAS",
+            "name": "HY OAS (Credit Risk)",
+            "value": 2.94,
+            "status": "Green",
+            "note": "HY OAS at 3 bps. Tight credit spreads, market calm.",
+            "action": "No change.",
+            "source_link": "https://fred.stlouisfed.org/series/BAMLH0A0HYM2",
+            "score_value": 0.0
+        },
+        {
+            "id": "TREASURY_LIQUIDITY",
+            "name": "Net Treasury Liquidity",
+            "value": 6586.05,
+            "status": "Green",
+            "note": "Net Liquidity at $6586B. Sufficient systemic liquidity.",
+            "action": "No change.",
+            "source_link": "https://fred.stlouisfed.org/series/WALCL",
+            "score_value": 0.0
+        },
+        {
+            "id": "FISCAL_RISK",
+            "name": "Fiscal Integrity Risk",
+            "value": 27.75,
+            "status": "Green",
+            "note": "Fiscal Risk Score at 28. Risk is manageable based on current data.",
+            "action": "Monitor VIX and SNAP data closely.",
+            "source_link": "Composite/Internal Model (VIX, SNAP, CPI)",
+            "score_value": 27.75
+        },
+        {
+            "id": "SNAP_BENEFITS",
+            "name": "SNAP Benefits (MoM)",
+            "value": [
+                0.0,
+                0.0
+            ],
+            "status": "N/A",
+            "note": "Dependency for Fiscal Risk",
+            "action": "No change.",
+            "source_link": "https://fred.stlouisfed.org/series/SNPTA"
+        }
+    ],
+    "micro": [
+        {
+            "id": "SPX_INDEX",
+            "name": "S&P 500 Index",
+            "value": 6851.97021484375,
+            "status": "Green",
+            "note": "S&P 500 Index at 6,852. Trading near highs, bullish momentum prevailing.",
+            "action": "No change.",
+            "source_link": "https://finance.yahoo.com/quote/%5EGSPC/",
+            "score_value": 0.0
+        },
+        {
+            "id": "ASX_200",
+            "name": "ASX 200 Index",
+            "value": 8870.7998046875,
+            "status": "Green",
+            "note": "ASX 200 Index at 8,871. Trading near highs, bullish sentiment prevailing.",
+            "action": "No change.",
+            "source_link": "https://finance.yahoo.com/quote/%5EAXJO/",
+            "score_value": 0.0
+        },
+        {
+            "id": "SOFR_OIS",
+            "name": "SOFR/OIS Spread",
+            "value": -4.0,
+            "status": "Green",
+            "note": "SOFR/OIS Spread at -4.0 bps. Low implied counterparty risk.",
+            "action": "No change.",
+            "source_link": "https://fred.stlouisfed.org/series/SOFR3MAD",
+            "score_value": 0.0
+        },
+        {
+            "id": "PUT_CALL_RATIO",
+            "name": "Put/Call Ratio",
+            "value": 13.9138,
+            "status": "Amber",
+            "note": "Put/Call Ratio at 13.91. High put volume suggests bearish sentiment, which can be contrarian bullish.",
+            "action": "Watch for technical reversal signals.",
+            "source_link": "https://polygon.io/docs/options/get_v2_aggs_ticker__tickervar__prev",
+            "score_value": 0.5
+        },
+        {
+            "id": "SMALL_LARGE_RATIO",
+            "name": "Small/Large Cap Ratio",
+            "value": 0.360660907079717,
+            "status": "Red",
+            "note": "Ratio at 0.36 \u2014 small-caps underperforming. Internals fragile.",
+            "action": "Avoid growth/cyclical exposure; favour quality/large-cap.",
+            "source_link": "https://finance.yahoo.com/quote/%5ERUT/",
+            "score_value": 1.0
+        },
+        {
+            "id": "EARNINGS_REVISION",
+            "name": "Earnings Revision Index",
+            "value": "N/A",
+            "status": "N/A",
+            "note": "Data N/A: Earnings revision requires external API.",
+            "action": "Cannot score due to missing data.",
+            "source_link": "N/A",
+            "score_value": 0.0
+        },
+        {
+            "id": "MARGIN_DEBT_YOY",
+            "name": "Margin Debt YoY %",
+            "value": 32.94,
+            "status": "Red",
+            "note": "Margin Debt YoY at 32.9%. Extreme leverage growth. Implies high liquidation risk.",
+            "action": "Reduce leveraged positions. Watch for technical weakness.",
+            "source_link": "https://www.finra.org/investors/market-and-financial-data/margin-statistics",
+            "score_value": 1.0
+        },
+        {
+            "id": "BANK_CDS",
+            "name": "Bank CDS Index",
+            "value": 5.13,
+            "status": "Green",
+            "note": "Bank CDS Index at 5 bps. Low implied banking risk.",
+            "action": "No change.",
+            "source_link": "N/A",
+            "score_value": 0.0
+        },
+        {
+            "id": "CONSUMER_DELINQUENCIES",
+            "name": "Consumer Delinquencies",
+            "value": 3.05,
+            "status": "Amber",
+            "note": "Delinquency Rate at 3.0%. Rate is rising. Caution warranted for banks and consumer sectors.",
+            "action": "Monitor household debt metrics closely; reduce unsecured credit exposure.",
+            "source_link": "N/A",
+            "score_value": 1.0
+        },
+        {
+            "id": "GEOPOLITICAL",
+            "name": "Geopolitical Risk",
+            "value": 0.0,
+            "status": "Green",
+            "note": "Tensions stable. No immediate geopolitical shock flagged.",
+            "action": "No change.",
+            "source_link": "Manual Input/Qualitative Assessment",
+            "score_value": 0.0
+        }
+    ],
+    "short_insight": [
+        {
+            "text": "Global equity risk remains muted despite rising long-end yields."
+        }
+    ]
 }

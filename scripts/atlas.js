@@ -224,7 +224,7 @@ function renderIndicatorTable(tableId, indicators) {
 // --- 4. NARRATIVE PAGE RENDERING ---
 
 /**
- * Renders the full narrative content on the narrative.html page.
+ * Renders the full narrative content and the news feed on the narrative.html page.
  */
 function initializeNarrativePage() {
     fetchAtlasData().then(data => {
@@ -251,6 +251,37 @@ function initializeNarrativePage() {
             narrativeContent.innerHTML = paragraphs.map(p => `<p class="mb-4">${p.trim()}</p>`).join('');
         }
         
+        // --- NEW: RENDER NEWS ARTICLES (News Integration Feature) ---
+        const newsListContainer = document.getElementById('newsArticleList');
+        // Ensure you check for data.overall.news_articles
+        const articles = overall.news_articles || []; 
+        
+        if (newsListContainer) {
+            if (articles.length === 0) {
+                newsListContainer.innerHTML = '<p class="text-gray-500">No highly relevant news articles found for today\'s risk analysis.</p>';
+            } else {
+                newsListContainer.innerHTML = articles.map(article => `
+                    <div class="border-b border-gray-100 pb-3 flex space-x-4">
+                        
+                        ${article.thumbnail_url ? `
+                            <div class="flex-shrink-0">
+                                <img src="${article.thumbnail_url}" alt="${article.title}" 
+                                     class="h-16 w-16 object-cover rounded-md" />
+                            </div>
+                        ` : ''}
+
+                        <div>
+                            <a href="${article.link}" target="_blank" rel="noopener noreferrer" 
+                               class="text-indigo-600 hover:text-indigo-800 font-semibold text-base block">
+                                ${article.title}
+                            </a>
+                            <p class="text-sm text-gray-600 mt-1">${article.snippet}</p>
+                        </div>
+                    </div>
+                `).join('');
+            }
+        }
+
         // Update footer date
         document.getElementById('footerDate').textContent = overall.date;
     });

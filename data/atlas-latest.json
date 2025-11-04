@@ -2,14 +2,14 @@
     "date": "2025-11-05",
     "atlas_score": 0.0,
     "current_status": "N/A",
-    "last_updated": "7:59 am",
+    "last_updated": "9:52 am",
     "macro": [
         {
             "id": "VIX",
             "name": "VIX index",
-            "value": 18.479999542236328,
+            "value": 19.0,
             "status": "Amber",
-            "note": "VIX is moderate at 18.48. Volatility is starting to increase.",
+            "note": "VIX is moderate at 19.00. Volatility is starting to increase.",
             "action": "Monitor volatility trends closely.",
             "score_value": 1.0,
             "source_link": "https://finance.yahoo.com/quote/%5EVIX/"
@@ -17,9 +17,9 @@
         {
             "id": "GOLD_PRICE",
             "name": "Gold price (GLD)",
-            "value": 362.3399963378906,
+            "value": 362.32000732421875,
             "status": "Amber",
-            "note": "Gold (GLD) is rallying sharply at $362.34. Indicates rising inflation expectations or systemic risk.",
+            "note": "Gold (GLD) is rallying sharply at $362.32. Indicates rising inflation expectations or systemic risk.",
             "action": "Consider increasing real asset allocation.",
             "score_value": 0.5,
             "source_link": "https://finance.yahoo.com/quote/GLD/"
@@ -27,9 +27,9 @@
         {
             "id": "EURUSD",
             "name": "EUR/USD exchange rate",
-            "value": 1.148369312286377,
+            "value": 1.1486331224441528,
             "status": "Green",
-            "note": "EUR/USD is stable at 1.1484. Indicates balanced global risk/economic outlook.",
+            "note": "EUR/USD is stable at 1.1486. Indicates balanced global risk/economic outlook.",
             "action": "No change.",
             "score_value": 0.0,
             "source_link": "https://www.alphavantage.co/documentation/#currency-exchange"
@@ -37,9 +37,9 @@
         {
             "id": "WTI_CRUDE",
             "name": "WTI crude oil",
-            "value": 71.87999725341797,
+            "value": 71.93000030517578,
             "status": "Green",
-            "note": "WTI Crude at $71.88/bbl. Normal price range, favorable for growth.",
+            "note": "WTI Crude at $71.93/bbl. Normal price range, favorable for growth.",
             "action": "No change.",
             "score_value": 0.0,
             "source_link": "https://finance.yahoo.com/quote/USO/"
@@ -47,9 +47,9 @@
         {
             "id": "AUDUSD",
             "name": "AUD/USD exchange rate",
-            "value": 0.6487609148025513,
+            "value": 0.6490978002548218,
             "status": "Red",
-            "note": "AUDUSD at 0.6488. AUD remains under pressure. Strong risk-off or persistent US Dollar strength.",
+            "note": "AUDUSD at 0.6491. AUD remains under pressure. Strong risk-off or persistent US Dollar strength.",
             "action": "Favour US Dollar liquidity over AUD assets; watch commodity prices.",
             "score_value": 1.0,
             "source_link": "https://finance.yahoo.com/quote/AUDUSD=X/"
@@ -57,9 +57,9 @@
         {
             "id": "3Y_YIELD",
             "name": "US 3yr treasury yield",
-            "value": 3.6,
+            "value": 3.61,
             "status": "Amber",
-            "note": "Yield at 3.60%. Medium-term rate pressure.",
+            "note": "Yield at 3.61%. Medium-term rate pressure.",
             "action": "Avoid intermediate locks; prefer short/floating rate instruments.",
             "score_value": 0.5,
             "source_link": "https://fred.stlouisfed.org/series/DGS3"
@@ -67,9 +67,9 @@
         {
             "id": "30Y_YIELD",
             "name": "US 30yr treasury yield",
-            "value": 4.67,
+            "value": 4.69,
             "status": "Amber",
-            "note": "Yield at 4.67%. Elevated long-term yields reflecting fiscal risk/inflation concerns.",
+            "note": "Yield at 4.69%. Elevated long-term yields reflecting fiscal risk/inflation concerns.",
             "action": "Watch the 5.0% threshold. Limit long duration locks.",
             "score_value": 0.5,
             "source_link": "https://fred.stlouisfed.org/series/DGS30"
@@ -77,9 +77,9 @@
         {
             "id": "10Y_YIELD",
             "name": "US 10yr treasury yield",
-            "value": 4.11,
+            "value": 4.13,
             "status": "Amber",
-            "note": "Yield at 4.11%. Elevated yields.",
+            "note": "Yield at 4.13%. Elevated yields.",
             "action": "Watch the Atlas pivot at 4.75%; favour short duration.",
             "score_value": 0.5,
             "source_link": "https://fred.stlouisfed.org/series/DGS10"
@@ -142,9 +142,9 @@
         {
             "id": "SPX_INDEX",
             "name": "S&P 500 index",
-            "value": 6770.91015625,
+            "value": 6771.5498046875,
             "status": "Green",
-            "note": "S&P 500 Index at 6,771. Trading near highs, bullish momentum prevailing.",
+            "note": "S&P 500 Index at 6,772. Trading near highs, bullish momentum prevailing.",
             "action": "No change.",
             "score_value": 0.0,
             "source_link": "https://finance.yahoo.com/quote/%5EGSPC/"
@@ -192,9 +192,9 @@
         {
             "id": "SMALL_LARGE_RATIO",
             "name": "Small/large cap ratio",
-            "value": 0.359759307538626,
+            "value": 0.3584611311081938,
             "status": "Red",
-            "note": "Ratio at 0.3598 \u2014 small-caps are heavily underperforming. Poor internals.",
+            "note": "Ratio at 0.3585 \u2014 small-caps are heavily underperforming. Poor internals.",
             "action": "Avoid high-risk small-cap exposure.",
             "score_value": 1.0,
             "source_link": "https://finance.yahoo.com/quote/%5ERUT/"
@@ -231,7 +231,7 @@
         }
     ],
     "overall": {
-        "date": "2025-11-05 07:59:27",
+        "date": "2025-11-05 09:52:59",
         "status": "\ud83d\udd34 HIGH RISK",
         "score": 8.5,
         "max_score": 15.0,
@@ -240,16 +240,17 @@
         "escalation_triggers": [
             {
                 "name": "VIX Index",
-                "current_reading": "18.5",
+                "current_reading": "19.0",
                 "alarm_threshold": "Above 18"
             },
             {
                 "name": "10yr Yield",
-                "current_reading": "4.11",
+                "current_reading": "4.13",
                 "alarm_threshold": "Above 4.0%"
             }
         ],
-        "daily_narrative": "Atlas's latest dashboard indicates a \"HIGH RISK\" environment, registering a score of 8.5 out of 15. This elevated risk posture is primarily driven by a confluence of concerning indicators: rising market volatility (VIX at 18.48), persistently high US Treasury yields across the curve (10yr at 4.11%), and a sharp rally in gold suggesting inflation or systemic risk. Critically, equity market internals are flashing red, with aggressively expanding margin debt (up 32.9% YoY) indicating excessive leverage, significant underperformance of small-cap stocks, and an extremely bearish put/call ratio pointing to potential capitulation. While broad market indices like the S&P 500 remain near highs and systemic liquidity appears robust, these underlying stresses warrant immediate attention.\n\nFor the disciplined investor, the current environment calls for a defensive stance. It is imperative to aggressively deleverage equity exposure and increase cash holdings to mitigate the risk of forced liquidations. Given the elevated yields, favor short-duration and floating-rate instruments over intermediate or long-term fixed income. Consider increasing real asset allocation, such as gold, as a hedge against inflation and systemic uncertainty. While the extreme put/call ratio might signal a short-term technical bounce, the deteriorating market internals and rising consumer delinquencies suggest fundamental caution is warranted. Avoid high-risk small-cap exposure and reduce unsecured credit exposure."
+        "daily_narrative": "The Atlas Dashboard signals a **HIGH RISK** environment, with an Atlas Score of 8.5 out of 15.0, indicating multiple severe triggers are active. Macro indicators are flashing amber: the VIX index at 19.0 suggests increasing market volatility, while a sharp rally in gold points to rising inflation expectations or systemic risk. US Treasury yields across the curve remain elevated, reflecting persistent fiscal and inflation concerns, further compounded by a risk-off sentiment evident in the weakening AUD/USD.\n\nDespite major equity indices like the S&P 500 trading near highs, underlying market health is deteriorating. Aggressive expansion of margin debt (32.9% YoY) presents a significant risk of forced liquidations, while small-cap underperformance and rising consumer delinquencies highlight poor market internals and increasing household stress. Given this confluence of factors, a disciplined investor should **aggressively hedge and reduce exposure**. Prioritize capital preservation by deleveraging equity positions, increasing cash holdings, and considering real asset allocations. Avoid high-risk small-cap exposure and intermediate-duration fixed income, as the current environment demands a highly defensive and cautious approach.",
+        "news_articles": []
     },
     "meta": {
         "fiscal_breakdown": {

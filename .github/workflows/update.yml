@@ -1,0 +1,84 @@
+# .github/workflows/update.yml
+# This workflow runs the Atlas Python script daily, commits the new JSON data,
+# and pushes it back to the repository, updating the GitHub Pages site.
+
+name: 📊 Daily Atlas Update
+
+# Controls when the workflow is triggered
+on:
+  # 1. Manual trigger (for easy testing)
+  workflow_dispatch: 
+  
+  # 2. Scheduled trigger (runs daily at 00:00 UTC)
+  schedule:
+    # Runs at 00:00 UTC (Adjust the cron string for your preferred time)
+    - cron: '0 0 * * *' 
+
+jobs:
+  run-atlas-update:
+    runs-on: ubuntu-latest
+    
+    # Permissions required to check out code and push commits
+    permissions:
+      contents: write 
+
+    steps:
+      # 1. Checkout the repository code
+      - name: ⬇️ Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          # Ensure full history is fetched for future git operations
+          fetch-depth: 0 
+
+      # 2. Setup Python environment
+      - name: 🐍 Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11' # Use a stable, recent version
+
+      # 3. Install dependencies
+      - name: 📦 Install Python dependencies
+        run: |
+          # Install all necessary packages, including 'requests' for news and Alpha Vantage dependencies
+          python -m pip install --upgrade pip
+          pip install pandas requests google-genai fredapi yfinance # Add any other necessary packages here (e.g., alpha_vantage if you use a library for it)
+
+      # 4. Execute the Python script
+      - name: 🏃 Run Atlas Update Script
+        # THIS SECTION EXPOSES ALL NECESSARY SECRETS AS ENVIRONMENT VARIABLES
+        run: python update_atlas.py
+        env:
+          # CORE KEYS
+          FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          
+          # NEWS INTEGRATION KEYS (Used by news_fetcher.py)
+          GOOGLE_SEARCH_API_KEY: ${{ secrets.GOOGLE_SEARCH_API_KEY }}
+          GOOGLE_SEARCH_CX: ${{ secrets.GOOGLE_SEARCH_CX }}
+          
+          # ADDITIONAL INDICATOR KEYS (Used by fetch_indicator_data inside update_atlas.py)
+          VIX_API_KEY: ${{ secrets.VIX_API_KEY }}
+          GOLD_API_KEY: ${{ secrets.GOLD_API_KEY }}
+          FX_API_KEY: ${{ secrets.FX_API_KEY }}
+          
+      # 5. Commit and Push changes
+      - name: 💾 Commit and Push new data
+        run: |
+          # Configure Git user for the commit
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          
+          # Check if the JSON files were modified
+          if [ -n "$(git status --porcelain data/atlas-latest.json data/atlas-archive.json)" ]; then
+            # Add the modified files
+            git add data/atlas-latest.json data/atlas-archive.json
+            
+            # Commit the changes
+            git commit -m "🤖 Atlas Update: New data for $(date +%Y-%m-%d)"
+            
+            # Push the changes back to the remote branch
+            git push
+          else
+            echo "No changes detected in JSON files. Skipping commit."
+          fi
+          

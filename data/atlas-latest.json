@@ -2,7 +2,7 @@
     "date": "2025-11-05",
     "atlas_score": 0.0,
     "current_status": "N/A",
-    "last_updated": "10:18 am",
+    "last_updated": "10:28 am",
     "macro": [
         {
             "id": "VIX",
@@ -152,9 +152,9 @@
         {
             "id": "ASX_200",
             "name": "ASX 200 index",
-            "value": 8813.7001953125,
+            "value": 8807.0,
             "status": "Green",
-            "note": "ASX 200 Index at 8,814. Trading near highs, bullish sentiment prevailing.",
+            "note": "ASX 200 Index at 8,807. Trading near highs, bullish sentiment prevailing.",
             "action": "No change.",
             "score_value": 0.0,
             "source_link": "https://finance.yahoo.com/quote/%5EAXJO/"
@@ -231,7 +231,7 @@
         }
     ],
     "overall": {
-        "date": "2025-11-05 10:18:43",
+        "date": "2025-11-05 10:28:28",
         "status": "\ud83d\udd34 HIGH RISK",
         "score": 8.5,
         "max_score": 15.0,
@@ -249,7 +249,7 @@
                 "alarm_threshold": "Above 4.0%"
             }
         ],
-        "daily_narrative": "**Atlas Commentary - November 5, 2025**\n\nThe Atlas Dashboard indicates a **\ud83d\udd34 HIGH RISK** environment, with an overall score of 8.5, signaling that multiple severe triggers are active. While headline equity indices like the S&P 500 continue to trade near highs, this bullish momentum is increasingly contradicted by underlying market dynamics. We observe a clear shift towards risk-off sentiment, evidenced by a rising VIX index (19.0), a sharp rally in Gold ($362.32) suggesting inflation or systemic risk, and persistent pressure on the AUD/USD (0.6492). Furthermore, elevated US Treasury yields across the curve (3Y at 3.61%, 10Y at 4.13%, 30Y at 4.69%) reflect growing concerns over fiscal integrity and inflation, despite robust systemic liquidity and tight high-yield credit spreads.\n\nCrucially, micro-level indicators reveal significant vulnerabilities. Margin debt is expanding aggressively year-over-year (32.9%), creating a high risk of forced liquidations should markets turn. Market internals are deteriorating, with small-cap stocks heavily underperforming large-caps (ratio at 0.3585), indicating poor breadth. While the extreme bearishness in the put/call ratio (13.91) might suggest a short-term capitulation, it primarily underscores a deep-seated fear. Coupled with rising consumer delinquencies (3.0%), the aggregate picture points to an increasingly fragile market. Disciplined investors are advised to aggressively hedge existing exposures, deleverage, and increase cash positions to preserve capital amidst these escalating risks.",
+        "daily_narrative": "The Atlas Dashboard currently signals a **HIGH RISK** environment with an overall score of 8.5, indicating multiple severe triggers are active. While headline equity indices like the S&P 500 remain near highs, this masks significant underlying vulnerabilities. Key macro concerns include a rising VIX index (19.0), signaling increasing volatility, and elevated US Treasury yields across the curve (10yr at 4.13%), reflecting persistent inflation and fiscal risks. Gold's sharp rally further underscores a flight to safety or inflation hedging, while the Australian Dollar's weakness points to a broader risk-off sentiment. On the micro front, aggressive expansion in margin debt (32.9% YOY) points to excessive leverage, posing a substantial risk of forced liquidations. Additionally, small-cap underperformance and rising consumer delinquencies highlight deteriorating market internals and household financial stress.\n\nInterestingly, the extreme put/call ratio (13.91) suggests a high degree of market bearishness, which could paradoxically precede a short-term technical rally. However, this potential bounce should be viewed within the context of the broader, elevated risk profile. Despite robust systemic liquidity and stable credit spreads, the confluence of increasing volatility, high leverage, and deteriorating market internals warrants caution. For the disciplined investor, the actionable conclusion is clear: **aggressively hedge and reduce equity exposure, increase cash holdings, and favor short-duration instruments over intermediate or long-term locks.** Consider increasing real asset allocation to mitigate inflation and systemic risks, and avoid high-risk small-cap exposure.",
         "news_articles": []
     },
     "meta": {

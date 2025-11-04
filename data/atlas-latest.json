@@ -1,12 +1,12 @@
 {
     "overall": {
-        "date": "2025-11-04 11:00:19",
+        "date": "2025-11-04 11:08:53",
         "status": "\ud83d\udfe0 ELEVATED RISK",
         "score": 6.0,
         "max_score": 22.5,
         "comment": "MODERATE RISK. Core volatility/duration triggers active. Proceed with caution; maintain protective hedges.",
         "composite_summary": "Overall risk posture is stable, but watch for credit signals.",
-        "daily_narrative": "The Atlas Dashboard currently signals an **ELEVATED RISK** environment, with a score of 6.0, urging caution for the disciplined investor. While headline equity indices like the S&P 500 are trading near highs and the VIX indicates low implied volatility, several critical indicators suggest underlying fragility. Core duration triggers are active, with the 10-Year Treasury yield exceeding its 4.0% alarm threshold, reflecting persistent long-term fiscal and inflation concerns. This bond market pressure is further compounded by a sharp rally in gold, pointing towards rising inflation expectations or systemic risk.\n\nBeneath the surface calm, market internals are showing signs of stress. Extreme margin debt growth at 32.9% year-over-year presents a substantial liquidation risk, while the significant underperformance of small-cap stocks indicates fragile market breadth. Additionally, rising consumer delinquencies warrant caution for banks and consumer-facing sectors. For the disciplined investor, Atlas advises proceeding with caution: maintain protective hedges, reduce leveraged positions, and favor quality/large-cap exposures over growth/cyclical stocks. Limit exposure to long-duration assets, preferring short-term or floating-rate instruments, and consider increasing real asset allocation to mitigate inflation and systemic risks.",
+        "daily_narrative": "Atlas's current dashboard indicates an **ELEVATED RISK** status, despite the numerical risk score of 6.0 out of 22.5 suggesting a moderate posture. This elevated alert is primarily driven by the 10-Year Treasury Yield breaching its 4.0% alarm threshold, signaling active core volatility and duration triggers. While major equity indices like the S&P 500 remain near highs and the VIX indicates low implied volatility, a closer look reveals a nuanced sentiment. Gold's sharp rally points to rising inflation expectations or systemic risk, and the Put/Call ratio suggests underlying bearish sentiment, which could be contrarian bullish but warrants vigilance.\n\nFor the disciplined investor, the confluence of elevated long-term yields, extreme margin debt growth (32.9% YoY), and rising consumer delinquencies necessitates a cautious approach. Market internals are showing fragility, with small-cap stocks significantly underperforming large-caps. Therefore, Atlas recommends maintaining protective hedges, reducing leveraged positions, and favoring short-duration or floating-rate instruments over intermediate and long-term locks. Consider increasing real asset allocation to hedge against inflation, and avoid excessive exposure to growth or cyclical sectors, instead prioritizing quality and large-cap holdings. Closely monitor credit signals and household debt metrics for further deterioration.",
         "escalation_triggers": [
             {
                 "name": "10-Year Yield",
@@ -16,9 +16,9 @@
         ]
     },
     "meta": {
-        "run_time": "2025-11-04 11:00:06",
+        "run_time": "2025-11-04 11:08:41",
         "fiscal_breakdown": {
-            "snap_score": 5,
+            "snap_score": 25,
             "corruption_score": 7.75,
             "civil_unrest_score": 5,
             "reg_confidence_score": 10
@@ -48,9 +48,9 @@
         {
             "id": "EURUSD",
             "name": "EUR/USD",
-            "value": 1.1522064208984375,
+            "value": 1.151145339012146,
             "status": "Green",
-            "note": "EUR/USD is stable at 1.1522. Indicates balanced global risk/economic outlook.",
+            "note": "EUR/USD is stable at 1.1511. Indicates balanced global risk/economic outlook.",
             "action": "No change.",
             "source_link": "https://www.alphavantage.co/documentation/#currency-exchange",
             "score_value": 0.0
@@ -68,9 +68,9 @@
         {
             "id": "AUDUSD",
             "name": "AUD/USD",
-            "value": 0.654022216796875,
+            "value": 0.6535093188285828,
             "status": "Amber",
-            "note": "AUDUSD at 0.6540. AUD is consolidating. Global risk appetite is tentative.",
+            "note": "AUDUSD at 0.6535. AUD is consolidating. Global risk appetite is tentative.",
             "action": "Monitor closely for breaks below 0.6500.",
             "source_link": "https://finance.yahoo.com/quote/AUDUSD=X/",
             "score_value": 0.5
@@ -128,19 +128,19 @@
         {
             "id": "FISCAL_RISK",
             "name": "Fiscal Integrity Risk",
-            "value": 27.75,
+            "value": 47.75,
             "status": "Green",
-            "note": "Fiscal Risk Score at 28. Risk is manageable based on current data.",
+            "note": "Fiscal Risk Score at 48. Risk is manageable based on current data.",
             "action": "Monitor VIX and SNAP data closely.",
             "source_link": "Composite/Internal Model (VIX, SNAP, CPI)",
-            "score_value": 27.75
+            "score_value": 47.75
         },
         {
             "id": "SNAP_BENEFITS",
             "name": "SNAP Benefits (MoM)",
             "value": [
-                0.0,
-                0.0
+                111.15,
+                97.391
             ],
             "status": "N/A",
             "note": "Dependency for Fiscal Risk",
@@ -162,9 +162,9 @@
         {
             "id": "ASX_200",
             "name": "ASX 200 Index",
-            "value": 8870.7998046875,
+            "value": 8863.900390625,
             "status": "Green",
-            "note": "ASX 200 Index at 8,871. Trading near highs, bullish sentiment prevailing.",
+            "note": "ASX 200 Index at 8,864. Trading near highs, bullish sentiment prevailing.",
             "action": "No change.",
             "source_link": "https://finance.yahoo.com/quote/%5EAXJO/",
             "score_value": 0.0

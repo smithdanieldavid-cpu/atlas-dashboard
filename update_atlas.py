@@ -66,7 +66,7 @@ API_CONFIG = {
     "FRED_BANK_CDS_ID": "AAA", 
     
     "FRED_CONSUMER_DELINQ_ID": "DRCCLACBS", 
-    "FRED_SNAP_ID": "TLNPTAS", # CORRECT FRED ID for Total SNAP Participants (Fixes previous error)
+    "FRED_SNAP_ID": "TRP6001A027NBEA", # CORRECT FRED ID for Total SNAP Participants (Fixes previous error)
 }
 
 # Initialize FRED client only if the key is available

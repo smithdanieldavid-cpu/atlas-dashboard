@@ -398,20 +398,60 @@ async function initializeDashboard() {
         '✅ '
     );
     
-    // 3c. Escalation Watch
-    // CRITICAL FIX: Use ['Escalation watch'] from the commentary block
+    // Inside async function initializeDashboard() { ... }
+
+// 3c. Escalation Watch 🚨 (COMBINED LOGIC)
+const watchList = document.getElementById('watchList');
+if (!watchList) return; // Safety check
+watchList.innerHTML = ''; // Clear existing content
+
+const commentary = data.commentary || {};
+const overall = data.overall || {};
+
+// 1. Get AI-Generated Watch Items (Text Predictions)
+const aiWatchItems = commentary['Escalation watch'] || [];
+
+// Use the dedicated utility function for AI commentary
+if (aiWatchItems.length > 0) {
+    // Renders list items like: 🚨 Watch for VIX to break 22.0.
     renderCommentaryList(
         'watchList', 
-        data.commentary['Escalation watch'], 
+        aiWatchItems, 
         '🚨 ', 
-        'text-red-700' // Highlighting watch items
+        'text-red-700' 
     );
-    
-    // ------------------------------------------------------------------
-    // REMOVAL: The old 'renderList' and the block for 'data.overall.escalation_triggers'
-    // are now obsolete and removed for a cleaner, correct implementation.
-    // ------------------------------------------------------------------
+}
 
+// 2. Get System-Calculated Escalation Triggers (Threshold Breaches)
+const systemTriggers = overall.escalation_triggers || [];
+
+if (systemTriggers.length > 0) {
+    // Add a visual separator if both types of warnings exist
+    if (aiWatchItems.length > 0) {
+        const separator = document.createElement('li');
+        separator.className = 'mt-2 mb-1 border-t border-red-200';
+        watchList.appendChild(separator);
+    }
+    
+    // Add the system triggers to the *same* list element
+    systemTriggers.forEach(trigger => {
+        const listItem = document.createElement('li');
+        
+        listItem.innerHTML = `
+            <span class="font-bold text-red-700">⚠️ Threshold Breach:</span>
+            <span class="font-semibold">${trigger.name}</span> 
+            (Current: <span class="text-indigo-600">${trigger.current_reading}</span>)
+            — Alarm: <span class="text-red-600">${trigger.alarm_threshold}</span>
+        `;
+        
+        watchList.appendChild(listItem);
+    });
+} 
+
+// 3. Handle the "No Risk" case
+if (aiWatchItems.length === 0 && systemTriggers.length === 0) {
+    watchList.innerHTML = '<li class="text-green-600">No immediate escalation risks flagged.</li>';
+}
 
     console.log("Atlas Dashboard successfully rendered data.");
 }

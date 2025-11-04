@@ -66,7 +66,10 @@ API_CONFIG = {
     "FRED_BANK_CDS_ID": "AAA", 
     
     "FRED_CONSUMER_DELINQ_ID": "DRCCLACBS", 
-    "FRED_SNAP_ID": "TRP6001A027NBEA", # CORRECT FRED ID for Total SNAP Participants (Fixes previous error)
+    "FRED_SNAP_ID": "TRP6001A027NBEA", 
+
+    # 4. GEMINI API KEY
+    "GEMINI_API_KEY": "YOUR_GEMINI_API_KEY_HERE" # <-- USE YOUR ACTUAL KEY
 }
 
 # Initialize FRED client only if the key is available
@@ -1271,6 +1274,83 @@ def _compile_escalation_watch(atlas_data):
                 
     return escalation_list
 
+def score_atlas_commentary(atlas_data):
+    """
+    Uses the Gemini API to generate structured commentary based on the scored data.
+    """
+    print("Generating commentary using Gemini API...")
+    
+    # Initialize client (ensure your GEMINI_API_KEY is set in API_CONFIG)
+    try:
+        client = genai.Client(api_key=API_CONFIG["GEMINI_API_KEY"])
+    except Exception as e:
+        print(f"Gemini Client Initialization Failed: {e}. Check API Key.")
+        return atlas_data # Skip commentary if client fails
+    
+    # Define the REQUIRED Output Structure using JSON Schema
+    # FIX: JSON SCHEMA KEYS MATCH ATLAS_DATA_SCHEMA (Sentence Case)
+    commentary_schema = types.Schema(
+        type=types.Type.OBJECT,
+        properties={
+            "Short insight": types.Schema(
+                type=types.Type.STRING, 
+                description="A single, concise, sentence-case summary of the current systemic risk state."
+            ),
+            "Immediate actions": types.Schema(
+                type=types.Type.ARRAY,
+                items=types.Schema(type=types.Type.STRING),
+                description="A bulleted list of 3-5 tactical actions for an investor to take based on the Atlas score."
+            ),
+            "Escalation watch": types.Schema(
+                type=types.Type.ARRAY,
+                items=types.Schema(type=types.Type.STRING),
+                description="A bulleted list of 3-5 potential risk factors or data points that could cause the Atlas score to worsen in the next 7 days."
+            ),
+        },
+        required=["Short insight", "Immediate actions", "Escalation watch"]
+    )
+    
+    # Format the current indicator data for the prompt
+    indicator_summary = "\n".join([
+        f"{ind['name']}: Value={ind['value']:.2f}, Status={ind['status']}, Score={ind['score']:.1f}"
+        for ind in atlas_data["macro"] + atlas_data["micro"]
+    ])
+    
+    prompt = f"""
+    Based on the following Atlas Risk Dashboard data, generate a daily analysis.
+    
+    - **Current Atlas Score:** {atlas_data['atlas_score']:.1f} ({atlas_data['current_status']})
+    - **Indicator Summary:**
+    {indicator_summary}
+    
+    Analyze the data and generate a JSON object that adheres strictly to the provided JSON Schema.
+    The commentary must be written for an audience of sophisticated financial professionals.
+    """
+
+    try:
+        response = client.models.generate_content(
+            model='gemini-2.5-flash',
+            contents=prompt,
+            config=types.GenerateContentConfig(
+                response_mime_type="application/json",
+                response_schema=commentary_schema,
+                temperature=0.4
+            )
+        )
+        
+        # Parse the JSON string from the response
+        commentary_json = json.loads(response.text)
+        
+        # Safe Parsing: Retrieve keys using Sentence Case and ensure list structure
+        atlas_data["commentary"]["Short insight"] = [{"text": commentary_json.get("Short insight", "No insight generated.")}]
+        atlas_data["commentary"]["Immediate actions"] = [{"text": action} for action in commentary_json.get("Immediate actions", ["No actions generated."])]
+        atlas_data["commentary"]["Escalation watch"] = [{"text": watch} for watch in commentary_json.get("Escalation watch", ["No watch factors generated."])]
+
+    except Exception as e:
+        print(f"Gemini API or JSON parsing failed: {e}")
+        # If API or parsing fails, the commentary remains the default boilerplate.
+
+    return atlas_data
 
 # --- 3. MAIN PROCESSOR ---
 
@@ -1387,59 +1467,66 @@ def run_update_process(atlas_data):
 
 # --- 4. DATA STRUCTURE (Initial State) ---
 
+# Initial Data Schema (Used as a starting template)
 ATLAS_DATA_SCHEMA = {
-    "overall": {
-        "date": datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-        "status": "N/A",
-        "score": 0.0,
-        "max_score": 22.5,
-        "comment": "Initializing...",
-        "composite_summary": "",
-        "daily_narrative": "",
-        "escalation_triggers": []
-    },
-    "meta": {
-        "run_time": datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-        "fiscal_breakdown": {}
-    },
+    # Keys for the CURRENT run (used by the front-end)
+    "date": datetime.datetime.now().strftime("%Y-%m-%d"),
+    "atlas_score": 0.0,
+    "current_status": "N/A",
+    "last_updated": datetime.datetime.now().strftime("%I:%M %p").lower().lstrip('0'),
+    
+    # Macro Risk Indicators (Updated to Sentence Case names and added 'score' field)
     "macro": [
-        # Macro Risk Indicators (Systemic / High Impact)
-        {"id": "VIX", "name": "VIX Index", "value": 0.0, "status": "N/A", "note": "", "action": "No change.", "source_link": ""},
-        {"id": "GOLD_PRICE", "name": "Gold Price (GLD)", "value": 0.0, "status": "N/A", "note": "", "action": "No change.", "source_link": ""},
-        {"id": "EURUSD", "name": "EUR/USD", "value": 0.0, "status": "N/A", "note": "", "action": "No change.", "source_link": ""},
-        {"id": "WTI_CRUDE", "name": "WTI Crude Oil", "value": 0.0, "status": "N/A", "note": "", "action": "No change.", "source_link": ""},
-        {"id": "AUDUSD", "name": "AUD/USD", "value": 0.0, "status": "N/A", "note": "", "action": "No change.", "source_link": ""},
-        {"id": "3Y_YIELD", "name": "3-Year Yield", "value": 0.0, "status": "N/A", "note": "", "action": "No change.", "source_link": ""},
-        {"id": "30Y_YIELD", "name": "30-Year Yield", "value": 0.0, "status": "N/A", "note": "", "action": "No change.", "source_link": ""},
-        {"id": "10Y_YIELD", "name": "10-Year Yield", "value": 0.0, "status": "N/A", "note": "", "action": "No change.", "source_link": ""},
-        {"id": "HY_OAS", "name": "HY OAS (Credit Risk)", "value": 0.0, "status": "N/A", "note": "", "action": "No change.", "source_link": ""},
-        {"id": "TREASURY_LIQUIDITY", "name": "Net Treasury Liquidity", "value": 0.0, "status": "N/A", "note": "", "action": "No change.", "source_link": ""},
-        
-        # Composite / Manual Input
-        {"id": "FISCAL_RISK", "name": "Fiscal Integrity Risk", "value": 0.0, "status": "N/A", "note": "Composite score of VIX/SNAP/CPI.", "action": "No change.", "source_link": ""},
-        {"id": "SNAP_BENEFITS", "name": "SNAP Benefits (MoM)", "value": [0.0, 0.0], "status": "N/A", "note": "Dependency for Fiscal Risk", "action": "No change.", "source_link": ""}, # Dependency indicator
+        {"id": "VIX", "name": "VIX index", "value": 0.0, "status": "N/A", "note": "", "action": "No change.", "score": 0.0, "source_link": ""},
+        {"id": "GOLD_PRICE", "name": "Gold price (GLD)", "value": 0.0, "status": "N/A", "note": "", "action": "No change.", "score": 0.0, "source_link": ""},
+        {"id": "EURUSD", "name": "EUR/USD", "value": 0.0, "status": "N/A", "note": "", "action": "No change.", "score": 0.0, "source_link": ""},
+        {"id": "WTI_CRUDE", "name": "WTI crude oil", "value": 0.0, "status": "N/A", "note": "", "action": "No change.", "score": 0.0, "source_link": ""},
+        {"id": "AUDUSD", "name": "AUD/USD", "value": 0.0, "status": "N/A", "note": "", "action": "No change.", "score": 0.0, "source_link": ""},
+        {"id": "3Y_YIELD", "name": "3-year yield", "value": 0.0, "status": "N/A", "note": "", "action": "No change.", "score": 0.0, "source_link": ""},
+        {"id": "30Y_YIELD", "name": "30-year yield", "value": 0.0, "status": "N/A", "note": "", "action": "No change.", "score": 0.0, "source_link": ""},
+        {"id": "10Y_YIELD", "name": "10-year yield", "value": 0.0, "status": "N/A", "note": "", "action": "No change.", "score": 0.0, "source_link": ""},
+        {"id": "HY_OAS", "name": "HY OAS (credit risk)", "value": 0.0, "status": "N/A", "note": "", "action": "No change.", "score": 0.0, "source_link": ""},
+        {"id": "TREASURY_LIQUIDITY", "name": "Net treasury liquidity", "value": 0.0, "status": "N/A", "note": "", "action": "No change.", "score": 0.0, "source_link": ""},
+        {"id": "FISCAL_RISK", "name": "Fiscal integrity risk", "value": 0.0, "status": "N/A", "note": "Composite score of VIX/SNAP/CPI.", "action": "No change.", "score": 0.0, "source_link": ""},
+        {"id": "SNAP_BENEFITS", "name": "SNAP benefits (MoM)", "value": [0.0, 0.0], "status": "N/A", "note": "Dependency for Fiscal Risk", "action": "No change.", "score": 0.0, "source_link": ""}, 
     ],
+    
+    # Micro Risk Indicators (Updated to Sentence Case names and added 'score' field)
     "micro": [
-        # Micro Risk Indicators (Equity/Sentiment/Sector)
-        {"id": "SPX_INDEX", "name": "S&P 500 Index", "value": 0.0, "status": "N/A", "note": "", "action": "No change.", "source_link": ""},
-        {"id": "ASX_200", "name": "ASX 200 Index", "value": 0.0, "status": "N/A", "note": "", "action": "No change.", "source_link": ""},
-        {"id": "SOFR_OIS", "name": "SOFR/OIS Spread", "value": 0.0, "status": "N/A", "note": "", "action": "No change.", "source_link": ""},
-        {"id": "PUT_CALL_RATIO", "name": "Put/Call Ratio", "value": 0.0, "status": "N/A", "note": "", "action": "No change.", "source_link": ""},
-        {"id": "SMALL_LARGE_RATIO", "name": "Small/Large Cap Ratio", "value": 0.0, "status": "N/A", "note": "", "action": "No change.", "source_link": ""},
-        
-        # Placeholder Indicators
-        {"id": "EARNINGS_REVISION", "name": "Earnings Revision Index", "value": "N/A", "status": "N/A", "note": "", "action": "No change.", "source_link": "N/A"},
-        {"id": "MARGIN_DEBT_YOY", "name": "Margin Debt YoY %", "value": 0.0, "status": "N/A", "note": "", "action": "No change.", "source_link": ""},
-        {"id": "BANK_CDS", "name": "Bank CDS Index", "value": "N/A", "status": "N/A", "note": "", "action": "No change.", "source_link": "N/A"},
-        {"id": "CONSUMER_DELINQUENCIES", "name": "Consumer Delinquencies", "value": "N/A", "status": "N/A", "note": "", "action": "No change.", "source_link": "N/A"},
-        
-        # Manual Input
-        {"id": "GEOPOLITICAL", "name": "Geopolitical Risk", "value": 0.0, "status": "N/A", "note": "Manual input: 0.0=Stable, 0.5=Elevated, 1.0=Severe", "action": "No change.", "source_link": "Manual Input/Qualitative Assessment"},
+        {"id": "SPX_INDEX", "name": "S&P 500 index", "value": 0.0, "status": "N/A", "note": "", "action": "No change.", "score": 0.5, "source_link": ""},
+        {"id": "ASX_200", "name": "ASX 200 index", "value": 0.0, "status": "N/A", "note": "", "action": "No change.", "score": 0.5, "source_link": ""},
+        {"id": "SOFR_OIS", "name": "SOFR/OIS spread", "value": 0.0, "status": "N/A", "note": "", "action": "No change.", "score": 0.5, "source_link": ""},
+        {"id": "PUT_CALL_RATIO", "name": "Put/call ratio", "value": 0.0, "status": "N/A", "note": "", "action": "No change.", "score": 0.5, "source_link": ""},
+        {"id": "SMALL_LARGE_RATIO", "name": "Small/large cap ratio", "value": 0.0, "status": "N/A", "note": "", "action": "No change.", "score": 0.5, "source_link": ""},
+        {"id": "EARNINGS_REVISION", "name": "Earnings revision index", "value": "N/A", "status": "N/A", "note": "", "action": "No change.", "score": 0.5, "source_link": "N/A"},
+        {"id": "MARGIN_DEBT_YOY", "name": "Margin debt YoY %", "value": 0.0, "status": "N/A", "note": "", "action": "No change.", "score": 0.5, "source_link": ""},
+        {"id": "BANK_CDS", "name": "Bank CDS index", "value": "N/A", "status": "N/A", "note": "", "action": "No change.", "score": 0.5, "source_link": "N/A"},
+        {"id": "CONSUMER_DELINQUENCIES", "name": "Consumer delinquencies", "value": "N/A", "status": "N/A", "note": "", "action": "No change.", "score": 0.5, "source_link": "N/A"},
+        {"id": "GEOPOLITICAL", "name": "Geopolitical risk", "value": 0.0, "status": "N/A", "note": "Manual input: 0.0=Stable, 0.5=Elevated, 1.0=Severe", "action": "No change.", "score": 0.5, "source_link": "Manual Input/Qualitative Assessment"},
     ],
-    "short_insight": [{"text": "Global equity risk remains muted despite rising long-end yields."}],
+
+    # CRITICAL FIX: Structured COMMENTARY object with Sentence Case keys
+    "commentary": {
+        "Short insight": [
+            {"text": "Global equity risk remains muted despite rising long-end yields."}
+        ],
+        "Immediate actions": [
+            {"text": "Maintain short duration and cash focus."}
+        ],
+        "Escalation watch": [
+            {"text": "Watch for VIX to break 22.0."}
+        ],
+        "atlas_status_summary": []
+    },
+    
+    # Overall structure used for the archive file
+    "overall": {
+        "score": 0.0,
+        "status_name": "N/A",
+        "date": datetime.datetime.now().strftime("%Y-%m-%d"),
+        "commentary": {}
+    }
 }
-
-
 # --- 5. EXECUTION ---
 
 def main():

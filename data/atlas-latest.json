@@ -2,7 +2,7 @@
     "date": "2025-11-04",
     "atlas_score": 0.0,
     "current_status": "N/A",
-    "last_updated": "11:56 am",
+    "last_updated": "12:07 pm",
     "macro": [
         {
             "id": "VIX",
@@ -29,9 +29,9 @@
         {
             "id": "EURUSD",
             "name": "EUR/USD",
-            "value": 1.151145339012146,
+            "value": 1.1508804559707642,
             "status": "Green",
-            "note": "EUR/USD is stable at 1.1511. Indicates balanced global risk/economic outlook.",
+            "note": "EUR/USD is stable at 1.1509. Indicates balanced global risk/economic outlook.",
             "action": "No change.",
             "score": 0.0,
             "source_link": "https://www.alphavantage.co/documentation/#currency-exchange",
@@ -51,9 +51,9 @@
         {
             "id": "AUDUSD",
             "name": "AUD/USD",
-            "value": 0.6537656784057617,
+            "value": 0.6536802053451538,
             "status": "Amber",
-            "note": "AUDUSD at 0.6538. AUD is consolidating. Global risk appetite is tentative.",
+            "note": "AUDUSD at 0.6537. AUD is consolidating. Global risk appetite is tentative.",
             "action": "Monitor closely for breaks below 0.6500.",
             "score": 0.0,
             "source_link": "https://finance.yahoo.com/quote/AUDUSD=X/",
@@ -154,9 +154,9 @@
         {
             "id": "ASX_200",
             "name": "ASX 200 index",
-            "value": 8842.2001953125,
+            "value": 8844.0,
             "status": "Green",
-            "note": "ASX 200 Index at 8,842. Trading near highs, bullish sentiment prevailing.",
+            "note": "ASX 200 Index at 8,844. Trading near highs, bullish sentiment prevailing.",
             "action": "No change.",
             "score": 0.5,
             "source_link": "https://finance.yahoo.com/quote/%5EAXJO/",
@@ -272,7 +272,7 @@
     "overall": {
         "score": 6.0,
         "status_name": "N/A",
-        "date": "2025-11-04 11:56:41",
+        "date": "2025-11-04 12:07:14",
         "commentary": {},
         "status": "\ud83d\udfe0 ELEVATED RISK",
         "max_score": 22.5,
@@ -285,7 +285,7 @@
                 "alarm_threshold": "Above 4.0%"
             }
         ],
-        "daily_narrative": "The Atlas Dashboard currently signals an **Elevated Risk** environment, despite the overall commentary suggesting a 'Moderate Risk' posture. While the VIX remains low and major equity indices like the S&P 500 are trading near highs, indicating a degree of market calm and bullish momentum, underlying indicators suggest a need for heightened vigilance. Tight credit spreads and sufficient systemic liquidity provide some reassurance, yet the sharp rally in gold prices points to rising inflation expectations or systemic concerns, and global risk appetite appears tentative.\n\nThe core of this elevated risk stems from the bond market, with all key Treasury yields (3, 10, and 30-year) elevated, and the 10-year yield specifically breaching its 4.0% alarm threshold, signaling persistent rate and fiscal pressures. Furthermore, market internals are flashing red, with small-cap underperformance and an alarming 32.9% year-over-year surge in margin debt, indicating fragile breadth and high liquidation risk. Rising consumer delinquencies further underscore potential economic strain. For the disciplined investor, the actionable conclusion is to **proceed with caution, maintain a focus on short-duration assets and cash, and consider increasing real asset allocation.** It is prudent to reduce leveraged positions, favor quality/large-cap over growth/cyclical exposure, and closely monitor for any break in the VIX above 22.0, which would signal a significant shift in market volatility."
+        "daily_narrative": "The Atlas Dashboard indicates an **ELEVATED RISK** posture, with an overall score of 6.0/22.5, suggesting a nuanced environment where surface-level stability belies underlying fragilities. While broad equity indices like the S&P 500 remain near highs, supported by low implied volatility (VIX) and tight credit spreads (HY OAS, Bank CDS), several key indicators signal caution. Notably, long-term bond yields across 3, 10, and 30 years are elevated, reflecting persistent inflation expectations and fiscal concerns, with the 10-year yield currently above its 4.0% escalation threshold. Concurrently, gold is rallying sharply, further reinforcing these inflationary or systemic risk signals. Micro-level data reveals concerning trends: small-cap underperformance points to fragile market internals, extreme margin debt growth suggests high liquidation risk, and rising consumer delinquencies warrant vigilance in credit-sensitive sectors, despite overall systemic liquidity remaining sufficient.\n\nFor the disciplined investor, the current environment calls for a cautious and defensive approach. We recommend maintaining a focus on short-duration assets and cash, as advised by the elevated yield environment, and limiting long-duration locks. Given the fragile market internals and extreme leverage, consider reducing exposure to growth/cyclical stocks in favor of quality and large-cap names, and actively reduce any leveraged positions. Furthermore, monitor household debt metrics closely and consider increasing real asset allocation as a hedge against inflation. While the overall risk posture is stable, the activation of core volatility and duration triggers necessitates proceeding with caution and maintaining protective hedges, particularly watching for a VIX break above 22.0."
     },
     "meta": {
         "fiscal_breakdown": {

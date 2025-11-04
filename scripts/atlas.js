@@ -181,34 +181,30 @@ function renderIndicatorTable(tableId, indicators) {
 }
 
 
+// ------------------------------------------------------------------
+// NEW UTILITY FUNCTION: Dedicated renderer for the Gemini API commentary lists
+// This replaces the old renderList, which could not handle the new structure.
+// ------------------------------------------------------------------
 /**
- * Renders simple bulleted lists for actions, watch list, and insights.
- * NOTE: The render logic for 'watch' (Escalation Triggers) has been REMOVED from this function
- * and placed directly into initializeDashboard to handle the new explicit fields.
+ * Renders simple bulleted lists for commentary items (Actions, Watch, Insight).
+ * Assumes the list items are objects with a 'text' property: [{"text": "..."}]
  */
-function renderList(listId, items, type) {
+function renderCommentaryList(listId, items, icon, className = '') {
     const list = document.getElementById(listId);
     if (!list) return;
-    list.innerHTML = ''; 
-    
-    // This function will now only handle 'action' and 'insight' lists.
-    if (type !== 'action' && type !== 'insight') return;
+    list.innerHTML = '';
+
+    // Check if the items array is valid and contains data
+    if (!items || !Array.isArray(items) || items.length === 0) {
+        list.innerHTML = '<li>No analysis provided.</li>';
+        return;
+    }
 
     items.forEach(item => {
         const li = document.createElement('li');
-        let text = item;
-        let icon = '';
-        
-        if (type === 'action') {
-            icon = '✅ ';
-            text = item;
-        } else if (type === 'insight') {
-            text = item.text; // Short Insight list contains 'text' field
-            icon = '💡 ';
-            li.className = 'text-sm italic';
-        }
-
-        li.innerHTML = `${icon}<span>${text}</span>`; 
+        li.className = className;
+        // Access item.text, as all Gemini-generated lists are [{"text": "..."}]
+        li.innerHTML = `${icon}<span>${item.text}</span>`;
         list.appendChild(li);
     });
 }
@@ -383,32 +379,37 @@ async function initializeDashboard() {
     renderIndicatorTable('macroTable', data.macro);
     renderIndicatorTable('microTable', data.micro);
 
-    // 3. Actions and Insights (Note: renderList for 'watch' is now unused)
-    renderList('actionList', data.actions, 'action');
-    renderList('insightList', data.short_insight, 'insight');
+    // 3. Render Gemini Commentary (FIXED LOGIC)
+
+    // 3a. Short Insight (Single Sentence)
+    // CRITICAL FIX: Use ['Short insight'] and the dedicated renderer
+    renderCommentaryList(
+        'insightList', 
+        data.commentary['Short insight'], 
+        '💡 ', 
+        'text-base font-bold italic'
+    );
+    
+    // 3b. Immediate Actions
+    // CRITICAL FIX: Use ['Immediate actions']
+    renderCommentaryList(
+        'actionList', 
+        data.commentary['Immediate actions'], 
+        '✅ '
+    );
+    
+    // 3c. Escalation Watch
+    // CRITICAL FIX: Use ['Escalation watch'] from the commentary block
+    renderCommentaryList(
+        'watchList', 
+        data.commentary['Escalation watch'], 
+        '🚨 ', 
+        'text-red-700' // Highlighting watch items
+    );
     
     // ------------------------------------------------------------------
-    // NEW: Explicit Rendering for Escalation Watch List
-    // This uses the new Python structure (name, current_reading, alarm_threshold)
-    // ------------------------------------------------------------------
-    const watchList = document.getElementById('watchList');
-    watchList.innerHTML = ''; // Clear existing content
-
-    if (data.overall && data.overall.escalation_triggers) {
-        data.overall.escalation_triggers.forEach(trigger => {
-            const listItem = document.createElement('li');
-            
-            listItem.innerHTML = `
-                <span class="font-semibold">${trigger.name}</span> 
-                (Current: <span class="text-indigo-600">${trigger.current_reading}</span>)
-                — Threshold: <span class="text-red-600">${trigger.alarm_threshold}</span>
-            `;
-            
-            watchList.appendChild(listItem);
-        });
-    } else {
-        watchList.innerHTML = '<li>Escalation Watch data is unavailable.</li>';
-    }
+    // REMOVAL: The old 'renderList' and the block for 'data.overall.escalation_triggers'
+    // are now obsolete and removed for a cleaner, correct implementation.
     // ------------------------------------------------------------------
 
 

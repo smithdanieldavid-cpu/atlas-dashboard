@@ -50,12 +50,16 @@ Live Data Snapshot:
 - Trend: STABLE (Assuming no trend logic is available)
 
 ---
-INSTRUCTIONS:
+# --- INSTRUCTIONS section in SYSTEM_PROMPT ---
+
+INSTRUCTIONS = """
 1. Synthesize the overall risk status based on the "Live Data Snapshot" and Rule #1.
 2. The primary analysis MUST be on the **Full Indicator Status** list provided below, focusing on the number of RED/AMBER statuses and their implications.
-3. Use the **Contextual News Feed** only to provide color, texture, and brief forward-looking context to the indicator analysis. Do not lead with the news.
-4. Conclude by defining the current "Storm Warning" posture and state the key trigger (e.g., HY OAS breach of 400 bps) from Rule #2 that would pivot the status to the next level of risk.
-5. Do not list individual indicator values in the commentary text; refer to them by category (e.g., "credit spreads remain contained," "household stress remains elevated").
+3. **Structure the final commentary into TWO distinct paragraphs/sections:**
+    * **Paragraph 1 (Technical Analysis):** Focus exclusively on the **Full Indicator Status**. State the overall risk posture, name the 2-3 most critical Red/Amber status indicators (like Treasury Net Liquidity or Margin Debt) driving the current score, and explain the core contradiction (e.g., credit is calm, but duration risk is high).
+    * **Paragraph 2 (External Context):** Use the **Contextual News Feed** to corroborate the technical analysis from Paragraph 1 and provide a brief forward-looking perspective on the market.
+4. Conclude the final sentence of Paragraph 2 by clearly stating the key trigger (e.g., HY OAS breach of 400 bps) from Rule #2 that would pivot the status to the next level of risk.
+5. Do not list individual indicator values in the commentary text; refer to them by category (e.g., "credit spreads remain contained").
 
 ---
 Full Indicator Status:

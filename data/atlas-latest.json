@@ -2,7 +2,7 @@
     "date": "2025-11-05",
     "atlas_score": 0.0,
     "current_status": "N/A",
-    "last_updated": "10:28 am",
+    "last_updated": "12:01 pm",
     "macro": [
         {
             "id": "VIX",
@@ -37,9 +37,9 @@
         {
             "id": "WTI_CRUDE",
             "name": "WTI crude oil",
-            "value": 71.93000030517578,
+            "value": 60.22999954223633,
             "status": "Green",
-            "note": "WTI Crude at $71.93/bbl. Normal price range, favorable for growth.",
+            "note": "WTI Crude at $60.23/bbl. Normal price range, favorable for growth.",
             "action": "No change.",
             "score_value": 0.0,
             "source_link": "https://finance.yahoo.com/quote/USO/"
@@ -47,9 +47,9 @@
         {
             "id": "AUDUSD",
             "name": "AUD/USD exchange rate",
-            "value": 0.6491820216178894,
+            "value": 0.6476683616638184,
             "status": "Red",
-            "note": "AUDUSD at 0.6492. AUD remains under pressure. Strong risk-off or persistent US Dollar strength.",
+            "note": "AUDUSD at 0.6477. AUD remains under pressure. Strong risk-off or persistent US Dollar strength.",
             "action": "Favour US Dollar liquidity over AUD assets; watch commodity prices.",
             "score_value": 1.0,
             "source_link": "https://finance.yahoo.com/quote/AUDUSD=X/"
@@ -97,11 +97,11 @@
         {
             "id": "TREASURY_LIQUIDITY",
             "name": "Treasury net liquidity",
-            "value": 6586.06,
-            "status": "Green",
-            "note": "Net Liquidity at $6586.1B. Systemic liquidity is robust.",
-            "action": "No change.",
-            "score_value": 0.0,
+            "value": -6586059.027,
+            "status": "Red",
+            "note": "Net Liquidity at $-6586059.0B. Deep liquidity deficit. Signals systemic funding stress.",
+            "action": "Aggressively increase cash/liquidity reserves; reduce all speculative exposure.",
+            "score_value": 2.0,
             "source_link": "https://fred.stlouisfed.org/series/WALCL"
         },
         {
@@ -152,9 +152,9 @@
         {
             "id": "ASX_200",
             "name": "ASX 200 index",
-            "value": 8807.0,
+            "value": 8779.400390625,
             "status": "Green",
-            "note": "ASX 200 Index at 8,807. Trading near highs, bullish sentiment prevailing.",
+            "note": "ASX 200 Index at 8,779. Trading near highs, bullish sentiment prevailing.",
             "action": "No change.",
             "score_value": 0.0,
             "source_link": "https://finance.yahoo.com/quote/%5EAXJO/"
@@ -162,7 +162,7 @@
         {
             "id": "SOFR_OIS",
             "name": "SOFR/OIS spread",
-            "value": -5.0,
+            "value": -5.000000000000027,
             "status": "Green",
             "note": "SOFR/OIS Spread at -5.0 bps. Low implied counterparty risk.",
             "action": "No change.",
@@ -172,11 +172,11 @@
         {
             "id": "PUT_CALL_RATIO",
             "name": "Put/call ratio",
-            "value": 13.9138,
-            "status": "Red",
-            "note": "Ratio at 13.91. Extreme bearishness (too many puts). Suggests a potential short-term reversal/capitulation.",
-            "action": "Watch for a sharp technical rally. Avoid selling at current levels.",
-            "score_value": 1.0,
+            "value": 0.5,
+            "status": "Amber",
+            "note": "Ratio at 0.50. Extreme complacency (too many calls). Suggests a short-term top.",
+            "action": "Reduce speculative long positions.",
+            "score_value": 0.5,
             "source_link": "https://polygon.io/docs/options/get_v2_aggs_ticker__tickervar__prev"
         },
         {
@@ -231,9 +231,9 @@
         }
     ],
     "overall": {
-        "date": "2025-11-05 10:28:28",
+        "date": "2025-11-05 12:01:41",
         "status": "\ud83d\udd34 HIGH RISK",
-        "score": 8.5,
+        "score": 10.0,
         "max_score": 15.0,
         "comment": "HIGH RISK. Multiple severe triggers active. Aggressively hedge and reduce exposure.",
         "composite_summary": "Overall risk posture is stable, but watch for credit signals.",
@@ -247,9 +247,14 @@
                 "name": "10yr Yield",
                 "current_reading": "4.13",
                 "alarm_threshold": "Above 4.0%"
+            },
+            {
+                "name": "Net Liquidity",
+                "current_reading": "-6586059.027",
+                "alarm_threshold": "Below $50B"
             }
         ],
-        "daily_narrative": "The Atlas Dashboard currently signals a **HIGH RISK** environment with an overall score of 8.5, indicating multiple severe triggers are active. While headline equity indices like the S&P 500 remain near highs, this masks significant underlying vulnerabilities. Key macro concerns include a rising VIX index (19.0), signaling increasing volatility, and elevated US Treasury yields across the curve (10yr at 4.13%), reflecting persistent inflation and fiscal risks. Gold's sharp rally further underscores a flight to safety or inflation hedging, while the Australian Dollar's weakness points to a broader risk-off sentiment. On the micro front, aggressive expansion in margin debt (32.9% YOY) points to excessive leverage, posing a substantial risk of forced liquidations. Additionally, small-cap underperformance and rising consumer delinquencies highlight deteriorating market internals and household financial stress.\n\nInterestingly, the extreme put/call ratio (13.91) suggests a high degree of market bearishness, which could paradoxically precede a short-term technical rally. However, this potential bounce should be viewed within the context of the broader, elevated risk profile. Despite robust systemic liquidity and stable credit spreads, the confluence of increasing volatility, high leverage, and deteriorating market internals warrants caution. For the disciplined investor, the actionable conclusion is clear: **aggressively hedge and reduce equity exposure, increase cash holdings, and favor short-duration instruments over intermediate or long-term locks.** Consider increasing real asset allocation to mitigate inflation and systemic risks, and avoid high-risk small-cap exposure.",
+        "daily_narrative": "Atlas's latest dashboard indicates a **HIGH RISK** environment, with an overall score of 10 out of 15, signaling multiple severe triggers are active. Despite major equity indices like the S&P 500 trading near highs, underlying systemic risks are escalating. Key concerns include a deep deficit in Treasury Net Liquidity, which points to significant systemic funding stress, and an aggressive expansion in Margin Debt year-over-year, raising the specter of forced liquidations if markets turn. Furthermore, rising volatility (VIX at 19), elevated US Treasury yields across the curve, and a rallying gold price suggest increasing inflation expectations and broader systemic unease.\n\nMarket sentiment appears complacent, as evidenced by a low put/call ratio and strong equity performance, yet this masks deteriorating market internals like the underperformance of small-cap stocks and rising consumer delinquencies. Given this stark divergence between market prices and critical risk indicators, a disciplined investor should heed the explicit warning: **aggressively hedge existing exposure, significantly reduce speculative positions, and prioritize increasing cash and liquidity reserves.** The current environment demands extreme caution and a defensive posture to navigate potential systemic shocks.",
         "news_articles": []
     },
     "meta": {

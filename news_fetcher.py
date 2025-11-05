@@ -1,57 +1,82 @@
-# news_fetcher.py
-
-import os
 import requests
-from typing import List, Dict, Any
+import os
 
-# --- CONFIGURATION (remains the same) ---
-GOOGLE_SEARCH_API_KEY = os.getenv("GOOGLE_SEARCH_API_KEY")
-GOOGLE_SEARCH_CX = os.getenv("GOOGLE_SEARCH_CX") 
-GOOGLE_SEARCH_ENDPOINT = "https://www.googleapis.com/customsearch/v1"
+# Google Custom Search API documentation suggests up to 10 results per query
+NUM_ARTICLES = 5
 
-def fetch_news_articles(query_topics: str, num_articles: int = 5) -> List[Dict[str, Any]]:
+def fetch_news_articles(query_base):
     """
-    Fetches relevant news articles, including the URL and thumbnail image.
+    Fetches news articles using the Google Custom Search API.
+    The API Key and CX ID must be set as environment variables.
     """
-    if not GOOGLE_SEARCH_API_KEY or not GOOGLE_SEARCH_CX:
+    
+    # --- SECURELY RETRIEVE KEYS ---
+    # These must match the names set in your GitHub Secrets exactly.
+    API_KEY = os.environ.get("GOOGLE_SEARCH_API_KEY")
+    CX_ID = os.environ.get("GOOGLE_SEARCH_CX")
+
+    if not API_KEY or not CX_ID:
         print("Warning: Google Search API keys not found in environment. Skipping news fetch.")
         return []
 
-    search_query = f"{query_topics} news financial market"
+    # Construct the search query to focus on finance/risk news
+    # The `news_fetcher.py` logic handles the full query string
+    search_query = f"{query_base} stock market finance risk"
+    
+    # 1. Base URL for Google Custom Search
+    url = "https://www.googleapis.com/customsearch/v1"
 
+    # 2. Parameters for the API call
     params = {
-        'key': GOOGLE_SEARCH_API_KEY,
-        'cx': GOOGLE_SEARCH_CX,
-        'q': search_query,
-        'num': num_articles,
-        'sort': 'date',
-        'dateRestrict': 'd7'
+        "key": API_KEY,
+        "cx": CX_ID,
+        "q": search_query,
+        "searchType": "image",  # Requesting image data helps get thumbnails
+        "num": NUM_ARTICLES,
+        "dateRestrict": "w1", # Restrict to the last week
+        "sort": "date", # Sort by date descending
     }
 
     try:
-        response = requests.get(GOOGLE_SEARCH_ENDPOINT, params=params, timeout=10)
-        response.raise_for_status()
-        results = response.json()
+        response = requests.get(url, params=params)
+        response.raise_for_status()  # Raise an exception for bad status codes (4xx or 5xx)
+        data = response.json()
         
         articles = []
-        if 'items' in results:
-            for item in results['items']:
-                
-                # --- NEW LOGIC: Extract the thumbnail URL ---
-                image_url = None
-                if 'pagemap' in item and 'cse_thumbnail' in item['pagemap']:
-                    # The first item in the cse_thumbnail array usually contains the required URL
-                    image_url = item['pagemap']['cse_thumbnail'][0].get('src')
-                # --- END NEW LOGIC ---
 
-                articles.append({
-                    'title': item.get('title'),
-                    'link': item.get('link'),
-                    'snippet': item.get('snippet'),
-                    'thumbnail_url': image_url  # <-- NEW FIELD ADDED
-                })
+        # The 'items' list contains the search results
+        if 'items' in data:
+            for item in data['items']:
+                article = {
+                    "title": item.get("title", "No Title"),
+                    "link": item.get("link", "#"),
+                    "snippet": item.get("snippet", "No description available."),
+                    "source": item.get("displayLink", "Unknown Source"),
+                    "thumbnail_url": None  # Default to None
+                }
+                
+                # Extract the thumbnail from the image section
+                if 'pagemap' in item and 'cse_thumbnail' in item['pagemap']:
+                    # The first thumbnail is usually the best bet
+                    thumbnail_data = item['pagemap']['cse_thumbnail'][0]
+                    article["thumbnail_url"] = thumbnail_data.get("src")
+                    
+                articles.append(article)
+                
         return articles
-        
+
     except requests.exceptions.RequestException as e:
-        print(f"Error fetching Google Search results: {e}")
+        print(f"Error fetching news articles: {e}")
         return []
+    except Exception as e:
+        print(f"An unexpected error occurred during news fetch: {e}")
+        return []
+
+if __name__ == '__main__':
+    # Simple test case:
+    print("Running local test fetch...")
+    test_articles = fetch_news_articles("US Recession risk")
+    print(f"Test found {len(test_articles)} articles.")
+    if test_articles:
+        print(f"First article title: {test_articles[0]['title']}")
+        

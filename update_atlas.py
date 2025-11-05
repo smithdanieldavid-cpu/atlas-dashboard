@@ -17,97 +17,62 @@ OUTPUT_FILE = "data/atlas-latest.json"
 # NEW: Archive File Path for infinite scroll
 ARCHIVE_FILE = "data/atlas-archive.json" 
 
-# 2. API Keys and Endpoints (Placeholder structure)
-# WARNING: Store real keys securely (e.g., environment variables)
-API_CONFIG = {
-    # 1. LIVE FRED KEY & ENDPOINT
-    "FRED_API_KEY": "932518e735c7846a788c5fb8f01f1f89", # <-- USE YOUR ACTUAL KEY
-    "FRED_ENDPOINT": "https://api.stlouisfed.org/fred/series/observations",
-  
-    # 2. EXTERNAL API KEYS & ENDPOINTS
-    "VIX_API_KEY": "5CGATLAPOEYLJTO7",      
-    "VIX_ENDPOINT": "https://www.alphavantage.co/query", 
-    
-    "GOLD_API_KEY": "5CGATLAPOEYLJTO7",      
-    "GOLD_ENDPOINT": "https://www.alphavantage.co/query", 
-    
-    "FX_API_KEY": "5CGATLAPOEYLJTO7",      
-    "FX_ENDPOINT": "https://www.alphavantage.co/query", 
-    
-    "WTI_API_KEY": "5CGATLAPOEYLJTO7",      
-    "WTI_ENDPOINT": "https://www.alphavantage.co/query",
-    
-    "EQUITY_API_KEY": "5CGATLAPOEYLJTO7", 
-    "EQUITY_ENDPOINT": "https://www.alphavantage.co/query",
- 
-    # Options/Sentiment API (LIVE - Polygon)
-    "PUT_CALL_API_KEY": "qYLFTWtQSFs3NntmnCeQDy8d5asiA6_3",      # <-- YOUR LIVE KEY
-    "PUT_CALL_ENDPOINT": "https://api.polygon.io/v2/aggs/ticker/PCCE/prev", 
-    
-    # Credit/CDS API (Still Placeholder - will use "N/A" logic)
-    "CREDIT_API_KEY": "YOUR_CREDIT_KEY_HERE",
-    "CREDIT_ENDPOINT": "YOUR_CREDIT_API_ENDPOINT",
+# 2. API Keys and Constants (All API keys now read securely from environment)
 
-    # Earnings/Analyst API (Still Placeholder - will use "N/A" logic)
-    "EARNINGS_API_KEY": "YOUR_EARNINGS_KEY_HERE",
-    "EARNINGS_ENDPOINT": "YOUR_EARNINGS_API_ENDPOINT", 
-    
-    
-    # 3. FRED SERIES IDS
-    "FRED_3YR_ID": "DGS3",
-    "FRED_30YR_ID": "DGS30",
-    "FRED_10YR_ID": "DGS10",  
-    "FRED_HYOAS_ID": "BAMLH0A0HYM2", 
-    "FRED_SOFR_3M_ID": "TB3MS",      
-    "FRED_EFFR_ID": "EFFR",             
-    "FRED_WALCL_ID": "WALCL",           
-    
-    "FRED_WTREGEN_ID": "WTREGEN",      
-    "FRED_RRPONTSYD_ID": "RRPONTSYD",   
-    "FRED_BANK_CDS_ID": "AAA", 
-   
-    "FRED_CONSUMER_DELINQ_ID": "DRCCLACBS", 
-    "FRED_SNAP_ID": "TRP6001A027NBEA", 
-
-    # 4. GEMINI API KEY
-    "GEMINI_API_KEY": "YOUR_GEMINI_API_KEY_HERE" # <-- USE YOUR ACTUAL KEY
-}
-
-# Initialize FRED client only if the key is available
-FRED_API_KEY = API_CONFIG.get("FRED_API_KEY")
-if FRED_API_KEY and FRED_API_KEY != "YOUR_FRED_KEY_HERE":
+# Initialize FRED client
+FRED_API_KEY = os.environ.get("FRED_API_KEY")
+if FRED_API_KEY:
     fred = Fred(api_key=FRED_API_KEY)
 else:
     fred = None 
-    print("Warning: FRED_API_KEY is missing or invalid. FRED-based indicators will return fallbacks.")
+    print("Warning: FRED_API_KEY is missing. FRED-based indicators will return fallbacks.")
 
+
+# FRED Series IDs (These are NOT secrets and must be defined as constants)
+FRED_3YR_ID = "DGS3"
+FRED_30YR_ID = "DGS30"
+FRED_10YR_ID = "DGS10"  
+FRED_HYOAS_ID = "BAMLH0A0HYM2" 
+FRED_SOFR_3M_ID = "TB3MS"      
+FRED_EFFR_ID = "EFFR"             
+FRED_WALCL_ID = "WALCL"           
+FRED_WTREGEN_ID = "WTREGEN"      
+FRED_RRPONTSYD_ID = "RRPONTSYD"   
+FRED_BANK_CDS_ID = "AAA" 
+FRED_CONSUMER_DELINQ_ID = "DRCCLACBS" 
+FRED_SNAP_ID = "TRP6001A027NBEA" 
+
+# Note: All API-calling functions (e.g., for Polygon.io, Gemini, Alpha Vantage) 
+# must also be updated to retrieve their keys directly via os.environ.get() 
+# (e.g., os.environ.get("PUT_CALL_API_KEY"), os.environ.get("GEMINI_API_KEY")).
+# If they are not updated, the script will now fail when those keys are required.
 
 # --- NEW INDICATOR FUNCTIONS (Treasury Liquidity, Margin Debt, SOFR/OIS) ---
 
 def get_treasury_net_liquidity():
     """
-    Calculates Treasury Net Liquidity: Fed Balance Sheet - (TGA + ON RRP).
-    Sources: WALCL (Weekly), WTREGEN (Daily), RRPONTSYD (Daily). Result is in Billions USD.
+    Calculates Treasury Net Liquidity using FRED data (TGA + Reverse Repo - Fed Balance Sheet).
+    Updated to use the global 'fred' client and secure constants.
     """
     if not fred:
-        print("FRED client not initialized. Cannot fetch Treasury Liquidity.")
-        return 0.0
+        print("FRED client not initialized. Cannot calculate Net Liquidity.")
+        return 100.0
 
     try:
-        # Fetch the most recent data point for each component (all in Millions USD)
-        walcl = fred.get_series_latest_release(API_CONFIG["FRED_WALCL_ID"]).iloc[-1]
-        wtregen = fred.get_series_latest_release(API_CONFIG["FRED_WTREGEN_ID"]).iloc[-1]
-        rrpontsyd = fred.get_series_latest_release(API_CONFIG["FRED_RRPONTSYD_ID"]).iloc[-1]
-
-        # Calculation: Net Liquidity = WALCL - (WTREGEN + RRPONTSYD)
-        net_liquidity = walcl - (wtregen + rrpontsyd)
+        # Use the secure global FRED constants
+        walcl = fred.get_series_latest_release(FRED_WALCL_ID).iloc[-1].item()
+        wtregen = fred.get_series_latest_release(FRED_WTREGEN_ID).iloc[-1].item()
+        rrpontsyd = fred.get_series_latest_release(FRED_RRPONTSYD_ID).iloc[-1].item()
         
-        # Return the result in Billions (dividing by 1000)
-        return round(net_liquidity / 1000, 2)
+        # Calculation
+        # The exact calculation can vary, but generally uses these three series
+        net_liquidity = (float(wtregen) + float(rrpontsyd)) - float(walcl)
 
+        print(f"Success: Calculated TREASURY_LIQUIDITY ({net_liquidity:.2f}) from FRED data.")
+        return net_liquidity
     except Exception as e:
-        print(f"FRED API Error for Net Liquidity: {e}")
-        return 0.0 # Fallback value
+        print(f"FRED API Error for Net Liquidity: {e}. Returning fallback 100.0.")
+        return 100.0
 
 
 def get_finra_margin_debt_yoy():
@@ -144,44 +109,49 @@ def get_finra_margin_debt_yoy():
 
 def get_sofr_ois_spread():
     """
-    Calculates the SOFR/EFFR Spread (proxy for SOFR OIS Spread).
-    The spread is 3-Month Compounded SOFR Average minus the Effective Federal Funds Rate (EFFR).
-    Sources: SOFR3MAD and EFFR. Result is in Basis Points.
+    Calculates the SOFR OIS Spread using two FRED series: TB3MS (3-Month Treasury Bill) 
+    and EFFR (Effective Federal Funds Rate) or a proxy.
     """
     if not fred:
-        print("FRED client not initialized. Cannot fetch SOFR OIS Spread.")
-        return 0.0
-
-    try:
-        # 3-Month Compounded SOFR Average (Daily)
-        sofr_3m = fred.get_series_latest_release(API_CONFIG["FRED_SOFR_3M_ID"]).iloc[-1]
-        
-        # Effective Federal Funds Rate (EFFR - Daily)
-        effr = fred.get_series_latest_release(API_CONFIG["FRED_EFFR_ID"]).iloc[-1]
+        print("FRED client not initialized. Cannot calculate SOFR OIS Spread.")
+        return 25.0 # Fallback
     
-        # Calculate the spread and convert to basis points (x 100)
-        spread = (sofr_3m - effr) * 100
+    try:
+        # Assuming you use TB3MS as a proxy for the OIS rate or have a custom logic
+        # Here, we'll use TB3MS (3-Month Treasury Bill) and EFFR (Effective Federal Funds Rate)
+        tb3ms = fred.get_series_latest_release(FRED_SOFR_3M_ID).iloc[-1].item()
+        effr = fred.get_series_latest_release(FRED_EFFR_ID).iloc[-1].item()
         
-        return round(spread, 2) 
-
+        # Calculate the spread (using percentage difference or basis points conversion if needed)
+        spread_bps = (float(tb3ms) - float(effr)) * 100 
+        
+        print(f"Success: Calculated SOFR_OIS_SPREAD ({spread_bps:.2f} bps) from FRED data.")
+        return spread_bps
     except Exception as e:
-        print(f"FRED API Error for SOFR OIS Spread: {e}")
-        return 0.0 # Fallback value
+        print(f"FRED API Error for SOFR OIS Spread: {e}. Returning fallback 25.0.")
+        return 25.0
 
 
 # --- NEW FUNCTION: AI Commentary Generator ---
 def generate_ai_commentary(data_dict):
-    """Generates the 1-2 paragraph AI Analyst Commentary."""
-    
-    # The client automatically picks up the GEMINI_API_KEY from your environment!
-    try:
-        client = genai.Client()
-    except Exception as e:
-        print(f"Error initializing Gemini client: {e}. Check your GEMINI_API_KEY environment variable.")
+    """
+    Generates the 1-2 paragraph AI Analyst Commentary based on data_dict.
+    The function securely retrieves the API key from the environment.
+    """
+    # 1. SECURELY RETRIEVE KEY
+    GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY")
+    if not GEMINI_API_KEY:
+        print("Warning: GEMINI_API_KEY not found in environment. Skipping AI commentary.")
         return None
 
-    # 1. Prepare the Prompt with all the data
-    # We will use the final JSON data as the context for the AI
+    # 2. Initialize the client using the retrieved key
+    try:
+        client = genai.Client(api_key=GEMINI_API_KEY)
+    except Exception as e:
+        print(f"Error initializing Gemini client: {e}. Check your GEMINI_API_KEY.")
+        return None
+
+    # 3. Prepare the Prompt with all the data
     data_context = json.dumps(data_dict, indent=2)
 
     system_instruction = (
@@ -197,13 +167,13 @@ def generate_ai_commentary(data_dict):
         f"--- DASHBOARD DATA ---\n{data_context}\n--- END DATA ---"
     )
 
-    # 2. Configure the API Call
+    # 4. Configure the API Call
     config = types.GenerateContentConfig(
         system_instruction=system_instruction,
         temperature=0.3, # Lower temperature for factual, consistent output
     )
 
-    # 3. Call the Gemini API
+    # 5. Call the Gemini API
     try:
         print("Starting Gemini API call to generate commentary...")
         response = client.models.generate_content(
@@ -220,40 +190,84 @@ def generate_ai_commentary(data_dict):
 
 # --- 1. DATA FETCHING AND PARSING FUNCTIONS (UPDATED FOR FALLBACK) ---
 
-def _fetch_fred_data_two_points(fred_id, fred_api_key):
-    """Fetches the last two observation values for a given FRED series."""
-    try:
-        fred = Fred(api_key=fred_api_key)
-        # Fetch the entire series as a Pandas Series
-        series_data = fred.get_series(fred_id)
-        
-        if series_data is None or series_data.empty or len(series_data) < 2:
-            print(f"Warning: FRED series {fred_id} returned less than 2 data points or does not exist.")
-            # Return fallback list [0.0, 0.0] if data is bad
-            return [0.0, 0.0]
-           
-        # Get the last two values as a list: [Previous Month, Current Month]
-        last_two_values = series_data.tail(2).values.tolist()
-        
-        # FRED data can sometimes be represented as strings/objects, ensure float conversion
-        return [float(last_two_values[0]), float(last_two_values[1])]
-        
-    except Exception as e:
-        print(f"Error fetching FRED data for {fred_id}: {e}")
-        # Return fallback list [0.0, 0.0] on API error
-        return [0.0, 0.0]
+# --- 1. DATA FETCHING AND PARSING FUNCTIONS (UPDATED FOR SECURE GLOBAL FRED) ---
+
+def _fetch_fred_data_two_points(series_id):
+    """
+    Helper function to fetch the two most recent data points for a FRED series,
+    using the securely initialized global 'fred' object.
+    """
+    fallback = [0.0, 0.0]
     
+    # Use the global fred object, which is checked for initialization at the top of the script
+    if not fred:
+        print(f"FRED client not initialized. Returning fallback for {series_id}.")
+        return fallback
+
+    try:
+        # Fetch the last 2 observations
+        # Using get_series_latest_release for maximum data freshness
+        data = fred.get_series_latest_release(series_id).iloc[-2:]
+        
+        if len(data) == 2:
+            return [float(data.iloc[0]), float(data.iloc[1])]
+        else:
+            print(f"FRED Warning: Expected 2 data points for {series_id}, got {len(data)}. Returning fallback.")
+            return fallback
+            
+    except Exception as e:
+        print(f"FRED Error fetching 2-point data for {series_id}: {e}. Returning fallback.")
+        return fallback
+    
+def fetch_fx_data(ticker):
+    """Fetches the latest data for an FX pair or commodity using yfinance."""
+    try:
+        # Fetch the data for the given ticker (e.g., 'EURUSD=X', 'CL=F')
+        data = yf.download(ticker, period='1d', interval='1d', progress=False)
+        if not data.empty:
+            value = data['Close'].iloc[-1].item()
+            print(f"Success: Fetched {ticker} ({value:.4f}) from yfinance.")
+            return value
+        print(f"Warning: {ticker} data is empty. Returning fallback.")
+        return 0.0 # Generic fallback
+    except Exception as e:
+        print(f"Error fetching {ticker}: {e}. Returning fallback.")
+        return 0.0 # Generic fallback
+
+def calculate_small_large_ratio():
+    """
+    Calculates the Small-Cap to Large-Cap ratio (e.g., Russell 2000 / S&P 500) using yfinance.
+    """
+    try:
+        # Fetch data for Russell 2000 (^RUT) and S&P 500 (^GSPC)
+        tickers = ['^RUT', '^GSPC']
+        data = yf.download(tickers, period='1d', interval='1d', progress=False)
+        
+        if data.empty or len(data.columns) < 2:
+            print("Warning: Small/Large Cap ratio data is incomplete. Returning fallback.")
+            return 0.42 # Fallback
+            
+        # Ensure we have the latest closing prices and convert to float
+        small_cap = data['Close']['^RUT'].iloc[-1].item()
+        large_cap = data['Close']['^GSPC'].iloc[-1].item()
+        
+        ratio = small_cap / large_cap
+        
+        print(f"Success: Calculated SMALL_LARGE_RATIO ({ratio:.4f}) from yfinance.")
+        return ratio
+    except Exception as e:
+        print(f"Error calculating Small/Large Cap ratio: {e}. Returning fallback.")
+        return 0.42 # Fallback
+          
 
 def fetch_indicator_data(indicator_id):
     """
-    Fetches the latest data for all indicators, routing to FRED, new live functions, 
-    or external APIs, and returns "N/A" for unautomated indicators.
+    Fetches the latest data for all indicators, routing to the correct secure function.
     """
     
     # Define a safe fallback value for FRED series 
     FRED_FALLBACK_VALUE = {
         "3Y_YIELD": 3.50, "30Y_YIELD": 4.25, "10Y_YIELD": 4.30, "HY_OAS": 380.0,
-        # Fallbacks for the new calculated FRED indicators
         "TREASURY_LIQUIDITY": 100.0,
         "SOFR_OIS": 25.0,
         "BANK_CDS": 85.0,
@@ -261,15 +275,17 @@ def fetch_indicator_data(indicator_id):
     }
 
     # ----------------------------------------------------------------------
-    # --- FRED API CALLS (For Yields and HY_OAS - Single-Point Fetch) ---
+    # --- FRED API CALLS (Using the global 'fred' client object) ---
     # ----------------------------------------------------------------------
+    
+    # Map internal IDs to the global FRED constant names
     fred_series_map = {
-        "3Y_YIELD": API_CONFIG["FRED_3YR_ID"], 
-        "30Y_YIELD": API_CONFIG["FRED_30YR_ID"],
-        "10Y_YIELD": API_CONFIG["FRED_10YR_ID"], 
-        "HY_OAS": API_CONFIG["FRED_HYOAS_ID"],
-        "BANK_CDS": API_CONFIG["FRED_BANK_CDS_ID"], 
-        "CONSUMER_DELINQUENCIES": API_CONFIG["FRED_CONSUMER_DELINQ_ID"], 
+        "3Y_YIELD": FRED_3YR_ID, 
+        "30Y_YIELD": FRED_30YR_ID,
+        "10Y_YIELD": FRED_10YR_ID, 
+        "HY_OAS": FRED_HYOAS_ID,
+        "BANK_CDS": FRED_BANK_CDS_ID, 
+        "CONSUMER_DELINQUENCIES": FRED_CONSUMER_DELINQ_ID, 
     }
 
     
@@ -277,84 +293,97 @@ def fetch_indicator_data(indicator_id):
         series_id = fred_series_map[indicator_id]
         fallback = FRED_FALLBACK_VALUE.get(indicator_id, 0.0)
         
-        try:
-            params = {
-                "series_id": series_id, "api_key": API_CONFIG["FRED_API_KEY"],
-                "file_type": "json", 
-                "observation_start": (datetime.date.today() - datetime.timedelta(days=365*3)).strftime("%Y-%m-%d"),
-                "sort_order": "desc", "limit": 1
-            }
-            response = requests.get(API_CONFIG["FRED_ENDPOINT"], params=params)
-            response.raise_for_status() 
-            data = response.json()
-            
-            for obs in data.get("observations", []):
-                if obs["value"] != ".":
-                    return float(obs["value"]) 
-            
-            print(f"FRED Warning: No valid data found for {indicator_id}. Returning fallback value {fallback}.")
-            return fallback
-
-        except requests.exceptions.RequestException as e:
-            print(f"FRED Error fetching {indicator_id}: {e}. Returning fallback value {fallback}.")
+        if fred: # Check if the global fred client was initialized
+            try:
+                # Get the most recent value from the securely initialized client
+                value = fred.get_series_latest_release(series_id).iloc[-1]
+                return float(value)
+            except Exception as e:
+                print(f"FRED Error fetching {indicator_id}: {e}. Returning fallback {fallback}.")
+                return fallback
+        else:
+            print(f"FRED client not initialized. Returning fallback for {indicator_id}.")
             return fallback
 
     # ----------------------------------------------------------------------
     # --- CUSTOM FRED API CALLS (Multi-Point Fetch) ------------------------
     # ----------------------------------------------------------------------
     
-    # NEW: FRED - Supplemental Nutrition Assistance Program (SNAP)
     elif indicator_id == "SNAP_BENEFITS":
-        # Uses the helper function to fetch [Previous Month, Current Month]
-        fred_id = API_CONFIG.get("FRED_SNAP_ID", "SNPTA") 
-        return _fetch_fred_data_two_points(fred_id, API_CONFIG["FRED_API_KEY"]) 
+        # Calls the corrected helper function, passing only the ID
+        return _fetch_fred_data_two_points(FRED_SNAP_ID) 
             
     # ----------------------------------------------------------------------
-    # --- LIVE CALCULATED INDICATORS (NEW) ---------------------------------
+    # --- LIVE CALCULATED INDICATORS ---------------------------------
     # ----------------------------------------------------------------------
     
-    # Macro Indicators
     elif indicator_id == "TREASURY_LIQUIDITY":
-        # LIVE CALL: Net Liquidity (Calculated from FRED)
         return get_treasury_net_liquidity()
-
-    # Micro Indicators
     elif indicator_id == "SOFR_OIS": 
-        # LIVE CALL: SOFR OIS Spread (Calculated from FRED)
         return get_sofr_ois_spread()
     elif indicator_id == "MARGIN_DEBT_YOY": 
-        # LIVE CALL: Margin Debt YOY (Calculated from FINRA Excel)
         return get_finra_margin_debt_yoy()
 
   
     # ----------------------------------------------------------------------
-    # --- EXTERNAL API CALLS (Remaining) -----------------------------------
+    # --- YFINANCE / EXTERNAL API CALLS ------------------------------------
     # ----------------------------------------------------------------------
     
-    # VIX and Indices (YFinance)
-    elif indicator_id in ["VIX", "GOLD_PRICE", "EURUSD", "WTI_CRUDE", "AUDUSD", 
-                          "SPX_INDEX", "ASX_200", "SMALL_LARGE_RATIO"]: 
-        
-        # Use a placeholder value as the fallback for fetch_external_data
-        fallback_map = {
-            "VIX": 22.0, "GOLD_PRICE": 2000.00, "EURUSD": 1.14, "WTI_CRUDE": 80.0, 
-            "AUDUSD": 0.68, "SPX_INDEX": 4400.0, "ASX_200": 8600.0, "SMALL_LARGE_RATIO": 0.42
-        }
-        return fetch_external_data("FX_ENDPOINT", "FX_API_KEY", indicator_id, fallback_map.get(indicator_id, 0.0))
+    elif indicator_id == "VIX": 
+        return fetch_vix_index() 
+    elif indicator_id == "GOLD_PRICE":
+        return fetch_gold_price() 
+    elif indicator_id == "EURUSD":
+        return fetch_fx_data("EURUSD=X") 
+    elif indicator_id == "WTI_CRUDE":
+        return fetch_fx_data("CL=F") 
+    elif indicator_id == "AUDUSD":
+        return fetch_fx_data("AUDUSD=X") 
+    elif indicator_id == "SPX_INDEX":
+        return fetch_spx_index() 
+    elif indicator_id == "ASX_200":
+        return fetch_asx_200() 
+    elif indicator_id == "SMALL_LARGE_RATIO":
+        return calculate_small_large_ratio() 
 
-    # Put/Call Ratio (Polygon)
+    # Polygon (Calls the new secure function)
     elif indicator_id == "PUT_CALL_RATIO": 
-        return fetch_external_data("PUT_CALL_ENDPOINT", "PUT_CALL_API_KEY", "PUT_CALL_RATIO", 0.9)
+        return fetch_put_call_ratio()
     
     
     # ----------------------------------------------------------------------
-    # --- UNIMPLEMENTED PLACEHOLDERS (Return "N/A") ------------------------
+    # --- UNIMPLEMENTED PLACEHOLDERS ---------------------------------------
     # ----------------------------------------------------------------------
-    # FISCAL_RISK and GEOPOLITICAL are handled by the main loop, but if reached, they return N/A
-    elif indicator_id in ["EARNINGS_REVISION", "BANK_CDS", "CONSUMER_DELINQUENCIES", "GEOPOLITICAL", "FISCAL_RISK"]: 
+    elif indicator_id in ["EARNINGS_REVISION", "GEOPOLITICAL", "FISCAL_RISK"]: 
         return "N/A" 
     
-    return None # Should not be reached
+    print(f"Warning: No fetch function defined for indicator ID: {indicator_id}")
+    return "N/A"
+
+
+def _fetch_fred_data_two_points(series_id):
+    """
+    Helper function to fetch the two most recent data points for a FRED series.
+    This function has been updated to use the global 'fred' object.
+    """
+    fallback = [0.0, 0.0]
+    
+    if not fred:
+        print(f"FRED client not initialized. Returning fallback for {series_id}.")
+        return fallback
+
+    try:
+        # Fetch the last 2 observations
+        data = fred.get_series_latest_release(series_id).iloc[-2:]
+        if len(data) == 2:
+            return [float(data.iloc[0]), float(data.iloc[1])]
+        else:
+            print(f"FRED Warning: Expected 2 data points for {series_id}, got {len(data)}. Returning fallback.")
+            return fallback
+            
+    except Exception as e:
+        print(f"FRED Error fetching 2-point data for {series_id}: {e}. Returning fallback.")
+        return fallback
 
 def _fetch_alpha_vantage_quote(symbol, api_key, endpoint):
     """Internal function to fetch a single price quote using Alpha Vantage GLOBAL_QUOTE."""
@@ -392,26 +421,52 @@ def _fetch_yfinance_quote(symbol):
     
     return float(close_price)
 
-def _fetch_polygon_data(endpoint, api_key):
-    """Internal function to fetch Put/Call Ratio data from the Polygon.io 'prev' endpoint."""
+def fetch_put_call_ratio():
+    """
+    Fetches the Put/Call Ratio (PCCE Ticker) from Polygon.io, securing the key from the environment.
+    """
+    # 1. SECURELY RETRIEVE KEY and ENDPOINT
+    PUT_CALL_API_KEY = os.environ.get("PUT_CALL_API_KEY")
+    URL = "https://api.polygon.io/v2/aggs/ticker/PCCE/prev"
+
+    if not PUT_CALL_API_KEY:
+        print("Warning: PUT_CALL_API_KEY not found in environment. Using fallback value (0.5).")
+        return 0.5 
+
     params = {
-        "apiKey": api_key
+        "apiKey": PUT_CALL_API_KEY,
     }
-    
-    response = requests.get(endpoint, params=params)
-    response.raise_for_status() 
-    data = response.json()
-    
-    results = data.get("results")
-    if not results or not isinstance(results, list) or len(results) == 0:
-        raise ValueError("Polygon API results array is empty or missing.")
 
-    pcr_value = results[0].get("c") 
+    try:
+        response = requests.get(URL, params=params)
+        response.raise_for_status() # Raises an exception for 4xx/5xx status codes
+        data = response.json()
+        
+        results = data.get("results")
+        if not results or not isinstance(results, list) or len(results) == 0:
+            print("Warning: Polygon.io API returned no results for PCCE. Using fallback.")
+            return 0.5
 
-    if pcr_value is None:
-         raise ValueError("Polygon API data parsing failed: 'c' (close) price is missing in the result.")
-         
-    return float(pcr_value)
+        # The closing price 'c' is the actual ratio value
+        ratio_value = results[0].get("c") 
+
+        if ratio_value is None:
+             print("Warning: Polygon.io data parsing failed: 'c' (close) price is missing. Using fallback.")
+             return 0.5
+             
+        pcr_value = float(ratio_value)
+
+        # Sanity check: Filter extreme or invalid data points
+        if 0.3 <= pcr_value <= 1.5:
+            print(f"Success: Fetched PUT_CALL_RATIO ({pcr_value:.2f}) from Polygon.io.")
+            return pcr_value
+        else:
+            print(f"Warning: PUT_CALL_RATIO ({pcr_value:.2f}) is outside normal range (0.3-1.5). Using fallback.")
+            return 0.5
+        
+    except requests.exceptions.RequestException as e:
+        print(f"Error fetching PUT_CALL_RATIO from Polygon.io: {e}. Using fallback.")
+        return 0.5
 
 def fetch_external_data(endpoint_key, api_key_key, indicator_id, fallback_value):
     """
@@ -1163,6 +1218,68 @@ def score_fiscal_risk(atlas_data):
     # NOTE: This function returns a float, which is why the main loop failed previously.
     return round(total_fiscal_risk_score, 2)
 
+def fetch_vix_index():
+    """Fetches the latest VIX Index value using yfinance."""
+    try:
+        # Fetch VIX (ticker ^VIX)
+        vix_data = yf.download('^VIX', period='1d', interval='1d', progress=False)
+        if not vix_data.empty:
+            # FIX: Use .item() to extract the single float value from the Pandas Series
+            vix_value = vix_data['Close'].iloc[-1].item()
+            print(f"Success: Fetched VIX ({vix_value:.2f}) from yfinance.")
+            return vix_value
+        print("Warning: VIX data is empty. Returning fallback.")
+        return 22.0 # Fallback
+    except Exception as e:
+        print(f"Error fetching VIX: {e}. Returning fallback.")
+        return 22.0 # Fallback
+
+def fetch_gold_price():
+    """Fetches the latest Gold Price (via GLD ETF) using yfinance."""
+    try:
+        # Ticker for Gold ETF
+        gold_data = yf.download('GLD', period='1d', interval='1d', progress=False)
+        if not gold_data.empty:
+            # FIX: Use .item() to extract the single float value from the Pandas Series
+            gold_value = gold_data['Close'].iloc[-1].item()
+            print(f"Success: Fetched GOLD_PRICE ({gold_value:.2f}) from yfinance.")
+            return gold_value
+        print("Warning: Gold price data is empty. Returning fallback.")
+        return 2000.00 # Fallback
+    except Exception as e:
+        print(f"Error fetching Gold Price: {e}. Returning fallback.")
+        return 2000.00 # Fallback
+    
+def fetch_spx_index():
+    """Fetches the latest S&P 500 Index value using yfinance."""
+    try:
+        # Fetch S&P 500 (ticker ^GSPC)
+        spx_data = yf.download('^GSPC', period='1d', interval='1d', progress=False)
+        if not spx_data.empty:
+            spx_value = spx_data['Close'].iloc[-1].item()
+            print(f"Success: Fetched SPX_INDEX ({spx_value:.2f}) from yfinance.")
+            return spx_value
+        print("Warning: SPX data is empty. Returning fallback.")
+        return 4400.0 # Fallback
+    except Exception as e:
+        print(f"Error fetching SPX: {e}. Returning fallback.")
+        return 4400.0 # Fallback
+
+def fetch_asx_200():
+    """Fetches the latest S&P/ASX 200 Index value using yfinance."""
+    try:
+        # Fetch ASX 200 (ticker ^AXJO is commonly used for the index)
+        asx_data = yf.download('^AXJO', period='1d', interval='1d', progress=False)
+        if not asx_data.empty:
+            asx_value = asx_data['Close'].iloc[-1].item()
+            print(f"Success: Fetched ASX_200 ({asx_value:.2f}) from yfinance.")
+            return asx_value
+        print("Warning: ASX 200 data is empty. Returning fallback.")
+        return 7000.0 # Fallback
+    except Exception as e:
+        print(f"Error fetching ASX 200: {e}. Returning fallback.")
+        return 7000.0 # Fallback
+    
 
 # --- DICTIONARY MAPPING INDICATOR ID TO SCORING FUNCTION (NEW CORRECT LOCATION) ---
 SCORING_FUNCTIONS = {
@@ -1314,7 +1431,6 @@ def run_update_process(atlas_data):
             # Add to composite score
             composite_score += score_value
         else:
-            # Ensure manual/unscored indicators have a default score of 0
             indicator["score_value"] = 0.0
 
     # 2. CALCULATE AND SCORE FISCAL_RISK (Special Case)
@@ -1324,7 +1440,7 @@ def run_update_process(atlas_data):
         fiscal_indicator["value"] = fiscal_score 
         fiscal_indicator["score_value"] = fiscal_score
         
-        # Manually assign status/note based on the score threshold (from code logic)
+        # Manually assign status/note based on the score threshold
         if fiscal_score > 75.0:
             fiscal_indicator["status"] = "Red"
             fiscal_indicator["note"] = f"Fiscal Risk Score at {fiscal_score:.0f}. Extreme structural integrity and social stress risk."
@@ -1335,7 +1451,6 @@ def run_update_process(atlas_data):
             fiscal_indicator["status"] = "Green"
             fiscal_indicator["note"] = f"Fiscal Risk Score at {fiscal_score:.0f}. Risk is manageable based on current data."
         fiscal_indicator["action"] = "Monitor VIX and SNAP data closely."
-        # FISCAL_RISK score is NOT added to the composite_score (as per original logic intent)
     
     # 3. Compile OVERALL Score and Status
     score = composite_score
@@ -1367,7 +1482,7 @@ def run_update_process(atlas_data):
         "escalation_triggers": _compile_escalation_watch(atlas_data),
     }
     
-    # 5. GENERATE THE AI ANALYSIS (Calls the simple function)
+    # 5. GENERATE THE AI ANALYSIS
     ai_commentary = generate_ai_commentary(atlas_data)
 
     # 6. INJECT THE ANALYSIS INTO THE DATA STRUCTURE
@@ -1378,20 +1493,16 @@ def run_update_process(atlas_data):
 
     # --- NEWS INTEGRATION ---
     print("Starting News Integration.")
-    # --- NEWS INTEGRATION ---
-    print("Starting News Integration.")
     
     # Prioritize the full AI narrative for the search query, then the composite summary, then a generic phrase
     query_base = atlas_data["overall"].get("daily_narrative")
     if not query_base:
         query_base = atlas_data["overall"].get("composite_summary", "global economic risk")
+        
+    news_articles = fetch_news_articles(query_base)
+    atlas_data["overall"]["news_articles"] = news_articles
+    print(f"News Integration complete. Found {len(news_articles)} articles.")
 
-    news_articles = fetch_news_articles(query_base)
-    atlas_data["overall"]["news_articles"] = news_articles
-    print(f"News Integration complete. Found {len(news_articles)} articles.")
-    news_articles = fetch_news_articles(query_base)
-    atlas_data["overall"]["news_articles"] = news_articles
-    print(f"News Integration complete. Found {len(news_articles)} articles.")
 
     return atlas_data
 

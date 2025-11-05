@@ -57,3 +57,17 @@ table td, table th {
 .isolate-z {
   transform: translateZ(0);
 }
+/* --- DAILY ANALYSIS LINE CLAMPING FIX --- */
+/* Limits the text content of the Daily Analysis panel to exactly 7 lines, adding '...' after */
+.line-clamp-5 {
+  /* Hides text that overflows the container */
+  overflow: hidden; 
+  /* Adds the '...' to the end of the truncated text */
+  text-overflow: ellipsis; 
+  /* Essential to enable the line clamping feature */
+  display: -webkit-box; 
+  /* **THE MAIN SETTING**: Limits the content to 7 lines */
+  -webkit-line-clamp: 7; 
+  /* Also required for the line clamping feature to work */
+  -webkit-box-orient: vertical; 
+}

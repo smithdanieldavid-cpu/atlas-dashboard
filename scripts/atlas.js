@@ -103,13 +103,18 @@ function renderOverallStatus(overall) {
         // Remove emoji from status for display if present (e.g. show "LOW RISK" instead of "🟢 LOW RISK")
         const cleanStatus = overall.status.replace(/(\u00a9|\u00ae|[\u2000-\u3300]|\ud83c[\ud000-\udfff]|\ud83d[\ud000-\udfff]|\ud83e[\ud000-\udfff])/g, '').trim();
 
+        // FIX: Defensive reading of score and max_score using nullish coalescing (??)
+        // This prevents the 'toFixed' crash if a field is missing from the JSON.
+        const displayScore = (overall.score ?? 0).toFixed(1);
+        const displayMaxScore = (overall.max_score ?? 25.0).toFixed(1); 
+        
         card.innerHTML = `
             <div class="flex justify-between items-center mb-2">
                 <h2 class="text-base font-semibold uppercase">
                     ${details.icon} ${cleanStatus}
                 </h2>
                 <span class="text-2xl font-mono font-bold">
-                    ${overall.score.toFixed(1)} <span class="text-sm font-normal opacity-70">/${overall.max_score.toFixed(1)}</span>
+                    ${displayScore} <span class="text-sm font-normal opacity-70">/${displayMaxScore}</span>
                 </span>
             </div>
             <p class="text-xs font-medium opacity-90">${overall.comment}</p>
@@ -286,8 +291,12 @@ function initializeNarrativePage() {
         document.getElementById('narrativeTitle').textContent = `${cleanStatus} Risk Posture Analysis`;
         document.getElementById('narrativeDate').textContent = `Updated: ${overall.date}`;
         
+        // FIX: Defensive reading of score and max_score
+        const displayScore = (overall.score ?? 0).toFixed(1);
+        const displayMaxScore = (overall.max_score ?? 25.0).toFixed(1); 
+        
         const statusBadge = document.getElementById('narrativeStatusBadge');
-        statusBadge.textContent = `${cleanStatus} (Score: ${overall.score.toFixed(1)} / ${overall.max_score.toFixed(1)})`;
+        statusBadge.textContent = `${cleanStatus} (Score: ${displayScore} / ${displayMaxScore})`;
         statusBadge.className = `mt-4 inline-block px-3 py-1 text-sm font-bold rounded-full text-white ${details.narrativeBadge}`;
 
         // 2. Render Main Narrative (daily_narrative)
@@ -363,6 +372,8 @@ function renderArchivePosts(startIndex) {
         // Remove emoji from status for the title display
         const cleanStatus = post.status.replace(/(\u00a9|\u00ae|[\u2000-\u3300]|\ud83c[\ud000-\udfff]|\ud83d[\ud000-\udfff]|\ud83e[\ud000-\udfff])/g, '').trim();
 
+        // FIX: Defensive reading of score
+        const displayScore = (post.score ?? 0).toFixed(1);
 
         postElement.className = 'border-b border-gray-200 pb-10';
         
@@ -376,7 +387,7 @@ function renderArchivePosts(startIndex) {
             <div class="flex items-start justify-between mb-4">
                 <h2 class="text-2xl font-bold text-gray-900">${details.icon} Atlas Update: ${displayDate} (${cleanStatus})</h2>
                 <span class="mt-1 inline-block px-3 py-1 text-xs font-bold rounded-full text-white ${details.narrativeBadge}">
-                    Score: ${post.score.toFixed(1)}
+                    Score: ${displayScore}
                 </span>
             </div>
             <p class="text-base text-gray-700 leading-relaxed">${narrativeHTML}</p>
@@ -490,8 +501,6 @@ async function initializeDashboard() {
     
     // --- 3c. ESCALATION WATCH (System-Calculated Triggers) ---
     const watchList = document.getElementById('watchList');
-    // Note: The new JSON structure doesn't include 'escalation_triggers' yet, 
-    // so we'll leave the display logic pointing to a default message.
     if (!watchList) return; 
     watchList.innerHTML = '<li class="text-green-600">No immediate escalation risks flagged.</li>';
 

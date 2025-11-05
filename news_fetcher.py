@@ -1,82 +1,114 @@
-import requests
 import os
+from googleapiclient.discovery import build
 
-# Google Custom Search API documentation suggests up to 10 results per query
-NUM_ARTICLES = 5
+# --- CONFIGURATION ---
 
-def fetch_news_articles(query_base):
+# This is the Custom Search Engine ID (CX) for news fetching
+GOOGLE_SEARCH_CX = 'a03cba227032b4566'
+
+# The full list of 50 domains compiled previously for targeted searching
+NEWS_DOMAINS = [
+    "site:wsj.com",
+    "site:bloomberg.com",
+    "site:reuters.com",
+    "site:ft.com",
+    "site:cnbc.com",
+    "site:marketwatch.com",
+    "site:investing.com",
+    "site:thestreet.com",
+    "site:barrons.com",
+    "site:forbes.com",
+    "site:businessinsider.com",
+    "site:economist.com",
+    "site:kiplinger.com",
+    "site:fortune.com",
+    "site:usatoday.com/money",
+    "site:apnews.com/business",
+    "site:npr.org/sections/money",
+    "site:bizjournals.com",
+    "site:yale.edu/som/news",
+    "site:seekingalpha.com",
+    "site:fool.com",
+    "site:investopedia.com",
+    "site:morningstar.com",
+    "site:zacks.com",
+    "site:schwab.com/resource/insights",
+    "site:fidelity.com/insights",
+    "site:etftrends.com",
+    "site:tradingeconomics.com",
+    "site:dlacalle.com",
+    "site:nasdaq.com",
+    "site:nyse.com",
+    "site:cboe.com",
+    "site:cmegroup.com",
+    "site:lse.co.uk",
+    "site:sgx.com",
+    "site:afr.com",
+    "site:smh.com.au/business",
+    "site:abc.net.au/news/business",
+    "site:theage.com.au/business",
+    "site:theaustralian.com.au/business",
+    "site:finance.yahoo.com",
+    "site:google.com/finance",
+    "site:moneymorning.com",
+    "site:thisismoney.co.uk",
+    "site:investorplace.com",
+    "site:benzinga.com",
+    "site:fxstreet.com",
+    "site:forexlive.com",
+    "site:marketbeat.com",
+]
+
+
+def fetch_news_sentiment(query="global economic risk, market outlook, inflation forecast"):
     """
-    Fetches news articles using the Google Custom Search API.
-    The API Key and CX ID must be set as environment variables.
+    Fetches relevant news articles using the Google Custom Search JSON API 
+    and formats them into a structured string for the Gemini analysis model.
     """
-    
-    # --- SECURELY RETRIEVE KEYS ---
-    # These must match the names set in your GitHub Secrets exactly.
-    API_KEY = os.environ.get("GOOGLE_SEARCH_API_KEY")
-    CX_ID = os.environ.get("GOOGLE_SEARCH_CX")
-
-    if not API_KEY or not CX_ID:
-        print("Warning: Google Search API keys not found in environment. Skipping news fetch.")
-        return []
-
-    # Construct the search query to focus on finance/risk news
-    # The `news_fetcher.py` logic handles the full query string
-    search_query = f"{query_base} stock market finance risk"
-    
-    # 1. Base URL for Google Custom Search
-    url = "https://www.googleapis.com/customsearch/v1"
-
-    # 2. Parameters for the API call
-    params = {
-        "key": API_KEY,
-        "cx": CX_ID,
-        "q": search_query,
-        "searchType": "image",  # Requesting image data helps get thumbnails
-        "num": NUM_ARTICLES,
-        "dateRestrict": "w1", # Restrict to the last week
-        "sort": "date", # Sort by date descending
-    }
-
     try:
-        response = requests.get(url, params=params)
-        response.raise_for_status()  # Raise an exception for bad status codes (4xx or 5xx)
-        data = response.json()
+        # 1. Securely retrieve the API Key from the environment
+        API_KEY = os.environ.get("GOOGLE_SEARCH_API_KEY")
+        if not API_KEY:
+            print("Error: GOOGLE_SEARCH_API_KEY environment variable not found. Skipping news fetch.")
+            return "News fetching failed: API key missing."
         
-        articles = []
+        # 2. Build the Google Custom Search service client
+        service = build("customsearch", "v1", developerKey=API_KEY)
+        
+        # 3. Construct the targeted query
+        domain_filter = " OR ".join(NEWS_DOMAINS)
+        full_query = f'({query}) {domain_filter}'
+        
+        print(f"Executing Google Search API query to retrieve articles...")
+        
+        # 4. Execute the search and fetch 10 high-quality results
+        res = service.cse().list(
+            q=full_query,
+            cx=GOOGLE_SEARCH_CX,
+            num=10  
+        ).execute()
+        
+        articles = res.get('items', [])
+        
+        if not articles:
+            print("Warning: Search successful, but no relevant articles found.")
+            return "News fetching successful, but no relevant articles found."
+            
+        # 5. Format articles into a structured string for the Gemini model
+        formatted_news = []
+        for i, item in enumerate(articles):
+            title = item.get('title', 'No Title')
+            snippet = item.get('snippet', 'No Snippet')
+            source = item.get('displayLink', 'Unknown Source')
+            
+            # The model needs clear structure, hence the labels and separators
+            formatted_news.append(
+                f"Article {i+1} (Source: {source}):\nTitle: {title}\nSnippet: {snippet}\n"
+            )
+            
+        print(f"Success: Retrieved {len(articles)} news articles for analysis.")
+        return "\n---\n".join(formatted_news)
 
-        # The 'items' list contains the search results
-        if 'items' in data:
-            for item in data['items']:
-                article = {
-                    "title": item.get("title", "No Title"),
-                    "link": item.get("link", "#"),
-                    "snippet": item.get("snippet", "No description available."),
-                    "source": item.get("displayLink", "Unknown Source"),
-                    "thumbnail_url": None  # Default to None
-                }
-                
-                # Extract the thumbnail from the image section
-                if 'pagemap' in item and 'cse_thumbnail' in item['pagemap']:
-                    # The first thumbnail is usually the best bet
-                    thumbnail_data = item['pagemap']['cse_thumbnail'][0]
-                    article["thumbnail_url"] = thumbnail_data.get("src")
-                    
-                articles.append(article)
-                
-        return articles
-
-    except requests.exceptions.RequestException as e:
-        print(f"Error fetching news articles: {e}")
-        return []
     except Exception as e:
-        print(f"An unexpected error occurred during news fetch: {e}")
-        return []
-
-if __name__ == '__main__':
-    # Simple test case:
-    print("Running local test fetch...")
-    test_articles = fetch_news_articles("US Recession risk")
-    print(f"Test found {len(test_articles)} articles.")
-    if test_articles:
-        print(f"First article title: {test_articles[0]['title']}")
-        
+        print(f"FATAL Error fetching news sentiment: {e}")
+        return f"News fetching failed due to API exception: {e}"

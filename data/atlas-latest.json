@@ -1,8 +1,4 @@
 {
-    "date": "2025-11-05",
-    "atlas_score": 0.0,
-    "current_status": "N/A",
-    "last_updated": "12:01 pm",
     "macro": [
         {
             "id": "VIX",
@@ -27,19 +23,19 @@
         {
             "id": "EURUSD",
             "name": "EUR/USD exchange rate",
-            "value": 1.1487650871276855,
+            "value": 1.1496896743774414,
             "status": "Green",
-            "note": "EUR/USD is stable at 1.1488. Indicates balanced global risk/economic outlook.",
+            "note": "EUR/USD is stable at 1.1497. Indicates balanced global risk/economic outlook.",
             "action": "No change.",
             "score_value": 0.0,
-            "source_link": "https://www.alphavantage.co/documentation/#currency-exchange"
+            "source_link": "https://finance.yahoo.com/quote/EURUSD=X/"
         },
         {
             "id": "WTI_CRUDE",
-            "name": "WTI crude oil",
-            "value": 60.22999954223633,
+            "name": "WTI crude oil ($/bbl)",
+            "value": 60.09000015258789,
             "status": "Green",
-            "note": "WTI Crude at $60.23/bbl. Normal price range, favorable for growth.",
+            "note": "WTI Crude at $60.09/bbl. Normal price range, favorable for growth.",
             "action": "No change.",
             "score_value": 0.0,
             "source_link": "https://finance.yahoo.com/quote/USO/"
@@ -47,9 +43,9 @@
         {
             "id": "AUDUSD",
             "name": "AUD/USD exchange rate",
-            "value": 0.6476683616638184,
+            "value": 0.6472911238670349,
             "status": "Red",
-            "note": "AUDUSD at 0.6477. AUD remains under pressure. Strong risk-off or persistent US Dollar strength.",
+            "note": "AUDUSD at 0.6473. AUD remains under pressure. Strong risk-off or persistent US Dollar strength.",
             "action": "Favour US Dollar liquidity over AUD assets; watch commodity prices.",
             "score_value": 1.0,
             "source_link": "https://finance.yahoo.com/quote/AUDUSD=X/"
@@ -89,8 +85,8 @@
             "name": "High yield OAS (bps)",
             "value": 3.04,
             "status": "Green",
-            "note": "HY OAS at 3 bps. Tight credit spreads, market calm.",
-            "action": "No change.",
+            "note": "HY OAS at 3 bps. US credit stress is low and manageable.",
+            "action": "Favour high-quality corporate bonds.",
             "score_value": 0.0,
             "source_link": "https://fred.stlouisfed.org/series/BAMLH0A0HYM2"
         },
@@ -99,40 +95,40 @@
             "name": "Treasury net liquidity",
             "value": -6586059.027,
             "status": "Red",
-            "note": "Net Liquidity at $-6586059.0B. Deep liquidity deficit. Signals systemic funding stress.",
-            "action": "Aggressively increase cash/liquidity reserves; reduce all speculative exposure.",
+            "note": "Net Liquidity at $-6586059B. Liquidity is contracting aggressively. High systemic risk.",
+            "action": "Aggressively reduce all risk asset exposure and increase cash/SOFR instruments.",
             "score_value": 2.0,
             "source_link": "https://fred.stlouisfed.org/series/WALCL"
         },
         {
             "id": "GEOPOLITICAL",
             "name": "Geopolitical risk",
-            "value": 0.0,
-            "status": "Green",
-            "note": "Tensions stable. No immediate geopolitical shock flagged.",
+            "value": "N/A",
+            "status": "N/A",
+            "note": "",
             "action": "No change.",
             "score_value": 0.0,
             "source_link": "Manual Input/Qualitative Assessment"
         },
         {
             "id": "FISCAL_RISK",
-            "name": "Fiscal integrity risk",
+            "name": "Fiscal integrity/debt risk",
             "value": 47.75,
             "status": "Green",
-            "note": "Fiscal Risk Score at 48. Risk is manageable based on current data.",
+            "note": "Fiscal Score is at 48. Risk is manageable based on current data.",
             "action": "Monitor VIX and SNAP data closely.",
-            "score_value": 47.75,
+            "score_value": 0.0,
             "source_link": "Composite/Internal Model (VIX, SNAP, CPI)"
         },
         {
             "id": "SNAP_BENEFITS",
-            "name": "SNAP benefits (MoM)",
+            "name": "SNAP benefits (MoM % change)",
             "value": [
                 111.15,
                 97.391
             ],
             "status": "N/A",
-            "note": "Dependency for Fiscal Risk",
+            "note": "",
             "action": "No change.",
             "score_value": 0.0,
             "source_link": "https://fred.stlouisfed.org/series/SNPTA"
@@ -144,44 +140,34 @@
             "name": "S&P 500 index",
             "value": 6771.5498046875,
             "status": "Green",
-            "note": "S&P 500 Index at 6,772. Trading near highs, bullish momentum prevailing.",
-            "action": "No change.",
+            "note": "S&P 500 Index at 6,772. Strong/stable price action. Low systemic equity risk.",
+            "action": "Maintain equity exposure.",
             "score_value": 0.0,
             "source_link": "https://finance.yahoo.com/quote/%5EGSPC/"
         },
         {
             "id": "ASX_200",
             "name": "ASX 200 index",
-            "value": 8779.400390625,
+            "value": 8748.400390625,
             "status": "Green",
-            "note": "ASX 200 Index at 8,779. Trading near highs, bullish sentiment prevailing.",
+            "note": "ASX 200 Index at 8,748. Stable price action.",
             "action": "No change.",
             "score_value": 0.0,
             "source_link": "https://finance.yahoo.com/quote/%5EAXJO/"
         },
         {
-            "id": "SOFR_OIS",
-            "name": "SOFR/OIS spread",
-            "value": -5.000000000000027,
-            "status": "Green",
-            "note": "SOFR/OIS Spread at -5.0 bps. Low implied counterparty risk.",
-            "action": "No change.",
-            "score_value": 0.0,
-            "source_link": "https://fred.stlouisfed.org/series/SOFR3MAD"
-        },
-        {
             "id": "PUT_CALL_RATIO",
-            "name": "Put/call ratio",
+            "name": "Put/Call ratio (PCCE)",
             "value": 0.5,
             "status": "Amber",
-            "note": "Ratio at 0.50. Extreme complacency (too many calls). Suggests a short-term top.",
-            "action": "Reduce speculative long positions.",
+            "note": "PCEE Ratio at 0.50. Low hedging (call-buying dominance). High complacency/bullish sentiment.",
+            "action": "Implement small hedges; avoid chasing market highs.",
             "score_value": 0.5,
             "source_link": "https://polygon.io/docs/options/get_v2_aggs_ticker__tickervar__prev"
         },
         {
             "id": "MARGIN_DEBT_YOY",
-            "name": "Margin debt (YOY)",
+            "name": "FINRA margin debt (YOY %)",
             "value": 32.94,
             "status": "Red",
             "note": "Margin Debt YOY at 32.9%. Leverage is expanding aggressively. High risk of forced liquidation if markets fall.",
@@ -191,7 +177,7 @@
         },
         {
             "id": "SMALL_LARGE_RATIO",
-            "name": "Small/large cap ratio",
+            "name": "Small/Large cap ratio",
             "value": 0.3584611311081938,
             "status": "Red",
             "note": "Ratio at 0.3585 \u2014 small-caps are heavily underperforming. Poor internals.",
@@ -201,17 +187,27 @@
         },
         {
             "id": "EARNINGS_REVISION",
-            "name": "Earnings revision index",
+            "name": "Earnings revisions ratio",
             "value": "N/A",
             "status": "N/A",
-            "note": "Data N/A: Earnings Revisions not automated.",
+            "note": "",
             "action": "No change.",
             "score_value": 0.0,
             "source_link": ""
         },
         {
+            "id": "SOFR_OIS",
+            "name": "SOFR OIS Spread (bps)",
+            "value": -5.000000000000027,
+            "status": "Green",
+            "note": "SOFR/OIS spread is -5.0 bps. Dollar funding market is stable.",
+            "action": "No change.",
+            "score_value": 0.0,
+            "source_link": "https://fred.stlouisfed.org/series/SOFR3MAD"
+        },
+        {
             "id": "BANK_CDS",
-            "name": "Bank CDS spread",
+            "name": "Bank CDS index (bps)",
             "value": 5.13,
             "status": "Green",
             "note": "Bank CDS at 5 bps. Low implied banking stress.",
@@ -231,20 +227,20 @@
         }
     ],
     "overall": {
-        "date": "2025-11-05 12:01:41",
-        "status": "\ud83d\udd34 HIGH RISK",
+        "date": "2025-11-05 12:50:55",
+        "status": " HIGH RISK",
         "score": 10.0,
-        "max_score": 15.0,
+        "max_score": 25.0,
         "comment": "HIGH RISK. Multiple severe triggers active. Aggressively hedge and reduce exposure.",
         "composite_summary": "Overall risk posture is stable, but watch for credit signals.",
         "escalation_triggers": [
             {
                 "name": "VIX Index",
                 "current_reading": "19.0",
-                "alarm_threshold": "Above 18"
+                "alarm_threshold": "Above 18.0"
             },
             {
-                "name": "10yr Yield",
+                "name": "10Y Yield",
                 "current_reading": "4.13",
                 "alarm_threshold": "Above 4.0%"
             },
@@ -254,15 +250,7 @@
                 "alarm_threshold": "Below $50B"
             }
         ],
-        "daily_narrative": "Atlas's latest dashboard indicates a **HIGH RISK** environment, with an overall score of 10 out of 15, signaling multiple severe triggers are active. Despite major equity indices like the S&P 500 trading near highs, underlying systemic risks are escalating. Key concerns include a deep deficit in Treasury Net Liquidity, which points to significant systemic funding stress, and an aggressive expansion in Margin Debt year-over-year, raising the specter of forced liquidations if markets turn. Furthermore, rising volatility (VIX at 19), elevated US Treasury yields across the curve, and a rallying gold price suggest increasing inflation expectations and broader systemic unease.\n\nMarket sentiment appears complacent, as evidenced by a low put/call ratio and strong equity performance, yet this masks deteriorating market internals like the underperformance of small-cap stocks and rising consumer delinquencies. Given this stark divergence between market prices and critical risk indicators, a disciplined investor should heed the explicit warning: **aggressively hedge existing exposure, significantly reduce speculative positions, and prioritize increasing cash and liquidity reserves.** The current environment demands extreme caution and a defensive posture to navigate potential systemic shocks.",
-        "news_articles": []
-    },
-    "meta": {
-        "fiscal_breakdown": {
-            "snap_score": 25,
-            "corruption_score": 7.75,
-            "civil_unrest_score": 5,
-            "reg_confidence_score": 10
-        }
+        "daily_narrative": "Atlas's latest dashboard indicates a **HIGH RISK** environment, with an overall score of 10.0 driven by multiple severe triggers. Despite a seemingly stable S&P 500, underlying systemic risks are escalating rapidly. Critically, Treasury Net Liquidity is contracting aggressively, now at a staggering negative $6.586 trillion, signaling profound systemic risk. Concurrently, FINRA Margin Debt is expanding at an alarming rate (32.9% YOY), creating significant leverage and a high potential for forced liquidations. This is compounded by increasing market volatility (VIX at 19.0), elevated long-term treasury yields, and a deteriorating small-cap performance relative to large-caps, all pointing to poor market internals and rising financial stress. The Put/Call ratio at 0.5 suggests a degree of investor complacency, which could be dangerous given the mounting risks.\n\nGiven this confluence of severe indicators, a disciplined investor should adopt an aggressively defensive posture. Atlas strongly recommends immediately reducing all risk asset exposure and increasing allocations to cash and SOFR instruments. Furthermore, it is imperative to aggressively deleverage existing equity exposure and implement hedges to protect against potential market downturns. Avoid chasing market highs and prioritize capital preservation in this high-risk environment.",
+        "news_context_raw": "Article 1 (Source: www.reuters.com):\nTitle: IMF says global economic outlook getting 'gloomier', risks abound ...\nSnippet: Nov 14, 2022 ... It blamed the darker outlook on tightening monetary policy triggered by persistently high and broad-based inflation, weak growth momentum in\u00a0...\n\n---\nArticle 2 (Source: www.bloomberg.com):\nTitle: IMF Lowers Global Growth Forecast, Warns of Increasing Risks ...\nSnippet: Oct 22, 2024 ... ... World Economic Outlook released on Tuesday. It left the projection for this year unchanged at 3.2%. Inflation will slow to 4.3% next year\u00a0...\n\n---\nArticle 3 (Source: www.cnbc.com):\nTitle: Global fight against inflation 'almost won' but risks are rising: IMF\nSnippet: Oct 22, 2024 ... Much of the world has managed to successfully lower inflation and engineer an economic soft landing, avoiding recession, but faces rising geopolitical risks.\n\n---\nArticle 4 (Source: www.reuters.com):\nTitle: Energy, inflation crises risk pushing big economies into recession ...\nSnippet: Sep 26, 2022 ... Global economic growth is slowing more than was forecast a few months ago in the wake of Russia's invasion of Ukraine, as energy and\u00a0...\n\n---\nArticle 5 (Source: www.reuters.com):\nTitle: IMF edges 2023 global economic growth forecast higher, sees ...\nSnippet: Jul 25, 2023 ... ... outlook. The IMF in its latest World Economic Outlook said inflation was coming down and acute stress in the banking sector had receded, but\u00a0...\n\n---\nArticle 6 (Source: www.reuters.com):\nTitle: US remains engine of global growth in latest IMF forecasts | Reuters\nSnippet: Oct 22, 2024 ... ... International Monetary Fund said on Tuesday. In its latest World Economic Outlook, the IMF raised its 2024 and 2025 economic growth forecasts\u00a0...\n\n---\nArticle 7 (Source: www.reuters.com):\nTitle: Trump trade war to sap Canadian, Mexican and US growth, OECD ...\nSnippet: Mar 17, 2025 ... President Donald Trump's tariff hikes will drag down growth in Canada, Mexico and the United States while driving up inflation,\u00a0...\n\n---\nArticle 8 (Source: www.reuters.com):\nTitle: OECD says inflation is main risk to economic outlook | Reuters\nSnippet: Dec 1, 2021 ... The main risk to an otherwise upbeat global economic outlook is that the current inflation spike proves longer and rises further than\u00a0...\n\n---\nArticle 9 (Source: www.reuters.com):\nTitle: Inflation risks may stir BOJ discussion of rate hike in May, sources ...\nSnippet: Mar 6, 2025 ... Whether the BOJ actually hikes rates at the April 30-May 1 meeting, or holds until later this year, will depend not just on the price outlook\u00a0...\n\n---\nArticle 10 (Source: www.reuters.com):\nTitle: Risk of global economic recession surges on US tariff shockwaves ...\nSnippet: Apr 28, 2025 ... But Trump's push to reshape world trade by imposing tariffs on all U.S. imports has sent shockwaves through financial markets, wiping out\u00a0...\n"
     }
 }

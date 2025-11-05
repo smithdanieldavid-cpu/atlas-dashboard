@@ -406,43 +406,68 @@ def fetch_indicator_data(indicator_id):
 
 # --- AI AND ARCHIVE FUNCTIONS ---
 
-def generate_ai_commentary(data_dict):
+def generate_ai_commentary(data_dict, news_context): # Ensure this takes news_context
     """
-    Generates the 1-2 paragraph AI Analyst Commentary based on data_dict.
+    Generates the structured AI analysis via the Gemini API, forcing JSON output.
     """
     GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY")
     if not GEMINI_API_KEY:
-        print("Warning: GEMINI_API_KEY not found in environment. Skipping AI commentary.")
-        return None
+        return '{"daily_narrative": "AI narrative skipped due to missing API key.", "composite_summary": "Skipped.", "key_actions": ["- Set GEMINI_API_KEY to enable AI analysis."]}'
 
     try:
         client = genai.Client(api_key=GEMINI_API_KEY)
-    except Exception as e:
-        print(f"Error initializing Gemini client: {e}. Check your GEMINI_API_KEY.")
-        return None
+    except Exception:
+        return '{"daily_narrative": "AI narrative failed to initialize client.", "composite_summary": "Failed.", "key_actions": ["- Check GEMINI_API_KEY format."]}'
 
-    data_context = json.dumps(data_dict, indent=2)
-
+    # Define the strict JSON schema
+    json_schema = types.Schema(
+        type=types.Type.OBJECT,
+        properties={
+            "daily_narrative": types.Schema(type=types.Type.STRING, description="A 1-2 paragraph daily commentary for investors."),
+            "composite_summary": types.Schema(type=types.Type.STRING, description="A single sentence summarizing the overall risk."),
+            # Key actions MUST be an array of strings for easy front-end parsing
+            "key_actions": types.Schema(
+                type=types.Type.ARRAY, 
+                items=types.Schema(type=types.Type.STRING), 
+                description="A Python list of 3-5 specific, actionable investment recommendations."
+            ),
+        },
+        required=["daily_narrative", "composite_summary", "key_actions"]
+    )
+    
+    # ... (System instruction and prompt construction remain similar, but ensure they use news_context) ...
+    
     system_instruction = (
         "You are a sophisticated financial analyst named 'Atlas'. "
-        "Your task is to synthesize the provided Atlas Dashboard data (JSON format) "
-        "into a compelling, 1-2 paragraph commentary for a disciplined investor. "
-        "Focus on interpreting the current risk and sentiment score, and providing a clear, "
-        "actionable conclusion based on the key indicators."
+        "Your task is to synthesize the provided financial indicator data and news context "
+        "into a highly actionable report for a disciplined investor. "
+        "You MUST return the output as a single, valid JSON object that adheres strictly to the provided schema."
     )
-
+    
+    # Create the detailed prompt (You likely have a function for this, but if not, 
+    # the prompt must contain indicator summary and news_context)
+    indicator_summary = prepare_indicator_summary(data_dict) # You will need to make sure this utility function exists
+    composite_score = data_dict["overall"]["score"] # Get the already calculated score
+    
     prompt = (
-        f"Analyze the following data to generate a 1-2 paragraph commentary:\n\n"
-        f"--- DASHBOARD DATA ---\n{data_context}\n--- END DATA ---"
+        f"ANALYZE THIS DATA:\n\n"
+        f"--- ATLAS INDICATOR SUMMARY ---\n{indicator_summary}\n"
+        f"--- OVERALL COMPOSITE SCORE: {composite_score:.2f} (Status: {data_dict['overall']['status']}) ---\n\n"
+        f"--- CONTEXTUAL NEWS ARTICLES ---\n{news_context}\n"
+        f"--- END CONTEXT ---\n\n"
+        f"Generate the full analysis, ensuring the daily_narrative explicitly references "
+        f"the news context and its impact on the overall market view."
     )
-
+    
+    # Configure the API call to force JSON output
     config = types.GenerateContentConfig(
         system_instruction=system_instruction,
-        temperature=0.3,
+        temperature=0.3, 
+        response_mime_type="application/json",
+        response_schema=json_schema,
     )
 
     try:
-        print("Starting Gemini API call to generate commentary...")
         response = client.models.generate_content(
             model='gemini-2.5-flash',
             contents=prompt,
@@ -451,8 +476,9 @@ def generate_ai_commentary(data_dict):
         print("Commentary generated successfully.")
         return response.text
     except Exception as e:
-        print(f"Gemini API Error: {e}")
-        return None
+        print(f"Gemini API call failed: {e}")
+        return f'{{"daily_narrative": "Gemini API call failed: {e}", "composite_summary": "Failure", "key_actions": ["- Review API call and data structure."]}}'
+    
     
 def save_to_archive(overall_data):
     """
@@ -581,6 +607,123 @@ def _compile_escalation_watch(atlas_data):
             })
     return escalation_list
 
+# --- NEW: PARSING UTILITY FUNCTIONS ---
+
+def parse_ai_response_for_structure(ai_json_string):
+    """Parses the JSON response from the AI into a dictionary."""
+    if not ai_json_string:
+        return {}
+    try:
+        # Since we force the AI to output JSON in the call, we just load it
+        return json.loads(ai_json_string)
+    except json.JSONDecodeError as e:
+        print(f"FATAL AI Parsing Error: Could not decode AI JSON. {e}")
+        return {}
+
+def parse_news_snippets_for_display(news_raw_text):
+    """
+    Parses the raw news text (from fetch_news_sentiment) into a structured list of dicts 
+    for the front-end display.
+    """
+    structured_news = []
+    # Split the raw text into individual article blocks using the separator
+    articles = news_raw_text.strip().split('\n---\n')
+    
+    for article_block in articles:
+        lines = article_block.strip().split('\n')
+        
+        # Check if we have enough lines for Article, Title, and Snippet
+        if len(lines) >= 3:
+            entry = {"title": "N/A", "snippet": "N/A", "url": "N/A"}
+            
+            # Line 0: Source/URL
+            source_line = lines[0].strip()
+            # This extracts the URL from the format "Article X (Source: URL):"
+            try:
+                entry['url'] = source_line.split('(Source: ')[-1].replace('):', '').strip()
+            except IndexError:
+                pass
+
+            # Line 1: Title
+            if lines[1].startswith("Title:"):
+                entry['title'] = lines[1].replace("Title:", "").strip()
+
+            # Line 2: Snippet
+            if lines[2].startswith("Snippet:"):
+                entry['snippet'] = lines[2].replace("Snippet:", "").replace('...', '...').strip()
+
+            if entry['title'] != "N/A":
+                structured_news.append(entry)
+                
+    return structured_news
+
+# --- NEW: SCORE MAPPING UTILITY ---
+
+def map_score_to_status(score):
+    """
+    Maps the composite score to the official Atlas risk status based on thresholds.
+    These thresholds are critical for the entire methodology and AI prompt.
+    """
+    # Use the thresholds defined in your commentary prompt:
+    if score > 12.0:
+        # FULL-STORM: Score > 12.0 (EXTREME RISK)
+        return "🔴 FULL-STORM (EXTREME RISK)"
+    elif score > 8.0:
+        # SEVERE RISK: Score > 8.0 (HIGH RISK)
+        return "🚨 SEVERE RISK (HIGH RISK)"
+    elif score > 4.0:
+        # ELEVATED RISK: Score > 4.0 (MODERATE RISK)
+        return "🟠 ELEVATED RISK (MODERATE RISK)"
+    else:
+        # MONITOR: Score <= 4.0 (LOW RISK)
+        return "🟢 MONITOR (LOW RISK)"
+
+# NOTE: Ensure this is defined before run_update_process calls it!
+
+# --- NEW: SCORE MAPPING COMMENT UTILITY ---
+
+def map_score_to_comment(score):
+    """
+    Provides a concise, non-AI-generated comment based on the score for backward
+    compatibility with dashboard rendering and the archive file.
+    """
+    # Uses the same thresholds as map_score_to_status
+    if score > 12.0:
+        return "Extreme systemic stress detected. Full risk-off mode advised."
+    elif score > 8.0:
+        return "Market stability deteriorating rapidly. High caution required."
+    elif score > 4.0:
+        return "Risk posture is elevated. Maintain defensive positioning."
+    else:
+        return "Systemic risk remains contained. Monitor key triggers."
+
+# --- NEW: AI PROMPT DATA PREPARATION UTILITY ---
+
+def prepare_indicator_summary(atlas_data):
+    """
+    Extracts and formats the five key metrics required for the AI prompt's 
+    'Key Indicator Data Snapshot' section.
+    """
+    # Create a lookup map for easy access (e.g., data_map['VIX_INDEX'])
+    data_map = {item['id']: item['value'] for item in atlas_data['macro'] + atlas_data['micro']}
+
+    # Safely extract and format the required key values.
+    # We use .get(ID, 0.0) in case any data fetch failed, which prevents a Key Error.
+    us10y = data_map.get('US_10Y_YIELD', 0.0)
+    vix = data_map.get('VIX_INDEX', 0.0)
+    hyoas = data_map.get('HY_OAS', 0.0)
+    cpi = data_map.get('CPI_YOY', 0.0)
+    pmi = data_map.get('ISM_MANUFACTURING', 0.0)
+
+    # This dictionary's keys MUST match the placeholders in atlas_commentary_prompt.txt:
+    # {US10Y_YIELD}, {VIX_VALUE}, {HYOAS_VALUE}, {INFLATION_VALUE}, {PMI_VALUE}
+    return {
+        "US10Y_YIELD": f"{us10y:.2f}",
+        "VIX_VALUE": f"{vix:.2f}",
+        "HYOAS_VALUE": f"{hyoas:.0f}", 
+        "INFLATION_VALUE": f"{cpi:.1f}", 
+        "PMI_VALUE": f"{pmi:.1f}", 
+    }
 
 # --- 2. RISK SCORING LOGIC ---
 
@@ -1110,11 +1253,12 @@ def run_update_process(atlas_data, news_context=""):
     all_indicators = atlas_data["macro"] + atlas_data["micro"]
     composite_score = 0.0
 
-    # 1. SCORING LOOP
+    # 1. SCORING LOOP (YOUR CODE SNIPPET)
     for indicator in all_indicators:
         indicator_id = indicator["id"]
         scoring_func = SCORING_FUNCTIONS.get(indicator_id)
 
+        # Skip manual/calculated indicators in this score loop
         if indicator_id in ["FISCAL_RISK", "SNAP_BENEFITS", "GEOPOLITICAL", "EARNINGS_REVISION"]:
             indicator["score_value"] = 0.0
             continue 
@@ -1132,6 +1276,52 @@ def run_update_process(atlas_data, news_context=""):
             composite_score += score_value
         else:
             indicator["score_value"] = 0.0 
+            
+    # --- START OF NEW/UPDATED MERGE LOGIC ---
+
+    # 2. PREPARE FOR AI CALL
+    # Ensure atlas_data has the composite score needed for prompt preparation
+    # (Temporarily update the overall score for the summary function if needed)
+    atlas_data["overall"]["score"] = round(composite_score, 2)
+    atlas_data["overall"]["status"] = map_score_to_status(composite_score)
+    atlas_data["overall"]["comment"] = map_score_to_comment(composite_score)
+    indicator_summary = prepare_indicator_summary(atlas_data)
+
+    # 3. AI CALL: Generate Commentary & Actions
+    # Pass the full indicator summary and the raw news context
+    ai_output_json_string = generate_ai_commentary(
+        data_dict=atlas_data,
+        news_context=news_context
+    )
+
+    # 4. PARSE AI OUTPUT (This returns a dict with narrative, summary, and a list of key_actions)
+    overall_ai_data = parse_ai_response_for_structure(ai_output_json_string)
+
+    # 5. FINAL ASSEMBLE & UPDATE ATLAS_DATA
+    
+    # Merge the parsed AI fields into the overall data
+    # This adds 'daily_narrative', 'composite_summary', and 'key_actions'
+    atlas_data["overall"].update(overall_ai_data) 
+    
+    # Add the core calculated data (ensures latest values)
+    atlas_data["overall"]["date"] = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    atlas_data["overall"]["score"] = round(composite_score, 2)
+    # Status was already calculated above, but we set it here for finality
+    atlas_data["overall"]["status"] = map_score_to_status(composite_score) 
+    
+    # Ensure these keys exist even if the AI call failed
+    atlas_data["overall"]["daily_narrative"] = atlas_data["overall"].get("daily_narrative", "AI narrative unavailable.")
+    atlas_data["overall"]["composite_summary"] = atlas_data["overall"].get("composite_summary", "Summary unavailable.")
+    atlas_data["overall"]["key_actions"] = atlas_data["overall"].get("key_actions", ["- No actionable items provided by AI."])
+
+    # 6. PARSE RAW NEWS FOR FRONT-END DISPLAY (Creates the structured list of dicts)
+    atlas_data["overall"]["news"] = parse_news_snippets_for_display(news_context)
+    
+    # Keep the raw news context for debugging
+    atlas_data["overall"]["news_context_raw"] = news_context 
+
+    return atlas_data
+
 
     # 2. CALCULATE FISCAL RISK (Composite)
     fiscal_indicator = next((item for item in atlas_data['macro'] if item['id'] == 'FISCAL_RISK'), None)

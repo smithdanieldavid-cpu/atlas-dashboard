@@ -6,9 +6,11 @@ const getStatusDetails = (status) => {
 
     switch (s) {
         // --- 4-Tier Overall Statuses (ALIGNED WITH PYTHON OUTPUT) ---
+        // NOTE: The Python script now returns " HIGH RISK" without the emoji, but keeping the emoji logic for robustness.
         case '🔴 HIGH RISK':
         case 'SEVERE RISK':
-        case 'FULL-STORM': // Kept for completeness, though not used by Python now
+        case 'FULL-STORM': 
+        case ' HIGH RISK': // Python's current output
             return { color: 'bg-red-600 text-white border-red-700', icon: '🔴', badge: 'bg-red-100 text-red-800', narrativeBadge: 'bg-red-600' };
         
         case '🟠 ELEVATED RISK':
@@ -20,6 +22,7 @@ const getStatusDetails = (status) => {
         case '🟢 LOW RISK':
         case 'MONITOR (GREEN)':
         case 'MONITOR':
+        case ' LOW RISK': // Python's current output
             return { color: 'bg-green-600 text-white border-green-700', icon: '🟢', badge: 'bg-green-100 text-green-800', narrativeBadge: 'bg-green-600' };
 
         // --- 3-Tier Individual Indicator Statuses (ALIGNED WITH PYTHON OUTPUT) ---
@@ -214,14 +217,46 @@ function renderIndicatorTable(tableId, indicators) {
     });
 }
 
+// --- NEW: NEWS RENDERING UTILITY ---
 
-// ------------------------------------------------------------------
-// OLD UTILITY FUNCTION: renderCommentaryList IS REMOVED as the Python output changed.
-// We will use direct DOM manipulation in initializeDashboard.
-// ------------------------------------------------------------------
+/**
+ * Renders the structured list of news articles from the new JSON field 'news'.
+ * @param {Array<Object>} newsArticles - The structured news array from the JSON.
+ */
+function renderNewsFeed(newsArticles) {
+    const newsListContainer = document.getElementById('newsArticleList');
+    
+    if (!newsListContainer) return;
+
+    if (!Array.isArray(newsArticles) || newsArticles.length === 0) {
+        newsListContainer.innerHTML = '<p class="text-gray-500">No contextual news articles were retrieved for this analysis.</p>';
+        return;
+    }
+
+    // Clear loading text and populate articles
+    newsListContainer.innerHTML = newsArticles.map((article) => {
+        const url = article.url || '#';
+        const hostname = url.startsWith('http') ? new URL(url).hostname : 'Unknown Source';
+
+        return `
+            <div class="border-b border-gray-100 pb-4 last:border-b-0">
+                <h3 class="text-base font-semibold text-gray-900">
+                    <a href="${url}" target="_blank" rel="noopener noreferrer" class="hover:text-indigo-600 transition duration-150">
+                        ${article.title || 'Untitled Article'}
+                    </a>
+                </h3>
+                <p class="text-sm text-gray-600 mt-1">${article.snippet || 'Snippet unavailable.'}</p>
+                <a href="${url}" target="_blank" rel="noopener noreferrer" 
+                   class="text-xs text-indigo-500 hover:text-indigo-700 font-medium mt-1 block">
+                    Source: ${hostname} ↗
+                </a>
+            </div>
+        `;
+    }).join('');
+}
 
 
-// --- 4. NARRATIVE PAGE RENDERING ---
+// --- 4. NARRATIVE PAGE RENDERING (UPDATED) ---
 
 /**
  * Renders the full narrative content and the news feed on the narrative.html page.
@@ -231,59 +266,48 @@ function initializeNarrativePage() {
         if (!data) return;
 
         const overall = data.overall;
-        // NOTE: overall.status contains the emoji (e.g., "🟢 LOW RISK")
+        // NOTE: overall.status contains the status string (e.g., " HIGH RISK")
         const details = getStatusDetails(overall.status); 
 
-        // Set title, date, and status badge
+        // 1. Update Title, Date, and Status Badge
         const cleanStatus = overall.status.replace(/(\u00a9|\u00ae|[\u2000-\u3300]|\ud83c[\ud000-\udfff]|\ud83d[\ud000-\udfff]|\ud83e[\ud000-\udfff])/g, '').trim();
         document.getElementById('narrativeTitle').textContent = `${cleanStatus} Risk Posture Analysis`;
         document.getElementById('narrativeDate').textContent = `Updated: ${overall.date}`;
         
         const statusBadge = document.getElementById('narrativeStatusBadge');
-        statusBadge.textContent = `${overall.status} (Score: ${overall.score.toFixed(1)} / ${overall.max_score.toFixed(1)})`;
+        statusBadge.textContent = `${cleanStatus} (Score: ${overall.score.toFixed(1)} / ${overall.max_score.toFixed(1)})`;
         statusBadge.className = `mt-4 inline-block px-3 py-1 text-sm font-bold rounded-full text-white ${details.narrativeBadge}`;
 
-        // Insert the full narrative text.
-        const narrativeContent = document.getElementById('fullNarrativeContent');
-        if (narrativeContent) {
-            // Using a simple split/join to wrap paragraphs in <p> tags for better formatting
-            const paragraphs = overall.daily_narrative ? overall.daily_narrative.split('\n\n') : ["No detailed narrative provided for this update."];
-            narrativeContent.innerHTML = paragraphs.map(p => `<p class="mb-4">${p.trim()}</p>`).join('');
+        // 2. Render Main Narrative (daily_narrative)
+        const narrativeContainer = document.getElementById('dailyNarrativeContainer');
+        const dailyNarrative = overall.daily_narrative || "Narrative is currently unavailable.";
+        
+        if (narrativeContainer) {
+             // Replace newline characters with HTML paragraph tags for clean rendering
+            const narrativeParagraphs = dailyNarrative.split('\n').filter(p => p.trim() !== '').map(p => `<p class="mb-4">${p.trim()}</p>`).join('');
+            narrativeContainer.innerHTML = narrativeParagraphs || `<p>Analysis failed to load.</p>`;
         }
+       
+        // 3. Render Key Actions (key_actions)
+        const actionsList = document.getElementById('keyActionsList');
+        const keyActions = overall.key_actions;
         
-        // --- NEW: RENDER NEWS ARTICLES (News Integration Feature) ---
-        const newsListContainer = document.getElementById('newsArticleList');
-        // Ensure you check for data.overall.news_articles
-        const articles = overall.news_articles || []; 
-        
-        if (newsListContainer) {
-            if (articles.length === 0) {
-                newsListContainer.innerHTML = '<p class="text-gray-500">No highly relevant news articles found for today\'s risk analysis.</p>';
-            } else {
-                newsListContainer.innerHTML = articles.map(article => `
-                    <div class="border-b border-gray-100 pb-3 flex space-x-4">
-                        
-                        ${article.thumbnail_url ? `
-                            <div class="flex-shrink-0">
-                                <img src="${article.thumbnail_url}" alt="${article.title}" 
-                                     class="h-16 w-16 object-cover rounded-md" />
-                            </div>
-                        ` : ''}
-
-                        <div>
-                            <a href="${article.link}" target="_blank" rel="noopener noreferrer" 
-                               class="text-indigo-600 hover:text-indigo-800 font-semibold text-base block">
-                                ${article.title}
-                            </a>
-                            <p class="text-sm text-gray-600 mt-1">${article.snippet}</p>
-                        </div>
-                    </div>
-                `).join('');
+        let actionsHtml = '';
+        if (actionsList) {
+            if (Array.isArray(keyActions) && keyActions.length > 0) {
+                // Map the list of strings directly to <li> elements
+                actionsHtml = keyActions.map(action => {
+                    // Remove common list prefixes if the AI failed to output a pure array of strings
+                    const cleanAction = action.replace(/^[\s*-]+/, '').trim();
+                    return cleanAction ? `<li>${cleanAction}</li>` : '';
+                }).join('');
             }
+            
+            actionsList.innerHTML = actionsHtml || '<li class="text-gray-500">No specific actionable recommendations were provided.</li>';
         }
 
-        // Update footer date
-        document.getElementById('footerDate').textContent = overall.date;
+        // 4. Render News Feed (using the new 'news' array)
+        renderNewsFeed(overall.news);
     });
 }
 
@@ -330,7 +354,7 @@ function renderArchivePosts(startIndex) {
 
         postElement.className = 'border-b border-gray-200 pb-10';
         
-        // Replace newline characters with <br> for HTML rendering, wrapping paragraphs in <p> tags
+        // Replace newline characters with <p> tags
         const narrativeHTML = (post.daily_narrative || "No detailed narrative provided.")
             .split('\n\n')
             .map(p => `<p class="mb-3">${p.trim()}</p>`)
@@ -409,7 +433,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (path.includes('narrative.html')) {
         initializeNarrativePage();
     } else if (path.includes('archive.html')) {
-        initializeArchivePage(); // <-- NEW: Load archive logic
+        initializeArchivePage(); // <-- Load archive logic
     } else {
         // Default to dashboard initialization (index.html)
         initializeDashboard();

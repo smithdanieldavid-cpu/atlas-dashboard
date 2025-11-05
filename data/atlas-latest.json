@@ -33,9 +33,9 @@
         {
             "id": "WTI_CRUDE",
             "name": "WTI crude oil ($/bbl)",
-            "value": 60.5,
+            "value": 60.529998779296875,
             "status": "Green",
-            "note": "WTI Crude at $60.50/bbl. Normal price range, favorable for growth.",
+            "note": "WTI Crude at $60.53/bbl. Normal price range, favorable for growth.",
             "action": "No change.",
             "score_value": 0.0,
             "source_link": "https://finance.yahoo.com/quote/USO/"
@@ -43,9 +43,9 @@
         {
             "id": "AUDUSD",
             "name": "AUD/USD exchange rate",
-            "value": 0.6493085026741028,
+            "value": 0.6494349837303162,
             "status": "Red",
-            "note": "AUDUSD at 0.6493. AUD remains under pressure. Strong risk-off or persistent US Dollar strength.",
+            "note": "AUDUSD at 0.6494. AUD remains under pressure. Strong risk-off or persistent US Dollar strength.",
             "action": "Favour US Dollar liquidity over AUD assets; watch commodity prices.",
             "score_value": 1.0,
             "source_link": "https://finance.yahoo.com/quote/AUDUSD=X/"
@@ -148,9 +148,9 @@
         {
             "id": "ASX_200",
             "name": "ASX 200 index",
-            "value": 8788.7001953125,
+            "value": 8791.2001953125,
             "status": "Green",
-            "note": "ASX 200 Index at 8,789. Stable price action.",
+            "note": "ASX 200 Index at 8,791. Stable price action.",
             "action": "No change.",
             "score_value": 0.0,
             "source_link": "https://finance.yahoo.com/quote/%5EAXJO/"
@@ -178,7 +178,7 @@
         {
             "id": "SMALL_LARGE_RATIO",
             "name": "Small/Large cap ratio",
-            "value": 0.35846152770084283,
+            "value": 0.3584611311081938,
             "status": "Red",
             "note": "Ratio at 0.3585 \u2014 small-caps are heavily underperforming. Poor internals.",
             "action": "Avoid high-risk small-cap exposure.",
@@ -230,17 +230,68 @@
         "score": 10.0,
         "status": "\ud83d\udea8 SEVERE RISK (HIGH RISK)",
         "comment": "Market stability deteriorating rapidly. High caution required.",
-        "daily_narrative": "Global markets are currently navigating a heightened state of uncertainty, characterized by a pervasive risk-off sentiment as evidenced by [Dow Jones Top Markets Headlines at 7 AM ET: Global Markets Fall ...](https://www.morningstar.com/news/dow-jones/202511045063/dow-jones-top-markets-headlines-at-7-am-et-global-markets-fall-after-fed-officials-express-diverging-views-on-cuts-whats) and [Gold Holds Drop With Dollar Outlook and Risk-Off Mood in Focus ...](https://www.bloomberg.com/news/articles/2025-11-05/gold-holds-drop-as-investors-weigh-outlook-for-dollar-us-rates). This external environment is further complicated by internal central bank divisions, notably the [Fed divisions threaten Powell's era of consensus | Reuters](https://www.reuters.com/markets/us/fed-divisions-threaten-powells-era-consensus-2025-11-04/) and the [Bank of Japan debated growing case for rate hike, September ...](https://www.reuters.com/world/asia-pacific/boj-board-debated-pros-cons-rate-hike-pause-september-minutes-shows-2025-11-05/) considering a rate hike, alongside persistent fiscal integrity concerns such as the UK's debt outlook highlighted by [Reeves Must Run Surpluses to Stop UK Debt Surging, NIESR Says ...](https://www.bloomberg.com/news/articles/2025-11-05/reeves-must-run-surpluses-to-stop-uk-debt-surging-niesr-says). This confluence of global macro headwinds strongly reinforces Atlas's current posture of SEVERE RISK. Internally, the Atlas Composite Score of 10.00, signaling SEVERE RISK, is primarily driven by critical systemic indicators in Liquidity and Leverage. Specifically, Treasury net liquidity stands at a deeply concerning -6,586,059.03 (Red, Score: 2.00), indicating significant stress in the financial system's plumbing. Concurrently, FINRA margin debt (YOY %) at 32.94 (Red, Score: 1.50) points to elevated speculative leverage within the market, amplifying vulnerability. Despite this pronounced systemic risk, a notable contradiction persists with the High yield OAS remaining relatively tight at 3.04 bps (Green, Score: 0.00), suggesting a degree of complacency in credit markets that belies the underlying fragility. The next critical pivot point for Atlas to escalate to a FULL-STORM risk level would be a breach of the US 10yr treasury yield above 4.75% or the High yield OAS widening to 400 bps.",
-        "composite_summary": "Atlas maintains a SEVERE RISK posture, driven by critical liquidity and leverage imbalances, despite pockets of market complacency.",
+        "daily_narrative": "Global risk sentiment is increasingly strained, with markets reacting to significant central bank divergence and sovereign debt concerns. Reports indicate \"Fed divisions threaten Powell's era of consensus\" ([Reuters](https://www.reuters.com/markets/us/fed-divisions-threaten-powells-era-consensus-2025-11-04/)), contributing to \"Global Markets Fall after Fed officials express diverging views on cuts\" ([Dow Jones](https://www.morningstar.com/news/dow-jones/202511045063/dow-jones-top-markets-headlines-at-7-am-et-global-markets-fall-after-fed-officials-express-diverging-views-on-cuts-whats)). Simultaneously, the \"Bank of Japan debated growing case for rate hike\" ([Reuters](https://www.reuters.com/world/asia-pacific/boj-board-debated-pros-cons-rate-hike-pause-september-minutes-shows-2025-11-05/)), while the UK faces warnings that \"Reeves Must Run Surpluses to Stop UK Debt Surging\" ([Bloomberg](https://www.bloomberg.com/news/articles/2025-11-05/reeves-must-run-surpluses-to-stop-uk-debt-surging-niesr-says)). This confluence of factors has prompted \"Gold Rebounds on Haven Demand as Risk-Off Mood Rattles Markets\" ([Bloomberg](https://www.bloomberg.com/news/articles/2025-11-05/gold-holds-drop-as-investors-weigh-outlook-for-dollar-us-rates)), aligning with Atlas's elevated risk posture.\nInternally, Atlas's Composite Score of 10.00, signaling SEVERE RISK, is primarily driven by critical systemic indicators in Liquidity and Leverage. Specifically, \"Treasury net liquidity\" is deep in Red territory with a score of 2.00, indicating significant systemic strain. Concurrently, \"FINRA margin debt (YOY %)\" registers a Red status with a score of 1.50, highlighting excessive leverage in the system. The \"Small/Large cap ratio\" also signals Red (1.00), reflecting a flight from riskier assets. This high Atlas score stands in stark contrast to the currently \"Green\" status of the High Yield OAS (3.04 bps), which suggests credit markets are not yet pricing in the full extent of the underlying systemic fragility. The key Atlas pivot points to watch for a shift to FULL-STORM risk are a breach of the 4.75% threshold for the US 10-Year Yield or a rise in the HY OAS to 400 bps.",
+        "composite_summary": "Atlas maintains a \ud83d\udea8 SEVERE RISK posture, driven by deteriorating systemic liquidity and elevated leverage despite a seemingly calm credit market.",
         "key_actions": [
-            "Significantly reduce exposure to risk assets, particularly equities and high-yield credit.",
-            "Increase allocation to cash and short-duration U.S. Treasury instruments to preserve capital.",
-            "Implement hedging strategies, such as long volatility positions or protective put options, to mitigate potential market downturns.",
-            "Re-evaluate and reduce exposure to highly leveraged sectors or companies with weak balance sheets.",
-            "Favor defensive sectors and high-quality, dividend-paying stocks with strong free cash flow."
+            "Reduce exposure to risk assets, particularly small-cap equities and highly leveraged positions.",
+            "Increase allocations to cash and short-duration U.S. Treasuries to enhance portfolio liquidity.",
+            "Implement hedges against potential currency volatility, especially given the Red status of AUD/USD.",
+            "Closely monitor the US 10-Year Yield for a breach of 4.75% and the High Yield OAS for a move towards 400 bps, which would signal a transition to FULL-STORM risk.",
+            "Favor defensive sectors and high-quality fixed income to preserve capital."
         ],
-        "date": "2025-11-05 15:36:22",
-        "news": [],
-        "news_context_raw": "1. [Bloomberg - Business News, Stock Markets, Finance, Breaking ...](https://www.bloomberg.com/)\n2. [Fed divisions threaten Powell's era of consensus | Reuters](https://www.reuters.com/markets/us/fed-divisions-threaten-powells-era-consensus-2025-11-04/)\n3. [Rates & Bonds - Bloomberg - Bloomberg Markets](https://www.bloomberg.com/markets/rates-bonds)\n4. [Philippines Says Inflation Risks Limited After Tame October CPI ...](https://www.bloomberg.com/news/articles/2025-11-05/philippine-october-inflation-steady-may-support-more-rate-cuts)\n5. [Subdued Philippine inflation leaves door open for December rate ...](https://www.reuters.com/world/asia-pacific/philippine-annual-inflation-17-october-2025-11-05/)\n6. [Reeves Must Run Surpluses to Stop UK Debt Surging, NIESR Says ...](https://www.bloomberg.com/news/articles/2025-11-05/reeves-must-run-surpluses-to-stop-uk-debt-surging-niesr-says)\n7. [Trump Year: Remember, Remember, the Fifth of November ...](https://www.bloomberg.com/opinion/newsletters/2025-11-05/trump-year-remember-remember-the-fifth-of-november?srnd=phx-opinion)\n8. [Bank of Japan debated growing case for rate hike, September ...](https://www.reuters.com/world/asia-pacific/boj-board-debated-pros-cons-rate-hike-pause-september-minutes-shows-2025-11-05/)\n9. [Gold Holds Drop With Dollar Outlook and Risk-Off Mood in Focus ...](https://www.bloomberg.com/news/articles/2025-11-05/gold-holds-drop-as-investors-weigh-outlook-for-dollar-us-rates)\n10. [Dow Jones Top Markets Headlines at 7 AM ET: Global Markets Fall ...](https://www.morningstar.com/news/dow-jones/202511045063/dow-jones-top-markets-headlines-at-7-am-et-global-markets-fall-after-fed-officials-express-diverging-views-on-cuts-whats)"
+        "date": "2025-11-05 15:50:33",
+        "news": [
+            {
+                "title": "Bloomberg - Business News, Stock Markets, Finance, Breaking ...",
+                "url": "https://www.bloomberg.com/",
+                "snippet": "Contextual article. Click title for details."
+            },
+            {
+                "title": "Fed divisions threaten Powell's era of consensus | Reuters",
+                "url": "https://www.reuters.com/markets/us/fed-divisions-threaten-powells-era-consensus-2025-11-04/",
+                "snippet": "Contextual article. Click title for details."
+            },
+            {
+                "title": "Rates & Bonds - Bloomberg - Bloomberg Markets",
+                "url": "https://www.bloomberg.com/markets/rates-bonds",
+                "snippet": "Contextual article. Click title for details."
+            },
+            {
+                "title": "Philippines Says Inflation Risks Limited After Tame October CPI ...",
+                "url": "https://www.bloomberg.com/news/articles/2025-11-05/philippine-october-inflation-steady-may-support-more-rate-cuts",
+                "snippet": "Contextual article. Click title for details."
+            },
+            {
+                "title": "Subdued Philippine inflation leaves door open for December rate ...",
+                "url": "https://www.reuters.com/world/asia-pacific/philippine-annual-inflation-17-october-2025-11-05/",
+                "snippet": "Contextual article. Click title for details."
+            },
+            {
+                "title": "Reeves Must Run Surpluses to Stop UK Debt Surging, NIESR Says ...",
+                "url": "https://www.bloomberg.com/news/articles/2025-11-05/reeves-must-run-surpluses-to-stop-uk-debt-surging-niesr-says",
+                "snippet": "Contextual article. Click title for details."
+            },
+            {
+                "title": "Trump Year: Remember, Remember, the Fifth of November ...",
+                "url": "https://www.bloomberg.com/opinion/newsletters/2025-11-05/trump-year-remember-remember-the-fifth-of-november?srnd=phx-opinion",
+                "snippet": "Contextual article. Click title for details."
+            },
+            {
+                "title": "Bank of Japan debated growing case for rate hike, September ...",
+                "url": "https://www.reuters.com/world/asia-pacific/boj-board-debated-pros-cons-rate-hike-pause-september-minutes-shows-2025-11-05/",
+                "snippet": "Contextual article. Click title for details."
+            },
+            {
+                "title": "Gold Rebounds on Haven Demand as Risk-Off Mood Rattles Markets",
+                "url": "https://www.bloomberg.com/news/articles/2025-11-05/gold-holds-drop-as-investors-weigh-outlook-for-dollar-us-rates",
+                "snippet": "Contextual article. Click title for details."
+            },
+            {
+                "title": "Dow Jones Top Markets Headlines at 7 AM ET: Global Markets Fall ...",
+                "url": "https://www.morningstar.com/news/dow-jones/202511045063/dow-jones-top-markets-headlines-at-7-am-et-global-markets-fall-after-fed-officials-express-diverging-views-on-cuts-whats",
+                "snippet": "Contextual article. Click title for details."
+            }
+        ],
+        "news_context_raw": "1. [Bloomberg - Business News, Stock Markets, Finance, Breaking ...](https://www.bloomberg.com/)\n2. [Fed divisions threaten Powell's era of consensus | Reuters](https://www.reuters.com/markets/us/fed-divisions-threaten-powells-era-consensus-2025-11-04/)\n3. [Rates & Bonds - Bloomberg - Bloomberg Markets](https://www.bloomberg.com/markets/rates-bonds)\n4. [Philippines Says Inflation Risks Limited After Tame October CPI ...](https://www.bloomberg.com/news/articles/2025-11-05/philippine-october-inflation-steady-may-support-more-rate-cuts)\n5. [Subdued Philippine inflation leaves door open for December rate ...](https://www.reuters.com/world/asia-pacific/philippine-annual-inflation-17-october-2025-11-05/)\n6. [Reeves Must Run Surpluses to Stop UK Debt Surging, NIESR Says ...](https://www.bloomberg.com/news/articles/2025-11-05/reeves-must-run-surpluses-to-stop-uk-debt-surging-niesr-says)\n7. [Trump Year: Remember, Remember, the Fifth of November ...](https://www.bloomberg.com/opinion/newsletters/2025-11-05/trump-year-remember-remember-the-fifth-of-november?srnd=phx-opinion)\n8. [Bank of Japan debated growing case for rate hike, September ...](https://www.reuters.com/world/asia-pacific/boj-board-debated-pros-cons-rate-hike-pause-september-minutes-shows-2025-11-05/)\n9. [Gold Rebounds on Haven Demand as Risk-Off Mood Rattles Markets](https://www.bloomberg.com/news/articles/2025-11-05/gold-holds-drop-as-investors-weigh-outlook-for-dollar-us-rates)\n10. [Dow Jones Top Markets Headlines at 7 AM ET: Global Markets Fall ...](https://www.morningstar.com/news/dow-jones/202511045063/dow-jones-top-markets-headlines-at-7-am-et-global-markets-fall-after-fed-officials-express-diverging-views-on-cuts-whats)"
     }
 }

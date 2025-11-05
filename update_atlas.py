@@ -1,3 +1,4 @@
+import re
 import json
 import datetime
 import random 
@@ -716,42 +717,32 @@ def parse_ai_response_for_structure(ai_json_string):
         print(f"FATAL AI Parsing Error: Could not decode AI JSON. {e}")
         return {}
 
-def parse_news_snippets_for_display(news_raw_text):
+def parse_news_snippets_for_display(raw_news_context):
     """
-    Parses the raw news text (from fetch_news_sentiment) into a structured list of dicts 
-    for the front-end display.
+    Parses the raw news string (formatted as '1. [Title](URL)') into a 
+    structured list of objects for the front-end JavaScript display.
     """
-    structured_news = []
-    # Split the raw text into individual article blocks using the separator
-    articles = news_raw_text.strip().split('\n---\n')
+    structured_articles = []
     
-    for article_block in articles:
-        lines = article_block.strip().split('\n')
+    # Regex to capture the title and URL from the markdown link format: [Title](URL)
+    # Pattern: Digit(s) . [ (Title Group) ] ( (URL Group) )
+    pattern = re.compile(r'^\d+\.\s*\[(.*?)\]\((.*?)\)$', re.MULTILINE)
+    
+    # Find all (Title, URL) tuples
+    matches = pattern.findall(raw_news_context)
+    
+    for title, url in matches:
+        # NOTE: The raw news context string does NOT contain the 'snippet' field, 
+        # so we use a placeholder as the JavaScript expects it.
+        snippet = f"Contextual article. Click title for details."
         
-        # Check if we have enough lines for Article, Title, and Snippet
-        if len(lines) >= 3:
-            entry = {"title": "N/A", "snippet": "N/A", "url": "N/A"}
-            
-            # Line 0: Source/URL
-            source_line = lines[0].strip()
-            # This extracts the URL from the format "Article X (Source: URL):"
-            try:
-                entry['url'] = source_line.split('(Source: ')[-1].replace('):', '').strip()
-            except IndexError:
-                pass
+        structured_articles.append({
+            'title': title.strip(),
+            'url': url.strip(),
+            'snippet': snippet
+        })
 
-            # Line 1: Title
-            if lines[1].startswith("Title:"):
-                entry['title'] = lines[1].replace("Title:", "").strip()
-
-            # Line 2: Snippet
-            if lines[2].startswith("Snippet:"):
-                entry['snippet'] = lines[2].replace("Snippet:", "").replace('...', '...').strip()
-
-            if entry['title'] != "N/A":
-                structured_news.append(entry)
-                
-    return structured_news
+    return structured_articles
 
 # --- NEW: SCORE MAPPING UTILITY ---
 

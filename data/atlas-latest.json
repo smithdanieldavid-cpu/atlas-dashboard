@@ -43,9 +43,9 @@
         {
             "id": "AUDUSD",
             "name": "AUD/USD exchange rate",
-            "value": 0.6508721709251404,
+            "value": 0.6506181359291077,
             "status": "Amber",
-            "note": "AUDUSD at 0.6509. AUD is consolidating. Global risk appetite is tentative.",
+            "note": "AUDUSD at 0.6506. AUD is consolidating. Global risk appetite is tentative.",
             "action": "Monitor closely for breaks below 0.6500.",
             "score_value": 0.5,
             "source_link": "https://finance.yahoo.com/quote/AUDUSD=X/"
@@ -53,9 +53,9 @@
         {
             "id": "3Y_YIELD",
             "name": "US 3yr treasury yield",
-            "value": 3.5,
+            "value": 3.59,
             "status": "Amber",
-            "note": "Yield at 3.50%. Medium-term rate pressure.",
+            "note": "Yield at 3.59%. Medium-term rate pressure.",
             "action": "Avoid intermediate locks; prefer short/floating rate instruments.",
             "score_value": 0.5,
             "source_link": "https://fred.stlouisfed.org/series/DGS3"
@@ -63,9 +63,9 @@
         {
             "id": "30Y_YIELD",
             "name": "US 30yr treasury yield",
-            "value": 4.25,
+            "value": 4.67,
             "status": "Amber",
-            "note": "Yield at 4.25%. Elevated long-term yields reflecting fiscal risk/inflation concerns.",
+            "note": "Yield at 4.67%. Elevated long-term yields reflecting fiscal risk/inflation concerns.",
             "action": "Watch the 5.0% threshold. Limit long duration locks.",
             "score_value": 0.5,
             "source_link": "https://fred.stlouisfed.org/series/DGS30"
@@ -73,9 +73,9 @@
         {
             "id": "10Y_YIELD",
             "name": "US 10yr treasury yield",
-            "value": 4.3,
+            "value": 4.1,
             "status": "Amber",
-            "note": "Yield at 4.30%. Elevated yields.",
+            "note": "Yield at 4.10%. Elevated yields.",
             "action": "Watch the Atlas pivot at 4.75%; favour short duration.",
             "score_value": 0.5,
             "source_link": "https://fred.stlouisfed.org/series/DGS10"
@@ -83,9 +83,9 @@
         {
             "id": "HY_OAS",
             "name": "High yield OAS (bps)",
-            "value": 380.0,
+            "value": 3.13,
             "status": "Green",
-            "note": "HY OAS at 380 bps. US credit stress is low and manageable.",
+            "note": "HY OAS at 3 bps. US credit stress is low and manageable.",
             "action": "Favour high-quality corporate bonds.",
             "score_value": 0.0,
             "source_link": "https://fred.stlouisfed.org/series/BAMLH0A0HYM2"
@@ -93,11 +93,11 @@
         {
             "id": "TREASURY_LIQUIDITY",
             "name": "Treasury net liquidity",
-            "value": 100.0,
-            "status": "Green",
-            "note": "Net Liquidity at $100B. Liquidity is robust and supportive of risk assets.",
-            "action": "No change.",
-            "score_value": 0.0,
+            "value": -6586063.196,
+            "status": "Red",
+            "note": "Net Liquidity at $-6586063B. Liquidity is contracting aggressively. High systemic risk.",
+            "action": "Aggressively reduce all risk asset exposure and increase cash/SOFR instruments.",
+            "score_value": 2.0,
             "source_link": "https://fred.stlouisfed.org/series/WALCL"
         },
         {
@@ -124,8 +124,8 @@
             "id": "SNAP_BENEFITS",
             "name": "SNAP benefits (MoM % change)",
             "value": [
-                0.0,
-                0.0
+                111.15,
+                97.391
             ],
             "status": "N/A",
             "note": "",
@@ -198,19 +198,19 @@
         {
             "id": "SOFR_OIS",
             "name": "SOFR OIS Spread (bps)",
-            "value": 25.0,
-            "status": "Amber",
-            "note": "SOFR/OIS spread is 25.0 bps. Spread is widening. Caution on dollar funding markets.",
-            "action": "Monitor closely for further widening/dollar liquidity stress.",
-            "score_value": 0.75,
+            "value": -5.000000000000027,
+            "status": "Green",
+            "note": "SOFR/OIS spread is -5.0 bps. Dollar funding market is stable.",
+            "action": "No change.",
+            "score_value": 0.0,
             "source_link": "https://fred.stlouisfed.org/series/SOFR3MAD"
         },
         {
             "id": "BANK_CDS",
             "name": "Bank CDS index (bps)",
-            "value": 85.0,
+            "value": 5.13,
             "status": "Green",
-            "note": "Bank CDS at 85 bps. Low implied banking stress.",
+            "note": "Bank CDS at 5 bps. Low implied banking stress.",
             "action": "No change.",
             "score_value": 0.0,
             "source_link": ""
@@ -218,28 +218,28 @@
         {
             "id": "CONSUMER_DELINQUENCIES",
             "name": "Consumer delinquencies",
-            "value": 2.2,
-            "status": "Green",
-            "note": "Delinquency Rate at 2.2%. Consumer health is stable.",
-            "action": "No change.",
-            "score_value": 0.0,
+            "value": 3.05,
+            "status": "Amber",
+            "note": "Delinquency Rate at 3.0%. Rate is rising. Caution warranted for banks and consumer sectors.",
+            "action": "Monitor household debt metrics closely; reduce unsecured credit exposure.",
+            "score_value": 1.0,
             "source_link": ""
         }
     ],
     "overall": {
-        "score": 7.75,
-        "status": "\ud83d\udfe0 ELEVATED RISK (MODERATE RISK)",
-        "comment": "Risk posture is elevated. Maintain defensive positioning.",
-        "daily_narrative": "The current market environment is characterized by a backdrop of policy uncertainty and valuation concerns, contributing to Atlas's 'ELEVATED RISK' posture. Recent reports highlight [Fed divisions threatening Powell's era of consensus](https://www.reuters.com/markets/us/fed-divisions-threaten-powells-era-consensus-2025-11-04/) and a [divided Fed](https://www.morningstar.com/economy/what-does-divided-fed-mean-investors), signaling potential for future monetary policy shifts and increased volatility. Concurrently, discussions around [Trump Tariffs](https://www.morningstar.com/news/dow-jones/202511053725/north-american-morning-briefing-trump-tariffs-in-court-today) introduce geopolitical and trade policy risks, while [European stocks are lower amid valuation fears](https://www.morningstar.com/news/dow-jones/202511052907/european-midday-briefing-stocks-lower-amid-valuation-fears). Despite these external headwinds, [US Treasuries remain a top debt market](https://www.forbes.com/sites/chrisgunster/2025/11/05/us-treasuries-remain-top-debt-market-despite-policy-turbulence/) suggesting underlying stability in core funding markets, yet the overall sentiment remains cautious. Internally, Atlas's composite score of 7.75 is primarily driven by critical 'Red' status systemic drivers related to leverage and market breadth, despite a relatively benign VIX (18.01, Amber) and a 'Green' High Yield OAS (380.00 bps). Specifically, FINRA margin debt (YOY %) stands at a concerning 32.94%, contributing 1.50 points to the composite score and indicating excessive leverage within the system. Furthermore, the Small/Large cap ratio at 0.36, scoring 1.00, signals a clear flight to quality and reduced risk appetite for smaller, less liquid segments of the market. This divergence between systemic leverage and relatively contained credit spreads presents a key contradiction. The next critical pivot point for Atlas to move into a 'FULL-STORM' risk level would be a breach of the US 10-Year Yield threshold at 4.75% or the High Yield OAS exceeding 400 bps.",
-        "composite_summary": "Atlas maintains an ELEVATED RISK posture, driven by systemic leverage and market breadth concerns, despite some traditional volatility and credit indicators remaining contained.",
+        "score": 10.0,
+        "status": "\ud83d\udea8 SEVERE RISK (HIGH RISK)",
+        "comment": "Market stability deteriorating rapidly. High caution required.",
+        "daily_narrative": "Global markets are navigating a complex landscape marked by significant policy uncertainty and underlying valuation concerns, directly reinforcing Atlas's current posture of SEVERE RISK. Recent reports highlight [Fed divisions threaten Powell's era of consensus | Reuters](https://www.reuters.com/markets/us/fed-divisions-threaten-powells-era-consensus-2025-11-04/) and question [What Does a Divided Fed Mean for Investors? | Morningstar](https://www.morningstar.com/economy/what-does-divided-fed-mean-investors), signaling internal policy turbulence that can fuel volatility. This is compounded by broader market apprehension, as evidenced by [European Midday Briefing: Stocks Lower Amid Valuation Fears ...](https://www.morningstar.com/news/dow-jones/202511052907/european-midday-briefing-stocks-lower-amid-valuation-fears) and ongoing trade policy uncertainty with [North American Morning Briefing: Trump Tariffs in Court Today ...](https://www.morningstar.com/news/dow-jones/202511053725/north-american-morning-briefing-trump-tariffs-in-court-today), all contributing to a cautious external risk sentiment.\n\nInternally, Atlas's Composite Score of 10.00, signaling SEVERE RISK, is primarily driven by critical systemic liquidity and leverage indicators. Specifically, `Treasury net liquidity` is deep in 'Red' territory with a score of 2.00, indicating significant systemic stress, while `FINRA margin debt (YOY %)` also registers 'Red' with a score of 1.50, pointing to elevated leverage within the market. The `Small/Large cap ratio` further supports this defensive posture with a 'Red' status and a score of 1.00, suggesting capital flight from riskier assets. While the VIX index remains 'Amber' at 18.01, not yet signaling extreme panic, this apparent calm belies the underlying systemic vulnerabilities identified by Atlas. The critical pivot points for a move to FULL-STORM risk remain the US 10-Year Treasury Yield, which would need to breach 4.75%, and the High Yield OAS, which would need to exceed 400 bps.",
+        "composite_summary": "Atlas maintains a SEVERE RISK posture with a Composite Score of 10.00, driven by critical systemic liquidity and leverage concerns amidst a backdrop of global policy uncertainty.",
         "key_actions": [
-            "Reduce exposure to highly leveraged assets and small-cap equities.",
-            "Increase allocation to high-quality, short-duration fixed income to mitigate interest rate risk.",
-            "Maintain higher cash reserves to capitalize on potential market dislocations.",
-            "Consider defensive equity sectors with strong balance sheets and stable cash flows.",
-            "Monitor the US 10-Year Yield and High Yield OAS closely for further deterioration towards 'FULL-STORM' thresholds."
+            "Reduce overall portfolio beta and increase defensive allocations to high-quality assets.",
+            "Prioritize investment-grade fixed income over speculative credit, focusing on shorter durations.",
+            "Maintain elevated cash reserves to enhance flexibility and capitalize on potential market dislocations.",
+            "Review and stress-test existing equity and credit positions for sensitivity to rising rates and tightening liquidity conditions.",
+            "Consider implementing hedging strategies to mitigate downside risk in equity portfolios and protect against credit spread widening."
         ],
-        "date": "2025-11-06 09:39:34",
+        "date": "2025-11-06 09:59:19",
         "news": [
             {
                 "title": "What Does a Divided Fed Mean for Investors? | Morningstar",

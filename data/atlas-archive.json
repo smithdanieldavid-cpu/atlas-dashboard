@@ -1,5 +1,33 @@
 [
     {
+        "date": "2025-11-05 15:36:22",
+        "status": "\ud83d\udea8 SEVERE RISK (HIGH RISK)",
+        "score": 10.0,
+        "comment": "Market stability deteriorating rapidly. High caution required.",
+        "daily_narrative": "Global markets are currently navigating a heightened state of uncertainty, characterized by a pervasive risk-off sentiment as evidenced by [Dow Jones Top Markets Headlines at 7 AM ET: Global Markets Fall ...](https://www.morningstar.com/news/dow-jones/202511045063/dow-jones-top-markets-headlines-at-7-am-et-global-markets-fall-after-fed-officials-express-diverging-views-on-cuts-whats) and [Gold Holds Drop With Dollar Outlook and Risk-Off Mood in Focus ...](https://www.bloomberg.com/news/articles/2025-11-05/gold-holds-drop-as-investors-weigh-outlook-for-dollar-us-rates). This external environment is further complicated by internal central bank divisions, notably the [Fed divisions threaten Powell's era of consensus | Reuters](https://www.reuters.com/markets/us/fed-divisions-threaten-powells-era-consensus-2025-11-04/) and the [Bank of Japan debated growing case for rate hike, September ...](https://www.reuters.com/world/asia-pacific/boj-board-debated-pros-cons-rate-hike-pause-september-minutes-shows-2025-11-05/) considering a rate hike, alongside persistent fiscal integrity concerns such as the UK's debt outlook highlighted by [Reeves Must Run Surpluses to Stop UK Debt Surging, NIESR Says ...](https://www.bloomberg.com/news/articles/2025-11-05/reeves-must-run-surpluses-to-stop-uk-debt-surging-niesr-says). This confluence of global macro headwinds strongly reinforces Atlas's current posture of SEVERE RISK. Internally, the Atlas Composite Score of 10.00, signaling SEVERE RISK, is primarily driven by critical systemic indicators in Liquidity and Leverage. Specifically, Treasury net liquidity stands at a deeply concerning -6,586,059.03 (Red, Score: 2.00), indicating significant stress in the financial system's plumbing. Concurrently, FINRA margin debt (YOY %) at 32.94 (Red, Score: 1.50) points to elevated speculative leverage within the market, amplifying vulnerability. Despite this pronounced systemic risk, a notable contradiction persists with the High yield OAS remaining relatively tight at 3.04 bps (Green, Score: 0.00), suggesting a degree of complacency in credit markets that belies the underlying fragility. The next critical pivot point for Atlas to escalate to a FULL-STORM risk level would be a breach of the US 10yr treasury yield above 4.75% or the High yield OAS widening to 400 bps."
+    },
+    {
+        "date": "2025-11-05 15:08:17",
+        "score": 2.5,
+        "status": "LOW RISK",
+        "daily_narrative": "Gemini API call failed: Object of type Schema is not JSON serializable",
+        "composite_summary": "Failure"
+    },
+    {
+        "date": "2025-11-05 15:07:08",
+        "score": 2.5,
+        "status": "LOW RISK",
+        "daily_narrative": "Gemini API call failed: Object of type Schema is not JSON serializable",
+        "composite_summary": "Failure"
+    },
+    {
+        "date": "2025-11-05 15:04:49",
+        "score": 2.5,
+        "status": "LOW RISK",
+        "daily_narrative": "Gemini API call failed: Object of type Schema is not JSON serializable",
+        "composite_summary": "Failure"
+    },
+    {
         "date": "2025-11-05 13:52:17",
         "status": "\ud83d\udea8 SEVERE RISK (HIGH RISK)",
         "score": 10.0,

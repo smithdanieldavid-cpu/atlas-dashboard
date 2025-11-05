@@ -3,9 +3,9 @@
         {
             "id": "VIX",
             "name": "VIX index",
-            "value": 19.0,
+            "value": 18.010000228881836,
             "status": "Amber",
-            "note": "VIX is moderate at 19.00. Volatility is starting to increase.",
+            "note": "VIX is moderate at 18.01. Volatility is starting to increase.",
             "action": "Monitor volatility trends closely.",
             "score_value": 1.0,
             "source_link": "https://finance.yahoo.com/quote/%5EVIX/"
@@ -13,9 +13,9 @@
         {
             "id": "GOLD_PRICE",
             "name": "Gold price (GLD)",
-            "value": 362.32000732421875,
+            "value": 366.510009765625,
             "status": "Amber",
-            "note": "Gold (GLD) is rallying sharply at $362.32. Indicates rising inflation expectations or systemic risk.",
+            "note": "Gold (GLD) is rallying sharply at $366.51. Indicates rising inflation expectations or systemic risk.",
             "action": "Consider increasing real asset allocation.",
             "score_value": 0.5,
             "source_link": "https://finance.yahoo.com/quote/GLD/"
@@ -23,9 +23,9 @@
         {
             "id": "EURUSD",
             "name": "EUR/USD exchange rate",
-            "value": 1.1492931842803955,
+            "value": 1.1495574712753296,
             "status": "Green",
-            "note": "EUR/USD is stable at 1.1493. Indicates balanced global risk/economic outlook.",
+            "note": "EUR/USD is stable at 1.1496. Indicates balanced global risk/economic outlook.",
             "action": "No change.",
             "score_value": 0.0,
             "source_link": "https://finance.yahoo.com/quote/EURUSD=X/"
@@ -33,29 +33,29 @@
         {
             "id": "WTI_CRUDE",
             "name": "WTI crude oil ($/bbl)",
-            "value": 60.47999954223633,
-            "status": "Green",
-            "note": "WTI Crude at $60.48/bbl. Normal price range, favorable for growth.",
-            "action": "No change.",
-            "score_value": 0.0,
+            "value": 59.63999938964844,
+            "status": "Amber",
+            "note": "WTI Crude at $59.64/bbl. Low price indicates global slowdown or demand weakness.",
+            "action": "Monitor global growth indicators.",
+            "score_value": 0.5,
             "source_link": "https://finance.yahoo.com/quote/USO/"
         },
         {
             "id": "AUDUSD",
             "name": "AUD/USD exchange rate",
-            "value": 0.6495193243026733,
-            "status": "Red",
-            "note": "AUDUSD at 0.6495. AUD remains under pressure. Strong risk-off or persistent US Dollar strength.",
-            "action": "Favour US Dollar liquidity over AUD assets; watch commodity prices.",
-            "score_value": 1.0,
+            "value": 0.6508297920227051,
+            "status": "Amber",
+            "note": "AUDUSD at 0.6508. AUD is consolidating. Global risk appetite is tentative.",
+            "action": "Monitor closely for breaks below 0.6500.",
+            "score_value": 0.5,
             "source_link": "https://finance.yahoo.com/quote/AUDUSD=X/"
         },
         {
             "id": "3Y_YIELD",
             "name": "US 3yr treasury yield",
-            "value": 3.61,
+            "value": 3.5,
             "status": "Amber",
-            "note": "Yield at 3.61%. Medium-term rate pressure.",
+            "note": "Yield at 3.50%. Medium-term rate pressure.",
             "action": "Avoid intermediate locks; prefer short/floating rate instruments.",
             "score_value": 0.5,
             "source_link": "https://fred.stlouisfed.org/series/DGS3"
@@ -63,9 +63,9 @@
         {
             "id": "30Y_YIELD",
             "name": "US 30yr treasury yield",
-            "value": 4.69,
+            "value": 4.25,
             "status": "Amber",
-            "note": "Yield at 4.69%. Elevated long-term yields reflecting fiscal risk/inflation concerns.",
+            "note": "Yield at 4.25%. Elevated long-term yields reflecting fiscal risk/inflation concerns.",
             "action": "Watch the 5.0% threshold. Limit long duration locks.",
             "score_value": 0.5,
             "source_link": "https://fred.stlouisfed.org/series/DGS30"
@@ -73,9 +73,9 @@
         {
             "id": "10Y_YIELD",
             "name": "US 10yr treasury yield",
-            "value": 4.13,
+            "value": 4.3,
             "status": "Amber",
-            "note": "Yield at 4.13%. Elevated yields.",
+            "note": "Yield at 4.30%. Elevated yields.",
             "action": "Watch the Atlas pivot at 4.75%; favour short duration.",
             "score_value": 0.5,
             "source_link": "https://fred.stlouisfed.org/series/DGS10"
@@ -83,9 +83,9 @@
         {
             "id": "HY_OAS",
             "name": "High yield OAS (bps)",
-            "value": 3.04,
+            "value": 380.0,
             "status": "Green",
-            "note": "HY OAS at 3 bps. US credit stress is low and manageable.",
+            "note": "HY OAS at 380 bps. US credit stress is low and manageable.",
             "action": "Favour high-quality corporate bonds.",
             "score_value": 0.0,
             "source_link": "https://fred.stlouisfed.org/series/BAMLH0A0HYM2"
@@ -93,11 +93,11 @@
         {
             "id": "TREASURY_LIQUIDITY",
             "name": "Treasury net liquidity",
-            "value": -6586059.027,
-            "status": "Red",
-            "note": "Net Liquidity at $-6586059B. Liquidity is contracting aggressively. High systemic risk.",
-            "action": "Aggressively reduce all risk asset exposure and increase cash/SOFR instruments.",
-            "score_value": 2.0,
+            "value": 100.0,
+            "status": "Green",
+            "note": "Net Liquidity at $100B. Liquidity is robust and supportive of risk assets.",
+            "action": "No change.",
+            "score_value": 0.0,
             "source_link": "https://fred.stlouisfed.org/series/WALCL"
         },
         {
@@ -124,8 +124,8 @@
             "id": "SNAP_BENEFITS",
             "name": "SNAP benefits (MoM % change)",
             "value": [
-                111.15,
-                97.391
+                0.0,
+                0.0
             ],
             "status": "N/A",
             "note": "",
@@ -138,9 +138,9 @@
         {
             "id": "SPX_INDEX",
             "name": "S&P 500 index",
-            "value": 6771.5498046875,
+            "value": 6796.2900390625,
             "status": "Green",
-            "note": "S&P 500 Index at 6,772. Strong/stable price action. Low systemic equity risk.",
+            "note": "S&P 500 Index at 6,796. Strong/stable price action. Low systemic equity risk.",
             "action": "Maintain equity exposure.",
             "score_value": 0.0,
             "source_link": "https://finance.yahoo.com/quote/%5EGSPC/"
@@ -148,9 +148,9 @@
         {
             "id": "ASX_200",
             "name": "ASX 200 index",
-            "value": 8790.900390625,
+            "value": 8802.0,
             "status": "Green",
-            "note": "ASX 200 Index at 8,791. Stable price action.",
+            "note": "ASX 200 Index at 8,802. Stable price action.",
             "action": "No change.",
             "score_value": 0.0,
             "source_link": "https://finance.yahoo.com/quote/%5EAXJO/"
@@ -178,9 +178,9 @@
         {
             "id": "SMALL_LARGE_RATIO",
             "name": "Small/Large cap ratio",
-            "value": 0.35846152770084283,
+            "value": 0.3626654793997357,
             "status": "Red",
-            "note": "Ratio at 0.3585 \u2014 small-caps are heavily underperforming. Poor internals.",
+            "note": "Ratio at 0.3627 \u2014 small-caps are heavily underperforming. Poor internals.",
             "action": "Avoid high-risk small-cap exposure.",
             "score_value": 1.0,
             "source_link": "https://finance.yahoo.com/quote/%5ERUT/"
@@ -198,19 +198,19 @@
         {
             "id": "SOFR_OIS",
             "name": "SOFR OIS Spread (bps)",
-            "value": -5.000000000000027,
-            "status": "Green",
-            "note": "SOFR/OIS spread is -5.0 bps. Dollar funding market is stable.",
-            "action": "No change.",
-            "score_value": 0.0,
+            "value": 25.0,
+            "status": "Amber",
+            "note": "SOFR/OIS spread is 25.0 bps. Spread is widening. Caution on dollar funding markets.",
+            "action": "Monitor closely for further widening/dollar liquidity stress.",
+            "score_value": 0.75,
             "source_link": "https://fred.stlouisfed.org/series/SOFR3MAD"
         },
         {
             "id": "BANK_CDS",
             "name": "Bank CDS index (bps)",
-            "value": 5.13,
+            "value": 85.0,
             "status": "Green",
-            "note": "Bank CDS at 5 bps. Low implied banking stress.",
+            "note": "Bank CDS at 85 bps. Low implied banking stress.",
             "action": "No change.",
             "score_value": 0.0,
             "source_link": ""
@@ -218,80 +218,29 @@
         {
             "id": "CONSUMER_DELINQUENCIES",
             "name": "Consumer delinquencies",
-            "value": 3.05,
-            "status": "Amber",
-            "note": "Delinquency Rate at 3.0%. Rate is rising. Caution warranted for banks and consumer sectors.",
-            "action": "Monitor household debt metrics closely; reduce unsecured credit exposure.",
-            "score_value": 1.0,
+            "value": 2.2,
+            "status": "Green",
+            "note": "Delinquency Rate at 2.2%. Consumer health is stable.",
+            "action": "No change.",
+            "score_value": 0.0,
             "source_link": ""
         }
     ],
     "overall": {
-        "score": 10.0,
-        "status": "\ud83d\udea8 SEVERE RISK (HIGH RISK)",
-        "comment": "Market stability deteriorating rapidly. High caution required.",
-        "daily_narrative": "Global markets are experiencing a pronounced risk-off sentiment, evidenced by falling indices and a rebound in haven assets like gold, as investors grapple with central bank policy uncertainties and diverging views on future rate adjustments from Federal Reserve officials, as reported by [Dow Jones Top Markets Headlines at 7 AM ET: Global Markets Fall ...](https://www.morningstar.com/news/dow-jones/202511045063/dow-jones-top-markets-headlines-at-7-am-et-global-markets-fall-after-fed-officials-express-diverging-views-on-cuts-whats) and [Gold Rebounds on Haven Demand as Risk-Off Mood Rattles Markets](https://www.bloomberg.com/news/articles/2025-11-05/gold-holds-drop-as-investors-weigh-outlook-for-dollar-us-rates). This external backdrop of heightened global caution, further underscored by discussions of potential rate hikes by the Bank of Japan ([Bank of Japan debated growing case for rate hike, September ...](https://www.reuters.com/world/asia-pacific/boj-board-debated-pros-cons-rate-hike-pause-september-minutes-shows-2025-11-05/)) and warnings about surging UK debt ([Reeves Must Run Surpluses to Stop UK Debt Surging, NIESR Says ...](https://www.bloomberg.com/news/articles/2025-11-05/reeves-must-run-surpluses-to-stop-uk-debt-surging-niesr-says)), aligns critically with Atlas's current posture of SEVERE RISK. Internally, Atlas's Composite Score of 10.00, signaling SEVERE RISK, is primarily driven by critical 'Red' status systemic indicators in Liquidity and Leverage. Specifically, \"Treasury net liquidity\" registers a deeply concerning -6,586,059.03, contributing 2.00 points, while \"FINRA margin debt (YOY %)\" at 32.94 adds another 1.50 points, highlighting excessive leverage in the system. Further reinforcing this defensive stance are the \"Small/Large cap ratio\" at 0.36 and the \"AUD/USD exchange rate\" at 0.65, both in 'Red' status. This elevated internal risk stands in stark contrast to the relatively subdued VIX index at 19.00 ('Amber' status), suggesting a potential complacency in market volatility pricing despite underlying systemic fragility. The critical pivot points that would trigger a move to FULL-STORM risk remain the US 10-Year Treasury Yield breaching 4.75% or the High Yield OAS exceeding 400 bps.",
-        "composite_summary": "Atlas maintains a \ud83d\udea8 SEVERE RISK posture, driven by deteriorating systemic liquidity and elevated leverage, despite a complacent VIX.",
+        "score": 7.75,
+        "status": "\ud83d\udfe0 ELEVATED RISK (MODERATE RISK)",
+        "comment": "Risk posture is elevated. Maintain defensive positioning.",
+        "daily_narrative": "In the absence of external geopolitical or macroeconomic news context, as news fetching failed, Atlas's assessment is solely driven by its internal indicator framework, which currently signals an ELEVATED RISK posture. This internal signal suggests a growing undercurrent of systemic stress that warrants heightened vigilance from disciplined institutional investors, irrespective of the broader news cycle.\n\nThe primary drivers contributing to the Composite Score's ELEVATED RISK status are concentrated in systemic leverage and market breadth. Specifically, the 'Red' status of FINRA margin debt (YOY % at 32.94, scoring 1.50) indicates a significant build-up of leverage within the market, a classic precursor to instability. Concurrently, the 'Red' status of the Small/Large cap ratio (0.36, scoring 1.00) points to a clear preference for larger, more stable companies, signaling a contraction in risk appetite and potential liquidity stress for smaller enterprises. This internal Atlas data presents a notable divergence from the 'Green' status of the High Yield OAS (380.00), which suggests a degree of complacency in credit markets. The critical Atlas Pivot points to watch for a shift to a FULL-STORM risk level are a breach of 4.75% in the US 10-Year Yield or an expansion of the High Yield OAS beyond 400 bps.",
+        "composite_summary": "Atlas maintains an ELEVATED RISK posture, driven by internal leverage and market breadth concerns, despite some pockets of apparent market complacency.",
         "key_actions": [
-            "Significantly increase cash and short-term treasury allocations to enhance portfolio liquidity and defense.",
-            "Reduce exposure to high-beta equities and cyclicals, reallocating towards defensive sectors and high-quality dividend payers.",
-            "Implement hedging strategies, such as long-dated put options on broad market indices or long volatility positions, to protect against potential downturns.",
-            "Review and stress-test fixed income portfolios for credit quality, favoring investment-grade corporate bonds and government securities over high-yield.",
-            "Consider an overweight position in physical gold or gold-backed ETFs as a traditional safe-haven asset amidst global uncertainty."
+            "Reduce exposure to highly leveraged assets and speculative small-cap equities, favoring quality and balance sheet strength.",
+            "Increase allocation to defensive sectors and high-quality fixed income, prioritizing capital preservation.",
+            "Maintain higher cash reserves to capitalize on potential market dislocations or to mitigate further downside risk.",
+            "Actively monitor credit spreads, particularly the High Yield OAS, for any deterioration towards the 400 bps Full-Storm threshold.",
+            "Re-evaluate portfolio hedges and consider initiating new protective strategies given the underlying systemic leverage and market breadth concerns."
         ],
-        "date": "2025-11-05 16:11:21",
-        "news": [
-            {
-                "title": "Bloomberg - Business News, Stock Markets, Finance, Breaking ...",
-                "url": "https://www.bloomberg.com/",
-                "snippet": "Contextual article. Click title for details."
-            },
-            {
-                "title": "Rates & Bonds - Bloomberg - Bloomberg Markets",
-                "url": "https://www.bloomberg.com/markets/rates-bonds",
-                "snippet": "Contextual article. Click title for details."
-            },
-            {
-                "title": "Philippines Says Inflation Risks Limited After Tame October CPI ...",
-                "url": "https://www.bloomberg.com/news/articles/2025-11-05/philippine-october-inflation-steady-may-support-more-rate-cuts",
-                "snippet": "Contextual article. Click title for details."
-            },
-            {
-                "title": "Morningstar | Empowering Investor Success",
-                "url": "https://www.morningstar.com/",
-                "snippet": "Contextual article. Click title for details."
-            },
-            {
-                "title": "Subdued Philippine inflation leaves door open for December rate ...",
-                "url": "https://www.reuters.com/world/asia-pacific/philippine-annual-inflation-17-october-2025-11-05/",
-                "snippet": "Contextual article. Click title for details."
-            },
-            {
-                "title": "Reeves Must Run Surpluses to Stop UK Debt Surging, NIESR Says ...",
-                "url": "https://www.bloomberg.com/news/articles/2025-11-05/reeves-must-run-surpluses-to-stop-uk-debt-surging-niesr-says",
-                "snippet": "Contextual article. Click title for details."
-            },
-            {
-                "title": "Trump Year: Remember, Remember, the Fifth of November ...",
-                "url": "https://www.bloomberg.com/opinion/newsletters/2025-11-05/trump-year-remember-remember-the-fifth-of-november?srnd=phx-opinion",
-                "snippet": "Contextual article. Click title for details."
-            },
-            {
-                "title": "Bank of Japan debated growing case for rate hike, September ...",
-                "url": "https://www.reuters.com/world/asia-pacific/boj-board-debated-pros-cons-rate-hike-pause-september-minutes-shows-2025-11-05/",
-                "snippet": "Contextual article. Click title for details."
-            },
-            {
-                "title": "Gold Rebounds on Haven Demand as Risk-Off Mood Rattles Markets",
-                "url": "https://www.bloomberg.com/news/articles/2025-11-05/gold-holds-drop-as-investors-weigh-outlook-for-dollar-us-rates",
-                "snippet": "Contextual article. Click title for details."
-            },
-            {
-                "title": "Dow Jones Top Markets Headlines at 7 AM ET: Global Markets Fall ...",
-                "url": "https://www.morningstar.com/news/dow-jones/202511045063/dow-jones-top-markets-headlines-at-7-am-et-global-markets-fall-after-fed-officials-express-diverging-views-on-cuts-whats",
-                "snippet": "Contextual article. Click title for details."
-            }
-        ],
-        "news_context_raw": "1. [Bloomberg - Business News, Stock Markets, Finance, Breaking ...](https://www.bloomberg.com/)\n2. [Rates & Bonds - Bloomberg - Bloomberg Markets](https://www.bloomberg.com/markets/rates-bonds)\n3. [Philippines Says Inflation Risks Limited After Tame October CPI ...](https://www.bloomberg.com/news/articles/2025-11-05/philippine-october-inflation-steady-may-support-more-rate-cuts)\n4. [Morningstar | Empowering Investor Success](https://www.morningstar.com/)\n5. [Subdued Philippine inflation leaves door open for December rate ...](https://www.reuters.com/world/asia-pacific/philippine-annual-inflation-17-october-2025-11-05/)\n6. [Reeves Must Run Surpluses to Stop UK Debt Surging, NIESR Says ...](https://www.bloomberg.com/news/articles/2025-11-05/reeves-must-run-surpluses-to-stop-uk-debt-surging-niesr-says)\n7. [Trump Year: Remember, Remember, the Fifth of November ...](https://www.bloomberg.com/opinion/newsletters/2025-11-05/trump-year-remember-remember-the-fifth-of-november?srnd=phx-opinion)\n8. [Bank of Japan debated growing case for rate hike, September ...](https://www.reuters.com/world/asia-pacific/boj-board-debated-pros-cons-rate-hike-pause-september-minutes-shows-2025-11-05/)\n9. [Gold Rebounds on Haven Demand as Risk-Off Mood Rattles Markets](https://www.bloomberg.com/news/articles/2025-11-05/gold-holds-drop-as-investors-weigh-outlook-for-dollar-us-rates)\n10. [Dow Jones Top Markets Headlines at 7 AM ET: Global Markets Fall ...](https://www.morningstar.com/news/dow-jones/202511045063/dow-jones-top-markets-headlines-at-7-am-et-global-markets-fall-after-fed-officials-express-diverging-views-on-cuts-whats)"
+        "date": "2025-11-06 08:32:00",
+        "news": [],
+        "news_context_raw": "News fetching failed: API key missing."
     }
 }

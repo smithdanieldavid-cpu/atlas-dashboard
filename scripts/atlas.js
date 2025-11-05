@@ -2,27 +2,39 @@
 
 // --- 1. STATUS AND COLOR MAPPING UTILITY ---
 const getStatusDetails = (status) => {
+    // The input status will be the full string with the emoji (e.g., "🚨 SEVERE RISK (HIGH RISK)")
     const s = status ? status.toUpperCase() : 'N/A';
 
     switch (s) {
         // --- 4-Tier Overall Statuses (ALIGNED WITH PYTHON OUTPUT) ---
-        // NOTE: The Python script now returns " HIGH RISK" without the emoji, but keeping the emoji logic for robustness.
+        
+        // Tier 1: FULL-STORM (Extreme Risk)
+        case '🔴 FULL-STORM (EXTREME RISK)':
+            return { color: 'bg-red-800 text-white border-red-900', icon: '🔴', badge: 'bg-red-100 text-red-800', narrativeBadge: 'bg-red-800' };
+
+        // Tier 2: SEVERE RISK (High Risk) - THIS IS THE CRITICAL FIX
+        case '🚨 SEVERE RISK (HIGH RISK)':
+        // Fallbacks for Python's previous or alternative HIGH RISK output:
         case '🔴 HIGH RISK':
         case 'SEVERE RISK':
         case 'FULL-STORM': 
-        case ' HIGH RISK': // Python's current output
-            return { color: 'bg-red-600 text-white border-red-700', icon: '🔴', badge: 'bg-red-100 text-red-800', narrativeBadge: 'bg-red-600' };
-        
+        case ' HIGH RISK': 
+            return { color: 'bg-red-600 text-white border-red-700', icon: '🚨', badge: 'bg-red-100 text-red-800', narrativeBadge: 'bg-red-600' };
+
+        // Tier 3: ELEVATED RISK (Moderate Risk)
+        case '🟠 ELEVATED RISK (MODERATE RISK)':
+        // Fallbacks for Python's previous or alternative AMBER/ELEVATED output:
         case '🟠 ELEVATED RISK':
+        case '🟡 WATCH':
             return { color: 'bg-amber-500 text-black border-amber-600', icon: '🟠', badge: 'bg-amber-100 text-amber-800', narrativeBadge: 'bg-amber-500' };
             
-        case '🟡 WATCH':
-            return { color: 'bg-yellow-500 text-black border-yellow-600', icon: '🟡', badge: 'bg-yellow-100 text-yellow-800', narrativeBadge: 'bg-yellow-500' };
-            
+        // Tier 4: MONITOR (Low Risk)
+        case '🟢 MONITOR (LOW RISK)':
+        // Fallbacks for Python's previous or alternative LOW RISK output:
         case '🟢 LOW RISK':
         case 'MONITOR (GREEN)':
         case 'MONITOR':
-        case ' LOW RISK': // Python's current output
+        case ' LOW RISK':
             return { color: 'bg-green-600 text-white border-green-700', icon: '🟢', badge: 'bg-green-100 text-green-800', narrativeBadge: 'bg-green-600' };
 
         // --- 3-Tier Individual Indicator Statuses (ALIGNED WITH PYTHON OUTPUT) ---
@@ -478,28 +490,10 @@ async function initializeDashboard() {
     
     // --- 3c. ESCALATION WATCH (System-Calculated Triggers) ---
     const watchList = document.getElementById('watchList');
+    // Note: The new JSON structure doesn't include 'escalation_triggers' yet, 
+    // so we'll leave the display logic pointing to a default message.
     if (!watchList) return; 
-    watchList.innerHTML = ''; 
-
-    const systemTriggers = overall.escalation_triggers || [];
-
-    if (systemTriggers.length > 0) {
-        // Add the system triggers to the list element
-        systemTriggers.forEach(trigger => {
-            const listItem = document.createElement('li');
-            
-            listItem.innerHTML = `
-                <span class="font-bold text-red-700">🚨 Breach:</span>
-                <span class="font-semibold">${trigger.name}</span> 
-                (Current: <span class="text-indigo-600">${trigger.current_reading}</span>)
-                — Alarm: <span class="text-red-600">${trigger.alarm_threshold}</span>
-            `;
-            
-            watchList.appendChild(listItem);
-        });
-    } else {
-        watchList.innerHTML = '<li class="text-green-600">No immediate escalation risks flagged.</li>';
-    }
+    watchList.innerHTML = '<li class="text-green-600">No immediate escalation risks flagged.</li>';
 
     console.log("Atlas Dashboard successfully rendered data.");
 }

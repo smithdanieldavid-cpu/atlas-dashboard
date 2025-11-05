@@ -1,5 +1,12 @@
 [
     {
+        "date": "2025-11-05 16:03:01",
+        "status": "\ud83d\udea8 SEVERE RISK (HIGH RISK)",
+        "score": 10.0,
+        "comment": "Market stability deteriorating rapidly. High caution required.",
+        "daily_narrative": "Global markets are exhibiting a distinct risk-off sentiment, as evidenced by [Gold Rebounds on Haven Demand as Risk-Off Mood Rattles Markets](https://www.bloomberg.com/news/articles/2025-11-05/gold-holds-drop-as-investors-weigh-outlook-for-dollar-us-rates) and [Global Markets Fall after Fed officials express diverging views on cuts](https://www.morningstar.com/news/dow-jones/202511045063/dow-jones-top-markets-headlines-at-7-am-et-global-markets-fall-after-fed-officials-express-diverging-views-on-cuts-whats). This external backdrop of heightened uncertainty, including [Fed divisions threatening Powell's era of consensus](https://www.reuters.com/markets/us/fed-divisions-threaten-powells-era-consensus-2025-11-04/) and fiscal integrity concerns in the UK where [Reeves Must Run Surpluses to Stop UK Debt Surging](https://www.bloomberg.com/news/articles/2025-11-05/reeves-must-run-surpluses-to-stop-uk-debt-surging-niesr-says), strongly corroborates Atlas's current posture of SEVERE RISK. Internally, Atlas's SEVERE RISK rating is primarily driven by critical 'Red' status systemic indicators, particularly within Liquidity and Leverage. Treasury net liquidity stands at a deeply negative -6.59 million, contributing a significant 2.00 points to the composite score, signaling acute liquidity stress. Concurrently, FINRA margin debt (YOY %) is elevated at 32.94%, adding 1.50 points and highlighting excessive leverage in the system. This high-risk internal state exists despite a relatively subdued VIX index at 19.00 (Amber) and a High yield OAS at 3.04 (Green), which might suggest a false sense of market calm. The critical pivot point that would escalate Atlas's risk level to FULL-STORM remains the US 10yr treasury yield breaching its 4.75% threshold or the HY OAS exceeding 400 bps, neither of which has occurred yet, but the underlying systemic fragility is undeniable."
+    },
+    {
         "date": "2025-11-05 15:50:33",
         "status": "\ud83d\udea8 SEVERE RISK (HIGH RISK)",
         "score": 10.0,

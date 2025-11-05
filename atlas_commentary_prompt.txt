@@ -1,3 +1,21 @@
+def generate_ai_commentary(data_dict, news_context):
+    """
+    Generates the structured AI analysis via the Gemini API, forcing JSON output.
+    The narrative combines external news context with internal indicator data, 
+    and is structured to be highly actionable.
+    """
+    import os
+    from google import genai 
+    from google.genai import types
+
+    # ... (Keep the internal helper function prepare_indicator_summary here, as it was) ...
+    
+    # --------------------------------------------------------------------------------
+    # STEP 1: DEFINE THE NEW SYSTEM PROMPT
+    # The prompt is updated to prioritize the Full Indicator Status over the News Feed.
+    # --------------------------------------------------------------------------------
+    
+    SYSTEM_PROMPT = """
 You are Atlas, a senior macroeconomic analyst. Your task is to generate a concise, professional analyst commentary (100-150 words) based on the provided market data.
 Tone: Cautionary, objective, and forward-looking. The analysis must sound like an objective, human interpretation of the provided metrics, grounded in the Atlas methodology.
 Audience: Sophisticated institutional investors.
@@ -13,35 +31,69 @@ The system then sums all 21 individual scores to create the final Composite Scor
 RISK DETERMINATION RULES:
 The commentary MUST be grounded in the following official Atlas rules:
 1. OVERALL STATUS THRESHOLDS (Max Score: 22.5):
-   - FULL-STORM: Score > 12.0 (EXTREME RISK)
-   - SEVERE RISK: Score > 8.0 (HIGH RISK)
-   - ELEVATED RISK: Score > 4.0 (MODERATE RISK)
-   - MONITOR: Score <= 4.0 (LOW RISK)
+   - FULL-STORM: Score > 12.0 (EXTREME RISK)
+   - SEVERE RISK: Score > 8.0 (HIGH RISK)
+   - ELEVATED RISK: Score > 4.0 (MODERATE RISK)
+   - MONITOR: Score <= 4.0 (LOW RISK)
 
 2. KEY RED-STATUS TRIGGERS:
-   - VIX (Volatility): Above 22.0
-   - US 10Y Yield (Duration Risk): Above 4.75% (The critical 'Atlas Pivot')
-   - HY OAS (Credit Risk): Above 400 bps (Systemic funding stress)
-   - Bank CDS: Above 150 bps (Banking sector fear)
-   - Consumer Delinquencies: Above 3.8% (Household stress)
+   - VIX (Volatility): Above 22.0
+   - US 10Y Yield (Duration Risk): Above 4.75% (The critical 'Atlas Pivot')
+   - HY OAS (Credit Risk): Above 400 bps (Systemic funding stress)
+   - Bank CDS: Above 150 bps (Banking sector fear)
+   - Consumer Delinquencies: Above 3.8% (Household stress)
 
 ---
 Live Data Snapshot:
 - Current Risk Status: {STATUS}
 - Composite Score: {SCORE} / 22.5
-- Trend: {TREND}
+- Trend: STABLE (Assuming no trend logic is available)
 
-Key Indicator Data Snapshot:
-- Duration Risk: US 10Y Yield @ {US10Y_YIELD}%
-- Financial Stress: VIX (Volatility Index) @ {VIX_VALUE}
-- Credit Health: HY OAS (High Yield Credit Spread) @ {HYOAS_VALUE} bps
-- Inflation Pressure: CPI Year-over-Year @ {INFLATION_VALUE}%
-- Economic Activity: ISM Manufacturing PMI @ {PMI_VALUE}
-
+---
 INSTRUCTIONS:
 1. Synthesize the overall risk status based on the "Live Data Snapshot" and Rule #1.
-2. Address the primary contradiction: Financial plumbing (VIX, HY OAS) vs. structural problem (US 10Y Yield, Inflation).
-3. Conclude by defining the current "Storm Warning" posture and state the key trigger (e.g., HY OAS breach of 400 bps) from Rule #2 that would pivot the status to SEVERE RISK.
-4. Do not list the data points directly in the commentary text, only refer to them as categories (e.g., "credit spreads remain contained").
+2. The primary analysis MUST be on the **Full Indicator Status** list provided below, focusing on the number of RED/AMBER statuses and their implications.
+3. Use the **Contextual News Feed** only to provide color, texture, and brief forward-looking context to the indicator analysis. Do not lead with the news.
+4. Conclude by defining the current "Storm Warning" posture and state the key trigger (e.g., HY OAS breach of 400 bps) from Rule #2 that would pivot the status to the next level of risk.
+5. Do not list individual indicator values in the commentary text; refer to them by category (e.g., "credit spreads remain contained," "household stress remains elevated").
 
-COMMENTARY:
+---
+Full Indicator Status:
+{FULL_INDICATOR_SUMMARY}
+
+---
+Contextual News Feed:
+{NEWS_CONTEXT}
+
+---
+FINAL COMMENTARY (For the 'daily_narrative' field only, no preamble or extra text):
+"""
+
+    # --------------------------------------------------------------------------------
+    # STEP 2: GENERATE FULL INDICATOR SUMMARY & FORMAT THE PROMPT
+    # --------------------------------------------------------------------------------
+    # NOTE: This call relies on the prepare_indicator_summary function being defined above.
+    full_summary = prepare_indicator_summary(data_dict) 
+
+    # Prepare the final prompt by substituting all placeholders
+    final_prompt = SYSTEM_PROMPT.format(
+        STATUS=data_dict["overall"]["status"],
+        SCORE=round(data_dict["overall"]["score"], 2),
+        FULL_INDICATOR_SUMMARY=full_summary,
+        NEWS_CONTEXT=news_context
+    )
+
+    # --------------------------------------------------------------------------------
+    # STEP 3: EXECUTE THE GEMINI API CALL (Keep the original API call logic)
+    # --------------------------------------------------------------------------------
+    try:
+        # ... (rest of your API client setup and execution code remains here)
+        # Ensure your client.models.generate_content call uses final_prompt as the main input.
+        # ...
+
+        # Placeholder for the successful return value
+        # return response.text 
+        # ...
+    except Exception as e:
+        # ... (error handling)
+        # ...

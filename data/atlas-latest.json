@@ -23,9 +23,9 @@
         {
             "id": "EURUSD",
             "name": "EUR/USD exchange rate",
-            "value": 1.1492931842803955,
+            "value": 1.1494252681732178,
             "status": "Green",
-            "note": "EUR/USD is stable at 1.1493. Indicates balanced global risk/economic outlook.",
+            "note": "EUR/USD is stable at 1.1494. Indicates balanced global risk/economic outlook.",
             "action": "No change.",
             "score_value": 0.0,
             "source_link": "https://finance.yahoo.com/quote/EURUSD=X/"
@@ -33,9 +33,9 @@
         {
             "id": "WTI_CRUDE",
             "name": "WTI crude oil ($/bbl)",
-            "value": 60.529998779296875,
+            "value": 60.5099983215332,
             "status": "Green",
-            "note": "WTI Crude at $60.53/bbl. Normal price range, favorable for growth.",
+            "note": "WTI Crude at $60.51/bbl. Normal price range, favorable for growth.",
             "action": "No change.",
             "score_value": 0.0,
             "source_link": "https://finance.yahoo.com/quote/USO/"
@@ -43,7 +43,7 @@
         {
             "id": "AUDUSD",
             "name": "AUD/USD exchange rate",
-            "value": 0.6494349837303162,
+            "value": 0.64939284324646,
             "status": "Red",
             "note": "AUDUSD at 0.6494. AUD remains under pressure. Strong risk-off or persistent US Dollar strength.",
             "action": "Favour US Dollar liquidity over AUD assets; watch commodity prices.",
@@ -148,9 +148,9 @@
         {
             "id": "ASX_200",
             "name": "ASX 200 index",
-            "value": 8791.2001953125,
+            "value": 8795.7001953125,
             "status": "Green",
-            "note": "ASX 200 Index at 8,791. Stable price action.",
+            "note": "ASX 200 Index at 8,796. Stable price action.",
             "action": "No change.",
             "score_value": 0.0,
             "source_link": "https://finance.yahoo.com/quote/%5EAXJO/"
@@ -178,7 +178,7 @@
         {
             "id": "SMALL_LARGE_RATIO",
             "name": "Small/Large cap ratio",
-            "value": 0.3584611311081938,
+            "value": 0.35846152770084283,
             "status": "Red",
             "note": "Ratio at 0.3585 \u2014 small-caps are heavily underperforming. Poor internals.",
             "action": "Avoid high-risk small-cap exposure.",
@@ -230,16 +230,16 @@
         "score": 10.0,
         "status": "\ud83d\udea8 SEVERE RISK (HIGH RISK)",
         "comment": "Market stability deteriorating rapidly. High caution required.",
-        "daily_narrative": "Global risk sentiment is increasingly strained, with markets reacting to significant central bank divergence and sovereign debt concerns. Reports indicate \"Fed divisions threaten Powell's era of consensus\" ([Reuters](https://www.reuters.com/markets/us/fed-divisions-threaten-powells-era-consensus-2025-11-04/)), contributing to \"Global Markets Fall after Fed officials express diverging views on cuts\" ([Dow Jones](https://www.morningstar.com/news/dow-jones/202511045063/dow-jones-top-markets-headlines-at-7-am-et-global-markets-fall-after-fed-officials-express-diverging-views-on-cuts-whats)). Simultaneously, the \"Bank of Japan debated growing case for rate hike\" ([Reuters](https://www.reuters.com/world/asia-pacific/boj-board-debated-pros-cons-rate-hike-pause-september-minutes-shows-2025-11-05/)), while the UK faces warnings that \"Reeves Must Run Surpluses to Stop UK Debt Surging\" ([Bloomberg](https://www.bloomberg.com/news/articles/2025-11-05/reeves-must-run-surpluses-to-stop-uk-debt-surging-niesr-says)). This confluence of factors has prompted \"Gold Rebounds on Haven Demand as Risk-Off Mood Rattles Markets\" ([Bloomberg](https://www.bloomberg.com/news/articles/2025-11-05/gold-holds-drop-as-investors-weigh-outlook-for-dollar-us-rates)), aligning with Atlas's elevated risk posture.\nInternally, Atlas's Composite Score of 10.00, signaling SEVERE RISK, is primarily driven by critical systemic indicators in Liquidity and Leverage. Specifically, \"Treasury net liquidity\" is deep in Red territory with a score of 2.00, indicating significant systemic strain. Concurrently, \"FINRA margin debt (YOY %)\" registers a Red status with a score of 1.50, highlighting excessive leverage in the system. The \"Small/Large cap ratio\" also signals Red (1.00), reflecting a flight from riskier assets. This high Atlas score stands in stark contrast to the currently \"Green\" status of the High Yield OAS (3.04 bps), which suggests credit markets are not yet pricing in the full extent of the underlying systemic fragility. The key Atlas pivot points to watch for a shift to FULL-STORM risk are a breach of the 4.75% threshold for the US 10-Year Yield or a rise in the HY OAS to 400 bps.",
-        "composite_summary": "Atlas maintains a \ud83d\udea8 SEVERE RISK posture, driven by deteriorating systemic liquidity and elevated leverage despite a seemingly calm credit market.",
+        "daily_narrative": "Global markets are exhibiting a distinct risk-off sentiment, as evidenced by [Gold Rebounds on Haven Demand as Risk-Off Mood Rattles Markets](https://www.bloomberg.com/news/articles/2025-11-05/gold-holds-drop-as-investors-weigh-outlook-for-dollar-us-rates) and [Global Markets Fall after Fed officials express diverging views on cuts](https://www.morningstar.com/news/dow-jones/202511045063/dow-jones-top-markets-headlines-at-7-am-et-global-markets-fall-after-fed-officials-express-diverging-views-on-cuts-whats). This external backdrop of heightened uncertainty, including [Fed divisions threatening Powell's era of consensus](https://www.reuters.com/markets/us/fed-divisions-threaten-powells-era-consensus-2025-11-04/) and fiscal integrity concerns in the UK where [Reeves Must Run Surpluses to Stop UK Debt Surging](https://www.bloomberg.com/news/articles/2025-11-05/reeves-must-run-surpluses-to-stop-uk-debt-surging-niesr-says), strongly corroborates Atlas's current posture of SEVERE RISK. Internally, Atlas's SEVERE RISK rating is primarily driven by critical 'Red' status systemic indicators, particularly within Liquidity and Leverage. Treasury net liquidity stands at a deeply negative -6.59 million, contributing a significant 2.00 points to the composite score, signaling acute liquidity stress. Concurrently, FINRA margin debt (YOY %) is elevated at 32.94%, adding 1.50 points and highlighting excessive leverage in the system. This high-risk internal state exists despite a relatively subdued VIX index at 19.00 (Amber) and a High yield OAS at 3.04 (Green), which might suggest a false sense of market calm. The critical pivot point that would escalate Atlas's risk level to FULL-STORM remains the US 10yr treasury yield breaching its 4.75% threshold or the HY OAS exceeding 400 bps, neither of which has occurred yet, but the underlying systemic fragility is undeniable.",
+        "composite_summary": "Atlas indicates a SEVERE RISK posture, driven by significant liquidity and leverage concerns, despite some market complacency.",
         "key_actions": [
-            "Reduce exposure to risk assets, particularly small-cap equities and highly leveraged positions.",
-            "Increase allocations to cash and short-duration U.S. Treasuries to enhance portfolio liquidity.",
-            "Implement hedges against potential currency volatility, especially given the Red status of AUD/USD.",
-            "Closely monitor the US 10-Year Yield for a breach of 4.75% and the High Yield OAS for a move towards 400 bps, which would signal a transition to FULL-STORM risk.",
-            "Favor defensive sectors and high-quality fixed income to preserve capital."
+            "Reduce exposure to risk assets across the portfolio, prioritizing capital preservation.",
+            "Increase allocation to defensive assets, such as short-duration U.S. Treasuries and physical gold.",
+            "Maintain elevated cash reserves to capitalize on potential dislocations and enhance liquidity.",
+            "Review and stress-test existing portfolio holdings for resilience against potential liquidity shocks and credit events.",
+            "Implement hedging strategies to mitigate downside risk from widening credit spreads or unexpected rate hikes."
         ],
-        "date": "2025-11-05 15:50:33",
+        "date": "2025-11-05 16:03:01",
         "news": [
             {
                 "title": "Bloomberg - Business News, Stock Markets, Finance, Breaking ...",

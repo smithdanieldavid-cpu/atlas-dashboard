@@ -23,9 +23,9 @@
         {
             "id": "EURUSD",
             "name": "EUR/USD exchange rate",
-            "value": 1.1496896743774414,
+            "value": 1.1495574712753296,
             "status": "Green",
-            "note": "EUR/USD is stable at 1.1497. Indicates balanced global risk/economic outlook.",
+            "note": "EUR/USD is stable at 1.1496. Indicates balanced global risk/economic outlook.",
             "action": "No change.",
             "score_value": 0.0,
             "source_link": "https://finance.yahoo.com/quote/EURUSD=X/"
@@ -43,9 +43,9 @@
         {
             "id": "AUDUSD",
             "name": "AUD/USD exchange rate",
-            "value": 0.6507874727249146,
+            "value": 0.6508721709251404,
             "status": "Amber",
-            "note": "AUDUSD at 0.6508. AUD is consolidating. Global risk appetite is tentative.",
+            "note": "AUDUSD at 0.6509. AUD is consolidating. Global risk appetite is tentative.",
             "action": "Monitor closely for breaks below 0.6500.",
             "score_value": 0.5,
             "source_link": "https://finance.yahoo.com/quote/AUDUSD=X/"
@@ -230,16 +230,16 @@
         "score": 7.75,
         "status": "\ud83d\udfe0 ELEVATED RISK (MODERATE RISK)",
         "comment": "Risk posture is elevated. Maintain defensive positioning.",
-        "daily_narrative": "Global risk sentiment remains complex, with notable concerns emerging from central bank policy and trade. Recent reports highlight \"[Fed divisions threaten Powell's era of consensus | Reuters](https://www.reuters.com/markets/us/fed-divisions-threaten-powells-era-consensus-2025-11-04/)\", suggesting potential volatility as the market grapples with \"[What Does a Divided Fed Mean for Investors? | Morningstar](https://www.morningstar.com/economy/what-does-divided-fed-mean-investors)\". This internal discord, coupled with \"[European Midday Briefing: Stocks Lower Amid Valuation Fears ...](https://www.morningstar.com/news/dow-jones/202511052907/european-midday-briefing-stocks-lower-amid-valuation-fears)\" and ongoing trade policy uncertainties like \"[Trump Tariffs in Court Today ... | Morningstar](https://www.morningstar.com/news/dow-jones/202511053725/north-american-morning-briefing-trump-tariffs-in-court-today)\", contributes to an environment of elevated external risk. Despite \"[US Treasuries Remain Top Debt Market Despite Policy Turbulence](https://www.forbes.com/sites/chrisgunster/2025/11/05/us-treasuries-remain-top-debt-market-despite-policy-turbulence/)\", the broader geopolitical and policy landscape reinforces Atlas's current posture of Elevated Risk. Internally, Atlas's composite score of 7.75, signaling Elevated Risk, is primarily driven by critical systemic indicators. Specifically, the \"[FINRA margin debt (YOY %)](https://www.finra.org/investors/market-data/margin-statistics)\" at 32.94 (Red, Score: 1.50) highlights a significant build-up of leverage within the system. Complementing this, the \"[Small/Large cap ratio](https://www.investopedia.com/terms/s/small-cap-large-cap-ratio.asp)\" at 0.36 (Red, Score: 1.00) indicates deteriorating market breadth and a flight from riskier, smaller capitalization assets. This elevated internal risk posture exists despite the VIX index remaining in the Amber zone at 18.01, suggesting a potential complacency in volatility measures relative to underlying systemic pressures. The next critical pivot point for Atlas to move into a FULL-STORM risk level would be a breach of the 4.75% threshold for the US 10-Year Treasury Yield or a rise in the High Yield OAS to 400 bps.",
-        "composite_summary": "Atlas maintains an Elevated Risk posture, driven by escalating leverage and deteriorating market breadth, signaling a need for defensive positioning.",
+        "daily_narrative": "The current market environment is characterized by a backdrop of policy uncertainty and valuation concerns, contributing to Atlas's 'ELEVATED RISK' posture. Recent reports highlight [Fed divisions threatening Powell's era of consensus](https://www.reuters.com/markets/us/fed-divisions-threaten-powells-era-consensus-2025-11-04/) and a [divided Fed](https://www.morningstar.com/economy/what-does-divided-fed-mean-investors), signaling potential for future monetary policy shifts and increased volatility. Concurrently, discussions around [Trump Tariffs](https://www.morningstar.com/news/dow-jones/202511053725/north-american-morning-briefing-trump-tariffs-in-court-today) introduce geopolitical and trade policy risks, while [European stocks are lower amid valuation fears](https://www.morningstar.com/news/dow-jones/202511052907/european-midday-briefing-stocks-lower-amid-valuation-fears). Despite these external headwinds, [US Treasuries remain a top debt market](https://www.forbes.com/sites/chrisgunster/2025/11/05/us-treasuries-remain-top-debt-market-despite-policy-turbulence/) suggesting underlying stability in core funding markets, yet the overall sentiment remains cautious. Internally, Atlas's composite score of 7.75 is primarily driven by critical 'Red' status systemic drivers related to leverage and market breadth, despite a relatively benign VIX (18.01, Amber) and a 'Green' High Yield OAS (380.00 bps). Specifically, FINRA margin debt (YOY %) stands at a concerning 32.94%, contributing 1.50 points to the composite score and indicating excessive leverage within the system. Furthermore, the Small/Large cap ratio at 0.36, scoring 1.00, signals a clear flight to quality and reduced risk appetite for smaller, less liquid segments of the market. This divergence between systemic leverage and relatively contained credit spreads presents a key contradiction. The next critical pivot point for Atlas to move into a 'FULL-STORM' risk level would be a breach of the US 10-Year Yield threshold at 4.75% or the High Yield OAS exceeding 400 bps.",
+        "composite_summary": "Atlas maintains an ELEVATED RISK posture, driven by systemic leverage and market breadth concerns, despite some traditional volatility and credit indicators remaining contained.",
         "key_actions": [
-            "Reduce exposure to highly leveraged equities and speculative credit.",
-            "Increase allocation to high-quality, short-duration fixed income to mitigate yield volatility.",
-            "Prioritize defensive sectors with strong balance sheets and consistent cash flows.",
-            "Maintain elevated cash positions to capitalize on potential market dislocations.",
-            "Closely monitor credit spreads, particularly High Yield OAS, for signs of further deterioration."
+            "Reduce exposure to highly leveraged assets and small-cap equities.",
+            "Increase allocation to high-quality, short-duration fixed income to mitigate interest rate risk.",
+            "Maintain higher cash reserves to capitalize on potential market dislocations.",
+            "Consider defensive equity sectors with strong balance sheets and stable cash flows.",
+            "Monitor the US 10-Year Yield and High Yield OAS closely for further deterioration towards 'FULL-STORM' thresholds."
         ],
-        "date": "2025-11-06 09:32:39",
+        "date": "2025-11-06 09:39:34",
         "news": [
             {
                 "title": "What Does a Divided Fed Mean for Investors? | Morningstar",

@@ -60,7 +60,7 @@ INSTRUCTIONS = """
     * **Paragraph 2 (External Context):** Use the **Contextual News Feed** to corroborate the technical analysis from Paragraph 1 and provide a brief forward-looking perspective on the market.
 4. Conclude the final sentence of Paragraph 2 by clearly stating the key trigger (e.g., HY OAS breach of 400 bps) from Rule #2 that would pivot the status to the next level of risk.
 5. Do not list individual indicator values in the commentary text; refer to them by category (e.g., "credit spreads remain contained").
-6. When you reference news articles do not put the full URL into the commentary, just reference the NAME and the TITLE - maybe direct users to see the articles in the news feed. 
+6. Do not put the source link URL into the commentary. Please ONLY reference the TITLE and SOURCE (e.g., "[Fed divisions threaten Powell's era of consensus | Reuters]") direct users to see the articles in the news feed. 
 
 ---
 Full Indicator Status:

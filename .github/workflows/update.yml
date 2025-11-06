@@ -46,6 +46,9 @@ jobs:
       # 4. Execute the Python script (ADDED: Explicit Python path for environment safety)
       - name: 🏃 Run Atlas Update Script
         # THIS SECTION EXPOSES ALL NECESSARY SECRETS AS ENVIRONMENT VARIABLES
+        # CRITICAL FIX: Using the explicit virtual environment path for reliability.
+        run: $GITHUB_WORKSPACE/.venv/bin/python update_atlas.py
+        # THIS SECTION EXPOSES ALL NECESSARY SECRETS AS ENVIRONMENT VARIABLES
         run: ${{ env.pythonLocation }}/bin/python update_atlas.py
         env:
           # CORE KEYS

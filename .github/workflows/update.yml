@@ -49,7 +49,7 @@ jobs:
         # CRITICAL FIX: Using the explicit virtual environment path for reliability.
         run: $GITHUB_WORKSPACE/.venv/bin/python update_atlas.py
         # THIS SECTION EXPOSES ALL NECESSARY SECRETS AS ENVIRONMENT VARIABLES
-        run: ${{ env.pythonLocation }}/bin/python update_atlas.py
+        
         env:
           # CORE KEYS
           FRED_API_KEY: ${{ secrets.FRED_API_KEY }}

@@ -3,9 +3,9 @@
         {
             "id": "VIX",
             "name": "VIX index",
-            "value": 19.610000610351562,
+            "value": 19.5,
             "status": "Amber",
-            "note": "VIX is moderate at 19.61. Volatility is starting to increase.",
+            "note": "VIX is moderate at 19.50. Volatility is starting to increase.",
             "action": "Monitor volatility trends closely.",
             "score_value": 1.0,
             "source_link": "https://finance.yahoo.com/quote/%5EVIX/"
@@ -33,9 +33,9 @@
         {
             "id": "WTI_CRUDE",
             "name": "WTI crude oil ($/bbl)",
-            "value": 59.529998779296875,
+            "value": 59.52000045776367,
             "status": "Amber",
-            "note": "WTI Crude at $59.53/bbl. Low price indicates global slowdown or demand weakness.",
+            "note": "WTI Crude at $59.52/bbl. Low price indicates global slowdown or demand weakness.",
             "action": "Monitor global growth indicators.",
             "score_value": 0.5,
             "source_link": "https://finance.yahoo.com/quote/USO/"
@@ -43,9 +43,9 @@
         {
             "id": "AUDUSD",
             "name": "AUD/USD exchange rate",
-            "value": 0.6480461359024048,
+            "value": 0.6482141613960266,
             "status": "Red",
-            "note": "AUDUSD at 0.6480. AUD remains under pressure. Strong risk-off or persistent US Dollar strength.",
+            "note": "AUDUSD at 0.6482. AUD remains under pressure. Strong risk-off or persistent US Dollar strength.",
             "action": "Favour US Dollar liquidity over AUD assets; watch commodity prices.",
             "score_value": 1.0,
             "source_link": "https://finance.yahoo.com/quote/AUDUSD=X/"
@@ -53,9 +53,9 @@
         {
             "id": "3Y_YIELD",
             "name": "US 3yr treasury yield",
-            "value": 3.59,
+            "value": 3.65,
             "status": "Amber",
-            "note": "Yield at 3.59%. Medium-term rate pressure.",
+            "note": "Yield at 3.65%. Medium-term rate pressure.",
             "action": "Avoid intermediate locks; prefer short/floating rate instruments.",
             "score_value": 0.5,
             "source_link": "https://fred.stlouisfed.org/series/DGS3"
@@ -63,9 +63,9 @@
         {
             "id": "30Y_YIELD",
             "name": "US 30yr treasury yield",
-            "value": 4.67,
+            "value": 4.74,
             "status": "Amber",
-            "note": "Yield at 4.67%. Elevated long-term yields reflecting fiscal risk/inflation concerns.",
+            "note": "Yield at 4.74%. Elevated long-term yields reflecting fiscal risk/inflation concerns.",
             "action": "Watch the 5.0% threshold. Limit long duration locks.",
             "score_value": 0.5,
             "source_link": "https://fred.stlouisfed.org/series/DGS30"
@@ -73,9 +73,9 @@
         {
             "id": "10Y_YIELD",
             "name": "US 10yr treasury yield",
-            "value": 4.1,
+            "value": 4.17,
             "status": "Amber",
-            "note": "Yield at 4.10%. Elevated yields.",
+            "note": "Yield at 4.17%. Elevated yields.",
             "action": "Watch the Atlas pivot at 4.75%; favour short duration.",
             "score_value": 0.5,
             "source_link": "https://fred.stlouisfed.org/series/DGS10"
@@ -93,9 +93,9 @@
         {
             "id": "TREASURY_LIQUIDITY",
             "name": "Treasury net liquidity",
-            "value": -6586065.256,
+            "value": -6571780.267,
             "status": "Red",
-            "note": "Net Liquidity at $-6586065B. Liquidity is contracting aggressively. High systemic risk.",
+            "note": "Net Liquidity at $-6571780B. Liquidity is contracting aggressively. High systemic risk.",
             "action": "Aggressively reduce all risk asset exposure and increase cash/SOFR instruments.",
             "score_value": 2.0,
             "source_link": "https://fred.stlouisfed.org/series/WALCL"
@@ -178,7 +178,7 @@
         {
             "id": "SMALL_LARGE_RATIO",
             "name": "Small/Large cap ratio",
-            "value": 0.35992807639784746,
+            "value": 0.3599264779341164,
             "status": "Red",
             "note": "Ratio at 0.3599 \u2014 small-caps are heavily underperforming. Poor internals.",
             "action": "Avoid high-risk small-cap exposure.",
@@ -230,16 +230,16 @@
         "score": 10.5,
         "status": "\ud83d\udea8 SEVERE RISK (HIGH RISK)",
         "comment": "Market stability deteriorating rapidly. High caution required.",
-        "daily_narrative": "The global macroeconomic landscape is characterized by central bank divergence and persistent inflation concerns, contributing to an underlying risk sentiment that aligns with Atlas's elevated posture. The [Bank of England's decision to hold rates at 4%](https://www.ft.com/content/8ae7781b-729a-4226-aae3-4e70aebbe995) in a \"knife-edge decision\" and its subsequent [divergence from the Fed's stance](https://www.morningstar.com/news/dow-jones/202511068000/bank-england-diverges-from-fed-with-rate-hold) highlights a fragmented global monetary policy approach. While the [Fed remains concerned about inflation](https://www.bloomberg.com/news/articles/2025-11-06/fed-s-hammack-says-inflation-a-bigger-concern-than-labor-market), other central banks like the [Swedish Riksbank express uncertainty about economic activity and inflation](https://www.reuters.com/business/finance/swedish-riksbanks-thedeen-says-outlook-economic-activity-inflation-is-uncertain-2025-11-06/), creating a complex and uncertain external backdrop. Despite this complex external backdrop, Atlas's internal indicators signal a \"SEVERE RISK\" posture with a Composite Score of 10.50. The primary drivers of this elevated score are critical systemic vulnerabilities in Liquidity and Leverage. Specifically, \"Treasury net liquidity\" is deep in 'Red' territory with a score of 2.00, indicating significant stress in market plumbing. Concurrently, \"FINRA margin debt (YOY %)\" also registers 'Red' with a score of 1.50, pointing to excessive leverage within the system. A notable disconnect exists between the Atlas score and certain market perceptions, such as the VIX index, which remains at an 'Amber' 19.61 (Score: 1.00), suggesting a degree of complacency not reflected in our comprehensive systemic analysis. The next critical pivot point for Atlas to move into a \"FULL-STORM\" risk level would be a breach of the \"US 10yr treasury yield\" threshold of 4.75% (currently 4.10%) or, more critically, the \"High yield OAS\" reaching 400 bps (currently a benign 3.05 bps), the latter remaining a key watch for credit market stress.",
-        "composite_summary": "Atlas maintains a SEVERE RISK posture, driven by critical systemic vulnerabilities in liquidity and leverage, despite a fragmented global monetary policy response.",
+        "daily_narrative": "Global financial markets are navigating a complex landscape marked by persistent central bank vigilance against inflation, even as some economies show signs of softening. The Bank of England's decision to hold rates at 4% ([Reuters](https://www.reuters.com/business/finance/bank-england-set-tight-rates-decision-inflation-softens-budget-looms-2025-11-06/), [Seeking Alpha](https://seekingalpha.com/article/4839356-november-boe-decision-a-divisive-dovish-pause), [Morningstar](https://www.morningstar.com/news/dow-jones/202511068000/bank-of-england-diverges-from-fed-with-rate-hold), [FT](https://www.ft.com/content/8ae7781b-729a-4226-aae3-4e70aebbe995), [WSJ](https://www.wsj.com/economy/central-banking/bank-of-england-diverges-from-fed-with-rate-hold-a53795f3?gaa_at=eafs&gaa_n=AWEtsqeeE0_4BoAKhlwUIfsA8KBkh8xU9hNOuVH-84z0xWT7WGJmoxnGGTqH&gaa_ts=690d1bbb&gaa_sig=bPv8ZQdcqZ3_hvCh9URovLnzZk_ZPbYOS0hYxbjbx2CkevLJHq9BxgD39Xms2-Ne27_binUKjWyY6PEtIbz0fg%3D%3D)) despite softening inflation, coupled with the Fed's continued focus on inflation as a primary concern ([Bloomberg](https://www.bloomberg.com/news/articles/2025-11-06/fed-s-hammack-says-inflation-a-bigger-concern-than-labor-market)), underscores a global tightening bias or at least a reluctance to ease. This environment, further complicated by the Swedish Riksbank's uncertain economic outlook ([Reuters](https://www.reuters.com/business/finance/swedish-riksbanks-thedeen-says-outlook-economic-activity-inflation-is-uncertain-2025-11-06/)), contributes to an elevated external risk sentiment that aligns with Atlas's current \"SEVERE RISK\" posture.Internally, Atlas's Composite Score of 10.50, signaling \"SEVERE RISK,\" is primarily driven by critical systemic indicators in Liquidity and Leverage. Specifically, Treasury net liquidity (Score: 2.00, Red) indicates significant stress in the financial system's plumbing, while FINRA margin debt (YOY %) (Score: 1.50, Red) highlights excessive leverage building within the market. The AUD/USD exchange rate (Score: 1.00, Red) and Small/Large cap ratio (Score: 1.00, Red) further reinforce a deteriorating risk appetite and market breadth. This elevated systemic risk contrasts with a relatively subdued VIX index (19.50, Amber), suggesting a potential disconnect where market volatility has not yet fully priced in the underlying vulnerabilities. The critical pivot points to monitor for a shift to \"FULL-STORM\" risk are the US 10-Year Yield breaching 4.75% or the High Yield OAS exceeding 400 bps.",
+        "composite_summary": "Atlas maintains a \"SEVERE RISK\" posture, driven by significant systemic liquidity and leverage concerns, warranting immediate defensive portfolio adjustments.",
         "key_actions": [
-            "Reduce exposure to highly leveraged assets and speculative growth stocks.",
-            "Increase allocation to high-quality, short-duration fixed income to preserve capital.",
-            "Maintain elevated cash reserves to capitalize on potential dislocations.",
-            "Consider defensive equity positions with strong balance sheets and consistent free cash flow.",
-            "Monitor credit spreads, particularly the High Yield OAS, for early signs of broader market stress."
+            "Reduce exposure to risk assets, particularly small-cap equities and highly leveraged positions.",
+            "Increase allocation to cash and short-duration U.S. Treasury instruments to enhance portfolio liquidity and safety.",
+            "Consider hedging strategies for currency exposure, especially against the AUD, given its \"Red\" status.",
+            "Prioritize defensive sectors and high-quality fixed income with minimal credit risk.",
+            "Closely monitor the US 10-Year Yield and High Yield OAS for any breach of their respective \"FULL-STORM\" thresholds."
         ],
-        "date": "2025-11-07 08:16:54",
+        "date": "2025-11-07 08:51:02",
         "news": [
             {
                 "title": "Bloomberg - Business News, Stock Markets, Finance, Breaking ...",
@@ -283,7 +283,7 @@
             },
             {
                 "title": "Bank of England Diverges From Fed With Rate Hold - WSJ",
-                "url": "https://www.wsj.com/economy/central-banking/bank-of-england-diverges-from-fed-with-rate-hold-a53795f3?gaa_at=eafs&gaa_n=AWEtsqdRPPwipz8XyDDIZRpe5s3UIuyRUIJrFn8f_x91o8pRs_UA95adGGpI&gaa_ts=690d13ba&gaa_sig=zHcM3ZfLJtsN7RTlinaIAf0rp7gjJihXztnuc8zw9F-_YE0pZVMDTs0REMBPhSWFKJNsLpeOLD8rS-9OWxenZg%3D%3D",
+                "url": "https://www.wsj.com/economy/central-banking/bank-of-england-diverges-from-fed-with-rate-hold-a53795f3?gaa_at=eafs&gaa_n=AWEtsqeeE0_4BoAKhlwUIfsA8KBkh8xU9hNOuVH-84z0xWT7WGJmoxnGGTqH&gaa_ts=690d1bbb&gaa_sig=bPv8ZQdcqZ3_hvCh9URovLnzZk_ZPbYOS0hYxbjbx2CkevLJHq9BxgD39Xms2-Ne27_binUKjWyY6PEtIbz0fg%3D%3D",
                 "snippet": "Contextual article. Click title for details."
             },
             {
@@ -292,6 +292,6 @@
                 "snippet": "Contextual article. Click title for details."
             }
         ],
-        "news_context_raw": "1. [Bloomberg - Business News, Stock Markets, Finance, Breaking ...](https://www.bloomberg.com/)\n2. [Bank of England set for tight rates decision as inflation softens and ...](https://www.reuters.com/business/finance/bank-england-set-tight-rates-decision-inflation-softens-budget-looms-2025-11-06/)\n3. [November BoE Decision: A Divisive, Dovish Pause (BATS:EWUS ...](https://seekingalpha.com/article/4839356-november-boe-decision-a-divisive-dovish-pause)\n4. [Fed's Hammack Says Inflation a Bigger Concern than Labor Market ...](https://www.bloomberg.com/news/articles/2025-11-06/fed-s-hammack-says-inflation-a-bigger-concern-than-labor-market)\n5. [Bank of England Diverges From Fed With Rate Hold | Morningstar](https://www.morningstar.com/news/dow-jones/202511068000/bank-of-england-diverges-from-fed-with-rate-hold)\n6. [Bank of England keeps rates on hold at 4% in knife-edge decision](https://www.ft.com/content/8ae7781b-729a-4226-aae3-4e70aebbe995)\n7. [Touchstone Balanced Fund Q3 2025 Commentary | Seeking Alpha](https://seekingalpha.com/article/4838966-touchstone-balanced-fund-q3-2025-commentary)\n8. [Swedish Riksbank's Thedeen says outlook for economic activity and ...](https://www.reuters.com/business/finance/swedish-riksbanks-thedeen-says-outlook-economic-activity-inflation-is-uncertain-2025-11-06/)\n9. [Bank of England Diverges From Fed With Rate Hold - WSJ](https://www.wsj.com/economy/central-banking/bank-of-england-diverges-from-fed-with-rate-hold-a53795f3?gaa_at=eafs&gaa_n=AWEtsqdRPPwipz8XyDDIZRpe5s3UIuyRUIJrFn8f_x91o8pRs_UA95adGGpI&gaa_ts=690d13ba&gaa_sig=zHcM3ZfLJtsN7RTlinaIAf0rp7gjJihXztnuc8zw9F-_YE0pZVMDTs0REMBPhSWFKJNsLpeOLD8rS-9OWxenZg%3D%3D)\n10. [UNDER ARMOUR ANNOUNCES CFO TRANSITION; REZA ...](https://www.morningstar.com/news/pr-newswire/20251106ph17168/under-armour-announces-cfo-transition-reza-taleghani-to-succeed-david-bergman-in-february-2026)"
+        "news_context_raw": "1. [Bloomberg - Business News, Stock Markets, Finance, Breaking ...](https://www.bloomberg.com/)\n2. [Bank of England set for tight rates decision as inflation softens and ...](https://www.reuters.com/business/finance/bank-england-set-tight-rates-decision-inflation-softens-budget-looms-2025-11-06/)\n3. [November BoE Decision: A Divisive, Dovish Pause (BATS:EWUS ...](https://seekingalpha.com/article/4839356-november-boe-decision-a-divisive-dovish-pause)\n4. [Fed's Hammack Says Inflation a Bigger Concern than Labor Market ...](https://www.bloomberg.com/news/articles/2025-11-06/fed-s-hammack-says-inflation-a-bigger-concern-than-labor-market)\n5. [Bank of England Diverges From Fed With Rate Hold | Morningstar](https://www.morningstar.com/news/dow-jones/202511068000/bank-of-england-diverges-from-fed-with-rate-hold)\n6. [Bank of England keeps rates on hold at 4% in knife-edge decision](https://www.ft.com/content/8ae7781b-729a-4226-aae3-4e70aebbe995)\n7. [Touchstone Balanced Fund Q3 2025 Commentary | Seeking Alpha](https://seekingalpha.com/article/4838966-touchstone-balanced-fund-q3-2025-commentary)\n8. [Swedish Riksbank's Thedeen says outlook for economic activity and ...](https://www.reuters.com/business/finance/swedish-riksbanks-thedeen-says-outlook-economic-activity-inflation-is-uncertain-2025-11-06/)\n9. [Bank of England Diverges From Fed With Rate Hold - WSJ](https://www.wsj.com/economy/central-banking/bank-of-england-diverges-from-fed-with-rate-hold-a53795f3?gaa_at=eafs&gaa_n=AWEtsqeeE0_4BoAKhlwUIfsA8KBkh8xU9hNOuVH-84z0xWT7WGJmoxnGGTqH&gaa_ts=690d1bbb&gaa_sig=bPv8ZQdcqZ3_hvCh9URovLnzZk_ZPbYOS0hYxbjbx2CkevLJHq9BxgD39Xms2-Ne27_binUKjWyY6PEtIbz0fg%3D%3D)\n10. [UNDER ARMOUR ANNOUNCES CFO TRANSITION; REZA ...](https://www.morningstar.com/news/pr-newswire/20251106ph17168/under-armour-announces-cfo-transition-reza-taleghani-to-succeed-david-bergman-in-february-2026)"
     }
 }

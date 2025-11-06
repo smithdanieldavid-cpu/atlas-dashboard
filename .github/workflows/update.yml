@@ -36,17 +36,17 @@ jobs:
         with:
           python-version: '3.11' # Use a stable, recent version
 
-      # 3. Install dependencies
+      # 3. Install dependencies (FIXED: Now installs from requirements.txt, which includes google-api-python-client)
       - name: 📦 Install Python dependencies
         run: |
-          # Install all necessary packages, including 'requests' for news and Alpha Vantage dependencies
+          # Install all necessary packages from the requirements.txt file
           python -m pip install --upgrade pip
-          pip install pandas requests google-genai fredapi yfinance # Add any other necessary packages here (e.g., alpha_vantage if you use a library for it)
+          pip install -r requirements.txt # Uses your comprehensive requirements file!
 
-      # 4. Execute the Python script
+      # 4. Execute the Python script (ADDED: Explicit Python path for environment safety)
       - name: 🏃 Run Atlas Update Script
         # THIS SECTION EXPOSES ALL NECESSARY SECRETS AS ENVIRONMENT VARIABLES
-        run: python update_atlas.py
+        run: ${{ env.pythonLocation }}/bin/python update_atlas.py
         env:
           # CORE KEYS
           FRED_API_KEY: ${{ secrets.FRED_API_KEY }}

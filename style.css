@@ -63,33 +63,25 @@ table td, table th {
 /* Limits text to 5 lines for narrative summary */
 .italic-clamp-5 {
   font-style: italic;
-
-  /* WebKit-based browsers (Chrome, Safari, newer Edge) */
+  white-space: normal;
   overflow: hidden;
+  text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 5; /* Limit to 5 lines */
-  
-  /* Standard/Future CSS support (Limited current adoption) */
-  line-clamp: 5;
-  
-  /* Fallback Max-height (Rough estimate assuming ~1.2em line height) */
-  max-height: calc(1.2em * 5); 
+  -webkit-line-clamp: 5;
+  line-clamp: 5; /* Future support */
+  max-height: calc(1.2em * 5);
 }
 
-/* NEW: Limits text to 3 lines for a much shorter summary */
+/* Limits text to 3 lines for a shorter summary */
 .italic-clamp-3 {
   font-style: italic;
-
-  /* WebKit-based browsers (Chrome, Safari, newer Edge) */
+  white-space: normal;
   overflow: hidden;
+  text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3; /* Limit to 3 lines */
-  
-  /* Standard/Future CSS support (Limited current adoption) */
-  line-clamp: 3;
-  
-  /* Fallback Max-height (Rough estimate assuming ~1.2em line height) */
-  max-height: calc(1.2em * 3); 
+  -webkit-line-clamp: 3;
+  line-clamp: 3; /* Future support */
+  max-height: calc(1.2em * 3);
 }

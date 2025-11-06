@@ -23,9 +23,9 @@
         {
             "id": "EURUSD",
             "name": "EUR/USD exchange rate",
-            "value": 1.1495574712753296,
+            "value": 1.151012897491455,
             "status": "Green",
-            "note": "EUR/USD is stable at 1.1496. Indicates balanced global risk/economic outlook.",
+            "note": "EUR/USD is stable at 1.1510. Indicates balanced global risk/economic outlook.",
             "action": "No change.",
             "score_value": 0.0,
             "source_link": "https://finance.yahoo.com/quote/EURUSD=X/"
@@ -33,9 +33,9 @@
         {
             "id": "WTI_CRUDE",
             "name": "WTI crude oil ($/bbl)",
-            "value": 59.63999938964844,
+            "value": 59.70000076293945,
             "status": "Amber",
-            "note": "WTI Crude at $59.64/bbl. Low price indicates global slowdown or demand weakness.",
+            "note": "WTI Crude at $59.70/bbl. Low price indicates global slowdown or demand weakness.",
             "action": "Monitor global growth indicators.",
             "score_value": 0.5,
             "source_link": "https://finance.yahoo.com/quote/USO/"
@@ -43,9 +43,9 @@
         {
             "id": "AUDUSD",
             "name": "AUD/USD exchange rate",
-            "value": 0.6506181359291077,
+            "value": 0.6514233946800232,
             "status": "Amber",
-            "note": "AUDUSD at 0.6506. AUD is consolidating. Global risk appetite is tentative.",
+            "note": "AUDUSD at 0.6514. AUD is consolidating. Global risk appetite is tentative.",
             "action": "Monitor closely for breaks below 0.6500.",
             "score_value": 0.5,
             "source_link": "https://finance.yahoo.com/quote/AUDUSD=X/"
@@ -148,9 +148,9 @@
         {
             "id": "ASX_200",
             "name": "ASX 200 index",
-            "value": 8802.0,
+            "value": 8813.0,
             "status": "Green",
-            "note": "ASX 200 Index at 8,802. Stable price action.",
+            "note": "ASX 200 Index at 8,813. Stable price action.",
             "action": "No change.",
             "score_value": 0.0,
             "source_link": "https://finance.yahoo.com/quote/%5EAXJO/"
@@ -230,17 +230,32 @@
         "score": 10.0,
         "status": "\ud83d\udea8 SEVERE RISK (HIGH RISK)",
         "comment": "Market stability deteriorating rapidly. High caution required.",
-        "daily_narrative": "Global markets are navigating a complex landscape marked by significant policy uncertainty and underlying valuation concerns, directly reinforcing Atlas's current posture of SEVERE RISK. Recent reports highlight [Fed divisions threaten Powell's era of consensus | Reuters](https://www.reuters.com/markets/us/fed-divisions-threaten-powells-era-consensus-2025-11-04/) and question [What Does a Divided Fed Mean for Investors? | Morningstar](https://www.morningstar.com/economy/what-does-divided-fed-mean-investors), signaling internal policy turbulence that can fuel volatility. This is compounded by broader market apprehension, as evidenced by [European Midday Briefing: Stocks Lower Amid Valuation Fears ...](https://www.morningstar.com/news/dow-jones/202511052907/european-midday-briefing-stocks-lower-amid-valuation-fears) and ongoing trade policy uncertainty with [North American Morning Briefing: Trump Tariffs in Court Today ...](https://www.morningstar.com/news/dow-jones/202511053725/north-american-morning-briefing-trump-tariffs-in-court-today), all contributing to a cautious external risk sentiment.\n\nInternally, Atlas's Composite Score of 10.00, signaling SEVERE RISK, is primarily driven by critical systemic liquidity and leverage indicators. Specifically, `Treasury net liquidity` is deep in 'Red' territory with a score of 2.00, indicating significant systemic stress, while `FINRA margin debt (YOY %)` also registers 'Red' with a score of 1.50, pointing to elevated leverage within the market. The `Small/Large cap ratio` further supports this defensive posture with a 'Red' status and a score of 1.00, suggesting capital flight from riskier assets. While the VIX index remains 'Amber' at 18.01, not yet signaling extreme panic, this apparent calm belies the underlying systemic vulnerabilities identified by Atlas. The critical pivot points for a move to FULL-STORM risk remain the US 10-Year Treasury Yield, which would need to breach 4.75%, and the High Yield OAS, which would need to exceed 400 bps.",
-        "composite_summary": "Atlas maintains a SEVERE RISK posture with a Composite Score of 10.00, driven by critical systemic liquidity and leverage concerns amidst a backdrop of global policy uncertainty.",
+        "daily_narrative": "Global markets are navigating a landscape marked by significant policy uncertainty and underlying valuation concerns, contributing to Atlas's elevated risk posture. Reports highlighting \"[Fed divisions threaten Powell's era of consensus | Reuters](https://www.reuters.com/markets/us/fed-divisions-threaten-powells-era-consensus-2025-11-04/)\" and \"[What Does a Divided Fed Mean for Investors? | Morningstar](https://www.morningstar.com/economy/what-does-divided-fed-mean-investors)\" underscore potential shifts in monetary policy predictability, while \"[European Midday Briefing: Stocks Lower Amid Valuation Fears ...](https://www.morningstar.com/news/dow-jones/202511052907/european-midday-briefing-stocks-lower-amid-valuation-fears)\" indicates growing apprehension regarding market valuations. This external backdrop of geopolitical and policy flux aligns with the Atlas system's current assessment of heightened systemic risk. Despite a relatively subdued VIX index at 18.01 (Amber) and seemingly stable equity markets (S&P 500, ASX 200 Green), the Atlas Composite Score of 10.00, indicating SEVERE RISK, is primarily driven by critical systemic vulnerabilities. Specifically, Treasury net liquidity is deep in 'Red' territory at -6,586,063.20 (Score: 2.00), signaling significant liquidity strain. Concurrently, FINRA margin debt (YOY %) is alarmingly high at 32.94% (Red, Score: 1.50), reflecting excessive leverage within the system. The Small/Large cap ratio also registers 'Red' at 0.36 (Score: 1.00), pointing to deteriorating market breadth and risk appetite. The key Atlas pivot points that would trigger a 'FULL-STORM' risk level are a breach of the US 10yr treasury yield above 4.75% or the High yield OAS exceeding 400 bps, both of which remain below these critical thresholds for now, but warrant close monitoring given the underlying systemic stress.",
+        "composite_summary": "The Atlas Composite Score of 10.00 signals a SEVERE RISK (HIGH RISK) environment, primarily driven by critical systemic vulnerabilities in liquidity and leverage despite some surface-level calm.",
         "key_actions": [
-            "Reduce overall portfolio beta and increase defensive allocations to high-quality assets.",
-            "Prioritize investment-grade fixed income over speculative credit, focusing on shorter durations.",
-            "Maintain elevated cash reserves to enhance flexibility and capitalize on potential market dislocations.",
-            "Review and stress-test existing equity and credit positions for sensitivity to rising rates and tightening liquidity conditions.",
-            "Consider implementing hedging strategies to mitigate downside risk in equity portfolios and protect against credit spread widening."
+            "Reduce exposure to speculative assets and small-cap equities, favoring defensive sectors with stable cash flows.",
+            "Increase allocation to high-quality, short-duration fixed income instruments to mitigate interest rate and credit risk.",
+            "Maintain elevated cash reserves to capitalize on potential future dislocations and enhance portfolio resilience.",
+            "Implement strict risk management protocols, including tightening stop-loss orders across all positions.",
+            "Consider hedging strategies or allocations to non-correlated assets to protect against broad market downturns."
         ],
-        "date": "2025-11-06 09:59:19",
+        "date": "2025-11-06 13:35:18",
         "news": [
+            {
+                "title": "Thailand's Longer Tenor Bonds Beckon Global Funds After Rout ...",
+                "url": "https://www.bloomberg.com/news/articles/2025-11-06/thailand-s-longer-tenor-bonds-beckon-global-funds-after-rout",
+                "snippet": "Contextual article. Click title for details."
+            },
+            {
+                "title": "BOE Set to Hold Rates at 4% as Budget Looms: Decision Guide ...",
+                "url": "https://www.bloomberg.com/news/articles/2025-11-06/boe-set-to-hold-rates-at-4-as-budget-looms-decision-guide",
+                "snippet": "Contextual article. Click title for details."
+            },
+            {
+                "title": "Economics - Bloomberg",
+                "url": "https://www.bloomberg.com/economics-v2",
+                "snippet": "Contextual article. Click title for details."
+            },
             {
                 "title": "What Does a Divided Fed Mean for Investors? | Morningstar",
                 "url": "https://www.morningstar.com/economy/what-does-divided-fed-mean-investors",
@@ -275,23 +290,8 @@
                 "title": "European Midday Briefing: Stocks Lower Amid Valuation Fears ...",
                 "url": "https://www.morningstar.com/news/dow-jones/202511052907/european-midday-briefing-stocks-lower-amid-valuation-fears",
                 "snippet": "Contextual article. Click title for details."
-            },
-            {
-                "title": "Carillon Reams Core Bond Fund Q3 2025 Commentary (Mutual ...",
-                "url": "https://seekingalpha.com/article/4838188-carillon-reams-core-bond-fund-q3-2025-commentary",
-                "snippet": "Contextual article. Click title for details."
-            },
-            {
-                "title": "US Treasuries Remain Top Debt Market Despite Policy Turbulence",
-                "url": "https://www.forbes.com/sites/chrisgunster/2025/11/05/us-treasuries-remain-top-debt-market-despite-policy-turbulence/",
-                "snippet": "Contextual article. Click title for details."
-            },
-            {
-                "title": "Malaysia Set to Defy Regional Easing as Its Economy Holds Up ...",
-                "url": "https://www.bloomberg.com/news/articles/2025-11-05/malaysia-set-to-defy-regional-easing-as-its-economy-holds-up",
-                "snippet": "Contextual article. Click title for details."
             }
         ],
-        "news_context_raw": "1. [What Does a Divided Fed Mean for Investors? | Morningstar](https://www.morningstar.com/economy/what-does-divided-fed-mean-investors)\n2. [Bloomberg - Business News, Stock Markets, Finance, Breaking ...](https://www.bloomberg.com/)\n3. [Fed divisions threaten Powell's era of consensus | Reuters](https://www.reuters.com/markets/us/fed-divisions-threaten-powells-era-consensus-2025-11-04/)\n4. [Spain's services sector growth fastest in 10 months in October, PMI ...](https://www.reuters.com/business/spains-services-sector-growth-fastest-10-months-october-pmi-shows-2025-11-05/)\n5. [North American Morning Briefing: Trump Tariffs in Court Today ...](https://www.morningstar.com/news/dow-jones/202511053725/north-american-morning-briefing-trump-tariffs-in-court-today)\n6. [Earnings call transcript: Ero Copper Q3 2025 misses forecasts ...](https://www.investing.com/news/transcripts/earnings-call-transcript-ero-copper-q3-2025-misses-forecasts-market-reacts-93CH-4334742)\n7. [European Midday Briefing: Stocks Lower Amid Valuation Fears ...](https://www.morningstar.com/news/dow-jones/202511052907/european-midday-briefing-stocks-lower-amid-valuation-fears)\n8. [Carillon Reams Core Bond Fund Q3 2025 Commentary (Mutual ...](https://seekingalpha.com/article/4838188-carillon-reams-core-bond-fund-q3-2025-commentary)\n9. [US Treasuries Remain Top Debt Market Despite Policy Turbulence](https://www.forbes.com/sites/chrisgunster/2025/11/05/us-treasuries-remain-top-debt-market-despite-policy-turbulence/)\n10. [Malaysia Set to Defy Regional Easing as Its Economy Holds Up ...](https://www.bloomberg.com/news/articles/2025-11-05/malaysia-set-to-defy-regional-easing-as-its-economy-holds-up)"
+        "news_context_raw": "1. [Thailand's Longer Tenor Bonds Beckon Global Funds After Rout ...](https://www.bloomberg.com/news/articles/2025-11-06/thailand-s-longer-tenor-bonds-beckon-global-funds-after-rout)\n2. [BOE Set to Hold Rates at 4% as Budget Looms: Decision Guide ...](https://www.bloomberg.com/news/articles/2025-11-06/boe-set-to-hold-rates-at-4-as-budget-looms-decision-guide)\n3. [Economics - Bloomberg](https://www.bloomberg.com/economics-v2)\n4. [What Does a Divided Fed Mean for Investors? | Morningstar](https://www.morningstar.com/economy/what-does-divided-fed-mean-investors)\n5. [Bloomberg - Business News, Stock Markets, Finance, Breaking ...](https://www.bloomberg.com/)\n6. [Fed divisions threaten Powell's era of consensus | Reuters](https://www.reuters.com/markets/us/fed-divisions-threaten-powells-era-consensus-2025-11-04/)\n7. [Spain's services sector growth fastest in 10 months in October, PMI ...](https://www.reuters.com/business/spains-services-sector-growth-fastest-10-months-october-pmi-shows-2025-11-05/)\n8. [North American Morning Briefing: Trump Tariffs in Court Today ...](https://www.morningstar.com/news/dow-jones/202511053725/north-american-morning-briefing-trump-tariffs-in-court-today)\n9. [Earnings call transcript: Ero Copper Q3 2025 misses forecasts ...](https://www.investing.com/news/transcripts/earnings-call-transcript-ero-copper-q3-2025-misses-forecasts-market-reacts-93CH-4334742)\n10. [European Midday Briefing: Stocks Lower Amid Valuation Fears ...](https://www.morningstar.com/news/dow-jones/202511052907/european-midday-briefing-stocks-lower-amid-valuation-fears)"
     }
 }

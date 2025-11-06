@@ -3,56 +3,35 @@
 
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Atlas — Dashboard</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Atlas Narrative — Daily Risk Posture</title>
 
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Tailwind Config for Inter Font -->
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    },
-                }
-            }
-        }
-    </script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-    
-    <!-- Google Analytics and Ads removed for canvas environment -->
-    <style>
-        /* Custom class definition for truncation (since this isn't a native Tailwind feature) */
-        .italic-clamp-5 {
-            display: -webkit-box;
-            -webkit-line-clamp: 5; /* Limit to 5 lines */
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
+    <link rel="stylesheet" href="style.css" />
 
-        /* Basic styling for table headers */
-        .sticky-header {
-            background-color: #fff;
-            position: sticky;
-            top: 0;
-            z-index: 10;
-        }
-    </style>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VSTQ6CXJ4C"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-VSTQ6CXJ4C');
+    </script>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2505573687893335"
+     crossorigin="anonymous"></script>
+
 </head>
 
-<body class="bg-gray-50 text-gray-800 font-sans antialiased">
+<body class="bg-gray-50 text-gray-800 antialiased">
 
-    <!-- Header -->
-    <header class="fixed top-0 w-full z-50 bg-white shadow-lg">
+    <header class="fixed top-0 w-full z-50 bg-white shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16 relative">
+            <div class="flex justify-between items-center h-14 relative">
 
                 <a href="/" class="flex-shrink-0 flex flex-col items-start justify-center h-full">
                     <div class="flex items-center">
-                        <svg class="w-7 h-7 mr-2 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        <svg class="w-6 h-6 mr-2 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                             xmlns="http://www.w3.org/2000/svg">
                             <circle cx="12" cy="12" r="10" stroke-width="2" />
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -67,19 +46,19 @@
                     </div>
                 </a>
 
-                <div class="flex space-x-6 h-full text-sm">
+                <div class="flex space-x-6 h-full">
 
-                    <a href="/" class="flex items-center font-bold text-gray-900 
-                              border-b-2 border-indigo-600 transition duration-150 ease-in-out">
+                    <a href="/" class="flex items-center text-sm font-medium text-gray-500 hover:text-gray-900 
+                              border-b-2 border-transparent hover:border-indigo-600 transition duration-150 ease-in-out">
                         Dashboard
                     </a>
                     
-                    <a href="narrative.html" class="flex items-center font-medium text-gray-500 hover:text-gray-900 
-                              border-b-2 border-transparent hover:border-indigo-600 transition duration-150 ease-in-out">
+                    <a href="narrative.html" class="flex items-center text-sm font-bold text-gray-900 
+                              border-b-2 border-indigo-600 transition duration-150 ease-in-out">
                         Narrative
                     </a>
 
-                    <a href="archive.html" class="flex items-center font-medium text-gray-500 hover:text-gray-900 
+                    <a href="archive.html" class="flex items-center text-sm font-medium text-gray-500 hover:text-gray-900 
                               border-b-2 border-transparent hover:border-indigo-600 transition duration-150 ease-in-out">
                         Archive
                     </a>
@@ -87,177 +66,51 @@
 
                 <div class="flex items-center">
                     <div id="bannerBadge" class="self-start sm:self-center">
-                        <!-- Risk badge will be injected here -->
                     </div>
                 </div>
             </div>
         </div>
     </header>
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-14">
+        <header class="mb-8 pb-4 border-b border-gray-200">
+            <h1 id="narrativeTitle" class="text-3xl font-extrabold text-gray-900">Risk Posture Analysis</h1>
+            <p id="narrativeDate" class="text-sm text-gray-500 mt-1">Updated: Loading...</p>
+            <span id="narrativeStatusBadge" class="mt-4 inline-block px-3 py-1 text-sm font-bold rounded-full text-white bg-gray-400">Loading Status</span>
+        </header>
 
-    <!-- Main Content Area -->
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-14">
-        
-        <!-- Overall Status Card -->
-        <div id="overallStatusCard" class="p-5 mb-8 rounded-xl shadow-2xl border-4 transform transition duration-500 hover:scale-[1.01] hover:shadow-2xl">
-            <div class="text-center text-gray-400">Loading overall status...</div>
-        </div>
-        
-        <!-- Introduction Text -->
-        <div class="mb-8 p-5 bg-white border border-gray-200 rounded-xl shadow-lg">
-            <h2 class="text-xl font-extrabold text-gray-900 mb-2">Atlas observes the global engine</h2>
+        <main id="fullNarrativeContent" class="bg-white rounded-xl shadow p-6 lg:p-8 text-lg text-gray-700 leading-relaxed">
+            <div id="dailyNarrativeContainer">
+                <p>Loading the daily analysis...</p>
+            </div>
             
-            <p class="text-gray-700 leading-relaxed text-sm sm:text-base">
-                The architecture of global capital is undeniable. Economic stability of the world (especially Australia)
-                remains fundamentally subordinate to deviations in the US economy. Our purpose is to track data and stay
-                ahead of the unknown.
-                <br><br>
-                Current vectors indicate exceptional economic risk. The conventional instruments for economic forecast
-                (e.g. reliable US data sets) are declining in reliability and accuracy. Global markets are vulnerable to
-                system ambiguity and exposed to sudden and severe fluctuations.
-                <br><br>
-                A current tension is the threat of rising unemployment, persistent inflation and stagnate
-                productivity resulting in stagflation. If this tension were to pivot to structural
-                recession then the resultant risk transfer to the global economy will be immediate and will impact
-                everything from commodities and equities to capital flows. The Australian economy will experience
-                direct, amplified pressure.
-                <br><br>
-                Atlas provides the critical objective data position to inform intelligent actions when the traditional
-                signals fail. The <span class="font-bold">Atlas Composite Score</span> is a simple, objective measure of systemic risk we use to quantify threat.
-                <br><br>
-                We track Macro and Micro market indicators. Each indicator is checked against its own pre-defined stress thresholds and assigned an individual risk score. The system then sums all individual scores to create the final Composite Score. The final score maps directly to one of four risk postures to guide your portfolio's tactical defense.
-            </p>
-        </div>
-        
-        <!-- Dashboard Panels (Tables and Sidebars) -->
-        <main class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-
-            <section class="lg:col-span-2">
-                <!-- Macro Panel -->
-                <div class="bg-white rounded-xl shadow-xl px-5 py-4 relative">
-                    <div class="flex items-start justify-between">
-                        <h2 class="text-lg font-medium">Macro panel</h2>
-                        <div id="lastUpdated" class="text-sm text-gray-500"></div>
-                    </div>
-
-                    <div class="mt-4 overflow-x-auto">
-                        <table class="min-w-full table-fixed">
-                            <thead class="sticky-header">
-                                <tr class="text-left bg-gray-50 border-b">
-                                    <th class="w-1/3 px-3 py-2 text-xs sm:text-sm font-medium text-gray-500">Category</th>
-                                    <th class="w-24 px-3 py-2 text-xs sm:text-sm font-medium text-gray-500">Status</th>
-                                    <th class="px-3 py-2 text-xs sm:text-sm font-medium text-gray-500">Latest reading</th> </tr>
-                            </thead>
-                            <tbody id="macroTable" class="divide-y divide-gray-100 text-sm">
-                                <tr><td colspan="3" class="p-3 text-center text-gray-400">Loading macro data...</td></tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
-                <!-- Micro Panel -->
-                <div class="bg-white rounded-xl shadow-xl px-5 py-4 mt-6 relative">
-                    <div class="flex items-center justify-between">
-                        <h2 class="text-lg font-medium">Micro panel (early-warning)</h2>
-                        <div class="text-xs text-gray-500">Each micro trigger = 0.5 score</div>
-                    </div>
-
-                    <div class="mt-4 overflow-x-auto">
-                        <table class="min-w-full table-fixed">
-                            <thead class="sticky-header">
-                                <tr class="text-left bg-gray-50 border-b">
-                                    <th class="w-1/3 px-3 py-2 text-xs sm:text-sm font-medium text-gray-500">Indicator</th>
-                                    <th class="w-24 px-3 py-2 text-xs sm:text-sm font-medium text-gray-500">Status</th>
-                                    <th class="px-3 py-2 text-xs sm:text-sm font-medium text-gray-500">Latest reading</th> </tr>
-                            </thead>
-                            <tbody id="microTable" class="divide-y divide-gray-100 text-sm">
-                                <tr><td colspan="3" class="p-3 text-center text-gray-400">Loading micro data...</td></tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Sidebar -->
-            <aside class="space-y-6">
-                
-                <!-- Daily Analysis Summary -->
-                <div class="bg-white rounded-xl shadow-xl px-5 py-4">
-                    <h3 class="text-lg font-medium">Daily analysis</h3>
-                    <p class="mt-3 text-sm text-gray-700 italic italic-clamp-5" id="narrativeSummaryText">
-                        The Atlas team is currently preparing the daily analysis.
-                    </p>
-                    <div class="mt-3 text-right space-y-1">
-                        <a href="narrative.html" class="text-indigo-600 hover:text-indigo-800 text-xs font-semibold block">
-                            Read full narrative →
-                        </a>
-                        <a href="archive.html" class="text-indigo-600 hover:text-indigo-800 text-xs font-semibold block">
-                            View Archive →
-                        </a>
-                        <a href="narrative.html#news-feed" class="text-indigo-600 hover:text-indigo-800 text-xs font-semibold block">
-                            View news feed →
-                        </a>
-                    </div>
-                </div>
-                
-                <!-- Atlas Rating Legend -->
-                <div class="bg-white rounded-xl shadow-xl px-5 py-4">
-                    <h3 class="text-lg font-medium">Atlas rating legend</h3>
-                    <div id="ratingLegend" class="mt-3 space-y-3 text-sm">
-                        <p class="text-gray-700">🔴 <span class="font-semibold">HIGH RISK</span>: &gt;12.0 Score (Extreme Risk)</p>
-                        <p class="text-gray-700">🟠 <span class="font-semibold">ELEVATED RISK</span>: &gt;8.0 Score (High Risk)</p>
-                        <p class="text-gray-700">🟡 <span class="font-semibold">WATCH</span>: &gt;4.0 Score (Moderate Risk)</p>
-                        <p class="text-gray-700">🟢 <span class="font-semibold">LOW RISK</span>: ≤4.0 Score (Low Risk)</p>
-                    </div>
-                </div>
-
-                <!-- Composite Score Summary -->
-                <div class="bg-white rounded-xl shadow-xl px-5 py-4">
-                    <h3 class="text-lg font-medium">Composite score summary</h3>
-                    <div class="mt-3 space-y-3 text-sm">
-                        <div id="triggerSummary" class="text-gray-700 font-semibold">Loading composite score...</div>
-                        <div id="triggerDetails" class="text-sm text-gray-500">Loading trigger details...</div>
-                    </div>
-                </div>
-                
-                <!-- Short Insight -->
-                <div class="bg-white rounded-xl shadow-xl px-5 py-4">
-                    <h3 class="text-lg font-medium">Short insight</h3>
-                    <ul id="insightList" class="mt-3 list-disc pl-5 text-sm space-y-2 text-gray-700">
-                        <li>Loading insights...</li>
-                    </ul>
-                </div>
-                
-                <!-- Immediate Actions -->
-                <div class="bg-white rounded-xl shadow-xl px-5 py-4">
-                    <h3 class="text-lg font-medium">Immediate actions</h3>
-                    <ul id="actionList" class="mt-3 list-disc pl-5 text-sm space-y-2 text-gray-700">
-                        <li>Loading actions...</li>
-                    </ul>
-                </div>
-
-                <!-- Escalation Watch -->
-                <div class="bg-white rounded-xl shadow-xl px-5 py-4">
-                    <h3 class="text-lg font-medium">Escalation watch</h3>
-                    <ul id="watchList" class="mt-3 list-disc pl-5 text-sm space-y-2 text-gray-700">
-                        <li>Loading watch list...</li>
-                    </ul>
-                </div>
-            </aside>
+            <div class="mt-8 pt-4 border-t border-gray-200">
+                <h3 class="text-xl font-bold text-gray-900 mb-3">Key Actions (Atlas Recommendations)</h3>
+                <ul id="keyActionsList" class="space-y-2 list-disc pl-5 text-base">
+                    <li class="text-gray-500">Loading actionable recommendations...</li>
+                </ul>
+            </div>
         </main>
+        <div class="mt-4 flex justify-end">
+            <a href="#news-feed" class="text-indigo-600 hover:text-indigo-800 text-sm font-semibold flex items-center">
+                View news feed ↓
+            </a>
+        </div>
+        <div id="news-feed" class="bg-white rounded-xl shadow p-6 mt-8">
+            <h2 class="text-xl font-extrabold text-gray-900 mb-4">
+                <span class="text-indigo-600">🗞️</span> Contextual News Feed
+            </h2>
+            <div id="newsArticleList" class="space-y-4">
+                <p class="text-gray-500">Fetching relevant articles...</p>
+            </div>
+        </div>
+        </div>
 
-        <footer class="mt-8 text-sm text-gray-500">
-            <div class="mt-2">Version: Atlas v2 — Last update: <span id="footerDate">Loading...</span></div>
-        </footer>
-
-    </div>
-
-    <!-- Footer Navigation -->
-    <nav class="fixed bottom-0 w-full z-50 bg-white shadow-2xl shadow-indigo-100">
+    <nav class="fixed bottom-0 w-full z-50 bg-white shadow-top">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-12 text-xs text-gray-500">
                 
                 <div class="hidden sm:block">
-                    Disclaimer: Not financial advice. Data for informational purposes only.
+                    Disclaimer: Not financial advice. Data for informational purposes only. Not financial advice.
                 </div>
                 
                 <div class="flex items-center space-x-4">
@@ -267,238 +120,46 @@
                         </svg>
                         Copy Share Link
                     </button>
-                    
-                    <a href="#" data-share-platform="facebook" target="_blank" class="hover:text-gray-800 hidden md:block">Facebook</a>
-                    <a href="#" data-share-platform="twitter" target="_blank" class="hover:text-gray-800 hidden md:block">Twitter</a>
-                    <a href="#" data-share-platform="linkedin" target="_blank" class="hover:text-gray-800 hidden md:block">LinkedIn</a>
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=YOUR_URL_GOES_HERE" target="_blank" class="hover:text-gray-800 hidden md:block">Facebook</a>
+                    <a href="https://twitter.com/intent/tweet?url=YOUR_URL_GOES_HERE" target="_blank" class="hover:text-gray-800 hidden md:block">Twitter</a>
+                    <a href="https://www.linkedin.com/shareArticle?mini=true&url=YOUR_URL_GOES_HERE" target="_blank" class="hover:text-gray-800 hidden md:block">LinkedIn</a>
                 </div>
             </div>
         </div>
     </nav>
-
-    <!-- JavaScript for Data Loading and Dashboard Rendering -->
+    <script src="scripts/atlas.js" defer></script>
+    
     <script>
-        const MOCK_DATA = {
-            date: "2025-11-07",
-            overall_status: "Caution",
-            composite_score: 9.2,
-            macro_trigger_count: 8,
-            micro_trigger_count: 4,
-            narrative: "The financial markets displayed a neutral stance today, balancing positive corporate earnings reports against ongoing geopolitical tensions. The Treasury Liquidity index showed a slight decrease, suggesting minor friction in short-term funding markets, but remaining well within acceptable historical boundaries. Gold prices saw minor consolidation, indicating a pause after recent volatility. The key focus remains on central bank commentary and upcoming inflation figures. Volatility, measured by the VIX, remains elevated but below critical panic levels, suggesting caution rather than distress. The long-term trend remains dependent on geopolitical stability and domestic consumption figures. Investors are advised to maintain a balanced, diversified portfolio. The Small-to-Large Cap ratio suggests a slight preference for large-cap stability, hinting at risk-aversion.",
-            key_actions: [
-                "Monitor inflation data releases next week for any immediate market reaction.",
-                "Maintain balanced exposure to technology and healthcare sectors, which show resilience.",
-                "Review corporate bond exposure, prioritizing investment-grade issues over high-yield."
-            ],
-            short_insights: [
-                "VIX remains above 20, confirming sustained investor anxiety.",
-                "US Treasury Liquidity measures show minor stress for the second consecutive day.",
-                "Micro-indicators suggest consumption is softening faster than anticipated."
-            ],
-            escalation_watch: [
-                "Next week's CPI data is the primary short-term catalyst.",
-                "Any material escalation in the Middle East.",
-                "Significant reversal in corporate credit spreads."
-            ],
-            macro_indicators: [
-                { category: "US Treasury Liquidity", reading: "Slight Decrease", status: "WATCH", score: 2.0, details: "Below 75% of 90-day average." },
-                { category: "Interbank Funding Rate", reading: "4.8%", status: "LOW RISK", score: 1.0, details: "Rate remains stable." },
-                { category: "S&P Volatility (VIX)", reading: "22.5", status: "ELEVATED RISK", score: 3.0, details: "Above 20.0 threshold." },
-                { category: "Global Trade PMI", reading: "50.1", status: "LOW RISK", score: 1.0, details: "Marginally in expansion territory." },
-            ],
-            micro_indicators: [
-                { indicator: "Housing Starts YoY", reading: "-5.2%", status: "RED FLAG", score: 0.5, details: "Significant contraction, indicates slowing demand." },
-                { indicator: "Consumer Sentiment", reading: "89.3", status: "WATCH", score: 0.5, details: "Dropped below 90.0 support level." },
-                { indicator: "Corporate Credit Spreads", reading: "Tightening", status: "LOW RISK", score: 0.0, details: "No immediate signs of stress." },
-                { indicator: "Small Cap/Large Cap Ratio", reading: "0.85", status: "RED FLAG", score: 0.5, details: "Favors large-cap stability, signaling risk-off." },
-                { indicator: "Unemployment Claims", reading: "Steady", status: "LOW RISK", score: 0.0, details: "No material increase." },
-            ]
-        };
-
-        const MAX_SUMMARY_LENGTH = 350; // Max characters for the initial dashboard summary
-
-        function getStatusClasses(score) {
-            let status = 'LOW RISK';
-            let label = 'LOW RISK';
-            let bgClass = 'bg-green-600';
-            let borderClass = 'border-green-400';
-            let textColor = 'text-green-600';
-            let description = 'Systemic risk is low. Maintain diversified holdings.';
-
-            if (score > 12.0) {
-                status = 'HIGH RISK';
-                label = 'HIGH RISK';
-                bgClass = 'bg-red-600';
-                borderClass = 'border-red-400';
-                textColor = 'text-red-600';
-                description = 'Extreme systemic risk detected. Aggressive de-risking is warranted.';
-            } else if (score > 8.0) {
-                status = 'ELEVATED RISK';
-                label = 'ELEVATED RISK';
-                bgClass = 'bg-orange-600';
-                borderClass = 'border-orange-400';
-                textColor = 'text-orange-600';
-                description = 'High systemic risk detected. Implement tactical defense measures.';
-            } else if (score > 4.0) {
-                status = 'WATCH';
-                label = 'WATCH';
-                bgClass = 'bg-yellow-500';
-                borderClass = 'border-yellow-400';
-                textColor = 'text-yellow-600';
-                description = 'Moderate systemic risk detected. Monitor key indicators closely.';
-            }
-            
-            return { score, status, label, bgClass, borderClass, textColor, description };
-        }
-
-        function renderOverallStatus(data) {
-            const score = data.composite_score;
-            const statusInfo = getStatusClasses(score);
-            const card = document.getElementById('overallStatusCard');
-            const badge = document.getElementById('bannerBadge');
-
-            // 1. Render the main Status Card
-            card.className = `p-6 mb-8 rounded-xl shadow-2xl border-4 transform transition duration-500 hover:scale-[1.01] hover:shadow-3xl ${statusInfo.borderClass}`;
-            card.innerHTML = `
-                <div class="flex flex-col sm:flex-row items-center justify-between">
-                    <div>
-                        <p class="text-3xl font-extrabold ${statusInfo.textColor}">${statusInfo.status}</p>
-                        <p class="text-lg text-gray-500 mt-1">Atlas Composite Score: <span class="font-bold text-gray-800">${score.toFixed(1)}</span></p>
-                    </div>
-                    <div class="mt-4 sm:mt-0 sm:text-right">
-                        <p class="text-sm font-semibold text-gray-700">${statusInfo.description}</p>
-                        <p class="text-xs text-gray-500 mt-1">Updated: ${data.date}</p>
-                    </div>
-                </div>
-            `;
-
-            // 2. Render the Header Badge
-            badge.innerHTML = `<span class="inline-block px-3 py-1 text-xs font-bold rounded-full text-white ${statusInfo.bgClass} shadow-md">${statusInfo.label} (${score.toFixed(1)})</span>`;
-        }
-        
-        function getIndicatorStatusBadge(status) {
-            let color = 'bg-gray-400';
-            let text = 'text-white';
-            
-            if (status.includes('RED FLAG')) {
-                color = 'bg-red-500';
-            } else if (status.includes('ELEVATED RISK')) {
-                color = 'bg-orange-500';
-            } else if (status.includes('WATCH')) {
-                color = 'bg-yellow-500';
-            } else if (status.includes('LOW RISK')) {
-                color = 'bg-green-500';
-            }
-            
-            return `<span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium ${color} ${text} shadow-sm">${status}</span>`;
-        }
-
-        function renderTable(data, tableId) {
-            const tableBody = document.getElementById(tableId);
-            tableBody.innerHTML = ''; // Clear loading state
-
-            data.forEach(item => {
-                const row = document.createElement('tr');
-                row.className = 'hover:bg-indigo-50 transition duration-150';
-                
-                const statusHtml = getIndicatorStatusBadge(item.status);
-                
-                row.innerHTML = `
-                    <td class="px-3 py-3 font-medium text-gray-800">${item.category || item.indicator}</td>
-                    <td class="px-3 py-3">${statusHtml}</td>
-                    <td class="px-3 py-3 text-gray-600">${item.reading}</td>
-                `;
-                tableBody.appendChild(row);
-            });
-        }
-        
-        function renderSummaryPanel(data) {
-            // 1. Narrative Summary Text (Truncation Implemented Here)
-            const fullText = data.narrative;
-            const summaryText = fullText.length > MAX_SUMMARY_LENGTH
-                ? fullText.substring(0, MAX_SUMMARY_LENGTH).replace(/\s\S*$/, "...") + "..."
-                : fullText;
-                
-            document.getElementById('narrativeSummaryText').textContent = summaryText;
-            
-            // 2. Composite Score Summary
-            const totalScore = data.composite_score.toFixed(1);
-            const summaryElement = document.getElementById('triggerSummary');
-            summaryElement.innerHTML = `Total Score: <span class="text-gray-900 text-xl">${totalScore}</span>`;
-            
-            const detailElement = document.getElementById('triggerDetails');
-            detailElement.textContent = `${data.macro_trigger_count} Macro Triggers | ${data.micro_trigger_count} Micro Triggers`;
-            
-            // 3. Short Insights List
-            const insightList = document.getElementById('insightList');
-            insightList.innerHTML = data.short_insights.map(insight => `<li>${insight}</li>`).join('');
-
-            // 4. Immediate Actions List
-            const actionList = document.getElementById('actionList');
-            actionList.innerHTML = data.key_actions.map(action => `<li>${action}</li>`).join('');
-
-            // 5. Escalation Watch List
-            const watchList = document.getElementById('watchList');
-            watchList.innerHTML = data.escalation_watch.map(watch => `<li>${watch}</li>`).join('');
-
-            // 6. Last Updated Date
-            document.getElementById('lastUpdated').textContent = `Updated: ${data.date}`;
-            document.getElementById('footerDate').textContent = data.date;
-        }
-
-
-        async function loadAtlasData() {
-            // In a real application, you would fetch data from 'data/atlas-latest.json'
-            // Using MOCK_DATA for the single-file environment
-            const data = MOCK_DATA;
-
-            // Render all major sections
-            renderOverallStatus(data);
-            renderTable(data.macro_indicators, 'macroTable');
-            renderTable(data.micro_indicators, 'microTable');
-            renderSummaryPanel(data);
-        }
-
         document.addEventListener('DOMContentLoaded', function() {
-            loadAtlasData();
-
-            // Setup Share Links (Copy to Clipboard and Socials)
-            const currentUrl = encodeURIComponent(window.location.href);
-            
-            // Copy Link Button
             const copyButton = document.getElementById('copyShareLink');
+            
             if (copyButton) {
-                copyButton.addEventListener('click', () => {
+                copyButton.addEventListener('click', async () => {
                     const shareUrl = window.location.href;
                     
-                    if (navigator.clipboard) {
-                        navigator.clipboard.writeText(shareUrl).then(() => {
-                            copyButton.innerHTML = '<span class="text-green-600 flex items-center"><svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Copied!</span>';
-                            setTimeout(() => {
-                                copyButton.innerHTML = '<svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.935 9 12.49 9 12c0-.51-.114-.955-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l-3 3m3-3l3-3m-9 3a3 3 0 110-2.684m0 2.684l-3-3m3 3l3-3m9-2c0 .51-.114.955-.316 1.342m0-2.684a3 3 0 100 2.684m0 2.684l-3 3m3-3l3-3m-9-2a3 3 0 100 2.684m0-2.684a3 3 0 110 2.684m0 2.684l-3 3m3-3l3-3"/></svg>Copy Share Link';
-                            }, 2000);
-                        }).catch(err => {
-                            console.error('Could not copy text: ', err);
-                        });
-                    } else {
-                        prompt('Copy this link (Ctrl+C or Cmd+C):', shareUrl);
+                    try {
+                        await navigator.clipboard.writeText(shareUrl);
+                        
+                        const originalText = copyButton.innerHTML;
+                        copyButton.innerHTML = '<span class="text-green-600">Copied!</span>';
+                        
+                        setTimeout(() => {
+                            copyButton.innerHTML = originalText;
+                        }, 2000);
+                        
+                    } catch (err) {
+                        console.error('Failed to copy text: ', err);
+                        prompt('Copy this link:', shareUrl); 
                     }
                 });
             }
 
-            // Social Share Links
-            document.querySelectorAll('a[data-share-platform]').forEach(link => {
-                const platform = link.getAttribute('data-share-platform');
-                let href = '#';
-                const title = encodeURIComponent(document.title);
-
-                if (platform === 'facebook') {
-                    href = `https://www.facebook.com/sharer/sharer.php?u=${currentUrl}`;
-                } else if (platform === 'twitter') {
-                    href = `https://twitter.com/intent/tweet?url=${currentUrl}&text=${title}`;
-                } else if (platform === 'linkedin') {
-                    href = `https://www.linkedin.com/shareArticle?mini=true&url=${currentUrl}&title=${title}`;
-                }
+            // Update the social sharing links dynamically
+            const currentUrl = encodeURIComponent(window.location.href);
+            
+            document.querySelectorAll('a[href*="YOUR_URL_GOES_HERE"]').forEach(link => {
+                let href = link.getAttribute('href');
+                href = href.replace('YOUR_URL_GOES_HERE', currentUrl);
                 link.setAttribute('href', href);
             });
         });
@@ -506,3 +167,4 @@
 </body>
 
 </html>
+

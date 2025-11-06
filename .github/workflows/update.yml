@@ -47,9 +47,9 @@ jobs:
       - name: 🏃 Run Atlas Update Script
         # THIS SECTION EXPOSES ALL NECESSARY SECRETS AS ENVIRONMENT VARIABLES
         # CRITICAL FIX: Using the explicit virtual environment path for reliability.
-        run: $GITHUB_WORKSPACE/.venv/bin/python update_atlas.py
+        run: python3 update_atlas.py
         # THIS SECTION EXPOSES ALL NECESSARY SECRETS AS ENVIRONMENT VARIABLES
-        
+
         env:
           # CORE KEYS
           FRED_API_KEY: ${{ secrets.FRED_API_KEY }}

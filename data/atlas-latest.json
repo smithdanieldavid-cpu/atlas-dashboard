@@ -23,9 +23,9 @@
         {
             "id": "EURUSD",
             "name": "EUR/USD exchange rate",
-            "value": 1.1552680730819702,
+            "value": 1.1551345586776733,
             "status": "Green",
-            "note": "EUR/USD is stable at 1.1553. Indicates balanced global risk/economic outlook.",
+            "note": "EUR/USD is stable at 1.1551. Indicates balanced global risk/economic outlook.",
             "action": "No change.",
             "score_value": 0.0,
             "source_link": "https://finance.yahoo.com/quote/EURUSD=X/"
@@ -33,9 +33,9 @@
         {
             "id": "WTI_CRUDE",
             "name": "WTI crude oil ($/bbl)",
-            "value": 59.5,
+            "value": 59.75,
             "status": "Amber",
-            "note": "WTI Crude at $59.50/bbl. Low price indicates global slowdown or demand weakness.",
+            "note": "WTI Crude at $59.75/bbl. Low price indicates global slowdown or demand weakness.",
             "action": "Monitor global growth indicators.",
             "score_value": 0.5,
             "source_link": "https://finance.yahoo.com/quote/USO/"
@@ -43,9 +43,9 @@
         {
             "id": "AUDUSD",
             "name": "AUD/USD exchange rate",
-            "value": 0.6484664082527161,
+            "value": 0.648382306098938,
             "status": "Red",
-            "note": "AUDUSD at 0.6485. AUD remains under pressure. Strong risk-off or persistent US Dollar strength.",
+            "note": "AUDUSD at 0.6484. AUD remains under pressure. Strong risk-off or persistent US Dollar strength.",
             "action": "Favour US Dollar liquidity over AUD assets; watch commodity prices.",
             "score_value": 1.0,
             "source_link": "https://finance.yahoo.com/quote/AUDUSD=X/"
@@ -230,22 +230,17 @@
         "score": 10.5,
         "status": "\ud83d\udea8 SEVERE RISK (HIGH RISK)",
         "comment": "Market stability deteriorating rapidly. High caution required.",
-        "daily_narrative": "The global macroeconomic landscape is characterized by increasing divergence among central banks, with the [Bank of England set for tight rates decision as inflation softens and ...](https://www.reuters.com/business/finance/bank-england-set-tight-rates-decision-inflation-softens-budget-looms-2025-11-06/) opting for a rate hold, a move noted by [Morningstar](https://www.morningstar.com/news/dow-jones/202511068000/bank-of-england-diverges-from-fed-with-rate-hold) and [WSJ](https://www.wsj.com/economy/central-banking/bank-of-england-diverges-from-fed-with-rate-hold-a53795f3?gaa_at=eafs&gaa_n=AWEtsqeRY1-h9lZsnJjCEnp7jDq15F4AJqWbKbeRFDbizKUZxYUIjrHG_KyL&gaa_ts=690d1e90&gaa_sig=JJobNiQKvZSNvOzlRk3UhwbOICv5nbhwEnEDpmiZJpxIz_8rSVD0KSe-_dIMNg-vIp7A1Fv6X334f_sT80IwBA%3D%3D) as diverging from the Fed's stance. Meanwhile, Fed officials like Hammack continue to signal inflation as a primary concern over the labor market, as reported by [Bloomberg](https://www.bloomberg.com/news/articles/2025-11-06/fed-s-hammack-says-inflation-a-bigger-concern-than-labor-market). This policy divergence, coupled with the Swedish Riksbank's uncertain economic outlook, as stated by Thedeen via [Reuters](https://www.reuters.com/business/finance/swedish-riksbanks-thedeen-says-outlook-economic-activity-inflation-is-uncertain-2025-11-06/), creates a complex and potentially fragile global environment, reinforcing Atlas's current SEVERE RISK posture. Internally, Atlas's Composite Score of 10.50, signaling SEVERE RISK, is predominantly driven by critical systemic indicators in Liquidity and Leverage. Specifically, `Treasury net liquidity` stands at a deeply concerning -6,571,780.27 (Red, Score: 2.00), indicating significant strain, while `FINRA margin debt (YOY %)` at 32.94% (Red, Score: 1.50) points to elevated speculative leverage. This high-risk internal signal stands in stark contrast to the relatively subdued VIX index at 19.50 (Amber) and the 'Green' status of major equity indices like the S&P 500, suggesting a potential complacency in broader market sentiment. The critical Atlas pivot points for a shift to FULL-STORM risk remain the US 10-Year Yield breaching 4.75% or the High Yield OAS exceeding 400 bps, both of which warrant vigilant monitoring.",
-        "composite_summary": "Atlas maintains a SEVERE RISK posture, driven by deteriorating systemic liquidity and elevated leverage, despite apparent market complacency.",
+        "daily_narrative": "Global markets are grappling with significant uncertainty, as evidenced by central bank actions and commentary. The Bank of England, for instance, opted to hold rates steady at 4% in a \"knife-edge decision\" [Bank of England keeps rates on hold at 4% in knife-edge decision](https://www.ft.com/content/8ae7781b-729a-4226-aae3-4e70aebbe995), diverging from the Federal Reserve's continued focus on inflation as a primary concern [Fed's Hammack Says Inflation a Bigger Concern than Labor Market ...](https://www.bloomberg.com/news/articles/2025-11-06/fed-s-hammack-says-inflation-a-bigger-concern-than-labor-market). This divergence and the Swedish Riksbank's acknowledgment of an \"uncertain\" economic outlook [Swedish Riksbank's Thedeen says outlook for economic activity and ...](https://www.reuters.com/business/finance/swedish-riksbanks-thedeen-says-outlook-economic-activity-inflation-is-uncertain-2025-11-06/) contribute to a broader sentiment where \"UncertAInty slams risk appetite\" [TRADING DAY UncertAInty slams risk appetite | Reuters](https://www.reuters.com/world/china/global-markets-trading-day-graphic-2025-11-06/). This external environment of cautious central bank policy and heightened global uncertainty directly reinforces Atlas's current posture of SEVERE RISK.Internally, Atlas's Composite Score of 10.50, indicating SEVERE RISK, is primarily driven by critical systemic vulnerabilities in Liquidity and Leverage. Specifically, \"Treasury net liquidity\" registers a deep Red with a score of 2.00, signaling significant stress in the financial system's plumbing. Concurrently, \"FINRA margin debt (YOY %)\" is also Red with a score of 1.50, highlighting excessive leverage building within the market. This elevated risk posture exists despite a relatively subdued VIX index at 19.50 (Amber), suggesting a potential complacency in volatility pricing that belies underlying systemic fragility. The next critical pivot point for Atlas to declare a FULL-STORM risk level would be a breach of the US 10-Year Yield threshold at 4.75% or the High Yield OAS surpassing 400 bps.",
+        "composite_summary": "Atlas signals a SEVERE RISK environment, driven by deteriorating systemic liquidity and elevated market leverage, demanding immediate defensive positioning.",
         "key_actions": [
-            "Reduce exposure to risk assets, particularly small-cap equities, given the 'Red' status of the Small/Large cap ratio.",
-            "Increase allocation to high-quality, short-duration fixed income to enhance portfolio defense against rising systemic risk.",
-            "Maintain or increase strategic allocation to gold as a hedge against geopolitical and macroeconomic uncertainty.",
-            "Implement tactical hedging strategies, such as protective put options, to mitigate downside risk in equity holdings.",
-            "Closely monitor `Treasury net liquidity` and `FINRA margin debt` for any further deterioration, as these are key drivers of the current severe risk environment."
+            "Reduce exposure to risk assets, particularly small-cap equities, given the Red status of the Small/Large cap ratio.",
+            "Increase allocation to cash and short-duration fixed income to enhance portfolio liquidity and reduce interest rate sensitivity.",
+            "Review and de-risk any outstanding margin positions, as \"FINRA margin debt\" indicates significant leverage in the system.",
+            "Implement hedges against potential increases in the US 10-Year Treasury yield, given its proximity to the 4.75% pivot threshold.",
+            "Closely monitor credit spreads, specifically the High Yield OAS, for any signs of widening towards the 400 bps Full-Storm threshold."
         ],
-        "date": "2025-11-07 09:03:09",
+        "date": "2025-11-07 10:15:39",
         "news": [
-            {
-                "title": "Bloomberg - Business News, Stock Markets, Finance, Breaking ...",
-                "url": "https://www.bloomberg.com/",
-                "snippet": "Contextual article. Click title for details."
-            },
             {
                 "title": "Bank of England set for tight rates decision as inflation softens and ...",
                 "url": "https://www.reuters.com/business/finance/bank-england-set-tight-rates-decision-inflation-softens-budget-looms-2025-11-06/",
@@ -272,13 +267,13 @@
                 "snippet": "Contextual article. Click title for details."
             },
             {
-                "title": "Touchstone Balanced Fund Q3 2025 Commentary | Seeking Alpha",
-                "url": "https://seekingalpha.com/article/4838966-touchstone-balanced-fund-q3-2025-commentary",
+                "title": "TRADING DAY UncertAInty slams risk appetite | Reuters",
+                "url": "https://www.reuters.com/world/china/global-markets-trading-day-graphic-2025-11-06/",
                 "snippet": "Contextual article. Click title for details."
             },
             {
-                "title": "Fed's independence has global importance, Williams says | Reuters",
-                "url": "https://www.reuters.com/business/feds-independence-has-global-importance-williams-says-2025-11-06/",
+                "title": "Touchstone Balanced Fund Q3 2025 Commentary | Seeking Alpha",
+                "url": "https://seekingalpha.com/article/4838966-touchstone-balanced-fund-q3-2025-commentary",
                 "snippet": "Contextual article. Click title for details."
             },
             {
@@ -288,10 +283,15 @@
             },
             {
                 "title": "Bank of England Diverges From Fed With Rate Hold - WSJ",
-                "url": "https://www.wsj.com/economy/central-banking/bank-of-england-diverges-from-fed-with-rate-hold-a53795f3?gaa_at=eafs&gaa_n=AWEtsqeRY1-h9lZsnJjCEnp7jDq15F4AJqWbKbeRFDbizKUZxYUIjrHG_KyL&gaa_ts=690d1e90&gaa_sig=LJobNiQKvZSNvOzlRk3UhwbOICv5nbhwEnEDpmiZJpxIz_8rSVD0KSe-_dIMNg-vIp7A1Fv6X334f_sT80IwBA%3D%3D",
+                "url": "https://www.wsj.com/economy/central-banking/bank-of-england-diverges-from-fed-with-rate-hold-a53795f3?gaa_at=eafs&gaa_n=AWEtsqeCP8qVqKFURtTcuZ8zNYsH5_dlupNSsD2LQXk5zKQw4fb-4_FSnFtv&gaa_ts=690d2f91&gaa_sig=x0EVoMBolow_6tlh53rayqiur_3ki8MkJcq4WRFAZLE-UvxznIewV56euT9tZiHuHfJyQ10kTWxtyp6OiB3SQg%3D%3D",
+                "snippet": "Contextual article. Click title for details."
+            },
+            {
+                "title": "UNDER ARMOUR ANNOUNCES CFO TRANSITION; REZA ...",
+                "url": "https://www.morningstar.com/news/pr-newswire/20251106ph17168/under-armour-announces-cfo-transition-reza-taleghani-to-succeed-david-bergman-in-february-2026",
                 "snippet": "Contextual article. Click title for details."
             }
         ],
-        "news_context_raw": "1. [Bloomberg - Business News, Stock Markets, Finance, Breaking ...](https://www.bloomberg.com/)\n2. [Bank of England set for tight rates decision as inflation softens and ...](https://www.reuters.com/business/finance/bank-england-set-tight-rates-decision-inflation-softens-budget-looms-2025-11-06/)\n3. [November BoE Decision: A Divisive, Dovish Pause (BATS:EWUS ...](https://seekingalpha.com/article/4839356-november-boe-decision-a-divisive-dovish-pause)\n4. [Fed's Hammack Says Inflation a Bigger Concern than Labor Market ...](https://www.bloomberg.com/news/articles/2025-11-06/fed-s-hammack-says-inflation-a-bigger-concern-than-labor-market)\n5. [Bank of England Diverges From Fed With Rate Hold | Morningstar](https://www.morningstar.com/news/dow-jones/202511068000/bank-of-england-diverges-from-fed-with-rate-hold)\n6. [Bank of England keeps rates on hold at 4% in knife-edge decision](https://www.ft.com/content/8ae7781b-729a-4226-aae3-4e70aebbe995)\n7. [Touchstone Balanced Fund Q3 2025 Commentary | Seeking Alpha](https://seekingalpha.com/article/4838966-touchstone-balanced-fund-q3-2025-commentary)\n8. [Fed's independence has global importance, Williams says | Reuters](https://www.reuters.com/business/feds-independence-has-global-importance-williams-says-2025-11-06/)\n9. [Swedish Riksbank's Thedeen says outlook for economic activity and ...](https://www.reuters.com/business/finance/swedish-riksbanks-thedeen-says-outlook-economic-activity-inflation-is-uncertain-2025-11-06/)\n10. [Bank of England Diverges From Fed With Rate Hold - WSJ](https://www.wsj.com/economy/central-banking/bank-of-england-diverges-from-fed-with-rate-hold-a53795f3?gaa_at=eafs&gaa_n=AWEtsqeRY1-h9lZsnJjCEnp7jDq15F4AJqWbKbeRFDbizKUZxYUIjrHG_KyL&gaa_ts=690d1e90&gaa_sig=LJobNiQKvZSNvOzlRk3UhwbOICv5nbhwEnEDpmiZJpxIz_8rSVD0KSe-_dIMNg-vIp7A1Fv6X334f_sT80IwBA%3D%3D)"
+        "news_context_raw": "1. [Bank of England set for tight rates decision as inflation softens and ...](https://www.reuters.com/business/finance/bank-england-set-tight-rates-decision-inflation-softens-budget-looms-2025-11-06/)\n2. [November BoE Decision: A Divisive, Dovish Pause (BATS:EWUS ...](https://seekingalpha.com/article/4839356-november-boe-decision-a-divisive-dovish-pause)\n3. [Fed's Hammack Says Inflation a Bigger Concern than Labor Market ...](https://www.bloomberg.com/news/articles/2025-11-06/fed-s-hammack-says-inflation-a-bigger-concern-than-labor-market)\n4. [Bank of England Diverges From Fed With Rate Hold | Morningstar](https://www.morningstar.com/news/dow-jones/202511068000/bank-of-england-diverges-from-fed-with-rate-hold)\n5. [Bank of England keeps rates on hold at 4% in knife-edge decision](https://www.ft.com/content/8ae7781b-729a-4226-aae3-4e70aebbe995)\n6. [TRADING DAY UncertAInty slams risk appetite | Reuters](https://www.reuters.com/world/china/global-markets-trading-day-graphic-2025-11-06/)\n7. [Touchstone Balanced Fund Q3 2025 Commentary | Seeking Alpha](https://seekingalpha.com/article/4838966-touchstone-balanced-fund-q3-2025-commentary)\n8. [Swedish Riksbank's Thedeen says outlook for economic activity and ...](https://www.reuters.com/business/finance/swedish-riksbanks-thedeen-says-outlook-economic-activity-inflation-is-uncertain-2025-11-06/)\n9. [Bank of England Diverges From Fed With Rate Hold - WSJ](https://www.wsj.com/economy/central-banking/bank-of-england-diverges-from-fed-with-rate-hold-a53795f3?gaa_at=eafs&gaa_n=AWEtsqeCP8qVqKFURtTcuZ8zNYsH5_dlupNSsD2LQXk5zKQw4fb-4_FSnFtv&gaa_ts=690d2f91&gaa_sig=x0EVoMBolow_6tlh53rayqiur_3ki8MkJcq4WRFAZLE-UvxznIewV56euT9tZiHuHfJyQ10kTWxtyp6OiB3SQg%3D%3D)\n10. [UNDER ARMOUR ANNOUNCES CFO TRANSITION; REZA ...](https://www.morningstar.com/news/pr-newswire/20251106ph17168/under-armour-announces-cfo-transition-reza-taleghani-to-succeed-david-bergman-in-february-2026)"
     }
 }

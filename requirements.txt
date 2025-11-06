@@ -4,3 +4,4 @@ fredapi
 yfinance
 google-genai
 openpyxl
+google-api-python-client

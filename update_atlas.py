@@ -541,23 +541,39 @@ def generate_ai_commentary(data_dict, news_context): # Ensure this takes news_co
     composite_score = data_dict.get("overall", {}).get("score", 0.0)
     composite_status = data_dict.get("overall", {}).get("status", "UNKNOWN")
     
-    # --- REVISED SYSTEM INSTRUCTION (UNIFIED LOGIC) ---
+    # --- REVISED SYSTEM INSTRUCTION (ATLAS v3 LOGIC — INDICATORS FIRST + NEWS FEED REFERENCE) ---
     system_instruction = (
-        "You are Atlas, a senior macroeconomic analyst. Your task is to generate a comprehensive, "
-        "highly actionable report for a disciplined institutional investor. "
-        "You MUST return the output as a single, valid JSON object that adheres strictly to the provided schema. "
-        "The analysis must execute the following process for the 'daily_narrative' field: "
+        "You are Atlas, a senior macroeconomic analyst. Your task is to generate a concise, "
+        "highly actionable institutional investor commentary. "
+        "You MUST return the output as a single, valid JSON object adhering strictly to the provided schema. "
+        "The analysis for the 'daily_narrative' field must follow the official Atlas commentary structure: "
         
-        "1. **Geopolitical Context (Paragraph 1 Start):** Begin by synthesizing the 'CONTEXTUAL NEWS ARTICLES' provided. Relate the external, global risk sentiment (e.g., IMF warnings, geopolitical tension) to the Atlas market posture. "
-        "2. **Indicator Analysis (Paragraph 2 Pivot):** Immediately pivot to the internal Atlas data. Detail the specific 'Red' status systemic drivers (focus on Liquidity and Leverage, using specific indicator names and scores) that primarily drove the Composite Score. "
-        "3. **Contradiction & Trigger:** Address any disconnect (e.g., low VIX vs. high Atlas score) and explicitly state the key Atlas Pivot point (like the 10-Year Yield or HY OAS) that would trigger the next risk level (FULL-STORM)."
+        "1. **Technical Indicator Analysis (Paragraph 1):** Begin with the internal Atlas data. "
+        "State the current overall risk posture (e.g., SEVERE RISK) and identify the two-to-three most critical "
+        "Red or Amber indicators driving the Composite Score — focusing on Leverage, Liquidity, and Duration risk. "
+        "Explain any contradictions (for example, a low VIX despite rising leverage or yields). "
+        
+        "2. **External Context (Paragraph 2):** Then interpret the global macro and policy tone "
+        "using the 'CONTEXTUAL NEWS ARTICLES' provided. "
+        "Do NOT embed or reproduce the article titles, URLs, or markdown links directly inside the text. "
+        "Instead, reference each source conversationally by outlet and theme (e.g., 'as highlighted by Bloomberg' or 'per Reuters reporting on central bank guidance'). "
+        "Direct readers to the 'News Feed below' for the full list of articles reviewed. "
+        
+        "3. **Trigger Statement (Final Sentence):** Conclude by identifying the key Atlas trigger "
+        "that would escalate the posture to FULL-STORM — for instance, a US 10-Year Yield move above 4.75% "
+        "or HY OAS widening beyond 400 bps. "
+        
+        "Maintain a factual, concise institutional tone — analytical, not journalistic. "
+        "Never fabricate data or policy commentary, and never restate article titles verbatim."
     )
-    
-    # --- REVISED USER PROMPT (INCLUDES LINK INSTRUCTION) ---
+
+    # --- REVISED USER PROMPT (INDICATOR-FIRST NARRATIVE, NEWS FEED REFERENCE) ---
     prompt = (
         f"ANALYZE THIS DATA AND CONTEXT:\n\n"
-        
-        f"***Crucial Requirement for Attribution: Ensure any key points referenced from the 'CONTEXTUAL NEWS ARTICLES' in your 'daily_narrative' retain their original, working markdown hyperlink structure.***\n\n"
+        f"***CRITICAL INSTRUCTION: Begin the 'daily_narrative' with Atlas internal indicator analysis (Paragraph 1), "
+        f"then incorporate global macro context (Paragraph 2), referencing news sources by outlet name only "
+        f"and directing readers to the 'News Feed below' for full articles. "
+        f"Conclude with the Atlas trigger statement.***\n\n"
         
         f"--- ATLAS INDICATOR SUMMARY ---\n{indicator_summary}\n"
         f"--- OVERALL COMPOSITE SCORE: {composite_score:.2f} (Status: {composite_status}) ---\n\n"
@@ -565,8 +581,12 @@ def generate_ai_commentary(data_dict, news_context): # Ensure this takes news_co
         f"--- CONTEXTUAL NEWS ARTICLES ---\n{news_context}\n"
         f"--- END CONTEXT ---\n\n"
         
-        f"Generate the final analysis adhering strictly to the JSON schema and the System Instruction's required narrative structure."
+        f"Generate the final analysis adhering strictly to the JSON schema and the System Instruction’s required narrative structure. "
+        f"The 'key_actions' should remain consistent with Atlas defensive guidance: "
+        f"focus on deleveraging, defensive sector bias, tactical hedging, credit-spread monitoring, "
+        f"and rate-sensitive exposure management."
     )
+
     
     # Configure the API call to force JSON output
     config = types.GenerateContentConfig(

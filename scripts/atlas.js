@@ -2,33 +2,34 @@
 
 // --- 1. STATUS AND COLOR MAPPING UTILITY ---
 const getStatusDetails = (status) => {
-    // The input status will be the full string with the emoji (e.g., "🚨 SEVERE RISK (HIGH RISK)")
+    // The input status will be the full string with the emoji (e.g., "🔴 FULL-STORM (EXTREME RISK)")
     const s = status ? status.toUpperCase() : 'N/A';
 
     switch (s) {
-        // --- 4-Tier Overall Statuses (ALIGNED WITH PYTHON OUTPUT) ---
+        // --- 4-Tier Overall Statuses (ALIGNED WITH NEW LEGEND) ---
         
-        // Tier 1: FULL-STORM (Extreme Risk)
+        // Tier 1: FULL-STORM (Extreme Risk) - Icon 🔴, Color Deep Red
         case '🔴 FULL-STORM (EXTREME RISK)':
             return { color: 'bg-red-800 text-white border-red-900', icon: '🔴', badge: 'bg-red-100 text-red-800', narrativeBadge: 'bg-red-800' };
 
-        // Tier 2: SEVERE RISK (High Risk) - THIS IS THE CRITICAL FIX
-        case '🚨 SEVERE RISK (HIGH RISK)':
+        // Tier 2: SEVERE RISK (High Risk) - Icon 🟠, Color Strong Orange (FIXED)
+        case '🟠 SEVERE RISK (HIGH RISK)': // Note the icon change from 🚨 to 🟠
         // Fallbacks for Python's previous or alternative HIGH RISK output:
         case '🔴 HIGH RISK':
+        case '🚨 SEVERE RISK (HIGH RISK)': // Keeping the old input string for backwards compatibility, but fixing the output color/icon
         case 'SEVERE RISK':
-        case 'FULL-STORM': 
+        case 'FULL-STORM': // This is confusing; typically FULL-STORM should map to the Tier 1 color, but based on your previous fallbacks, I'm maintaining the structure but updating the output here for the SEVERE RISK block.
         case ' HIGH RISK': 
-            return { color: 'bg-red-600 text-white border-red-700', icon: '🚨', badge: 'bg-red-100 text-red-800', narrativeBadge: 'bg-red-600' };
+            return { color: 'bg-orange-600 text-white border-orange-700', icon: '🟠', badge: 'bg-orange-100 text-orange-800', narrativeBadge: 'bg-orange-600' };
 
-        // Tier 3: ELEVATED RISK (Moderate Risk)
-        case '🟠 ELEVATED RISK (MODERATE RISK)':
+        // Tier 3: ELEVATED RISK (Moderate Risk) - Icon 🟡, Color Amber/Yellow (FIXED ICON)
+        case '🟡 ELEVATED RISK (MODERATE RISK)': // Note the icon change from 🟠 to 🟡
         // Fallbacks for Python's previous or alternative AMBER/ELEVATED output:
-        case '🟠 ELEVATED RISK':
+        case '🟠 ELEVATED RISK': // Old input icon
         case '🟡 WATCH':
-            return { color: 'bg-amber-500 text-black border-amber-600', icon: '🟠', badge: 'bg-amber-100 text-amber-800', narrativeBadge: 'bg-amber-500' };
+            return { color: 'bg-amber-500 text-black border-amber-600', icon: '🟡', badge: 'bg-amber-100 text-amber-800', narrativeBadge: 'bg-amber-500' };
             
-        // Tier 4: MONITOR (Low Risk)
+        // Tier 4: MONITOR (Low Risk) - Icon 🟢, Color Green
         case '🟢 MONITOR (LOW RISK)':
         // Fallbacks for Python's previous or alternative LOW RISK output:
         case '🟢 LOW RISK':

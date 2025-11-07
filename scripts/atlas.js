@@ -47,33 +47,41 @@ const getStatusDetails = (status) => {
                 narrativeBadge: 'bg-green-600'
             };
 
-// --- 3-Tier Individual Indicator Statuses (if still used - FIXED) ---
+        // --- 3-Tier Individual Indicator Statuses (FIXED TO USE CSS CLASS NAMES) ---
         case 'RED':
             return {
-                color: 'text-red-700', // Changed: Use a non-disruptive text color class
-                icon: 'red',             // CHANGED: Returns the CSS class name
+                color: 'text-red-700', // Changed for robustness
+                icon: 'red',             // CHANGED to CSS class name
                 badge: 'bg-red-100 text-red-800',
                 narrativeBadge: 'bg-red-600'
             };
 
         case 'AMBER':
             return {
-                color: 'text-amber-700', // Changed: Use a non-disruptive text color class
-                icon: 'amber',           // CHANGED: Returns the CSS class name
+                color: 'text-amber-700', // Changed for robustness
+                icon: 'amber',           // CHANGED to CSS class name
                 badge: 'bg-amber-100 text-amber-800',
                 narrativeBadge: 'bg-amber-500'
             };
 
         case 'GREEN':
             return {
-                color: 'text-green-700', // Changed: Use a non-disruptive text color class
-                icon: 'green',           // CHANGED: Returns the CSS class name
+                color: 'text-green-700', // Changed for robustness
+                icon: 'green',           // CHANGED to CSS class name
                 badge: 'bg-green-100 text-green-800',
                 narrativeBadge: 'bg-green-600'
             };
 
-
-            
+        // --- Default / Unknown ---
+        default:
+            return {
+                color: 'bg-gray-400 text-white border-gray-500',
+                icon: '⚪',
+                badge: 'bg-gray-100 text-gray-800',
+                narrativeBadge: 'bg-gray-400'
+            };
+        }
+        };      
 
 // --- 2. DATA FETCHING ---
 
@@ -170,6 +178,12 @@ function renderOverallStatus(overall) {
  * @param {string} tableId - 'macroTable' or 'microTable'.
  * @param {Array<object>} indicators - List of indicator objects.
  */
+/**
+ * Creates and inserts rows into the specified table (Macro or Micro).
+ * CRITICAL FIX: Adds high visual prominence for N/A or Error statuses.
+ * @param {string} tableId - 'macroTable' or 'microTable'.
+ * @param {Array<object>} indicators - List of indicator objects.
+ */
 function renderIndicatorTable(tableId, indicators) {
     const tableBody = document.getElementById(tableId);
     if (!tableBody) return;
@@ -238,10 +252,25 @@ function renderIndicatorTable(tableId, indicators) {
             `;
         }
         // --- END OF HIGH VISIBILITY FIX LOGIC ---
+        
+        // --- START OF ICON RENDERING FIX ---
+        let iconHtml;
+        const iconValue = details.icon;
+        
+        // Check if the icon value is one of the CSS color class names (3-Tier Indicators)
+        if (iconValue === 'red' || iconValue === 'amber' || iconValue === 'green') {
+            // Render the custom CSS status dot
+            iconHtml = `<span class="status-dot ${iconValue}"></span>`;
+        } else {
+            // Render the emoji with margin (4-Tier or Default Statuses)
+            iconHtml = `<span class="mr-2">${iconValue}</span>`;
+        }
+        // --- END OF ICON RENDERING FIX ---
+
 
         row.innerHTML = `
             <td class="w-1/4 px-3 py-3 text-sm font-medium text-gray-900">
-                <span class="status-dot ${details.icon}"></span>${indicator.name}
+                ${iconHtml}${indicator.name}
             </td>
 
             <td class="w-24 px-3 py-3 text-sm font-semibold text-gray-700 whitespace-nowrap">

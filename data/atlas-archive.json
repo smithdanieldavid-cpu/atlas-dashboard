@@ -1,5 +1,12 @@
 [
     {
+        "date": "2025-11-07 16:14:01",
+        "status": "\ud83d\udea8 SEVERE RISK (HIGH RISK)",
+        "score": 8.5,
+        "comment": "Market stability deteriorating rapidly. High caution required.",
+        "daily_narrative": "Global markets are bracing for a significant shift as central banks signal the end of the global easing cycle, with warnings of [global economic risks](https://www.bloomberg.com/news/videos/2025-11-07/rajan-on-global-india-economic-risks-video?srnd=phx-markets) and [market risks](https://www.bloomberg.com/news/articles/2025-11-07/ecb-s-vujcic-says-policy-in-good-place-warns-of-market-risks) from key policymakers like the ECB. This environment of tightening liquidity and heightened caution, as [markets brace for life after global easing cycle](https://www.reuters.com/markets/markets-brace-life-after-global-easing-cycle-2025-11-06/), aligns with Atlas's current posture of SEVERE RISK. Despite a relatively subdued VIX index at 19.50 (Amber), Atlas's Composite Score of 8.50 is primarily driven by critical systemic indicators in the Leverage category. Specifically, a significant surge in FINRA margin debt (YOY %) at 32.94 (Red, Score: 1.50) highlights excessive speculative leverage in the system. Further contributing to this elevated risk posture are rising consumer delinquencies at 3.05 (Amber, Score: 1.00), signaling underlying stress in household balance sheets. The next critical pivot points that would trigger a 'FULL-STORM' risk level are a breach of the US 10-Year Yield threshold at 4.75% or the High Yield OAS reaching 400 bps."
+    },
+    {
         "date": "2025-11-07 11:11:20",
         "status": "\ud83d\udea8 SEVERE RISK (HIGH RISK)",
         "score": 8.5,

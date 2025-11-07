@@ -48,21 +48,24 @@ const getStatusDetails = (status) => {
       return {
         color: "text-red-700",
         icon: "red",
-        badge: "bg-red-100 text-red-800",
+        // CHANGED: From bg-red-100 to a more visible bg-red-600 with white text
+        badge: "bg-red-600 text-white",
         narrativeBadge: "bg-red-600",
       };
     case "AMBER":
       return {
         color: "text-amber-700",
         icon: "amber",
-        badge: "bg-amber-100 text-amber-800",
+        // CHANGED: From bg-amber-100 to a more visible bg-amber-500 with black text
+        badge: "bg-amber-500 text-black",
         narrativeBadge: "bg-amber-500",
       };
     case "GREEN":
       return {
         color: "text-green-700",
         icon: "green",
-        badge: "bg-green-100 text-green-800",
+        // CHANGED: From bg-green-100 to a more visible bg-green-600 with white text
+        badge: "bg-green-600 text-white",
         narrativeBadge: "bg-green-600",
       };
     // --- Default / Unknown ---
@@ -106,7 +109,6 @@ async function fetchAtlasData() {
     return null;
   }
 }
-
 
 // --- 3. RENDERING FUNCTIONS (DASHBOARD) ---
 
@@ -306,7 +308,6 @@ function renderNewsFeed(newsArticles) {
     .join("");
 }
 
-
 // --- 4. NARRATIVE PAGE RENDERING (UPDATED) ---
 
 /**
@@ -490,7 +491,6 @@ async function initializeArchivePage() {
   };
   window.addEventListener("scroll", scrollHandler);
 }
-
 
 // --- 6. MAIN INITIALIZATION LOGIC ---
 

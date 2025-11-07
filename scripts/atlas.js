@@ -49,7 +49,7 @@ const getStatusDetails = (status) => {
         color: "text-red-700",
         icon: "red",
         // CHANGED: From bg-red-100 to a more visible bg-red-600 with white text
-        badge: "bg-red-600 text-white",
+        badge: "!bg-red-600 text-white",
         narrativeBadge: "bg-red-600",
       };
     case "AMBER":
@@ -57,7 +57,7 @@ const getStatusDetails = (status) => {
         color: "text-amber-700",
         icon: "amber",
         // CHANGED: From bg-amber-100 to a more visible bg-amber-500 with black text
-        badge: "bg-amber-500 text-black",
+        badge: "!bg-amber-500 text-black",
         narrativeBadge: "bg-amber-500",
       };
     case "GREEN":
@@ -65,7 +65,7 @@ const getStatusDetails = (status) => {
         color: "text-green-700",
         icon: "green",
         // CHANGED: From bg-green-100 to a more visible bg-green-600 with white text
-        badge: "bg-green-600 text-white",
+        badge: "!bg-green-600 text-white",
         narrativeBadge: "bg-green-600",
       };
     // --- Default / Unknown ---

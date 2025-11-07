@@ -3,9 +3,9 @@
         {
             "id": "VIX",
             "name": "VIX index",
-            "value": 19.739999771118164,
+            "value": 20.469999313354492,
             "status": "Amber",
-            "note": "VIX is moderate at 19.74. Volatility is starting to increase.",
+            "note": "VIX is moderate at 20.47. Volatility is starting to increase.",
             "action": "Monitor volatility trends closely.",
             "score_value": 1.0,
             "source_link": "https://finance.yahoo.com/quote/%5EVIX/"
@@ -23,9 +23,9 @@
         {
             "id": "EURUSD",
             "name": "EUR/USD exchange rate",
-            "value": 1.1536686420440674,
+            "value": 1.1570056676864624,
             "status": "Green",
-            "note": "EUR/USD is stable at 1.1537. Indicates balanced global risk/economic outlook.",
+            "note": "EUR/USD is stable at 1.1570. Indicates balanced global risk/economic outlook.",
             "action": "No change.",
             "score_value": 0.0,
             "source_link": "https://finance.yahoo.com/quote/EURUSD=X/"
@@ -33,9 +33,9 @@
         {
             "id": "WTI_CRUDE",
             "name": "WTI crude oil ($/bbl)",
-            "value": 59.959999084472656,
+            "value": 59.86000061035156,
             "status": "Amber",
-            "note": "WTI Crude at $59.96/bbl. Low price indicates global slowdown or demand weakness.",
+            "note": "WTI Crude at $59.86/bbl. Low price indicates global slowdown or demand weakness.",
             "action": "Monitor global growth indicators.",
             "score_value": 0.5,
             "source_link": "https://finance.yahoo.com/quote/USO/"
@@ -43,9 +43,9 @@
         {
             "id": "AUDUSD",
             "name": "AUD/USD exchange rate",
-            "value": 0.6484664082527161,
+            "value": 0.6488450169563293,
             "status": "Red",
-            "note": "AUDUSD at 0.6485. AUD remains under pressure. Strong risk-off or persistent US Dollar strength.",
+            "note": "AUDUSD at 0.6488. AUD remains under pressure. Strong risk-off or persistent US Dollar strength.",
             "action": "Favour US Dollar liquidity over AUD assets; watch commodity prices.",
             "score_value": 1.0,
             "source_link": "https://finance.yahoo.com/quote/AUDUSD=X/"
@@ -230,16 +230,16 @@
         "score": 8.5,
         "status": "\ud83d\udea8 SEVERE RISK (HIGH RISK)",
         "comment": "Market stability deteriorating rapidly. High caution required.",
-        "daily_narrative": "Atlas internal indicators signal a SEVERE RISK posture, driven primarily by escalating Leverage and Duration risks. FINRA margin debt continues to rise significantly year-over-year, indicating increased speculative positioning, while the Small/Large cap ratio remains Red, reflecting a clear preference for larger, more stable assets and a contraction in risk appetite. Consumer delinquencies are also Amber, pointing to underlying credit stress. This elevated risk is somewhat masked by a VIX index that, while Amber, does not fully reflect the underlying leverage and duration exposures, suggesting a potential complacency in volatility pricing. The global macro environment reinforces this cautious outlook, with Reuters reporting that markets are bracing for the end of the global easing cycle, suggesting tighter financial conditions ahead. Bloomberg highlights broader global economic risks, while the Financial Times notes an expected slump in US holiday hiring due to slowing consumer spending, further underscoring demand-side weakness. For a full list of articles reviewed, please refer to the News Feed below. An escalation to FULL-STORM would be triggered by the US 10-Year Yield moving above 4.75% or HY OAS widening beyond 400 bps.",
-        "composite_summary": "Atlas maintains a SEVERE RISK posture, characterized by elevated leverage and duration risks amidst a tightening global macro backdrop.",
+        "daily_narrative": "Atlas indicators signal a SEVERE RISK posture with a Composite Score of 8.50. Key drivers include elevated leverage risk, as evidenced by the Red status of FINRA margin debt at 32.94% YOY, and significant duration risk reflected in the Red Small/Large cap ratio of 0.36. Global risk appetite is also under pressure, indicated by the Red AUD/USD exchange rate at 0.65. While the VIX remains Amber at 20.47, it does not fully capture the underlying leverage and duration vulnerabilities, suggesting a potential disconnect in perceived versus actual market risk. US Treasury yields, with the 30-year at 4.74% and 10-year at 4.17%, are elevated, contributing to duration concerns, though high yield OAS remains Green.\nThe external macro environment reinforces caution, with Investing.com highlighting struggles in risk markets due to a lack of bullish catalysts. Policy uncertainty is a significant factor, as Bloomberg reports on the Federal Reserve's interest rate decision being complicated by insufficient data. Global economic risks are also a concern, as discussed by Rajan on Bloomberg, while Reuters indicates that markets are bracing for the conclusion of the global easing cycle. Corporate earnings reports, such as those from Brighthouse Financial and Marcus & Millichap, provide specific company-level insights, but the broader tone remains cautious. Readers are directed to the News Feed below for the full list of articles reviewed. The posture would escalate to FULL-STORM if the US 10-Year Yield moves above 4.75% or HY OAS widens beyond 400 bps.",
+        "composite_summary": "The market remains in a SEVERE RISK posture, driven by elevated leverage and duration concerns amidst a cautious global macro backdrop.",
         "key_actions": [
             "Reduce overall portfolio leverage and maintain higher cash allocations.",
-            "Shift portfolio bias towards defensive sectors and high-quality, dividend-paying equities.",
-            "Implement tactical hedges against potential equity market downturns and credit spread widening.",
-            "Closely monitor high-yield credit spreads for signs of further deterioration in corporate credit health.",
-            "Review and reduce exposure to highly rate-sensitive assets, particularly long-duration fixed income."
+            "Shift exposure towards defensive sectors and high-quality fixed income.",
+            "Implement tactical hedges against potential equity market downside and currency volatility.",
+            "Closely monitor credit spreads, particularly HY OAS, for signs of widening.",
+            "Re-evaluate and de-risk rate-sensitive exposures given elevated Treasury yields."
         ],
-        "date": "2025-11-07 19:47:55",
+        "date": "2025-11-07 13:21:53",
         "news": [
             {
                 "title": "Brighthouse Financial Announces Third Quarter 2025 Results ...",
@@ -257,6 +257,21 @@
                 "snippet": "Contextual article. Click title for details."
             },
             {
+                "title": "Marcus & Millichap, Inc. Reports Results for Third Quarter 2025 ...",
+                "url": "https://www.morningstar.com/news/business-wire/20251107534246/marcus-millichap-inc-reports-results-for-third-quarter-2025",
+                "snippet": "Contextual article. Click title for details."
+            },
+            {
+                "title": "Risk Markets Struggle on Lack of Bullish Catalysts | Investing.com",
+                "url": "https://www.investing.com/analysis/risk-markets-struggle-on-lack-of-bullish-catalysts-200669808",
+                "snippet": "Contextual article. Click title for details."
+            },
+            {
+                "title": "Fed Interest Rate Decision: US Shutdown Means Not Enough Data ...",
+                "url": "https://www.bloomberg.com/news/articles/2025-11-07/fed-interest-rate-decision-us-shutdown-means-not-enough-data",
+                "snippet": "Contextual article. Click title for details."
+            },
+            {
                 "title": "Watch Rajan On Global, India Economic Risks - Bloomberg",
                 "url": "https://www.bloomberg.com/news/videos/2025-11-07/rajan-on-global-india-economic-risks-video",
                 "snippet": "Contextual article. Click title for details."
@@ -267,31 +282,16 @@
                 "snippet": "Contextual article. Click title for details."
             },
             {
+                "title": "October in Review: 10 Top Finance Press Releases | Morningstar",
+                "url": "https://www.morningstar.com/news/pr-newswire/20251107ny18271/october-in-review-10-top-finance-press-releases",
+                "snippet": "Contextual article. Click title for details."
+            },
+            {
                 "title": "Morningstar | Empowering Investor Success",
                 "url": "https://www.morningstar.com/",
                 "snippet": "Contextual article. Click title for details."
-            },
-            {
-                "title": "Stock Market Today: Dow, S&P Live Updates for November 7 ...",
-                "url": "https://www.bloomberg.com/news/articles/2025-11-06/stock-market-today-dow-s-p-live-updates",
-                "snippet": "Contextual article. Click title for details."
-            },
-            {
-                "title": "US Markets, Company Earnings, Stock Market Trends, Market News ...",
-                "url": "https://www.morningstar.com/markets",
-                "snippet": "Contextual article. Click title for details."
-            },
-            {
-                "title": "Economics - Bloomberg",
-                "url": "https://www.bloomberg.com/economics-v2",
-                "snippet": "Contextual article. Click title for details."
-            },
-            {
-                "title": "Holiday hiring in US expected to slump as consumer spending slows",
-                "url": "https://www.ft.com/content/a864983a-8896-4a31-ae42-23731715df51",
-                "snippet": "Contextual article. Click title for details."
             }
         ],
-        "news_context_raw": "1. [Brighthouse Financial Announces Third Quarter 2025 Results ...](https://www.morningstar.com/news/business-wire/20251106767329/brighthouse-financial-announces-third-quarter-2025-results)\n2. [Bloomberg - Business News, Stock Markets, Finance, Breaking ...](https://www.bloomberg.com/)\n3. [COP makes me excited about emerging companies again](https://www.ft.com/content/eb4d4641-683d-436f-9a43-d15b91f85664)\n4. [Watch Rajan On Global, India Economic Risks - Bloomberg](https://www.bloomberg.com/news/videos/2025-11-07/rajan-on-global-india-economic-risks-video)\n5. [Markets brace for life after global easing cycle | Reuters](https://www.reuters.com/markets/markets-brace-life-after-global-easing-cycle-2025-11-06/)\n6. [Morningstar | Empowering Investor Success](https://www.morningstar.com/)\n7. [Stock Market Today: Dow, S&P Live Updates for November 7 ...](https://www.bloomberg.com/news/articles/2025-11-06/stock-market-today-dow-s-p-live-updates)\n8. [US Markets, Company Earnings, Stock Market Trends, Market News ...](https://www.morningstar.com/markets)\n9. [Economics - Bloomberg](https://www.bloomberg.com/economics-v2)\n10. [Holiday hiring in US expected to slump as consumer spending slows](https://www.ft.com/content/a864983a-8896-4a31-ae42-23731715df51)"
+        "news_context_raw": "1. [Brighthouse Financial Announces Third Quarter 2025 Results ...](https://www.morningstar.com/news/business-wire/20251106767329/brighthouse-financial-announces-third-quarter-2025-results)\n2. [Bloomberg - Business News, Stock Markets, Finance, Breaking ...](https://www.bloomberg.com/)\n3. [COP makes me excited about emerging companies again](https://www.ft.com/content/eb4d4641-683d-436f-9a43-d15b91f85664)\n4. [Marcus & Millichap, Inc. Reports Results for Third Quarter 2025 ...](https://www.morningstar.com/news/business-wire/20251107534246/marcus-millichap-inc-reports-results-for-third-quarter-2025)\n5. [Risk Markets Struggle on Lack of Bullish Catalysts | Investing.com](https://www.investing.com/analysis/risk-markets-struggle-on-lack-of-bullish-catalysts-200669808)\n6. [Fed Interest Rate Decision: US Shutdown Means Not Enough Data ...](https://www.bloomberg.com/news/articles/2025-11-07/fed-interest-rate-decision-us-shutdown-means-not-enough-data)\n7. [Watch Rajan On Global, India Economic Risks - Bloomberg](https://www.bloomberg.com/news/videos/2025-11-07/rajan-on-global-india-economic-risks-video)\n8. [Markets brace for life after global easing cycle | Reuters](https://www.reuters.com/markets/markets-brace-life-after-global-easing-cycle-2025-11-06/)\n9. [October in Review: 10 Top Finance Press Releases | Morningstar](https://www.morningstar.com/news/pr-newswire/20251107ny18271/october-in-review-10-top-finance-press-releases)\n10. [Morningstar | Empowering Investor Success](https://www.morningstar.com/)"
     }
 }

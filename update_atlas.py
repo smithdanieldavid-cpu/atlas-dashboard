@@ -781,22 +781,23 @@ def parse_news_snippets_for_display(raw_news_context):
 
 def map_score_to_status(score):
     """
-    Maps the composite score to the official Atlas risk status based on thresholds.
-    These thresholds are critical for the entire methodology and AI prompt.
+    Maps the composite score to the official Atlas risk status based on unified color, emoji, and threshold logic.
+    This function must stay synchronized with the frontend getStatusDetails() mapping.
     """
-    # Use the thresholds defined in your commentary prompt:
+
     if score > 12.0:
-        # FULL-STORM: Score > 12.0 (EXTREME RISK)
+        # 🔴 FULL-STORM: Extreme Risk
         return "🔴 FULL-STORM (EXTREME RISK)"
     elif score > 8.0:
-        # SEVERE RISK: Score > 8.0 (HIGH RISK)
-        return "🚨 SEVERE RISK (HIGH RISK)"
+        # 🟠 SEVERE RISK: High Risk
+        return "🟠 SEVERE RISK (HIGH RISK)"
     elif score > 4.0:
-        # ELEVATED RISK: Score > 4.0 (MODERATE RISK)
-        return "🟠 ELEVATED RISK (MODERATE RISK)"
+        # 🟡 ELEVATED RISK: Moderate Risk
+        return "🟡 ELEVATED RISK (MODERATE RISK)"
     else:
-        # MONITOR: Score <= 4.0 (LOW RISK)
+        # 🟢 MONITOR: Low Risk
         return "🟢 MONITOR (LOW RISK)"
+
 
 # NOTE: Ensure this is defined before run_update_process calls it!
 

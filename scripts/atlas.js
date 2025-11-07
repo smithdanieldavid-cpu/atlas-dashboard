@@ -47,41 +47,43 @@ const getStatusDetails = (status) => {
                 narrativeBadge: 'bg-green-600'
             };
 
-        // --- 3-Tier Individual Indicator Statuses (if still used) ---
+        // --- 3-Tier Individual Indicator Statuses (FIXED) ---
+        // Note: These cases only require correct icon and badge classes, 
+        // the 'color' key is set to a non-disruptive text color for robustness.
         case 'RED':
             return {
-                color: 'border-red-600',
-                icon: '🟥',
+                color: 'text-red-700', // Changed for robustness
+                icon: '🔴',             // Changed from 🟥 to Red Circle
                 badge: 'bg-red-100 text-red-800',
                 narrativeBadge: 'bg-red-600'
             };
 
         case 'AMBER':
             return {
-                color: 'border-amber-600',
-                icon: '🟠',
+                color: 'text-amber-700', // Changed for robustness
+                icon: '🟠',             // Correct
                 badge: 'bg-amber-100 text-amber-800',
                 narrativeBadge: 'bg-amber-500'
             };
 
         case 'GREEN':
             return {
-                color: 'border-green-600',
-                icon: '✅',
+                color: 'text-green-700', // Changed for robustness
+                icon: '🟢',             // Changed from ✅ to Green Circle
                 badge: 'bg-green-100 text-green-800',
                 narrativeBadge: 'bg-green-600'
             };
 
-        // --- Default / Unknown ---
-        default:
-            return {
-                color: 'bg-gray-400 text-white border-gray-500',
-                icon: '⚪',
-                badge: 'bg-gray-100 text-gray-800',
-                narrativeBadge: 'bg-gray-400'
-            };
-    }
-};
+                // --- Default / Unknown ---
+                default:
+                    return {
+                        color: 'bg-gray-400 text-white border-gray-500',
+                        icon: '⚪',
+                        badge: 'bg-gray-100 text-gray-800',
+                        narrativeBadge: 'bg-gray-400'
+                    };
+            }
+        };
 
 
 // --- 2. DATA FETCHING ---

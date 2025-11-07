@@ -1,5 +1,12 @@
 [
     {
+        "date": "2025-11-07 11:11:20",
+        "status": "\ud83d\udea8 SEVERE RISK (HIGH RISK)",
+        "score": 8.5,
+        "comment": "Market stability deteriorating rapidly. High caution required.",
+        "daily_narrative": "The global macroeconomic landscape remains fraught with uncertainty, as central banks navigate persistent inflation and economic slowdowns. The [Bank of England's decision to hold rates](https://www.ft.com/content/8ae7781b-729a-4226-aae3-4e70aebbe995), diverging from some prior Fed actions, underscores a complex environment where monetary policy paths are increasingly divergent. Meanwhile, the [Fed's Hammack continues to prioritize inflation concerns](https://www.bloomberg.com/news/articles/2025-11-06/fed-s-hammack-says-inflation-a-bigger-concern-than-labor-market) over labor market considerations, contributing to a broader sentiment of \"[UncertAInty slamming risk appetite](https://www.reuters.com/world/china/global-markets-trading-day-graphic-2025-11-06/)\" across global markets. This external backdrop of cautious central bank stances and heightened market uncertainty directly reinforces Atlas's current Severe Risk posture. Internally, Atlas's Composite Score of 8.50, signaling Severe Risk, is primarily driven by critical systemic indicators in the Leverage and Liquidity categories. Specifically, FINRA margin debt (YOY %) stands at a concerning 32.94 (Red, Score: 1.50), indicating elevated investor leverage. Concurrently, the Small/Large cap ratio at 0.36 (Red, Score: 1.00) suggests a flight to quality and reduced liquidity for smaller, riskier assets. While the VIX index remains in Amber territory at 19.50, this apparent calm belies the underlying systemic stress captured by Atlas's broader suite of indicators. The next critical pivot point for a move to a FULL-STORM risk level would be a breach of the US 10-Year Yield threshold at 4.75% (currently 4.17%) or the High Yield OAS reaching 400 bps (currently 3.05 bps)."
+    },
+    {
         "date": "2025-11-07 10:15:39",
         "status": "\ud83d\udea8 SEVERE RISK (HIGH RISK)",
         "score": 10.5,

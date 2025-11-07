@@ -205,23 +205,36 @@ def fetch_asx_200():
 
 def get_treasury_net_liquidity():
     """
-    Calculates Treasury Net Liquidity using FRED data (TGA + Reverse Repo - Fed Balance Sheet).
+    Calculates Treasury Net Liquidity using FRED data.
+    
+    Definition:
+        Net Liquidity = Fed Balance Sheet (WALCL)
+                        - (Treasury General Account (WTREGEN) + Reverse Repo (RRPONTSYD))
     """
     if not fred:
         print("FRED client not initialized. Cannot calculate Net Liquidity.")
         return 100.0
 
     try:
-        # Use the secure global FRED constants
-        walcl = fred.get_series_latest_release(FRED_WALCL_ID).iloc[-1].item()
-        wtregen = fred.get_series_latest_release(FRED_WTREGEN_ID).iloc[-1].item()
-        rrpontsyd = fred.get_series_latest_release(FRED_RRPONTSYD_ID).iloc[-1].item()
-        
-        # Calculation
-        net_liquidity = (float(wtregen) + float(rrpontsyd)) - float(walcl)
+        # Pull the latest data from FRED
+        walcl = float(fred.get_series_latest_release(FRED_WALCL_ID).iloc[-1].item())
+        wtregen = float(fred.get_series_latest_release(FRED_WTREGEN_ID).iloc[-1].item())
+        rrpontsyd = float(fred.get_series_latest_release(FRED_RRPONTSYD_ID).iloc[-1].item())
 
-        print(f"Success: Calculated TREASURY_LIQUIDITY ({net_liquidity:.2f}) from FRED data.")
+        # Correct calculation: WALCL - (TGA + RRP)
+        net_liquidity = walcl - (wtregen + rrpontsyd)
+
+        # Detailed output for debugging and validation
+        print(f"WALCL (Fed Balance Sheet): {walcl:,.2f}")
+        print(f"WTREGEN (TGA): {wtregen:,.2f}")
+        print(f"RRPONTSYD (Reverse Repo): {rrpontsyd:,.2f}")
+        print(f"Success: Calculated TREASURY_LIQUIDITY = {net_liquidity:,.2f}")
+
+        # Optional sanity check
+        if abs(net_liquidity) > abs(walcl) * 2:
+            print("⚠️  Warning: Net Liquidity value unusually large — verify FRED data units.")
         return net_liquidity
+
     except Exception as e:
         print(f"FRED API Error for Net Liquidity: {e}. Returning fallback 100.0.")
         return 100.0

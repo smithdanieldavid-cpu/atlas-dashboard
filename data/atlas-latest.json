@@ -3,9 +3,9 @@
         {
             "id": "VIX",
             "name": "VIX index",
-            "value": 19.5,
+            "value": 19.739999771118164,
             "status": "Amber",
-            "note": "VIX is moderate at 19.50. Volatility is starting to increase.",
+            "note": "VIX is moderate at 19.74. Volatility is starting to increase.",
             "action": "Monitor volatility trends closely.",
             "score_value": 1.0,
             "source_link": "https://finance.yahoo.com/quote/%5EVIX/"
@@ -23,9 +23,9 @@
         {
             "id": "EURUSD",
             "name": "EUR/USD exchange rate",
-            "value": 1.1535356044769287,
+            "value": 1.1536686420440674,
             "status": "Green",
-            "note": "EUR/USD is stable at 1.1535. Indicates balanced global risk/economic outlook.",
+            "note": "EUR/USD is stable at 1.1537. Indicates balanced global risk/economic outlook.",
             "action": "No change.",
             "score_value": 0.0,
             "source_link": "https://finance.yahoo.com/quote/EURUSD=X/"
@@ -33,9 +33,9 @@
         {
             "id": "WTI_CRUDE",
             "name": "WTI crude oil ($/bbl)",
-            "value": 59.939998626708984,
+            "value": 59.959999084472656,
             "status": "Amber",
-            "note": "WTI Crude at $59.94/bbl. Low price indicates global slowdown or demand weakness.",
+            "note": "WTI Crude at $59.96/bbl. Low price indicates global slowdown or demand weakness.",
             "action": "Monitor global growth indicators.",
             "score_value": 0.5,
             "source_link": "https://finance.yahoo.com/quote/USO/"
@@ -43,9 +43,9 @@
         {
             "id": "AUDUSD",
             "name": "AUD/USD exchange rate",
-            "value": 0.648382306098938,
+            "value": 0.6484664082527161,
             "status": "Red",
-            "note": "AUDUSD at 0.6484. AUD remains under pressure. Strong risk-off or persistent US Dollar strength.",
+            "note": "AUDUSD at 0.6485. AUD remains under pressure. Strong risk-off or persistent US Dollar strength.",
             "action": "Favour US Dollar liquidity over AUD assets; watch commodity prices.",
             "score_value": 1.0,
             "source_link": "https://finance.yahoo.com/quote/AUDUSD=X/"
@@ -230,16 +230,16 @@
         "score": 8.5,
         "status": "\ud83d\udea8 SEVERE RISK (HIGH RISK)",
         "comment": "Market stability deteriorating rapidly. High caution required.",
-        "daily_narrative": "Atlas indicators signal a SEVERE RISK posture, with a Composite Score of 8.50. Key drivers include elevated leverage as evidenced by the Red-rated FINRA margin debt (YOY % at 32.94%) and Amber-rated consumer delinquencies (3.05%). Duration risk remains a concern with the US 30yr treasury yield at 4.74% and the US 10yr treasury yield at 4.17%, both in Amber status. The Amber VIX (19.50) and Green High Yield OAS (3.05) present a contradictory signal, suggesting market complacency despite underlying leverage and duration vulnerabilities. The global macro tone reflects a cautious shift away from accommodative policies, as highlighted by Reuters reporting on markets bracing for the end of the global easing cycle. Central bank commentary, including the ECB's Vujcic warning of market risks per Bloomberg, underscores this transition. While Bloomberg also notes resilience in specific regions like Japan's household spending, broader economic risks are being assessed, as discussed by Rajan on global and Indian economic conditions. Readers are directed to the News Feed below for the full list of articles reviewed. Escalation to FULL-STORM would be triggered by a US 10-Year Yield move above 4.75% or HY OAS widening beyond 400 bps.",
-        "composite_summary": "The current Atlas Composite Score of 8.50 indicates a SEVERE RISK environment, driven by escalating leverage and duration concerns.",
+        "daily_narrative": "Atlas internal indicators signal a SEVERE RISK posture, driven primarily by escalating Leverage and Duration risks. FINRA margin debt continues to rise significantly year-over-year, indicating increased speculative positioning, while the Small/Large cap ratio remains Red, reflecting a clear preference for larger, more stable assets and a contraction in risk appetite. Consumer delinquencies are also Amber, pointing to underlying credit stress. This elevated risk is somewhat masked by a VIX index that, while Amber, does not fully reflect the underlying leverage and duration exposures, suggesting a potential complacency in volatility pricing. The global macro environment reinforces this cautious outlook, with Reuters reporting that markets are bracing for the end of the global easing cycle, suggesting tighter financial conditions ahead. Bloomberg highlights broader global economic risks, while the Financial Times notes an expected slump in US holiday hiring due to slowing consumer spending, further underscoring demand-side weakness. For a full list of articles reviewed, please refer to the News Feed below. An escalation to FULL-STORM would be triggered by the US 10-Year Yield moving above 4.75% or HY OAS widening beyond 400 bps.",
+        "composite_summary": "Atlas maintains a SEVERE RISK posture, characterized by elevated leverage and duration risks amidst a tightening global macro backdrop.",
         "key_actions": [
             "Reduce overall portfolio leverage and maintain higher cash allocations.",
-            "Shift portfolio bias towards defensive sectors with stable cash flows.",
-            "Implement tactical hedges to mitigate downside risk in equity and credit exposures.",
-            "Closely monitor High Yield OAS for any signs of widening beyond current levels.",
-            "Review and reduce exposure to highly rate-sensitive assets given elevated treasury yields."
+            "Shift portfolio bias towards defensive sectors and high-quality, dividend-paying equities.",
+            "Implement tactical hedges against potential equity market downturns and credit spread widening.",
+            "Closely monitor high-yield credit spreads for signs of further deterioration in corporate credit health.",
+            "Review and reduce exposure to highly rate-sensitive assets, particularly long-duration fixed income."
         ],
-        "date": "2025-11-07 06:54:02",
+        "date": "2025-11-07 19:47:55",
         "news": [
             {
                 "title": "Brighthouse Financial Announces Third Quarter 2025 Results ...",
@@ -247,13 +247,13 @@
                 "snippet": "Contextual article. Click title for details."
             },
             {
-                "title": "COP makes me excited about emerging companies again",
-                "url": "https://www.ft.com/content/eb4d4641-683d-436f-9a43-d15b91f85664",
+                "title": "Bloomberg - Business News, Stock Markets, Finance, Breaking ...",
+                "url": "https://www.bloomberg.com/",
                 "snippet": "Contextual article. Click title for details."
             },
             {
-                "title": "Japan's Households Boost Spending Despite Inflation Hit - Bloomberg",
-                "url": "https://www.bloomberg.com/news/articles/2025-11-06/japan-s-households-boost-spending-again-despite-inflation-hit",
+                "title": "COP makes me excited about emerging companies again",
+                "url": "https://www.ft.com/content/eb4d4641-683d-436f-9a43-d15b91f85664",
                 "snippet": "Contextual article. Click title for details."
             },
             {
@@ -277,21 +277,21 @@
                 "snippet": "Contextual article. Click title for details."
             },
             {
+                "title": "US Markets, Company Earnings, Stock Market Trends, Market News ...",
+                "url": "https://www.morningstar.com/markets",
+                "snippet": "Contextual article. Click title for details."
+            },
+            {
                 "title": "Economics - Bloomberg",
                 "url": "https://www.bloomberg.com/economics-v2",
                 "snippet": "Contextual article. Click title for details."
             },
             {
-                "title": "FTSE 100 Live: Gilts Rise After BOE Holds Rates, Opens Door to ...",
-                "url": "https://www.bloomberg.com/news/live-blog/2025-11-06/ftse-100-live-boe-rate-decision-bailey-astrazeneca-sainsbury-pound-bonds-what-s-moving-uk-markets-right-now-markets-today",
-                "snippet": "Contextual article. Click title for details."
-            },
-            {
-                "title": "ECB's Vujcic Says Policy in Good Place, Warns of Market Risks ...",
-                "url": "https://www.bloomberg.com/news/articles/2025-11-07/ecb-s-vujcic-says-policy-in-good-place-warns-of-market-risks",
+                "title": "Holiday hiring in US expected to slump as consumer spending slows",
+                "url": "https://www.ft.com/content/a864983a-8896-4a31-ae42-23731715df51",
                 "snippet": "Contextual article. Click title for details."
             }
         ],
-        "news_context_raw": "1. [Brighthouse Financial Announces Third Quarter 2025 Results ...](https://www.morningstar.com/news/business-wire/20251106767329/brighthouse-financial-announces-third-quarter-2025-results)\n2. [COP makes me excited about emerging companies again](https://www.ft.com/content/eb4d4641-683d-436f-9a43-d15b91f85664)\n3. [Japan's Households Boost Spending Despite Inflation Hit - Bloomberg](https://www.bloomberg.com/news/articles/2025-11-06/japan-s-households-boost-spending-again-despite-inflation-hit)\n4. [Watch Rajan On Global, India Economic Risks - Bloomberg](https://www.bloomberg.com/news/videos/2025-11-07/rajan-on-global-india-economic-risks-video)\n5. [Markets brace for life after global easing cycle | Reuters](https://www.reuters.com/markets/markets-brace-life-after-global-easing-cycle-2025-11-06/)\n6. [Morningstar | Empowering Investor Success](https://www.morningstar.com/)\n7. [Stock Market Today: Dow, S&P Live Updates for November 7 ...](https://www.bloomberg.com/news/articles/2025-11-06/stock-market-today-dow-s-p-live-updates)\n8. [Economics - Bloomberg](https://www.bloomberg.com/economics-v2)\n9. [FTSE 100 Live: Gilts Rise After BOE Holds Rates, Opens Door to ...](https://www.bloomberg.com/news/live-blog/2025-11-06/ftse-100-live-boe-rate-decision-bailey-astrazeneca-sainsbury-pound-bonds-what-s-moving-uk-markets-right-now-markets-today)\n10. [ECB's Vujcic Says Policy in Good Place, Warns of Market Risks ...](https://www.bloomberg.com/news/articles/2025-11-07/ecb-s-vujcic-says-policy-in-good-place-warns-of-market-risks)"
+        "news_context_raw": "1. [Brighthouse Financial Announces Third Quarter 2025 Results ...](https://www.morningstar.com/news/business-wire/20251106767329/brighthouse-financial-announces-third-quarter-2025-results)\n2. [Bloomberg - Business News, Stock Markets, Finance, Breaking ...](https://www.bloomberg.com/)\n3. [COP makes me excited about emerging companies again](https://www.ft.com/content/eb4d4641-683d-436f-9a43-d15b91f85664)\n4. [Watch Rajan On Global, India Economic Risks - Bloomberg](https://www.bloomberg.com/news/videos/2025-11-07/rajan-on-global-india-economic-risks-video)\n5. [Markets brace for life after global easing cycle | Reuters](https://www.reuters.com/markets/markets-brace-life-after-global-easing-cycle-2025-11-06/)\n6. [Morningstar | Empowering Investor Success](https://www.morningstar.com/)\n7. [Stock Market Today: Dow, S&P Live Updates for November 7 ...](https://www.bloomberg.com/news/articles/2025-11-06/stock-market-today-dow-s-p-live-updates)\n8. [US Markets, Company Earnings, Stock Market Trends, Market News ...](https://www.morningstar.com/markets)\n9. [Economics - Bloomberg](https://www.bloomberg.com/economics-v2)\n10. [Holiday hiring in US expected to slump as consumer spending slows](https://www.ft.com/content/a864983a-8896-4a31-ae42-23731715df51)"
     }
 }

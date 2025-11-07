@@ -47,46 +47,36 @@ const getStatusDetails = (status) => {
                 narrativeBadge: 'bg-green-600'
             };
 
-        // --- 3-Tier Individual Indicator Statuses (FIXED) ---
-        // Note: These cases only require correct icon and badge classes, 
-        // the 'color' key is set to a non-disruptive text color for robustness.
+// --- 3-Tier Individual Indicator Statuses (if still used - FIXED) ---
         case 'RED':
             return {
-                color: 'text-red-700', // Changed for robustness
-                icon: '🔴',             // Changed from 🟥 to Red Circle
+                color: 'text-red-700', // Changed: Use a non-disruptive text color class
+                icon: 'red',             // CHANGED: Returns the CSS class name
                 badge: 'bg-red-100 text-red-800',
                 narrativeBadge: 'bg-red-600'
             };
 
         case 'AMBER':
             return {
-                color: 'text-amber-700', // Changed for robustness
-                icon: '🟠',             // Correct
+                color: 'text-amber-700', // Changed: Use a non-disruptive text color class
+                icon: 'amber',           // CHANGED: Returns the CSS class name
                 badge: 'bg-amber-100 text-amber-800',
                 narrativeBadge: 'bg-amber-500'
             };
 
         case 'GREEN':
             return {
-                color: 'text-green-700', // Changed for robustness
-                icon: '🟢',             // Changed from ✅ to Green Circle
+                color: 'text-green-700', // Changed: Use a non-disruptive text color class
+                icon: 'green',           // CHANGED: Returns the CSS class name
                 badge: 'bg-green-100 text-green-800',
                 narrativeBadge: 'bg-green-600'
             };
 
-                // --- Default / Unknown ---
-                default:
-                    return {
-                        color: 'bg-gray-400 text-white border-gray-500',
-                        icon: '⚪',
-                        badge: 'bg-gray-100 text-gray-800',
-                        narrativeBadge: 'bg-gray-400'
-                    };
-            }
-        };
 
+            
 
 // --- 2. DATA FETCHING ---
+
 const ATLAS_DATA_PATH = 'data/atlas-latest.json'; 
 const ARCHIVE_DATA_PATH = 'data/atlas-archive.json';
 
@@ -251,7 +241,7 @@ function renderIndicatorTable(tableId, indicators) {
 
         row.innerHTML = `
             <td class="w-1/4 px-3 py-3 text-sm font-medium text-gray-900">
-                <span class="mr-2">${details.icon}</span>${indicator.name}
+                <span class="status-dot ${details.icon}"></span>${indicator.name}
             </td>
 
             <td class="w-24 px-3 py-3 text-sm font-semibold text-gray-700 whitespace-nowrap">

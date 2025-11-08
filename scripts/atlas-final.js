@@ -1,4 +1,4 @@
-// scripts/atlas.js
+// scripts/atlas-final.js
 
 // --- 1. STATUS AND COLOR MAPPING UTILITY ---
 const getStatusDetails = (status) => {

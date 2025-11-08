@@ -3,9 +3,9 @@
         {
             "id": "VIX",
             "name": "VIX index",
-            "value": 21.020000457763672,
+            "value": 19.079999923706055,
             "status": "Amber",
-            "note": "VIX is moderate at 21.02. Volatility is starting to increase.",
+            "note": "VIX is moderate at 19.08. Volatility is starting to increase.",
             "action": "Monitor volatility trends closely.",
             "score_value": 1.0,
             "source_link": "https://finance.yahoo.com/quote/%5EVIX/"
@@ -13,9 +13,9 @@
         {
             "id": "GOLD_PRICE",
             "name": "Gold price (GLD)",
-            "value": 368.3900146484375,
+            "value": 368.30999755859375,
             "status": "Amber",
-            "note": "Gold (GLD) is rallying sharply at $368.39. Indicates rising inflation expectations or systemic risk.",
+            "note": "Gold (GLD) is rallying sharply at $368.31. Indicates rising inflation expectations or systemic risk.",
             "action": "Consider increasing real asset allocation.",
             "score_value": 0.5,
             "source_link": "https://finance.yahoo.com/quote/GLD/"
@@ -23,9 +23,9 @@
         {
             "id": "EURUSD",
             "name": "EUR/USD exchange rate",
-            "value": 1.1576753854751587,
+            "value": 1.1570056676864624,
             "status": "Green",
-            "note": "EUR/USD is stable at 1.1577. Indicates balanced global risk/economic outlook.",
+            "note": "EUR/USD is stable at 1.1570. Indicates balanced global risk/economic outlook.",
             "action": "No change.",
             "score_value": 0.0,
             "source_link": "https://finance.yahoo.com/quote/EURUSD=X/"
@@ -33,9 +33,9 @@
         {
             "id": "WTI_CRUDE",
             "name": "WTI crude oil ($/bbl)",
-            "value": 59.7400016784668,
+            "value": 59.84000015258789,
             "status": "Amber",
-            "note": "WTI Crude at $59.74/bbl. Low price indicates global slowdown or demand weakness.",
+            "note": "WTI Crude at $59.84/bbl. Low price indicates global slowdown or demand weakness.",
             "action": "Monitor global growth indicators.",
             "score_value": 0.5,
             "source_link": "https://finance.yahoo.com/quote/USO/"
@@ -43,9 +43,9 @@
         {
             "id": "AUDUSD",
             "name": "AUD/USD exchange rate",
-            "value": 0.648929238319397,
+            "value": 0.6496037244796753,
             "status": "Red",
-            "note": "AUDUSD at 0.6489. AUD remains under pressure. Strong risk-off or persistent US Dollar strength.",
+            "note": "AUDUSD at 0.6496. AUD remains under pressure. Strong risk-off or persistent US Dollar strength.",
             "action": "Favour US Dollar liquidity over AUD assets; watch commodity prices.",
             "score_value": 1.0,
             "source_link": "https://finance.yahoo.com/quote/AUDUSD=X/"
@@ -53,9 +53,9 @@
         {
             "id": "3Y_YIELD",
             "name": "US 3yr treasury yield",
-            "value": 3.65,
+            "value": 3.58,
             "status": "Amber",
-            "note": "Yield at 3.65%. Medium-term rate pressure.",
+            "note": "Yield at 3.58%. Medium-term rate pressure.",
             "action": "Avoid intermediate locks; prefer short/floating rate instruments.",
             "score_value": 0.5,
             "source_link": "https://fred.stlouisfed.org/series/DGS3"
@@ -63,9 +63,9 @@
         {
             "id": "30Y_YIELD",
             "name": "US 30yr treasury yield",
-            "value": 4.74,
+            "value": 4.69,
             "status": "Amber",
-            "note": "Yield at 4.74%. Elevated long-term yields reflecting fiscal risk/inflation concerns.",
+            "note": "Yield at 4.69%. Elevated long-term yields reflecting fiscal risk/inflation concerns.",
             "action": "Watch the 5.0% threshold. Limit long duration locks.",
             "score_value": 0.5,
             "source_link": "https://fred.stlouisfed.org/series/DGS30"
@@ -73,9 +73,9 @@
         {
             "id": "10Y_YIELD",
             "name": "US 10yr treasury yield",
-            "value": 4.17,
+            "value": 4.11,
             "status": "Amber",
-            "note": "Yield at 4.17%. Elevated yields.",
+            "note": "Yield at 4.11%. Elevated yields.",
             "action": "Watch the Atlas pivot at 4.75%; favour short duration.",
             "score_value": 0.5,
             "source_link": "https://fred.stlouisfed.org/series/DGS10"
@@ -93,9 +93,9 @@
         {
             "id": "TREASURY_LIQUIDITY",
             "name": "Treasury net liquidity",
-            "value": 6571780.267,
+            "value": 6571786.118,
             "status": "Green",
-            "note": "Net Liquidity at $6571780B. Liquidity is robust and supportive of risk assets.",
+            "note": "Net Liquidity at $6571786B. Liquidity is robust and supportive of risk assets.",
             "action": "No change.",
             "score_value": 0.0,
             "source_link": "https://fred.stlouisfed.org/series/WALCL"
@@ -138,9 +138,9 @@
         {
             "id": "SPX_INDEX",
             "name": "S&P 500 index",
-            "value": 6671.41015625,
+            "value": 6728.7998046875,
             "status": "Green",
-            "note": "S&P 500 Index at 6,671. Strong/stable price action. Low systemic equity risk.",
+            "note": "S&P 500 Index at 6,729. Strong/stable price action. Low systemic equity risk.",
             "action": "Maintain equity exposure.",
             "score_value": 0.0,
             "source_link": "https://finance.yahoo.com/quote/%5EGSPC/"
@@ -178,9 +178,9 @@
         {
             "id": "SMALL_LARGE_RATIO",
             "name": "Small/Large cap ratio",
-            "value": 0.3603919476856608,
+            "value": 0.36155392421016763,
             "status": "Red",
-            "note": "Ratio at 0.3604 \u2014 small-caps are heavily underperforming. Poor internals.",
+            "note": "Ratio at 0.3616 \u2014 small-caps are heavily underperforming. Poor internals.",
             "action": "Avoid high-risk small-cap exposure.",
             "score_value": 1.0,
             "source_link": "https://finance.yahoo.com/quote/%5ERUT/"
@@ -230,20 +230,25 @@
         "score": 8.5,
         "status": "\ud83d\udfe0 SEVERE RISK (HIGH RISK)",
         "comment": "Market stability deteriorating rapidly. High caution required.",
-        "daily_narrative": "Atlas indicators signal a SEVERE RISK posture, driven primarily by elevated leverage and duration concerns. FINRA margin debt remains a critical Red indicator, showing a significant year-over-year increase, while the Small/Large cap ratio also registers Red, pointing to deteriorating risk appetite. The AUD/USD exchange rate further reinforces this risk-off sentiment. Despite these clear warnings, the VIX index remains in Amber territory, and High Yield OAS is Green, suggesting a potential disconnect between underlying leverage and perceived market volatility or credit stress. Long-duration yields, particularly the US 30-year Treasury, are nearing critical thresholds, indicating rising duration risk. The external macro environment reflects growing investor caution, as highlighted by Bloomberg's reporting on increasing skepticism towards AI and Investing.com's observation of risk markets struggling for bullish catalysts. Concerns about credit quality are also emerging, with the Financial Times noting the potential fragility of non-bank lenders. Geopolitical and policy uncertainties, including potential US shutdown developments and upcoming China data, are contributing to a cautious tone, as reported by Morningstar and Dow Jones. This backdrop, combined with a notable surge in gold prices, as discussed by Seeking Alpha, underscores a flight to safety. Readers are directed to the News Feed below for the full list of articles reviewed. A move in the US 10-Year Yield above 4.75% or HY OAS widening beyond 400 bps would escalate the posture to FULL-STORM.",
-        "composite_summary": "The market remains in a SEVERE RISK posture, characterized by elevated leverage and duration concerns despite some pockets of perceived stability.",
+        "daily_narrative": "Atlas indicators signal a SEVERE RISK posture, driven by a Composite Score of 8.50. Key contributors to this elevated risk include Red flags in FINRA margin debt, indicating significant leverage accumulation, and the Small/Large cap ratio, suggesting a contraction in risk appetite and duration exposure. Amber alerts for consumer delinquencies further underscore credit quality concerns. While the VIX remains at a moderate 19.08, this apparent calm in volatility contradicts the underlying leverage and duration risks highlighted by other indicators, including the Amber status of US Treasury yields, particularly the 10-year at 4.11%.\nThe external macro environment reinforces a cautious outlook, with Reuters reporting on weakening US consumer sentiment, partly due to government shutdown concerns, and Investing.com noting a general struggle in risk markets from a lack of bullish catalysts. Bloomberg highlights growing skepticism among investors regarding AI's market impact, while the Financial Times raises concerns about the reliability of non-bank lenders, pointing to potential vulnerabilities in the broader credit landscape. Morningstar and Dow Jones also emphasize ongoing focus on US shutdown developments. For the full list of articles reviewed, please refer to the News Feed below. An escalation to FULL-STORM would be triggered by the US 10-Year Yield moving above 4.75% or HY OAS widening beyond 400 bps.",
+        "composite_summary": "Atlas maintains a SEVERE RISK posture, reflecting significant underlying leverage and duration risks despite moderate volatility.",
         "key_actions": [
-            "Reduce overall portfolio leverage and maintain a conservative capital structure.",
-            "Shift portfolio allocation towards defensive sectors and high-quality assets.",
-            "Implement tactical hedges against potential equity market downturns and credit spread widening.",
-            "Actively monitor credit spreads, particularly in high-yield segments, for early signs of deterioration.",
-            "Re-evaluate exposure to rate-sensitive assets given rising long-duration yields."
+            "Reduce overall portfolio leverage.",
+            "Increase allocation to defensive sectors and high-quality fixed income.",
+            "Implement tactical hedges against equity market downside and rising rates.",
+            "Closely monitor credit spreads, particularly in high-yield segments, for signs of deterioration.",
+            "Review and de-risk exposure to rate-sensitive assets."
         ],
-        "date": "2025-11-07 18:48:17",
+        "date": "2025-11-08 11:14:55",
         "news": [
             {
                 "title": "Brighthouse Financial Announces Third Quarter 2025 Results ...",
                 "url": "https://www.morningstar.com/news/business-wire/20251106767329/brighthouse-financial-announces-third-quarter-2025-results",
+                "snippet": "Contextual article. Click title for details."
+            },
+            {
+                "title": "US consumer sentiment near 3-1/2-year low as government ...",
+                "url": "https://www.reuters.com/business/us-consumer-sentiment-weakens-november-government-shutdown-drags-2025-11-07/",
                 "snippet": "Contextual article. Click title for details."
             },
             {
@@ -253,7 +258,7 @@
             },
             {
                 "title": "Canada Unemployment Rate Falls to 6.9% in October - WSJ",
-                "url": "https://www.wsj.com/economy/jobs/canada-unemployment-rate-falls-to-6-9-in-october-c3d3f3ff?gaa_at=eafs&gaa_n=AWEtsqeFyEGrM9YuWG_NVac3W4QNdwmmPgS2uyhE-XdzB6Sr9SEpMUvKl6bX&gaa_ts=690e426a&gaa_sig=w1b3GooVH9J_QldAF2siaGnZyqxtJwyubTJjqcD-q1uorVqwqYlhQnfo4YEybT51OGZXBHFihZ3iUhGyg2A4SQ%3D%3D",
+                "url": "https://www.wsj.com/economy/jobs/canada-unemployment-rate-falls-to-6-9-in-october-c3d3f3ff?gaa_at=eafs&gaa_n=AWEtsqfvQ6XXfSumJn5GxUBXV86DZWI1Hla4IydKkcOk0hLBYcR26HsOiaa5&gaa_ts=690e8efa&gaa_sig=fwAp5cL206_i1CntTcOd1riNhVZV4ZJC0A26TCGJ47tzN-9F9Jt9F-VfqwTi_tXtGTEDCjU-BECQgH4J90JyDA%3D%3D",
                 "snippet": "Contextual article. Click title for details."
             },
             {
@@ -264,11 +269,6 @@
             {
                 "title": "Non-bank lenders may be fair-weather friends",
                 "url": "https://www.ft.com/content/d4da45c8-61f3-4eed-aed8-92c72c0772d9",
-                "snippet": "Contextual article. Click title for details."
-            },
-            {
-                "title": "A Golden Year (2025): Gold's Price Surge - The Signal In The Noise ...",
-                "url": "https://seekingalpha.com/article/4840137-golden-year-2025-gold-price-surge-signal-in-noise",
                 "snippet": "Contextual article. Click title for details."
             },
             {
@@ -292,6 +292,6 @@
                 "snippet": "Contextual article. Click title for details."
             }
         ],
-        "news_context_raw": "1. [Brighthouse Financial Announces Third Quarter 2025 Results ...](https://www.morningstar.com/news/business-wire/20251106767329/brighthouse-financial-announces-third-quarter-2025-results)\n2. [Bloomberg - Business News, Stock Markets, Finance, Breaking ...](https://www.bloomberg.com/)\n3. [Canada Unemployment Rate Falls to 6.9% in October - WSJ](https://www.wsj.com/economy/jobs/canada-unemployment-rate-falls-to-6-9-in-october-c3d3f3ff?gaa_at=eafs&gaa_n=AWEtsqeFyEGrM9YuWG_NVac3W4QNdwmmPgS2uyhE-XdzB6Sr9SEpMUvKl6bX&gaa_ts=690e426a&gaa_sig=w1b3GooVH9J_QldAF2siaGnZyqxtJwyubTJjqcD-q1uorVqwqYlhQnfo4YEybT51OGZXBHFihZ3iUhGyg2A4SQ%3D%3D)\n4. [COP makes me excited about emerging companies again](https://www.ft.com/content/eb4d4641-683d-436f-9a43-d15b91f85664)\n5. [Non-bank lenders may be fair-weather friends](https://www.ft.com/content/d4da45c8-61f3-4eed-aed8-92c72c0772d9)\n6. [A Golden Year (2025): Gold's Price Surge - The Signal In The Noise ...](https://seekingalpha.com/article/4840137-golden-year-2025-gold-price-surge-signal-in-noise)\n7. [AI Skepticism Is Gaining Ground With Stock, Credit Investors ...](https://www.bloomberg.com/news/newsletters/2025-11-07/ai-skepticism-is-gaining-ground-with-stock-credit-investors)\n8. [Risk Markets Struggle on Lack of Bullish Catalysts | Investing.com](https://www.investing.com/analysis/risk-markets-struggle-on-lack-of-bullish-catalysts-200669808)\n9. [Week Ahead for FX, Bonds: Focus on U.S. Shutdown Developments ...](https://www.morningstar.com/news/dow-jones/202511077397/week-ahead-for-fx-bonds-focus-on-us-shutdown-developments-china-data)\n10. [Dodge & Cox Global Bond Fund Q3 2025 Shareholder Letter ...](https://seekingalpha.com/article/4840219-dodge-and-cox-global-bond-fund-q3-2025-shareholder-letter)"
+        "news_context_raw": "1. [Brighthouse Financial Announces Third Quarter 2025 Results ...](https://www.morningstar.com/news/business-wire/20251106767329/brighthouse-financial-announces-third-quarter-2025-results)\n2. [US consumer sentiment near 3-1/2-year low as government ...](https://www.reuters.com/business/us-consumer-sentiment-weakens-november-government-shutdown-drags-2025-11-07/)\n3. [Bloomberg - Business News, Stock Markets, Finance, Breaking ...](https://www.bloomberg.com/)\n4. [Canada Unemployment Rate Falls to 6.9% in October - WSJ](https://www.wsj.com/economy/jobs/canada-unemployment-rate-falls-to-6-9-in-october-c3d3f3ff?gaa_at=eafs&gaa_n=AWEtsqfvQ6XXfSumJn5GxUBXV86DZWI1Hla4IydKkcOk0hLBYcR26HsOiaa5&gaa_ts=690e8efa&gaa_sig=fwAp5cL206_i1CntTcOd1riNhVZV4ZJC0A26TCGJ47tzN-9F9Jt9F-VfqwTi_tXtGTEDCjU-BECQgH4J90JyDA%3D%3D)\n5. [COP makes me excited about emerging companies again](https://www.ft.com/content/eb4d4641-683d-436f-9a43-d15b91f85664)\n6. [Non-bank lenders may be fair-weather friends](https://www.ft.com/content/d4da45c8-61f3-4eed-aed8-92c72c0772d9)\n7. [AI Skepticism Is Gaining Ground With Stock, Credit Investors ...](https://www.bloomberg.com/news/newsletters/2025-11-07/ai-skepticism-is-gaining-ground-with-stock-credit-investors)\n8. [Risk Markets Struggle on Lack of Bullish Catalysts | Investing.com](https://www.investing.com/analysis/risk-markets-struggle-on-lack-of-bullish-catalysts-200669808)\n9. [Week Ahead for FX, Bonds: Focus on U.S. Shutdown Developments ...](https://www.morningstar.com/news/dow-jones/202511077397/week-ahead-for-fx-bonds-focus-on-us-shutdown-developments-china-data)\n10. [Dodge & Cox Global Bond Fund Q3 2025 Shareholder Letter ...](https://seekingalpha.com/article/4840219-dodge-and-cox-global-bond-fund-q3-2025-shareholder-letter)"
     }
 }

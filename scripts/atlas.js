@@ -29,22 +29,22 @@ const getStatusDetails = (status) => {
     // --- 4-Tier Overall Composite Risk Statuses (OFFICIAL, NO FALLBACKS) ---
     case "FULL-STORM (EXTREME RISK)":
       return {
+        color: "text-blue-900",
+        icon: "🔵", // Use a blue circle emoji
+        badge: "bg-blue-500 text-white",
+        narrativeBadge: "bg-blue-600",
+      };
+    case "SEVERE RISK (HIGH RISK)":
+      return {
         color: "bg-red-800 text-white border-red-900",
         icon: "🔴", // Added Icon
         badge: "bg-red-100 text-red-800",
         narrativeBadge: "bg-red-800",
       };
-    case "SEVERE RISK (HIGH RISK)":
-      return {
-        color: "bg-orange-600 text-white border-orange-700",
-        icon: "🟠", // Added Icon
-        badge: "bg-orange-100 text-orange-800",
-        narrativeBadge: "bg-orange-600",
-      };
     case "ELEVATED RISK (MODERATE RISK)":
       return {
         color: "bg-amber-500 text-black border-amber-600",
-        icon: "🟡", // Added Icon
+        icon: "🟠", // Added Icon
         badge: "bg-amber-100 text-amber-800",
         narrativeBadge: "bg-amber-500",
       };
@@ -72,13 +72,7 @@ const getStatusDetails = (status) => {
         badge: "bg-amber-500 text-black",
         narrativeBadge: "bg-amber-600",
       };
-    case "YELLOW":
-      return {
-        color: "text-yellow-900",
-        icon: "🟡",
-        badge: "bg-yellow-400 text-black",
-        narrativeBadge: "bg-yellow-500",
-      };
+
     case "GREEN":
       return {
         color: "text-green-900",

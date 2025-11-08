@@ -6,78 +6,97 @@ const getStatusDetails = (status) => {
   if (!status) {
     return {
       color: "bg-gray-400 text-white border-gray-500",
-      icon: "",
+      icon: "⚪",
       badge: "bg-gray-100 text-gray-800",
       narrativeBadge: "bg-gray-400",
     };
   }
 
-  switch (status.trim()) {
+  // ⭐️ CRITICAL FIX: Standardize the status string for accurate matching
+  // 1. Remove EMOJI/special characters (which break overall status matching)
+  // 2. Convert to UPPERCASE (Fixes the "Red"/"Amber" vs "RED"/"AMBER" case mismatch)
+  // 3. Trim whitespace (Handles leading/trailing spaces)
+  const standardizedStatus = status
+    .replace(
+      /(\u00a9|\u00ae|[\u2000-\u3300]|\ud83c[\ud000-\udfff]|\ud83d[\ud000-\udfff]|\ud83e[\ud000-\udfff])/g,
+      ""
+    )
+    .toUpperCase()
+    .trim();
+
+  // Use the fully standardized status string for the switch
+  switch (standardizedStatus) {
     // --- 4-Tier Overall Composite Risk Statuses (OFFICIAL, NO FALLBACKS) ---
     case "FULL-STORM (EXTREME RISK)":
       return {
         color: "bg-red-800 text-white border-red-900",
-        icon: "",
+        icon: "🔴", // Added Icon
         badge: "bg-red-100 text-red-800",
         narrativeBadge: "bg-red-800",
       };
     case "SEVERE RISK (HIGH RISK)":
       return {
         color: "bg-orange-600 text-white border-orange-700",
-        icon: "",
+        icon: "🟠", // Added Icon
         badge: "bg-orange-100 text-orange-800",
         narrativeBadge: "bg-orange-600",
       };
     case "ELEVATED RISK (MODERATE RISK)":
       return {
         color: "bg-amber-500 text-black border-amber-600",
-        icon: "",
+        icon: "🟡", // Added Icon
         badge: "bg-amber-100 text-amber-800",
         narrativeBadge: "bg-amber-500",
       };
     case "MONITOR (LOW RISK)":
       return {
         color: "bg-green-600 text-white border-green-700",
-        icon: "",
+        icon: "🟢", // Added Icon
         badge: "bg-green-100 text-green-800",
         narrativeBadge: "bg-green-600",
       };
 
-    // --- 3-Tier Individual Indicator Statuses ---
-// --- 3-Tier Individual Indicator Statuses (Fully aligned to overall risk palette) ---
-case "Red":
-  return {
-    color: "text-red-900",
-    icon: "🔴",
-    badge: "bg-red-800 text-white",
-    narrativeBadge: "bg-red-800",
-  };
-
-case "Amber":
-  return {
-    color: "text-amber-900",
-    icon: "🟠",
-    badge: "bg-amber-500 text-black",
-    narrativeBadge: "bg-amber-600",
-  };
-
-case "Green":
-  return {
-    color: "text-green-900",
-    icon: "🟢",
-    badge: "bg-green-700 text-white",
-    narrativeBadge: "bg-green-700",
-  };
-
-// --- Default / Unknown ---
-default:
-  return {
-    color: "text-gray-600",
-    icon: "⚪",
-    badge: "bg-gray-200 text-gray-800",
-    narrativeBadge: "bg-gray-400",
-  };
-
+    // --- 3-Tier Individual Indicator Statuses (Fully aligned to overall risk palette) ---
+    // These now correctly match "Red", "Amber", etc., after conversion to UPPERCASE.
+    case "RED":
+      return {
+        color: "text-red-900",
+        icon: "🔴",
+        badge: "bg-red-800 text-white",
+        narrativeBadge: "bg-red-800",
+      };
+    case "AMBER":
+      return {
+        color: "text-amber-900",
+        icon: "🟠",
+        badge: "bg-amber-500 text-black",
+        narrativeBadge: "bg-amber-600",
+      };
+    case "YELLOW":
+      return {
+        color: "text-yellow-900",
+        icon: "🟡",
+        badge: "bg-yellow-400 text-black",
+        narrativeBadge: "bg-yellow-500",
+      };
+    case "GREEN":
+      return {
+        color: "text-green-900",
+        icon: "🟢",
+        badge: "bg-green-700 text-white",
+        narrativeBadge: "bg-green-700",
+      };
+      
+    case "N/A":
+    // --- Default / Unknown ---
+    default:
+      return {
+        color: "text-gray-600",
+        icon: "⚪",
+        badge: "bg-gray-200 text-gray-800",
+        narrativeBadge: "bg-gray-400",
+      };
+  }
 };
 
 // --- 2. DATA FETCHING ---
@@ -546,4 +565,4 @@ async function initializeDashboard() {
 
   console.log("Atlas Dashboard successfully rendered data.");
 }
-}
+

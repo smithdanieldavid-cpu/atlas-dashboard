@@ -1,5 +1,12 @@
 [
     {
+        "date": "2025-11-08 06:47:53",
+        "status": "\ud83d\udfe0 SEVERE RISK (HIGH RISK)",
+        "score": 8.5,
+        "comment": "Market stability deteriorating rapidly. High caution required.",
+        "daily_narrative": "Atlas indicators signal a SEVERE RISK posture, driven primarily by elevated leverage and duration risks. FINRA margin debt remains a critical Red indicator, showing significant year-over-year growth, while consumer delinquencies are Amber, pointing to underlying stress. Long-end duration risk is also notable with US 10-year and 30-year treasury yields remaining elevated in the Amber zone. This contrasts with a relatively subdued VIX index, which is Amber but not signaling extreme volatility, and a Green status for High Yield OAS and Treasury net liquidity, suggesting a disconnect between perceived market stability and rising underlying leverage and duration exposures. The external macro environment reflects growing uncertainty, particularly in the US. Reuters reporting highlights weakening US consumer sentiment and the ongoing impact of a government shutdown on critical economic data releases, including the employment report. Morningstar also emphasizes the market's focus on US shutdown developments and upcoming China data. Separately, the Financial Times discusses the role of non-bank lenders and their potential fair-weather nature, adding to credit market considerations. Readers are directed to the News Feed below for the full list of articles reviewed. The posture would escalate to FULL-STORM upon a US 10-Year Yield move above 4.75% or HY OAS widening beyond 400 bps."
+    },
+    {
         "date": "2025-11-08 11:14:55",
         "status": "\ud83d\udfe0 SEVERE RISK (HIGH RISK)",
         "score": 8.5,

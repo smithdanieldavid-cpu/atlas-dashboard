@@ -33,9 +33,9 @@
         {
             "id": "WTI_CRUDE",
             "name": "WTI crude oil ($/bbl)",
-            "value": 59.84000015258789,
+            "value": 59.75,
             "status": "Amber",
-            "note": "WTI Crude at $59.84/bbl. Low price indicates global slowdown or demand weakness.",
+            "note": "WTI Crude at $59.75/bbl. Low price indicates global slowdown or demand weakness.",
             "action": "Monitor global growth indicators.",
             "score_value": 0.5,
             "source_link": "https://finance.yahoo.com/quote/USO/"
@@ -178,7 +178,7 @@
         {
             "id": "SMALL_LARGE_RATIO",
             "name": "Small/Large cap ratio",
-            "value": 0.36155392421016763,
+            "value": 0.3615533436831623,
             "status": "Red",
             "note": "Ratio at 0.3616 \u2014 small-caps are heavily underperforming. Poor internals.",
             "action": "Avoid high-risk small-cap exposure.",
@@ -230,17 +230,27 @@
         "score": 8.5,
         "status": "\ud83d\udfe0 SEVERE RISK (HIGH RISK)",
         "comment": "Market stability deteriorating rapidly. High caution required.",
-        "daily_narrative": "Atlas indicators signal a SEVERE RISK posture, driven by a Composite Score of 8.50. Key contributors to this elevated risk include Red flags in FINRA margin debt, indicating significant leverage accumulation, and the Small/Large cap ratio, suggesting a contraction in risk appetite and duration exposure. Amber alerts for consumer delinquencies further underscore credit quality concerns. While the VIX remains at a moderate 19.08, this apparent calm in volatility contradicts the underlying leverage and duration risks highlighted by other indicators, including the Amber status of US Treasury yields, particularly the 10-year at 4.11%.\nThe external macro environment reinforces a cautious outlook, with Reuters reporting on weakening US consumer sentiment, partly due to government shutdown concerns, and Investing.com noting a general struggle in risk markets from a lack of bullish catalysts. Bloomberg highlights growing skepticism among investors regarding AI's market impact, while the Financial Times raises concerns about the reliability of non-bank lenders, pointing to potential vulnerabilities in the broader credit landscape. Morningstar and Dow Jones also emphasize ongoing focus on US shutdown developments. For the full list of articles reviewed, please refer to the News Feed below. An escalation to FULL-STORM would be triggered by the US 10-Year Yield moving above 4.75% or HY OAS widening beyond 400 bps.",
-        "composite_summary": "Atlas maintains a SEVERE RISK posture, reflecting significant underlying leverage and duration risks despite moderate volatility.",
+        "daily_narrative": "Atlas indicators signal a SEVERE RISK posture, driven primarily by elevated leverage and duration risks. FINRA margin debt remains a critical Red indicator, showing significant year-over-year growth, while consumer delinquencies are Amber, pointing to underlying stress. Long-end duration risk is also notable with US 10-year and 30-year treasury yields remaining elevated in the Amber zone. This contrasts with a relatively subdued VIX index, which is Amber but not signaling extreme volatility, and a Green status for High Yield OAS and Treasury net liquidity, suggesting a disconnect between perceived market stability and rising underlying leverage and duration exposures. The external macro environment reflects growing uncertainty, particularly in the US. Reuters reporting highlights weakening US consumer sentiment and the ongoing impact of a government shutdown on critical economic data releases, including the employment report. Morningstar also emphasizes the market's focus on US shutdown developments and upcoming China data. Separately, the Financial Times discusses the role of non-bank lenders and their potential fair-weather nature, adding to credit market considerations. Readers are directed to the News Feed below for the full list of articles reviewed. The posture would escalate to FULL-STORM upon a US 10-Year Yield move above 4.75% or HY OAS widening beyond 400 bps.",
+        "composite_summary": "The current market environment is characterized by SEVERE RISK, marked by rising leverage and duration concerns despite pockets of perceived stability.",
         "key_actions": [
-            "Reduce overall portfolio leverage.",
-            "Increase allocation to defensive sectors and high-quality fixed income.",
-            "Implement tactical hedges against equity market downside and rising rates.",
-            "Closely monitor credit spreads, particularly in high-yield segments, for signs of deterioration.",
-            "Review and de-risk exposure to rate-sensitive assets."
+            "Reduce overall portfolio leverage, particularly in equity exposures.",
+            "Shift towards defensive sectors and high-quality fixed income.",
+            "Implement tactical hedges against potential equity market downturns and rising rate volatility.",
+            "Closely monitor credit spreads, especially High Yield OAS, for signs of widening.",
+            "Re-evaluate exposure to rate-sensitive assets given elevated long-end treasury yields."
         ],
-        "date": "2025-11-08 11:14:55",
+        "date": "2025-11-08 06:47:53",
         "news": [
+            {
+                "title": "Morningstar | Empowering Investor Success",
+                "url": "https://www.morningstar.com/",
+                "snippet": "Contextual article. Click title for details."
+            },
+            {
+                "title": "Financial Times: Home",
+                "url": "https://www.ft.com/",
+                "snippet": "Contextual article. Click title for details."
+            },
             {
                 "title": "Brighthouse Financial Announces Third Quarter 2025 Results ...",
                 "url": "https://www.morningstar.com/news/business-wire/20251106767329/brighthouse-financial-announces-third-quarter-2025-results",
@@ -252,13 +262,8 @@
                 "snippet": "Contextual article. Click title for details."
             },
             {
-                "title": "Bloomberg - Business News, Stock Markets, Finance, Breaking ...",
-                "url": "https://www.bloomberg.com/",
-                "snippet": "Contextual article. Click title for details."
-            },
-            {
                 "title": "Canada Unemployment Rate Falls to 6.9% in October - WSJ",
-                "url": "https://www.wsj.com/economy/jobs/canada-unemployment-rate-falls-to-6-9-in-october-c3d3f3ff?gaa_at=eafs&gaa_n=AWEtsqfvQ6XXfSumJn5GxUBXV86DZWI1Hla4IydKkcOk0hLBYcR26HsOiaa5&gaa_ts=690e8efa&gaa_sig=fwAp5cL206_i1CntTcOd1riNhVZV4ZJC0A26TCGJ47tzN-9F9Jt9F-VfqwTi_tXtGTEDCjU-BECQgH4J90JyDA%3D%3D",
+                "url": "https://www.wsj.com/economy/jobs/canada-unemployment-rate-falls-to-6-9-in-october-c3d3f3ff?gaa_at=eafs&gaa_n=AWEtsqeXRnNQSYeHvw66Zx3a8Y6o_vp0RUOL1fAWa2d3hsGssxi0IBrDivKD&gaa_ts=690eeb15&gaa_sig=iwHnEv1dFi28zyvF6OBQuZMSMfkxpj8vAALXpZYT4eJG8qvogclZOKll4J3qqExGRUHDub1dMSG-3ttDkXlGCw%3D%3D",
                 "snippet": "Contextual article. Click title for details."
             },
             {
@@ -272,16 +277,6 @@
                 "snippet": "Contextual article. Click title for details."
             },
             {
-                "title": "AI Skepticism Is Gaining Ground With Stock, Credit Investors ...",
-                "url": "https://www.bloomberg.com/news/newsletters/2025-11-07/ai-skepticism-is-gaining-ground-with-stock-credit-investors",
-                "snippet": "Contextual article. Click title for details."
-            },
-            {
-                "title": "Risk Markets Struggle on Lack of Bullish Catalysts | Investing.com",
-                "url": "https://www.investing.com/analysis/risk-markets-struggle-on-lack-of-bullish-catalysts-200669808",
-                "snippet": "Contextual article. Click title for details."
-            },
-            {
                 "title": "Week Ahead for FX, Bonds: Focus on U.S. Shutdown Developments ...",
                 "url": "https://www.morningstar.com/news/dow-jones/202511077397/week-ahead-for-fx-bonds-focus-on-us-shutdown-developments-china-data",
                 "snippet": "Contextual article. Click title for details."
@@ -290,8 +285,13 @@
                 "title": "Dodge & Cox Global Bond Fund Q3 2025 Shareholder Letter ...",
                 "url": "https://seekingalpha.com/article/4840219-dodge-and-cox-global-bond-fund-q3-2025-shareholder-letter",
                 "snippet": "Contextual article. Click title for details."
+            },
+            {
+                "title": "US employment report will not be published again as government ...",
+                "url": "https://www.reuters.com/business/finance/us-employment-report-will-not-be-published-again-government-shutdown-drags-2025-11-07/",
+                "snippet": "Contextual article. Click title for details."
             }
         ],
-        "news_context_raw": "1. [Brighthouse Financial Announces Third Quarter 2025 Results ...](https://www.morningstar.com/news/business-wire/20251106767329/brighthouse-financial-announces-third-quarter-2025-results)\n2. [US consumer sentiment near 3-1/2-year low as government ...](https://www.reuters.com/business/us-consumer-sentiment-weakens-november-government-shutdown-drags-2025-11-07/)\n3. [Bloomberg - Business News, Stock Markets, Finance, Breaking ...](https://www.bloomberg.com/)\n4. [Canada Unemployment Rate Falls to 6.9% in October - WSJ](https://www.wsj.com/economy/jobs/canada-unemployment-rate-falls-to-6-9-in-october-c3d3f3ff?gaa_at=eafs&gaa_n=AWEtsqfvQ6XXfSumJn5GxUBXV86DZWI1Hla4IydKkcOk0hLBYcR26HsOiaa5&gaa_ts=690e8efa&gaa_sig=fwAp5cL206_i1CntTcOd1riNhVZV4ZJC0A26TCGJ47tzN-9F9Jt9F-VfqwTi_tXtGTEDCjU-BECQgH4J90JyDA%3D%3D)\n5. [COP makes me excited about emerging companies again](https://www.ft.com/content/eb4d4641-683d-436f-9a43-d15b91f85664)\n6. [Non-bank lenders may be fair-weather friends](https://www.ft.com/content/d4da45c8-61f3-4eed-aed8-92c72c0772d9)\n7. [AI Skepticism Is Gaining Ground With Stock, Credit Investors ...](https://www.bloomberg.com/news/newsletters/2025-11-07/ai-skepticism-is-gaining-ground-with-stock-credit-investors)\n8. [Risk Markets Struggle on Lack of Bullish Catalysts | Investing.com](https://www.investing.com/analysis/risk-markets-struggle-on-lack-of-bullish-catalysts-200669808)\n9. [Week Ahead for FX, Bonds: Focus on U.S. Shutdown Developments ...](https://www.morningstar.com/news/dow-jones/202511077397/week-ahead-for-fx-bonds-focus-on-us-shutdown-developments-china-data)\n10. [Dodge & Cox Global Bond Fund Q3 2025 Shareholder Letter ...](https://seekingalpha.com/article/4840219-dodge-and-cox-global-bond-fund-q3-2025-shareholder-letter)"
+        "news_context_raw": "1. [Morningstar | Empowering Investor Success](https://www.morningstar.com/)\n2. [Financial Times: Home](https://www.ft.com/)\n3. [Brighthouse Financial Announces Third Quarter 2025 Results ...](https://www.morningstar.com/news/business-wire/20251106767329/brighthouse-financial-announces-third-quarter-2025-results)\n4. [US consumer sentiment near 3-1/2-year low as government ...](https://www.reuters.com/business/us-consumer-sentiment-weakens-november-government-shutdown-drags-2025-11-07/)\n5. [Canada Unemployment Rate Falls to 6.9% in October - WSJ](https://www.wsj.com/economy/jobs/canada-unemployment-rate-falls-to-6-9-in-october-c3d3f3ff?gaa_at=eafs&gaa_n=AWEtsqeXRnNQSYeHvw66Zx3a8Y6o_vp0RUOL1fAWa2d3hsGssxi0IBrDivKD&gaa_ts=690eeb15&gaa_sig=iwHnEv1dFi28zyvF6OBQuZMSMfkxpj8vAALXpZYT4eJG8qvogclZOKll4J3qqExGRUHDub1dMSG-3ttDkXlGCw%3D%3D)\n6. [COP makes me excited about emerging companies again](https://www.ft.com/content/eb4d4641-683d-436f-9a43-d15b91f85664)\n7. [Non-bank lenders may be fair-weather friends](https://www.ft.com/content/d4da45c8-61f3-4eed-aed8-92c72c0772d9)\n8. [Week Ahead for FX, Bonds: Focus on U.S. Shutdown Developments ...](https://www.morningstar.com/news/dow-jones/202511077397/week-ahead-for-fx-bonds-focus-on-us-shutdown-developments-china-data)\n9. [Dodge & Cox Global Bond Fund Q3 2025 Shareholder Letter ...](https://seekingalpha.com/article/4840219-dodge-and-cox-global-bond-fund-q3-2025-shareholder-letter)\n10. [US employment report will not be published again as government ...](https://www.reuters.com/business/finance/us-employment-report-will-not-be-published-again-government-shutdown-drags-2025-11-07/)"
     }
 }

@@ -44,39 +44,48 @@ const getStatusDetails = (status) => {
       };
 
     // --- 3-Tier Individual Indicator Statuses ---
-    case "RED":
-      return {
-        color: "text-red-700",
-        icon: "red",
-        // CHANGED: From bg-red-100 to a more visible bg-red-600 with white text
-        badge: "!bg-red-600 !text-white",
-        narrativeBadge: "bg-red-600",
-      };
-    case "AMBER":
-      return {
-        color: "text-amber-700",
-        icon: "amber",
-        // CHANGED: From bg-amber-100 to a more visible bg-amber-500 with black text
-        badge: "!bg-amber-500 !text-black",
-        narrativeBadge: "bg-amber-500",
-      };
-    case "GREEN":
-      return {
-        color: "text-green-700",
-        icon: "green",
-        // CHANGED: From bg-green-100 to a more visible bg-green-600 with white text
-        badge: "!bg-green-600 !text-white",
-        narrativeBadge: "bg-green-600",
-      };
-    // --- Default / Unknown ---
-    default:
-      return {
-        color: "bg-gray-400 text-white border-gray-500",
-        icon: "",
-        badge: "bg-gray-100 text-gray-800",
-        narrativeBadge: "bg-gray-400",
-      };
-  }
+// --- 3-Tier Individual Indicator Statuses (Fully aligned to overall risk palette) ---
+case "RED":
+  return {
+    color: "text-red-900",
+    icon: "🔴",
+    badge: "bg-red-800 text-white",
+    narrativeBadge: "bg-red-800",
+  };
+
+case "AMBER":
+  return {
+    color: "text-amber-900",
+    icon: "🟠",
+    badge: "bg-amber-500 text-black",
+    narrativeBadge: "bg-amber-600",
+  };
+
+case "YELLOW":
+  return {
+    color: "text-yellow-900",
+    icon: "🟡",
+    badge: "bg-yellow-400 text-black",
+    narrativeBadge: "bg-yellow-500",
+  };
+
+case "GREEN":
+  return {
+    color: "text-green-900",
+    icon: "🟢",
+    badge: "bg-green-700 text-white",
+    narrativeBadge: "bg-green-700",
+  };
+
+// --- Default / Unknown ---
+default:
+  return {
+    color: "text-gray-600",
+    icon: "⚪",
+    badge: "bg-gray-200 text-gray-800",
+    narrativeBadge: "bg-gray-400",
+  };
+
 };
 
 // --- 2. DATA FETCHING ---
@@ -544,4 +553,5 @@ async function initializeDashboard() {
     '<li class="text-green-600">No immediate escalation risks flagged.</li>';
 
   console.log("Atlas Dashboard successfully rendered data.");
+}
 }

@@ -26,10 +26,10 @@ MAX_SCORE = 25.0 # Total possible risk score for composite status
 # --- CONSTANTS & PLACEHOLDER GLOBALS (Ensure these are defined near the top) ---
 # Define the maximum score used for status mapping (adjust as necessary)
 ATLAS_SCORE_STATUSES = {
-    "SEVERE RISK": (20.0, float('inf')),  # Example: 80% of MAX_SCORE (20.0+)
-    "HIGH RISK": (12.5, 20.0),            # Example: 50% to 80% of MAX_SCORE
-    "MEDIUM RISK": (5.0, 12.5),           # Example: 20% to 50% of MAX_SCORE
-    "LOW RISK": (0.0, 5.0)                # Example: 0% to 20% of MAX_SCORE
+    "FULL-STORM (EXTREME RISK)": (12.0, float("inf")),
+    "SEVERE RISK (HIGH RISK)": (8.0, 12.0),
+    "ELEVATED RISK (MODERATE RISK)": (4.0, 8.0),
+    "MONITOR (LOW RISK)": (0.0, 4.0),
 }
 
 

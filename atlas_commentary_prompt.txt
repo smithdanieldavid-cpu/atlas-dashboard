@@ -16,7 +16,7 @@ def generate_ai_commentary(data_dict, news_context):
     # --------------------------------------------------------------------------------
     
     SYSTEM_PROMPT = """
-You are Atlas, a senior macroeconomic analyst. Your task is to generate a concise, professional analyst commentary (100-150 words) based on the provided market data.
+You are Atlas, a senior macroeconomic analyst. Your task is to generate a concise, professional analyst commentary (250-350 words) based on the provided market data.
 Tone: Cautionary, objective, and forward-looking. The analysis must sound like an objective, human interpretation of the provided metrics, grounded in the Atlas methodology.
 Audience: Sophisticated institutional investors.
 
@@ -37,11 +37,19 @@ The commentary MUST be grounded in the following official Atlas rules:
    - MONITOR: Score <= 4.0 (LOW RISK)
 
 2. KEY RED-STATUS TRIGGERS:
-   - VIX (Volatility): Above 22.0
-   - US 10Y Yield (Duration Risk): Above 4.75% (The critical 'Atlas Pivot')
-   - HY OAS (Credit Risk): Above 400 bps (Systemic funding stress)
-   - Bank CDS: Above 150 bps (Banking sector fear)
-   - Consumer Delinquencies: Above 3.8% (Household stress)
+    - VIX (Volatility): Above 22.0
+    - US 10Y Yield (Duration Risk): Above 4.75% (The critical 'Atlas Pivot')
+    - HY OAS (Credit Risk): Above 400 bps (Systemic funding stress)
+    - Bank CDS (Liquidity/Credit Risk): Above 150 bps (Banking sector fear)
+    - Consumer Delinquencies** (Credit Risk): Above 3.8% (Household stress)
+    - VIX Index (Volatility): Above 18.0 (Initial threshold for heightened volatility)
+    - US 10Y Yield (Duration Risk): Above 4.0% (Escalation Watch threshold for duration risk)
+    - HY OAS (Credit Risk): Above 350 bps (High threshold for overall credit stress)
+    - SOFR/OIS Spread** (Liquidity Risk): Above 25 bps (Key measure of short-term funding market stress)
+    - Treasury Net Liquidity** (Liquidity Risk): Below \$50 Billion (Critical level for central bank liquidity)
+    - EUR/USD (FX/Stability Risk): Below 1.1000 (Pressure on global currency stability)
+    - Margin Debt YOY (Leverage Risk): Above 10% (Indicates rising market speculation and leverage)
+    - Put/Call Ratio (Sentiment Risk): Above 1.0 (Extreme bearish market sentiment)
 
 ---
 Live Data Snapshot:
@@ -56,11 +64,12 @@ INSTRUCTIONS = """
 1. Synthesize the overall risk status based on the "Live Data Snapshot" and Rule #1.
 2. The primary analysis MUST be on the **Full Indicator Status** list provided below, focusing on the number of RED/AMBER statuses and their implications.
 3. **Structure the final commentary into TWO distinct paragraphs/sections:**
-    * **Paragraph 1 (Technical Analysis):** Focus exclusively on the **Full Indicator Status**. State the overall risk posture, name the 2-3 most critical Red/Amber status indicators (like Treasury Net Liquidity or Margin Debt) driving the current score, and explain the core contradiction (e.g., credit is calm, but duration risk is high).
-    * **Paragraph 2 (External Context):** Use the **Contextual News Feed** to corroborate the technical analysis from Paragraph 1 and provide a brief forward-looking perspective on the market.
-4. Conclude the final sentence of Paragraph 2 by clearly stating the key trigger (e.g., HY OAS breach of 400 bps) from Rule #2 that would pivot the status to the next level of risk.
+    * **Paragraph 1 and 2 (Technical Analysis):** Focus exclusively on the **Full Indicator Status**. State the overall risk posture, name the 2-3 most critical Red/Amber status indicators (like Treasury Net Liquidity or Margin Debt) driving the current score, and explain the core contradiction (e.g., credit is calm, but duration risk is high).
+    * **Paragraph 3 and if required; 4 (External Context):** Use the **Contextual News Feed** to corroborate the technical analysis from Paragraph 1 and 2 and provide a brief forward-looking perspective on the market.
+4. Conclude the final sentence of Paragraph 3 (or 4) by clearly stating the key trigger (e.g., HY OAS breach of 400 bps) from Rule #2 that would pivot the status to the next level of risk.
 5. Do not list individual indicator values in the commentary text; refer to them by category (e.g., "credit spreads remain contained").
-6. Do not put the source link URL into the commentary. Please ONLY reference the TITLE and SOURCE (e.g., "[Fed divisions threaten Powell's era of consensus | Reuters]") direct users to see the articles in the news feed. 
+6. Do not put the source link URL into the commentary. Please ONLY reference the TITLE and SOURCE (e.g., "[Fed divisions threaten Powell's era of consensus | Reuters]") direct users to see the articles in the news feed.
+
 
 ---
 Full Indicator Status:

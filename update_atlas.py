@@ -548,12 +548,14 @@ def generate_ai_commentary(data_dict, news_context): # Ensure this takes news_co
         "You MUST return the output as a single, valid JSON object adhering strictly to the provided schema. "
         "The analysis for the 'daily_narrative' field must follow the official Atlas commentary structure: "
         
-        "1. **Technical Indicator Analysis (Paragraph 1):** Begin with the internal Atlas data. "
+        "1. **Technical Indicator Analysis (Paragraph 1 and 2):** Begin with the internal Atlas data. "
+        "Analysis is to be 300-350 words over 2 paragraphs"
         "State the current overall risk posture (e.g., SEVERE RISK) and identify the two-to-three most critical "
         "Red or Amber indicators driving the Composite Score — focusing on Leverage, Liquidity, and Duration risk. "
         "Explain any contradictions (for example, a low VIX despite rising leverage or yields). "
         
-        "2. **External Context (Paragraph 2):** Then interpret the global macro and policy tone "
+        "2. **External Context (Paragraph 3):** Then interpret the global macro and policy tone "
+        "External context is to be up to 300 words over one paragraph"
         "using the 'CONTEXTUAL NEWS ARTICLES' provided. "
         "Do NOT embed or reproduce the article titles, URLs, or markdown links directly inside the text. "
         "Instead, reference each source conversationally by outlet and theme (e.g., 'as highlighted by Bloomberg' or 'per Reuters reporting on central bank guidance'). "
@@ -570,8 +572,8 @@ def generate_ai_commentary(data_dict, news_context): # Ensure this takes news_co
     # --- REVISED USER PROMPT (INDICATOR-FIRST NARRATIVE, NEWS FEED REFERENCE) ---
     prompt = (
         f"ANALYZE THIS DATA AND CONTEXT:\n\n"
-        f"***CRITICAL INSTRUCTION: Begin the 'daily_narrative' with Atlas internal indicator analysis (Paragraph 1), "
-        f"then incorporate global macro context (Paragraph 2), referencing news sources by outlet name only "
+        f"***CRITICAL INSTRUCTION: Begin the 'daily_narrative' with Atlas internal indicator analysis (Paragraph 1 and 2), "
+        f"then incorporate global macro context (Paragraph 3), referencing news sources by outlet name only "
         f"and directing readers to the 'News Feed below' for full articles. "
         f"Conclude with the Atlas trigger statement.***\n\n"
         

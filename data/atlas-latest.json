@@ -23,9 +23,9 @@
         {
             "id": "EURUSD",
             "name": "EUR/USD exchange rate",
-            "value": 1.1570056676864624,
+            "value": 1.1558021306991577,
             "status": "Green",
-            "note": "EUR/USD is stable at 1.1570. Indicates balanced global risk/economic outlook.",
+            "note": "EUR/USD is stable at 1.1558. Indicates balanced global risk/economic outlook.",
             "action": "No change.",
             "score_value": 0.0,
             "source_link": "https://finance.yahoo.com/quote/EURUSD=X/"
@@ -33,9 +33,9 @@
         {
             "id": "WTI_CRUDE",
             "name": "WTI crude oil ($/bbl)",
-            "value": 0.0,
+            "value": 59.90999984741211,
             "status": "Amber",
-            "note": "WTI Crude at $0.00/bbl. Low price indicates global slowdown or demand weakness.",
+            "note": "WTI Crude at $59.91/bbl. Low price indicates global slowdown or demand weakness.",
             "action": "Monitor global growth indicators.",
             "score_value": 0.5,
             "source_link": "https://finance.yahoo.com/quote/USO/"
@@ -43,11 +43,11 @@
         {
             "id": "AUDUSD",
             "name": "AUD/USD exchange rate",
-            "value": 0.649772584438324,
-            "status": "Red",
-            "note": "AUDUSD at 0.6498. AUD remains under pressure. Strong risk-off or persistent US Dollar strength.",
-            "action": "Favour US Dollar liquidity over AUD assets; watch commodity prices.",
-            "score_value": 1.0,
+            "value": 0.6509992480278015,
+            "status": "Amber",
+            "note": "AUDUSD at 0.6510. AUD is consolidating. Global risk appetite is tentative.",
+            "action": "Monitor closely for breaks below 0.6500.",
+            "score_value": 0.5,
             "source_link": "https://finance.yahoo.com/quote/AUDUSD=X/"
         },
         {
@@ -148,9 +148,9 @@
         {
             "id": "ASX_200",
             "name": "ASX 200 index",
-            "value": 8769.7001953125,
+            "value": 8794.2001953125,
             "status": "Green",
-            "note": "ASX 200 Index at 8,770. Stable price action.",
+            "note": "ASX 200 Index at 8,794. Stable price action.",
             "action": "No change.",
             "score_value": 0.0,
             "source_link": "https://finance.yahoo.com/quote/%5EAXJO/"
@@ -227,20 +227,30 @@
         }
     ],
     "overall": {
-        "score": 8.5,
-        "status": "\ud83d\udfe0 SEVERE RISK (HIGH RISK)",
-        "comment": "Market stability deteriorating rapidly. High caution required.",
-        "daily_narrative": "Atlas indicators signal a SEVERE RISK posture, underscored by a Composite Score of 8.50. The primary drivers of this elevated risk are several critical Red and Amber indicators, particularly concerning Leverage and Duration. Specifically, FINRA margin debt stands out as a significant Red flag, exhibiting a substantial 32.94% year-over-year increase, which points to an unhealthy accumulation of leverage within the equity market. This level of margin debt introduces considerable vulnerability to market corrections, amplifying potential downside risks. Concurrently, the AUD/USD exchange rate is Red, reflecting heightened risk aversion and a flight from growth-sensitive currencies, often a precursor to broader liquidity tightening or global economic deceleration. The Small/Large cap ratio also registers Red, indicating a pronounced shift in investor preference away from smaller, more speculative companies towards larger, more established firms, signaling a contraction in market breadth and a defensive repositioning.\n\nDuration risk remains prominent, with US 3yr, 10yr, and 30yr treasury yields all in Amber status, currently at 3.58%, 4.11%, and 4.69% respectively. The 10-year yield, in particular, is approaching a critical threshold, suggesting that further upward movement could significantly impact asset valuations and borrowing costs. Despite these clear warning signs, a notable contradiction exists: the VIX index remains Amber at 19.08, and High Yield OAS is Green at 3.13 bps. This divergence suggests that equity volatility and credit markets are not yet fully reflecting the underlying leverage and duration risks, potentially indicating a degree of complacency. Furthermore, Treasury net liquidity remains Green, implying ample system liquidity, which might be temporarily masking the systemic vulnerabilities highlighted by other indicators. Consumer delinquencies, also Amber, add to the picture of underlying economic stress, indicating a gradual erosion of household financial health. This complex interplay of signals points to a market operating with significant latent risks, where certain segments are underpricing the broader systemic fragility.\n\nThe global macro and policy tone remains characterized by significant uncertainty and divergence, as highlighted by recent reporting. Bloomberg indicates an intensifying 'data fog' for the Federal Reserve, with potential US government shutdown delays impacting the release of crucial inflation numbers. This lack of clarity on key economic data points complicates monetary policy decisions and could exacerbate market volatility, aligning with the observed risk aversion in the AUD/USD and small-cap underperformance. Meanwhile, Reuters reports that China's factory-gate deflation eased in October, with consumer prices showing a modest rise, suggesting a nascent stabilization in the world's second-largest economy, though demand remains a concern. This mixed picture from China has implications for global growth and commodity markets, which are already seeing WTI crude oil in Amber status. Morningstar further emphasizes the market's focus on US shutdown developments and upcoming China data, underscoring the sensitivity to these geopolitical and economic uncertainties. Bloomberg also notes a rare inflation flip giving emerging markets an edge over rich nations, indicating a divergence in global inflation dynamics that could lead to capital reallocation and further pressure on developed market assets. These external factors contribute to the complex risk environment, where policy responses are constrained by data gaps and global economic shifts are creating uneven impacts. Readers are directed to the News Feed below for the full list of articles reviewed. A move in the US 10-Year Yield above 4.75% or a widening of HY OAS beyond 400 bps would escalate the posture to FULL-STORM.",
-        "composite_summary": "Atlas maintains a SEVERE RISK posture, driven by escalating leverage and duration risks, despite pockets of market complacency.",
+        "score": 8.0,
+        "status": "\ud83d\udfe0 ELEVATED RISK (MODERATE RISK)",
+        "comment": "Risk posture is elevated. Maintain defensive positioning.",
+        "daily_narrative": "The Atlas Composite Score stands at 8.00, indicating an ELEVATED RISK (MODERATE RISK) posture. This assessment is primarily driven by several critical Red and Amber indicators signaling increasing leverage and duration risks within the financial system. The most prominent concern is the significant year-over-year increase in FINRA margin debt, currently at 32.94%, which registers as a Red indicator. This substantial rise in investor leverage suggests an elevated susceptibility to market corrections, as positions funded by borrowed capital become vulnerable to rapid unwinding. Concurrently, the Small/Large cap ratio, also a Red indicator at 0.36, points to a narrowing market breadth, where performance is concentrated in larger capitalization stocks, often a precursor to broader market weakness and reduced risk appetite.\n\nFurther contributing to the elevated risk profile are several Amber indicators related to duration and credit. US 30-year Treasury yields are at 4.69% and 10-year yields at 4.11%, both signaling persistent duration risk and higher borrowing costs across the economy. While not yet breaching critical thresholds, their proximity to these levels warrants close monitoring. Consumer delinquencies, at 3.05%, are also an Amber indicator, suggesting underlying stress in household balance sheets and potential future headwinds for consumer spending and credit quality. A notable contradiction exists with the VIX index, which, despite being Amber at 19.08, does not reflect the same level of acute market fear that might be expected given the rising leverage and duration risks. Similarly, High Yield OAS remains in the Green zone, indicating that corporate credit spreads have not yet widened significantly, creating a divergence between equity market leverage and fixed income credit perceptions. Treasury net liquidity also remains robust, suggesting no immediate systemic liquidity crunch, which might be contributing to the VIX's relative calm.\n\nThe global macro and policy tone is characterized by a mix of domestic fiscal uncertainties and evolving international economic dynamics. Domestically, as highlighted by Morningstar, market participants are closely monitoring potential U.S. government shutdown developments, which could introduce significant fiscal uncertainty. Bloomberg further reports that a shutdown could intensify data fog for the Federal Reserve, delaying critical U.S. inflation numbers and complicating monetary policy decisions. Internationally, economic narratives are diverging. Reuters reports that China's factory-gate deflation eased in October, though consumer prices saw a modest rise, suggesting some stabilization but still reflecting underlying deflationary pressures, as further elaborated by Bloomberg's analysis on China's deflationary spiral. Conversely, the Reserve Bank of Australia, per Wall Street Journal reporting, expresses concerns that capacity constraints could limit the scope for future rate cuts, indicating persistent inflationary pressures in some developed economies. Bloomberg also notes a rare inflation flip giving emerging markets an an edge over rich nations, suggesting a shift in relative economic performance and investment opportunities. These developments underscore a complex global landscape where fiscal policy, central bank guidance, and regional economic divergences are key drivers. Readers are directed to the News Feed below for the full list of articles reviewed. The Atlas posture would escalate to FULL-STORM should the US 10-Year Yield move above 4.75% or HY OAS widen beyond 400 bps.",
+        "composite_summary": "The current Atlas posture is ELEVATED RISK (MODERATE RISK), driven by rising investor leverage and duration risks, despite a relatively subdued volatility index and stable corporate credit spreads.",
         "key_actions": [
-            "Reduce overall portfolio leverage, particularly in equity exposures.",
-            "Increase allocation to defensive sectors and high-quality fixed income.",
-            "Implement tactical hedges against potential equity market downturns and currency volatility.",
-            "Closely monitor credit spreads, especially High Yield OAS, for signs of widening.",
-            "Manage duration risk by reducing exposure to longer-dated fixed income assets."
+            "Reduce exposure to highly leveraged positions and monitor FINRA margin debt for further increases.",
+            "Maintain a defensive bias in equity portfolios, favoring large-cap, high-quality names over small-cap cyclicals.",
+            "Implement tactical hedges against rising interest rates, particularly given the proximity of long-term Treasury yields to critical thresholds.",
+            "Closely monitor high-yield credit spreads for any signs of widening, as a breach of 400 bps in HY OAS would signal a significant deterioration in credit conditions.",
+            "Re-evaluate exposure to rate-sensitive assets and consider strategies that benefit from higher yields or offer inflation protection."
         ],
-        "date": "2025-11-10 08:46:36",
+        "date": "2025-11-10 11:39:33",
         "news": [
+            {
+                "title": "Week Ahead for FX, Bonds: Focus on U.S. Shutdown Developments ...",
+                "url": "https://www.morningstar.com/news/dow-jones/20251109990/week-ahead-for-fx-bonds-focus-on-us-shutdown-developments-china-data",
+                "snippet": "Contextual article. Click title for details."
+            },
+            {
+                "title": "RBA Fears Capacity Constraints Could Limit Scope for Rate Cuts ...",
+                "url": "https://www.wsj.com/economy/central-banking/rba-fears-capacity-constraints-could-limit-scope-for-rate-cuts-f2795dc0?gaa_at=eafs&gaa_n=AWEtsqdMsL-oagk_QQSrYxDXgKRtkXBmLU7HYOX2jVIuMJGR3F6CVHb0CHb9&gaa_ts=691137bb&gaa_sig=HkowzlHUBNZQKCORqSzf31fYm3U0XLEnUgYutqSgdwjh5NNzFSTB4TVDTWjr0YZl6knjeFNUv6tgAiAAB0D4DA%3D%3D",
+                "snippet": "Contextual article. Click title for details."
+            },
             {
                 "title": "Bloomberg - Business News, Stock Markets, Finance, Breaking ...",
                 "url": "https://www.bloomberg.com/",
@@ -267,16 +277,6 @@
                 "snippet": "Contextual article. Click title for details."
             },
             {
-                "title": "Markets - Bloomberg",
-                "url": "https://www.bloomberg.com/markets",
-                "snippet": "Contextual article. Click title for details."
-            },
-            {
-                "title": "Week Ahead for FX, Bonds: Focus on U.S. Shutdown Developments ...",
-                "url": "https://www.morningstar.com/news/dow-jones/20251109612/week-ahead-for-fx-bonds-focus-on-us-shutdown-developments-china-data",
-                "snippet": "Contextual article. Click title for details."
-            },
-            {
                 "title": "Madison Investments Q3 2025 Market And Economic Review ...",
                 "url": "https://seekingalpha.com/article/4841041-madison-investments-q3-2025-market-and-economic-review-equity-markets",
                 "snippet": "Contextual article. Click title for details."
@@ -287,11 +287,11 @@
                 "snippet": "Contextual article. Click title for details."
             },
             {
-                "title": "Financial Times: Home",
-                "url": "https://www.ft.com/",
+                "title": "China's Deflationary Spiral Hurts Economy Harder Than Official ...",
+                "url": "https://www.bloomberg.com/graphics/2025-china-deflation-cost/",
                 "snippet": "Contextual article. Click title for details."
             }
         ],
-        "news_context_raw": "1. [Bloomberg - Business News, Stock Markets, Finance, Breaking ...](https://www.bloomberg.com/)\n2. [Data Fog Intensifying for Fed as Shutdown Delays US Inflation ...](https://www.bloomberg.com/news/articles/2025-11-08/data-fog-intensifying-for-fed-as-shutdown-delays-us-inflation-numbers)\n3. [Rare Inflation Flip Gives Emerging Markets Edge on Rich Nations ...](https://www.bloomberg.com/news/articles/2025-11-09/rare-inflation-flip-gives-emerging-markets-edge-on-rich-nations)\n4. [Fixed Income - Bloomberg](https://www.bloomberg.com/fixed-income)\n5. [China's factory-gate deflation eases in October, consumer prices ...](https://www.reuters.com/world/asia-pacific/chinas-consumer-prices-rise-02-october-versus-year-earlier-2025-11-09/)\n6. [Markets - Bloomberg](https://www.bloomberg.com/markets)\n7. [Week Ahead for FX, Bonds: Focus on U.S. Shutdown Developments ...](https://www.morningstar.com/news/dow-jones/20251109612/week-ahead-for-fx-bonds-focus-on-us-shutdown-developments-china-data)\n8. [Madison Investments Q3 2025 Market And Economic Review ...](https://seekingalpha.com/article/4841041-madison-investments-q3-2025-market-and-economic-review-equity-markets)\n9. [Economics - Bloomberg](https://www.bloomberg.com/economics-v2)\n10. [Financial Times: Home](https://www.ft.com/)"
+        "news_context_raw": "1. [Week Ahead for FX, Bonds: Focus on U.S. Shutdown Developments ...](https://www.morningstar.com/news/dow-jones/20251109990/week-ahead-for-fx-bonds-focus-on-us-shutdown-developments-china-data)\n2. [RBA Fears Capacity Constraints Could Limit Scope for Rate Cuts ...](https://www.wsj.com/economy/central-banking/rba-fears-capacity-constraints-could-limit-scope-for-rate-cuts-f2795dc0?gaa_at=eafs&gaa_n=AWEtsqdMsL-oagk_QQSrYxDXgKRtkXBmLU7HYOX2jVIuMJGR3F6CVHb0CHb9&gaa_ts=691137bb&gaa_sig=HkowzlHUBNZQKCORqSzf31fYm3U0XLEnUgYutqSgdwjh5NNzFSTB4TVDTWjr0YZl6knjeFNUv6tgAiAAB0D4DA%3D%3D)\n3. [Bloomberg - Business News, Stock Markets, Finance, Breaking ...](https://www.bloomberg.com/)\n4. [Data Fog Intensifying for Fed as Shutdown Delays US Inflation ...](https://www.bloomberg.com/news/articles/2025-11-08/data-fog-intensifying-for-fed-as-shutdown-delays-us-inflation-numbers)\n5. [Rare Inflation Flip Gives Emerging Markets Edge on Rich Nations ...](https://www.bloomberg.com/news/articles/2025-11-09/rare-inflation-flip-gives-emerging-markets-edge-on-rich-nations)\n6. [Fixed Income - Bloomberg](https://www.bloomberg.com/fixed-income)\n7. [China's factory-gate deflation eases in October, consumer prices ...](https://www.reuters.com/world/asia-pacific/chinas-consumer-prices-rise-02-october-versus-year-earlier-2025-11-09/)\n8. [Madison Investments Q3 2025 Market And Economic Review ...](https://seekingalpha.com/article/4841041-madison-investments-q3-2025-market-and-economic-review-equity-markets)\n9. [Economics - Bloomberg](https://www.bloomberg.com/economics-v2)\n10. [China's Deflationary Spiral Hurts Economy Harder Than Official ...](https://www.bloomberg.com/graphics/2025-china-deflation-cost/)"
     }
 }

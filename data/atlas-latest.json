@@ -3,19 +3,19 @@
         {
             "id": "VIX",
             "name": "VIX index",
-            "value": 18.43000030517578,
-            "status": "Amber",
-            "note": "VIX is moderate at 18.43. Volatility is starting to increase.",
-            "action": "Monitor volatility trends closely.",
-            "score_value": 1.0,
+            "value": 17.75,
+            "status": "Green",
+            "note": "VIX close at 17.75. Low implied volatility.",
+            "action": "No change.",
+            "score_value": 0.0,
             "source_link": "https://finance.yahoo.com/quote/%5EVIX/"
         },
         {
             "id": "GOLD_PRICE",
             "name": "Gold price (GLD)",
-            "value": 368.30999755859375,
+            "value": 377.9200134277344,
             "status": "Amber",
-            "note": "Gold (GLD) is rallying sharply at $368.31. Indicates rising inflation expectations or systemic risk.",
+            "note": "Gold (GLD) is rallying sharply at $377.92. Indicates rising inflation expectations or systemic risk.",
             "action": "Consider increasing real asset allocation.",
             "score_value": 0.5,
             "source_link": "https://finance.yahoo.com/quote/GLD/"
@@ -23,9 +23,9 @@
         {
             "id": "EURUSD",
             "name": "EUR/USD exchange rate",
-            "value": 1.157273530960083,
+            "value": 1.156336784362793,
             "status": "Green",
-            "note": "EUR/USD is stable at 1.1573. Indicates balanced global risk/economic outlook.",
+            "note": "EUR/USD is stable at 1.1563. Indicates balanced global risk/economic outlook.",
             "action": "No change.",
             "score_value": 0.0,
             "source_link": "https://finance.yahoo.com/quote/EURUSD=X/"
@@ -33,9 +33,9 @@
         {
             "id": "WTI_CRUDE",
             "name": "WTI crude oil ($/bbl)",
-            "value": 60.04999923706055,
+            "value": 60.040000915527344,
             "status": "Green",
-            "note": "WTI Crude at $60.05/bbl. Normal price range, favorable for growth.",
+            "note": "WTI Crude at $60.04/bbl. Normal price range, favorable for growth.",
             "action": "No change.",
             "score_value": 0.0,
             "source_link": "https://finance.yahoo.com/quote/USO/"
@@ -43,9 +43,9 @@
         {
             "id": "AUDUSD",
             "name": "AUD/USD exchange rate",
-            "value": 0.6533812284469604,
+            "value": 0.653979480266571,
             "status": "Amber",
-            "note": "AUDUSD at 0.6534. AUD is consolidating. Global risk appetite is tentative.",
+            "note": "AUDUSD at 0.6540. AUD is consolidating. Global risk appetite is tentative.",
             "action": "Monitor closely for breaks below 0.6500.",
             "score_value": 0.5,
             "source_link": "https://finance.yahoo.com/quote/AUDUSD=X/"
@@ -83,7 +83,7 @@
         {
             "id": "HY_OAS",
             "name": "High yield OAS (bps)",
-            "value": 3.13,
+            "value": 3.15,
             "status": "Green",
             "note": "HY OAS at 3 bps. US credit stress is low and manageable.",
             "action": "Favour high-quality corporate bonds.",
@@ -138,9 +138,9 @@
         {
             "id": "SPX_INDEX",
             "name": "S&P 500 index",
-            "value": 6728.7998046875,
+            "value": 6823.60009765625,
             "status": "Green",
-            "note": "S&P 500 Index at 6,729. Strong/stable price action. Low systemic equity risk.",
+            "note": "S&P 500 Index at 6,824. Strong/stable price action. Low systemic equity risk.",
             "action": "Maintain equity exposure.",
             "score_value": 0.0,
             "source_link": "https://finance.yahoo.com/quote/%5EGSPC/"
@@ -178,9 +178,9 @@
         {
             "id": "SMALL_LARGE_RATIO",
             "name": "Small/Large cap ratio",
-            "value": 0.3615533436831623,
+            "value": 0.3607949190783584,
             "status": "Red",
-            "note": "Ratio at 0.3616 \u2014 small-caps are heavily underperforming. Poor internals.",
+            "note": "Ratio at 0.3608 \u2014 small-caps are heavily underperforming. Poor internals.",
             "action": "Avoid high-risk small-cap exposure.",
             "score_value": 1.0,
             "source_link": "https://finance.yahoo.com/quote/%5ERUT/"
@@ -227,19 +227,19 @@
         }
     ],
     "overall": {
-        "score": 7.5,
+        "score": 6.5,
         "status": "\ud83d\udfe0 ELEVATED RISK (MODERATE RISK)",
         "comment": "Risk posture is elevated. Maintain defensive positioning.",
-        "daily_narrative": "Atlas indicators signal an ELEVATED RISK posture, with a Composite Score of 7.50. The primary drivers of this elevated risk are concentrated in leverage and duration. FINRA margin debt stands out as a critical Red indicator, showing a substantial 32.94% year-over-year increase, highlighting significant speculative leverage within the equity market. This is further compounded by Amber-rated consumer delinquencies at 3.05%, suggesting underlying stress in household balance sheets. The small/large cap ratio, also in Red territory at 0.36, indicates a clear preference for larger, more stable companies, signaling a defensive rotation and potential liquidity concerns for smaller enterprises. This divergence underscores a market segmenting into perceived safety and higher-risk areas, with capital flows favoring the former. Duration risk remains a prominent concern, with US 3yr, 10yr, and 30yr treasury yields all registering Amber. The US 30yr yield, at 4.69%, is particularly close to critical thresholds, reflecting persistent inflationary pressures or increased term premium demands. Despite these rising yield pressures and elevated leverage, the VIX index, while Amber at 18.43, has not yet reached levels indicative of severe market panic. This creates a notable contradiction, suggesting that while underlying risks are accumulating, market participants may be exhibiting a degree of complacency or are underpricing potential volatility. Similarly, the High Yield OAS remains Green at 3.13 bps, which appears incongruous with the rising consumer delinquencies and the overall ELEVATED RISK environment, implying a potential mispricing of credit risk in the corporate bond market. The global macro tone is characterized by a cautious optimism, primarily driven by hopes for a resolution to the US government shutdown, as reported by the Wall Street Journal and Reuters. This sentiment has contributed to global market rises, despite underlying policy uncertainties. Investing.com highlights the US Dollar's struggles amid intensifying Federal Reserve rate cut bets, which could provide some relief to risk assets. However, this contrasts with Bloomberg's reporting on the Bank of Japan, which indicates a potential for a December interest rate hike, signaling a divergence in global monetary policy trajectories. Furthermore, Bloomberg also points to an 'inflation flip' giving emerging markets an edge over rich nations, suggesting a potential shift in relative attractiveness. Reuters also notes UBS's optimistic S&P 500 year-end target for 2026, driven by AI-related rallies, which may contribute to the observed market complacency despite rising leverage and duration risks. For a comprehensive list of articles reviewed, please refer to the News Feed below. The Atlas posture would escalate to FULL-STORM should the US 10-Year Yield move decisively above 4.75%.",
-        "composite_summary": "Atlas indicators point to an ELEVATED RISK environment, driven by escalating leverage and duration concerns, despite some market complacency.",
+        "daily_narrative": "The Atlas Composite Score registers ELEVATED RISK (MODERATE RISK) at 6.50, driven primarily by escalating leverage and persistent duration risk. A critical Red indicator is the year-over-year increase in FINRA margin debt, currently at 32.94%, signaling a significant build-up in speculative leverage within the equity markets. This is compounded by an Amber signal from consumer delinquencies at 3.05%, suggesting underlying stress in household balance sheets, which could translate into broader credit risk. The Small/Large cap ratio, also a Red indicator at 0.36, points to a narrowing market breadth and a preference for larger, more stable companies, often observed in periods of increasing uncertainty. These internal metrics collectively highlight a market increasingly reliant on borrowed capital, with potential vulnerabilities emerging in credit quality.\nDuration risk remains elevated, with US 3-year, 10-year, and 30-year treasury yields all flashing Amber at 3.58%, 4.11%, and 4.69% respectively. While not yet at critical thresholds, the sustained higher yield environment across the curve implies a re-pricing of long-term discount rates and borrowing costs. A notable contradiction exists between these accumulating risks and certain market sentiment indicators. The VIX index remains Green at 17.75, suggesting implied equity volatility is not yet reflecting the underlying leverage and duration concerns. Similarly, the High Yield OAS is Green at 3.15 bps, indicating credit spreads are not yet widening significantly despite the increase in margin debt and consumer delinquencies. This divergence suggests a potential complacency in risk pricing, where investors may be underestimating the systemic implications of elevated leverage and higher long-term rates. The Amber signal from the Put/Call ratio at 0.50 also suggests a moderate level of hedging activity, but not yet indicative of widespread panic.\nThe global macro environment presents a mixed picture, with central bank policy divergence and shifting investor sentiment. As highlighted by Investing.com, the US Dollar has struggled amidst intensifying expectations for Federal Reserve rate cuts, reflecting a potential easing of monetary policy in the near future. Conversely, Bloomberg reports indicate the Bank of Japan is signaling a potential December interest rate hike, suggesting a tightening bias in Japan. This divergence in monetary policy trajectories could introduce further volatility in currency markets. Reuters' \"Morning Bid\" commentary points to a \"re-open rally\" sentiment, suggesting some market optimism, possibly linked to expectations of economic normalization or policy support. However, Morningstar also highlights ongoing concerns regarding potential US shutdown developments and upcoming China data, which could introduce headwinds. Notably, Bloomberg's reporting on emerging markets suggests they are gaining an edge over rich nations due to an \"inflation flip,\" positioning them favorably in the current environment. This suggests a potential rotation of capital towards EM assets, as seen in the broader context of global economic rebalancing. Investors are advised to consult the News Feed below for the full list of articles reviewed. The key Atlas trigger that would escalate the posture to FULL-STORM is a US 10-Year Yield move above 4.75% or HY OAS widening beyond 400 bps.",
+        "composite_summary": "The Atlas Composite Score indicates ELEVATED RISK (MODERATE RISK) driven by escalating leverage and persistent duration concerns, despite a disconnect in implied volatility and credit spread pricing.",
         "key_actions": [
-            "Reduce exposure to highly leveraged assets and sectors sensitive to rising interest rates.",
-            "Increase allocation to defensive sectors and high-quality fixed income with shorter duration.",
-            "Implement tactical hedges to mitigate potential equity market volatility, particularly given the elevated VIX.",
-            "Closely monitor credit spreads, especially High Yield OAS, for signs of widening that would signal broader credit deterioration.",
-            "Re-evaluate and de-risk portfolios exposed to small-cap equities, favoring large-cap quality names."
+            "Reduce exposure to highly leveraged assets and speculative equity positions.",
+            "Maintain a defensive sector bias, favoring high-quality, stable companies.",
+            "Implement tactical hedges to mitigate potential downside risk in equity portfolios.",
+            "Closely monitor credit spreads, particularly High Yield OAS, for signs of widening.",
+            "Re-evaluate duration exposure in fixed income portfolios given elevated long-term treasury yields."
         ],
-        "date": "2025-11-10 13:40:47",
+        "date": "2025-11-10 18:51:57",
         "news": [
             {
                 "title": "Thornburg International Equity Fund Q3 2025 Commentary ...",
@@ -252,6 +252,11 @@
                 "snippet": "Contextual article. Click title for details."
             },
             {
+                "title": "Bloomberg - Business News, Stock Markets, Finance, Breaking ...",
+                "url": "https://www.bloomberg.com/",
+                "snippet": "Contextual article. Click title for details."
+            },
+            {
                 "title": "Morning Bid: A re-open rally | Reuters",
                 "url": "https://www.reuters.com/business/finance/global-markets-view-usa-2025-11-10/",
                 "snippet": "Contextual article. Click title for details."
@@ -259,11 +264,6 @@
             {
                 "title": "Week Ahead for FX, Bonds: Focus on U.S. Shutdown Developments ...",
                 "url": "https://www.morningstar.com/news/dow-jones/202511101276/week-ahead-for-fx-bonds-focus-on-us-shutdown-developments-china-data",
-                "snippet": "Contextual article. Click title for details."
-            },
-            {
-                "title": "Global Markets Rise on Hopes for an End to U.S. Government ...",
-                "url": "https://www.wsj.com/finance/stocks/global-markets-rise-on-hopes-for-an-end-to-u-s-government-shutdown-cbe8f019?gaa_at=eafs&gaa_n=AWEtsqe8bm3s8HxBU5a1plaowZWPzhqtgxE4uai1CUEsR7PwsznBv_pXDYfS&gaa_ts=6911eed5&gaa_sig=y6C0w7g5j5QhgQgZ8sEFkRPV_OfOc9uLOM2DG27BiqSNkqtEXAQQqRvEgTtB1_UlSnp_QmZE6fiPQM6oXVpiMg%3D%3D",
                 "snippet": "Contextual article. Click title for details."
             },
             {
@@ -287,11 +287,11 @@
                 "snippet": "Contextual article. Click title for details."
             },
             {
-                "title": "UBS sets S&P 500's 2026 year-end target at 7,500 on AI-driven rally ...",
-                "url": "https://www.reuters.com/business/finance/ubs-sets-sp-500s-2026-year-end-target-7500-ai-driven-rally-2025-11-10/",
+                "title": "Banco Ita\u00fa Chile (ITCLY) Q3 2025 Earnings Call Transcript ...",
+                "url": "https://seekingalpha.com/article/4841398-banco-itau-chile-itcly-q3-2025-earnings-call-transcript",
                 "snippet": "Contextual article. Click title for details."
             }
         ],
-        "news_context_raw": "1. [Thornburg International Equity Fund Q3 2025 Commentary ...](https://seekingalpha.com/article/4841210-thornburg-international-equity-fund-q3-2025-commentary)\n2. [US Dollar Struggles as Fed Rate Cut Bets Intensify | Investing.com](https://www.investing.com/analysis/us-dollar-struggles-as-fed-rate-cut-bets-intensify-200669883)\n3. [Morning Bid: A re-open rally | Reuters](https://www.reuters.com/business/finance/global-markets-view-usa-2025-11-10/)\n4. [Week Ahead for FX, Bonds: Focus on U.S. Shutdown Developments ...](https://www.morningstar.com/news/dow-jones/202511101276/week-ahead-for-fx-bonds-focus-on-us-shutdown-developments-china-data)\n5. [Global Markets Rise on Hopes for an End to U.S. Government ...](https://www.wsj.com/finance/stocks/global-markets-rise-on-hopes-for-an-end-to-u-s-government-shutdown-cbe8f019?gaa_at=eafs&gaa_n=AWEtsqe8bm3s8HxBU5a1plaowZWPzhqtgxE4uai1CUEsR7PwsznBv_pXDYfS&gaa_ts=6911eed5&gaa_sig=y6C0w7g5j5QhgQgZ8sEFkRPV_OfOc9uLOM2DG27BiqSNkqtEXAQQqRvEgTtB1_UlSnp_QmZE6fiPQM6oXVpiMg%3D%3D)\n6. [BOJ Summary Indicates Chance of December Interest Rate Hike ...](https://www.bloomberg.com/news/articles/2025-11-10/boj-indicates-chance-of-december-interest-rate-hike-with-summary)\n7. [AllianceBernstein Enhances ETF Offerings with Two New Fixed ...](https://www.morningstar.com/news/pr-newswire/20251110ny19138/alliancebernstein-enhances-etf-offerings-with-two-new-fixed-income-conversions)\n8. [Emerging Markets Can Swim Naked for a While - Bloomberg](https://www.bloomberg.com/opinion/newsletters/2025-11-10/emerging-markets-can-swim-naked-for-a-while)\n9. [Inflation Flip Gives Emerging Markets Edge Over Rich Nations ...](https://www.bloomberg.com/news/articles/2025-11-09/rare-inflation-flip-gives-emerging-markets-edge-on-rich-nations)\n10. [UBS sets S&P 500's 2026 year-end target at 7,500 on AI-driven rally ...](https://www.reuters.com/business/finance/ubs-sets-sp-500s-2026-year-end-target-7500-ai-driven-rally-2025-11-10/)"
+        "news_context_raw": "1. [Thornburg International Equity Fund Q3 2025 Commentary ...](https://seekingalpha.com/article/4841210-thornburg-international-equity-fund-q3-2025-commentary)\n2. [US Dollar Struggles as Fed Rate Cut Bets Intensify | Investing.com](https://www.investing.com/analysis/us-dollar-struggles-as-fed-rate-cut-bets-intensify-200669883)\n3. [Bloomberg - Business News, Stock Markets, Finance, Breaking ...](https://www.bloomberg.com/)\n4. [Morning Bid: A re-open rally | Reuters](https://www.reuters.com/business/finance/global-markets-view-usa-2025-11-10/)\n5. [Week Ahead for FX, Bonds: Focus on U.S. Shutdown Developments ...](https://www.morningstar.com/news/dow-jones/202511101276/week-ahead-for-fx-bonds-focus-on-us-shutdown-developments-china-data)\n6. [BOJ Summary Indicates Chance of December Interest Rate Hike ...](https://www.bloomberg.com/news/articles/2025-11-10/boj-indicates-chance-of-december-interest-rate-hike-with-summary)\n7. [AllianceBernstein Enhances ETF Offerings with Two New Fixed ...](https://www.morningstar.com/news/pr-newswire/20251110ny19138/alliancebernstein-enhances-etf-offerings-with-two-new-fixed-income-conversions)\n8. [Emerging Markets Can Swim Naked for a While - Bloomberg](https://www.bloomberg.com/opinion/newsletters/2025-11-10/emerging-markets-can-swim-naked-for-a-while)\n9. [Inflation Flip Gives Emerging Markets Edge Over Rich Nations ...](https://www.bloomberg.com/news/articles/2025-11-09/rare-inflation-flip-gives-emerging-markets-edge-on-rich-nations)\n10. [Banco Ita\u00fa Chile (ITCLY) Q3 2025 Earnings Call Transcript ...](https://seekingalpha.com/article/4841398-banco-itau-chile-itcly-q3-2025-earnings-call-transcript)"
     }
 }

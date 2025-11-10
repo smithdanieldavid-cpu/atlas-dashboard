@@ -3,9 +3,9 @@
         {
             "id": "VIX",
             "name": "VIX index",
-            "value": 19.079999923706055,
+            "value": 18.43000030517578,
             "status": "Amber",
-            "note": "VIX is moderate at 19.08. Volatility is starting to increase.",
+            "note": "VIX is moderate at 18.43. Volatility is starting to increase.",
             "action": "Monitor volatility trends closely.",
             "score_value": 1.0,
             "source_link": "https://finance.yahoo.com/quote/%5EVIX/"
@@ -23,9 +23,9 @@
         {
             "id": "EURUSD",
             "name": "EUR/USD exchange rate",
-            "value": 1.1555349826812744,
+            "value": 1.157273530960083,
             "status": "Green",
-            "note": "EUR/USD is stable at 1.1555. Indicates balanced global risk/economic outlook.",
+            "note": "EUR/USD is stable at 1.1573. Indicates balanced global risk/economic outlook.",
             "action": "No change.",
             "score_value": 0.0,
             "source_link": "https://finance.yahoo.com/quote/EURUSD=X/"
@@ -33,9 +33,9 @@
         {
             "id": "WTI_CRUDE",
             "name": "WTI crude oil ($/bbl)",
-            "value": 60.290000915527344,
+            "value": 60.04999923706055,
             "status": "Green",
-            "note": "WTI Crude at $60.29/bbl. Normal price range, favorable for growth.",
+            "note": "WTI Crude at $60.05/bbl. Normal price range, favorable for growth.",
             "action": "No change.",
             "score_value": 0.0,
             "source_link": "https://finance.yahoo.com/quote/USO/"
@@ -43,9 +43,9 @@
         {
             "id": "AUDUSD",
             "name": "AUD/USD exchange rate",
-            "value": 0.6526136994361877,
+            "value": 0.6533812284469604,
             "status": "Amber",
-            "note": "AUDUSD at 0.6526. AUD is consolidating. Global risk appetite is tentative.",
+            "note": "AUDUSD at 0.6534. AUD is consolidating. Global risk appetite is tentative.",
             "action": "Monitor closely for breaks below 0.6500.",
             "score_value": 0.5,
             "source_link": "https://finance.yahoo.com/quote/AUDUSD=X/"
@@ -230,17 +230,52 @@
         "score": 7.5,
         "status": "\ud83d\udfe0 ELEVATED RISK (MODERATE RISK)",
         "comment": "Risk posture is elevated. Maintain defensive positioning.",
-        "daily_narrative": "The Atlas Composite Score currently stands at 7.50, signaling an ELEVATED RISK (MODERATE RISK) posture. This assessment is primarily driven by critical Red and Amber indicators highlighting increasing leverage and duration risks within the financial system. Foremost among these is the Red status of FINRA margin debt, which has surged by 32.94% year-over-year, indicating a significant build-up of speculative leverage that could amplify market downturns. This is further corroborated by the Amber status of consumer delinquencies at 3.05%, suggesting nascent stress in household balance sheets and potential future credit deterioration. Concurrently, the Small/Large cap ratio is Red at 0.36, reflecting a pronounced shift away from smaller, more growth-sensitive companies towards larger, more stable entities, a classic defensive rotation indicative of waning risk appetite and a preference for quality. The Amber status of the Put/Call ratio at 0.50 also suggests an uptick in hedging activity, albeit not yet at extreme levels, indicating cautious sentiment among some market participants.\n\nDuration risk remains a significant concern, with all key US Treasury yields \u2013 the 3-year at 3.58%, 10-year at 4.11%, and 30-year at 4.69% \u2013 registering Amber. The persistent elevation of these yields underscores the \"higher-for-longer\" interest rate environment, which continues to pressure valuations across asset classes. The 30-year yield, in particular, is approaching critical thresholds, signaling potential for further market repricing. Despite these clear signals of rising leverage and duration risk, a notable contradiction exists: the High Yield OAS remains Green at 3.13 bps, and the S&P 500 index is also Green. This divergence suggests that credit spreads and broad equity market performance are not yet fully pricing in the underlying build-up of leverage and the implications of sustained higher interest rates. The VIX index, while Amber at 19.08, has not escalated to levels typically associated with severe market distress, further contributing to this apparent disconnect between underlying systemic risks and market volatility gauges, potentially indicating complacency.\n\nThe global macro landscape reflects a complex interplay of central bank hawkishness and differentiated inflation dynamics. Per Reuters and the Wall Street Journal, the Bank of Japan's October meeting summary indicated a growing case for a near-term rate hike, signaling a potential shift away from its ultra-loose monetary policy. This sentiment is echoed by the Reserve Bank of Australia, as reported by the Wall Street Journal, which fears capacity constraints could limit the scope for future rate cuts, suggesting persistent inflationary pressures in developed economies. Conversely, Bloomberg highlights a rare inflation flip giving emerging markets an edge over rich nations, suggesting these economies may be better positioned to navigate the current environment. Meanwhile, Morningstar points to upcoming focus on US shutdown developments, which could introduce fiscal uncertainty and impact market sentiment. These developments underscore a divergence in monetary policy trajectories and economic resilience across regions, with potential implications for capital flows and currency markets. Investors should monitor these global policy shifts and their impact on relative value propositions. For a full list of articles reviewed, please refer to the News Feed below. The key Atlas trigger that would escalate the posture to FULL-STORM is a US 10-Year Yield move above 4.75% or HY OAS widening beyond 400 bps.",
-        "composite_summary": "The Atlas Composite Score of 7.50 indicates an ELEVATED RISK (MODERATE RISK) posture, driven by rising leverage and duration risks that are not yet fully reflected in broader market sentiment or credit spreads.",
+        "daily_narrative": "Atlas indicators signal an ELEVATED RISK posture, with a Composite Score of 7.50. The primary drivers of this elevated risk are concentrated in leverage and duration. FINRA margin debt stands out as a critical Red indicator, showing a substantial 32.94% year-over-year increase, highlighting significant speculative leverage within the equity market. This is further compounded by Amber-rated consumer delinquencies at 3.05%, suggesting underlying stress in household balance sheets. The small/large cap ratio, also in Red territory at 0.36, indicates a clear preference for larger, more stable companies, signaling a defensive rotation and potential liquidity concerns for smaller enterprises. This divergence underscores a market segmenting into perceived safety and higher-risk areas, with capital flows favoring the former. Duration risk remains a prominent concern, with US 3yr, 10yr, and 30yr treasury yields all registering Amber. The US 30yr yield, at 4.69%, is particularly close to critical thresholds, reflecting persistent inflationary pressures or increased term premium demands. Despite these rising yield pressures and elevated leverage, the VIX index, while Amber at 18.43, has not yet reached levels indicative of severe market panic. This creates a notable contradiction, suggesting that while underlying risks are accumulating, market participants may be exhibiting a degree of complacency or are underpricing potential volatility. Similarly, the High Yield OAS remains Green at 3.13 bps, which appears incongruous with the rising consumer delinquencies and the overall ELEVATED RISK environment, implying a potential mispricing of credit risk in the corporate bond market. The global macro tone is characterized by a cautious optimism, primarily driven by hopes for a resolution to the US government shutdown, as reported by the Wall Street Journal and Reuters. This sentiment has contributed to global market rises, despite underlying policy uncertainties. Investing.com highlights the US Dollar's struggles amid intensifying Federal Reserve rate cut bets, which could provide some relief to risk assets. However, this contrasts with Bloomberg's reporting on the Bank of Japan, which indicates a potential for a December interest rate hike, signaling a divergence in global monetary policy trajectories. Furthermore, Bloomberg also points to an 'inflation flip' giving emerging markets an edge over rich nations, suggesting a potential shift in relative attractiveness. Reuters also notes UBS's optimistic S&P 500 year-end target for 2026, driven by AI-related rallies, which may contribute to the observed market complacency despite rising leverage and duration risks. For a comprehensive list of articles reviewed, please refer to the News Feed below. The Atlas posture would escalate to FULL-STORM should the US 10-Year Yield move decisively above 4.75%.",
+        "composite_summary": "Atlas indicators point to an ELEVATED RISK environment, driven by escalating leverage and duration concerns, despite some market complacency.",
         "key_actions": [
-            "Reduce exposure to highly leveraged entities and sectors sensitive to rising interest rates.",
-            "Maintain a defensive bias in equity portfolios, favoring quality and large-cap names over small-cap.",
-            "Implement tactical hedges against potential equity market volatility and further yield increases.",
-            "Closely monitor High Yield OAS for signs of widening, indicating deteriorating credit conditions.",
-            "Re-evaluate duration exposure in fixed income portfolios, favoring shorter-duration assets."
+            "Reduce exposure to highly leveraged assets and sectors sensitive to rising interest rates.",
+            "Increase allocation to defensive sectors and high-quality fixed income with shorter duration.",
+            "Implement tactical hedges to mitigate potential equity market volatility, particularly given the elevated VIX.",
+            "Closely monitor credit spreads, especially High Yield OAS, for signs of widening that would signal broader credit deterioration.",
+            "Re-evaluate and de-risk portfolios exposed to small-cap equities, favoring large-cap quality names."
         ],
-        "date": "2025-11-10 06:55:46",
+        "date": "2025-11-10 13:40:47",
         "news": [
+            {
+                "title": "Thornburg International Equity Fund Q3 2025 Commentary ...",
+                "url": "https://seekingalpha.com/article/4841210-thornburg-international-equity-fund-q3-2025-commentary",
+                "snippet": "Contextual article. Click title for details."
+            },
+            {
+                "title": "US Dollar Struggles as Fed Rate Cut Bets Intensify | Investing.com",
+                "url": "https://www.investing.com/analysis/us-dollar-struggles-as-fed-rate-cut-bets-intensify-200669883",
+                "snippet": "Contextual article. Click title for details."
+            },
+            {
+                "title": "Morning Bid: A re-open rally | Reuters",
+                "url": "https://www.reuters.com/business/finance/global-markets-view-usa-2025-11-10/",
+                "snippet": "Contextual article. Click title for details."
+            },
+            {
+                "title": "Week Ahead for FX, Bonds: Focus on U.S. Shutdown Developments ...",
+                "url": "https://www.morningstar.com/news/dow-jones/202511101276/week-ahead-for-fx-bonds-focus-on-us-shutdown-developments-china-data",
+                "snippet": "Contextual article. Click title for details."
+            },
+            {
+                "title": "Global Markets Rise on Hopes for an End to U.S. Government ...",
+                "url": "https://www.wsj.com/finance/stocks/global-markets-rise-on-hopes-for-an-end-to-u-s-government-shutdown-cbe8f019?gaa_at=eafs&gaa_n=AWEtsqe8bm3s8HxBU5a1plaowZWPzhqtgxE4uai1CUEsR7PwsznBv_pXDYfS&gaa_ts=6911eed5&gaa_sig=y6C0w7g5j5QhgQgZ8sEFkRPV_OfOc9uLOM2DG27BiqSNkqtEXAQQqRvEgTtB1_UlSnp_QmZE6fiPQM6oXVpiMg%3D%3D",
+                "snippet": "Contextual article. Click title for details."
+            },
+            {
+                "title": "BOJ Summary Indicates Chance of December Interest Rate Hike ...",
+                "url": "https://www.bloomberg.com/news/articles/2025-11-10/boj-indicates-chance-of-december-interest-rate-hike-with-summary",
+                "snippet": "Contextual article. Click title for details."
+            },
+            {
+                "title": "AllianceBernstein Enhances ETF Offerings with Two New Fixed ...",
+                "url": "https://www.morningstar.com/news/pr-newswire/20251110ny19138/alliancebernstein-enhances-etf-offerings-with-two-new-fixed-income-conversions",
+                "snippet": "Contextual article. Click title for details."
+            },
             {
                 "title": "Emerging Markets Can Swim Naked for a While - Bloomberg",
                 "url": "https://www.bloomberg.com/opinion/newsletters/2025-11-10/emerging-markets-can-swim-naked-for-a-while",
@@ -252,46 +287,11 @@
                 "snippet": "Contextual article. Click title for details."
             },
             {
-                "title": "Week Ahead for FX, Bonds: Focus on U.S. Shutdown Developments ...",
-                "url": "https://www.morningstar.com/news/dow-jones/20251109990/week-ahead-for-fx-bonds-focus-on-us-shutdown-developments-china-data",
-                "snippet": "Contextual article. Click title for details."
-            },
-            {
-                "title": "BOJ saw growing case for near-term rate hike, October meeting ...",
-                "url": "https://www.reuters.com/world/asia-pacific/boj-debated-likelihood-near-term-rate-hike-october-meeting-summary-shows-2025-11-10/",
-                "snippet": "Contextual article. Click title for details."
-            },
-            {
-                "title": "BOJ Summary of Opinions Show Next Rate-Hike Nearing - WSJ",
-                "url": "https://www.wsj.com/economy/central-banking/boj-summary-of-opinions-show-next-rate-hike-nearing-6a55de60?gaa_at=eafs&gaa_n=AWEtsqe3VbmdiaZwyesr7uNjWPeSKCevh-MOX84TQHYlytr5skHA37pzilXA&gaa_ts=69118fe6&gaa_sig=exXdpxCboVTQBIahlk43sfpZuB_r0t7YH8ZAGMTah4j0gBzVy6tz7DWDkL7Tl_xNPHCkkbXjLAFPW4AT4DUoUw%3D%3D",
-                "snippet": "Contextual article. Click title for details."
-            },
-            {
-                "title": "RBA Fears Capacity Constraints Could Limit Scope for Rate Cuts ...",
-                "url": "https://www.wsj.com/economy/central-banking/rba-fears-capacity-constraints-could-limit-scope-for-rate-cuts-f2795dc0?gaa_at=eafs&gaa_n=AWEtsqck2AlaE06Rwlq8CmyQ6HeRmGIwu-rel5V5dVQ7GcyZJO8IOxHcfEPu&gaa_ts=69118fe6&gaa_sig=tyjxjXShVah5Wr6WtisDMmX80ky-P7XLvAQCv0crMJNemGOG2iAR533GOE8ZJ7uUeF_OssOIAZe3OuMLM8XMdQ%3D%3D",
-                "snippet": "Contextual article. Click title for details."
-            },
-            {
-                "title": "Sector & Industry Performance - Bloomberg",
-                "url": "https://www.bloomberg.com/markets/sectors",
-                "snippet": "Contextual article. Click title for details."
-            },
-            {
-                "title": "Economics - Bloomberg",
-                "url": "https://www.bloomberg.com/economics-v2",
-                "snippet": "Contextual article. Click title for details."
-            },
-            {
-                "title": "Financial Times: Home",
-                "url": "https://www.ft.com/",
-                "snippet": "Contextual article. Click title for details."
-            },
-            {
-                "title": "Markets - Bloomberg",
-                "url": "https://www.bloomberg.com/markets",
+                "title": "UBS sets S&P 500's 2026 year-end target at 7,500 on AI-driven rally ...",
+                "url": "https://www.reuters.com/business/finance/ubs-sets-sp-500s-2026-year-end-target-7500-ai-driven-rally-2025-11-10/",
                 "snippet": "Contextual article. Click title for details."
             }
         ],
-        "news_context_raw": "1. [Emerging Markets Can Swim Naked for a While - Bloomberg](https://www.bloomberg.com/opinion/newsletters/2025-11-10/emerging-markets-can-swim-naked-for-a-while)\n2. [Inflation Flip Gives Emerging Markets Edge Over Rich Nations ...](https://www.bloomberg.com/news/articles/2025-11-09/rare-inflation-flip-gives-emerging-markets-edge-on-rich-nations)\n3. [Week Ahead for FX, Bonds: Focus on U.S. Shutdown Developments ...](https://www.morningstar.com/news/dow-jones/20251109990/week-ahead-for-fx-bonds-focus-on-us-shutdown-developments-china-data)\n4. [BOJ saw growing case for near-term rate hike, October meeting ...](https://www.reuters.com/world/asia-pacific/boj-debated-likelihood-near-term-rate-hike-october-meeting-summary-shows-2025-11-10/)\n5. [BOJ Summary of Opinions Show Next Rate-Hike Nearing - WSJ](https://www.wsj.com/economy/central-banking/boj-summary-of-opinions-show-next-rate-hike-nearing-6a55de60?gaa_at=eafs&gaa_n=AWEtsqe3VbmdiaZwyesr7uNjWPeSKCevh-MOX84TQHYlytr5skHA37pzilXA&gaa_ts=69118fe6&gaa_sig=exXdpxCboVTQBIahlk43sfpZuB_r0t7YH8ZAGMTah4j0gBzVy6tz7DWDkL7Tl_xNPHCkkbXjLAFPW4AT4DUoUw%3D%3D)\n6. [RBA Fears Capacity Constraints Could Limit Scope for Rate Cuts ...](https://www.wsj.com/economy/central-banking/rba-fears-capacity-constraints-could-limit-scope-for-rate-cuts-f2795dc0?gaa_at=eafs&gaa_n=AWEtsqck2AlaE06Rwlq8CmyQ6HeRmGIwu-rel5V5dVQ7GcyZJO8IOxHcfEPu&gaa_ts=69118fe6&gaa_sig=tyjxjXShVah5Wr6WtisDMmX80ky-P7XLvAQCv0crMJNemGOG2iAR533GOE8ZJ7uUeF_OssOIAZe3OuMLM8XMdQ%3D%3D)\n7. [Sector & Industry Performance - Bloomberg](https://www.bloomberg.com/markets/sectors)\n8. [Economics - Bloomberg](https://www.bloomberg.com/economics-v2)\n9. [Financial Times: Home](https://www.ft.com/)\n10. [Markets - Bloomberg](https://www.bloomberg.com/markets)"
+        "news_context_raw": "1. [Thornburg International Equity Fund Q3 2025 Commentary ...](https://seekingalpha.com/article/4841210-thornburg-international-equity-fund-q3-2025-commentary)\n2. [US Dollar Struggles as Fed Rate Cut Bets Intensify | Investing.com](https://www.investing.com/analysis/us-dollar-struggles-as-fed-rate-cut-bets-intensify-200669883)\n3. [Morning Bid: A re-open rally | Reuters](https://www.reuters.com/business/finance/global-markets-view-usa-2025-11-10/)\n4. [Week Ahead for FX, Bonds: Focus on U.S. Shutdown Developments ...](https://www.morningstar.com/news/dow-jones/202511101276/week-ahead-for-fx-bonds-focus-on-us-shutdown-developments-china-data)\n5. [Global Markets Rise on Hopes for an End to U.S. Government ...](https://www.wsj.com/finance/stocks/global-markets-rise-on-hopes-for-an-end-to-u-s-government-shutdown-cbe8f019?gaa_at=eafs&gaa_n=AWEtsqe8bm3s8HxBU5a1plaowZWPzhqtgxE4uai1CUEsR7PwsznBv_pXDYfS&gaa_ts=6911eed5&gaa_sig=y6C0w7g5j5QhgQgZ8sEFkRPV_OfOc9uLOM2DG27BiqSNkqtEXAQQqRvEgTtB1_UlSnp_QmZE6fiPQM6oXVpiMg%3D%3D)\n6. [BOJ Summary Indicates Chance of December Interest Rate Hike ...](https://www.bloomberg.com/news/articles/2025-11-10/boj-indicates-chance-of-december-interest-rate-hike-with-summary)\n7. [AllianceBernstein Enhances ETF Offerings with Two New Fixed ...](https://www.morningstar.com/news/pr-newswire/20251110ny19138/alliancebernstein-enhances-etf-offerings-with-two-new-fixed-income-conversions)\n8. [Emerging Markets Can Swim Naked for a While - Bloomberg](https://www.bloomberg.com/opinion/newsletters/2025-11-10/emerging-markets-can-swim-naked-for-a-while)\n9. [Inflation Flip Gives Emerging Markets Edge Over Rich Nations ...](https://www.bloomberg.com/news/articles/2025-11-09/rare-inflation-flip-gives-emerging-markets-edge-on-rich-nations)\n10. [UBS sets S&P 500's 2026 year-end target at 7,500 on AI-driven rally ...](https://www.reuters.com/business/finance/ubs-sets-sp-500s-2026-year-end-target-7500-ai-driven-rally-2025-11-10/)"
     }
 }

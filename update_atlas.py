@@ -544,7 +544,7 @@ def generate_ai_commentary(data_dict, news_context): # Ensure this takes news_co
     # --- REVISED SYSTEM INSTRUCTION (ATLAS v3 LOGIC — INDICATORS FIRST + NEWS FEED REFERENCE) ---
     system_instruction = (
         "You are Atlas, a senior macroeconomic analyst. Your task is to generate a concise, "
-        "highly actionable institutional investor commentary. "
+        "highly actionable institutional investor commentary (target investors and portfolio management: 401K accounts and/or superannuation) "
         "You MUST return the output as a single, valid JSON object adhering strictly to the provided schema. "
         "The analysis for the 'daily_narrative' field must follow the official Atlas commentary structure: "
         
@@ -553,6 +553,7 @@ def generate_ai_commentary(data_dict, news_context): # Ensure this takes news_co
         "State the current overall risk posture (e.g., SEVERE RISK) and identify the two-to-three most critical "
         "Red or Amber indicators driving the Composite Score — focusing on Leverage, Liquidity, and Duration risk. "
         "Explain any contradictions (for example, a low VIX despite rising leverage or yields). "
+        "Explain what it means for investors and portfolios."
         
         "2. **External Context (Paragraph 3):** Then interpret the global macro and policy tone "
         "External context is to be up to 300 words over one paragraph"

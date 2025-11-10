@@ -3,9 +3,9 @@
         {
             "id": "VIX",
             "name": "VIX index",
-            "value": 17.75,
+            "value": 17.600000381469727,
             "status": "Green",
-            "note": "VIX close at 17.75. Low implied volatility.",
+            "note": "VIX close at 17.60. Low implied volatility.",
             "action": "No change.",
             "score_value": 0.0,
             "source_link": "https://finance.yahoo.com/quote/%5EVIX/"
@@ -13,9 +13,9 @@
         {
             "id": "GOLD_PRICE",
             "name": "Gold price (GLD)",
-            "value": 377.9200134277344,
+            "value": 378.3800048828125,
             "status": "Amber",
-            "note": "Gold (GLD) is rallying sharply at $377.92. Indicates rising inflation expectations or systemic risk.",
+            "note": "Gold (GLD) is rallying sharply at $378.38. Indicates rising inflation expectations or systemic risk.",
             "action": "Consider increasing real asset allocation.",
             "score_value": 0.5,
             "source_link": "https://finance.yahoo.com/quote/GLD/"
@@ -23,9 +23,9 @@
         {
             "id": "EURUSD",
             "name": "EUR/USD exchange rate",
-            "value": 1.156336784362793,
+            "value": 1.1559356451034546,
             "status": "Green",
-            "note": "EUR/USD is stable at 1.1563. Indicates balanced global risk/economic outlook.",
+            "note": "EUR/USD is stable at 1.1559. Indicates balanced global risk/economic outlook.",
             "action": "No change.",
             "score_value": 0.0,
             "source_link": "https://finance.yahoo.com/quote/EURUSD=X/"
@@ -33,9 +33,9 @@
         {
             "id": "WTI_CRUDE",
             "name": "WTI crude oil ($/bbl)",
-            "value": 60.040000915527344,
+            "value": 60.11000061035156,
             "status": "Green",
-            "note": "WTI Crude at $60.04/bbl. Normal price range, favorable for growth.",
+            "note": "WTI Crude at $60.11/bbl. Normal price range, favorable for growth.",
             "action": "No change.",
             "score_value": 0.0,
             "source_link": "https://finance.yahoo.com/quote/USO/"
@@ -43,9 +43,9 @@
         {
             "id": "AUDUSD",
             "name": "AUD/USD exchange rate",
-            "value": 0.653979480266571,
+            "value": 0.6538512110710144,
             "status": "Amber",
-            "note": "AUDUSD at 0.6540. AUD is consolidating. Global risk appetite is tentative.",
+            "note": "AUDUSD at 0.6539. AUD is consolidating. Global risk appetite is tentative.",
             "action": "Monitor closely for breaks below 0.6500.",
             "score_value": 0.5,
             "source_link": "https://finance.yahoo.com/quote/AUDUSD=X/"
@@ -53,9 +53,9 @@
         {
             "id": "3Y_YIELD",
             "name": "US 3yr treasury yield",
-            "value": 3.58,
+            "value": 3.57,
             "status": "Amber",
-            "note": "Yield at 3.58%. Medium-term rate pressure.",
+            "note": "Yield at 3.57%. Medium-term rate pressure.",
             "action": "Avoid intermediate locks; prefer short/floating rate instruments.",
             "score_value": 0.5,
             "source_link": "https://fred.stlouisfed.org/series/DGS3"
@@ -63,9 +63,9 @@
         {
             "id": "30Y_YIELD",
             "name": "US 30yr treasury yield",
-            "value": 4.69,
+            "value": 4.7,
             "status": "Amber",
-            "note": "Yield at 4.69%. Elevated long-term yields reflecting fiscal risk/inflation concerns.",
+            "note": "Yield at 4.70%. Elevated long-term yields reflecting fiscal risk/inflation concerns.",
             "action": "Watch the 5.0% threshold. Limit long duration locks.",
             "score_value": 0.5,
             "source_link": "https://fred.stlouisfed.org/series/DGS30"
@@ -93,9 +93,9 @@
         {
             "id": "TREASURY_LIQUIDITY",
             "name": "Treasury net liquidity",
-            "value": 6571786.118,
+            "value": 6571783.869,
             "status": "Green",
-            "note": "Net Liquidity at $6571786B. Liquidity is robust and supportive of risk assets.",
+            "note": "Net Liquidity at $6571784B. Liquidity is robust and supportive of risk assets.",
             "action": "No change.",
             "score_value": 0.0,
             "source_link": "https://fred.stlouisfed.org/series/WALCL"
@@ -138,9 +138,9 @@
         {
             "id": "SPX_INDEX",
             "name": "S&P 500 index",
-            "value": 6823.60009765625,
+            "value": 6832.43017578125,
             "status": "Green",
-            "note": "S&P 500 Index at 6,824. Strong/stable price action. Low systemic equity risk.",
+            "note": "S&P 500 Index at 6,832. Strong/stable price action. Low systemic equity risk.",
             "action": "Maintain equity exposure.",
             "score_value": 0.0,
             "source_link": "https://finance.yahoo.com/quote/%5EGSPC/"
@@ -178,9 +178,9 @@
         {
             "id": "SMALL_LARGE_RATIO",
             "name": "Small/Large cap ratio",
-            "value": 0.3607949190783584,
+            "value": 0.35941022454592236,
             "status": "Red",
-            "note": "Ratio at 0.3608 \u2014 small-caps are heavily underperforming. Poor internals.",
+            "note": "Ratio at 0.3594 \u2014 small-caps are heavily underperforming. Poor internals.",
             "action": "Avoid high-risk small-cap exposure.",
             "score_value": 1.0,
             "source_link": "https://finance.yahoo.com/quote/%5ERUT/"
@@ -230,16 +230,16 @@
         "score": 6.5,
         "status": "\ud83d\udfe0 ELEVATED RISK (MODERATE RISK)",
         "comment": "Risk posture is elevated. Maintain defensive positioning.",
-        "daily_narrative": "The Atlas Composite Score registers ELEVATED RISK (MODERATE RISK) at 6.50, driven primarily by escalating leverage and persistent duration risk. A critical Red indicator is the year-over-year increase in FINRA margin debt, currently at 32.94%, signaling a significant build-up in speculative leverage within the equity markets. This is compounded by an Amber signal from consumer delinquencies at 3.05%, suggesting underlying stress in household balance sheets, which could translate into broader credit risk. The Small/Large cap ratio, also a Red indicator at 0.36, points to a narrowing market breadth and a preference for larger, more stable companies, often observed in periods of increasing uncertainty. These internal metrics collectively highlight a market increasingly reliant on borrowed capital, with potential vulnerabilities emerging in credit quality.\nDuration risk remains elevated, with US 3-year, 10-year, and 30-year treasury yields all flashing Amber at 3.58%, 4.11%, and 4.69% respectively. While not yet at critical thresholds, the sustained higher yield environment across the curve implies a re-pricing of long-term discount rates and borrowing costs. A notable contradiction exists between these accumulating risks and certain market sentiment indicators. The VIX index remains Green at 17.75, suggesting implied equity volatility is not yet reflecting the underlying leverage and duration concerns. Similarly, the High Yield OAS is Green at 3.15 bps, indicating credit spreads are not yet widening significantly despite the increase in margin debt and consumer delinquencies. This divergence suggests a potential complacency in risk pricing, where investors may be underestimating the systemic implications of elevated leverage and higher long-term rates. The Amber signal from the Put/Call ratio at 0.50 also suggests a moderate level of hedging activity, but not yet indicative of widespread panic.\nThe global macro environment presents a mixed picture, with central bank policy divergence and shifting investor sentiment. As highlighted by Investing.com, the US Dollar has struggled amidst intensifying expectations for Federal Reserve rate cuts, reflecting a potential easing of monetary policy in the near future. Conversely, Bloomberg reports indicate the Bank of Japan is signaling a potential December interest rate hike, suggesting a tightening bias in Japan. This divergence in monetary policy trajectories could introduce further volatility in currency markets. Reuters' \"Morning Bid\" commentary points to a \"re-open rally\" sentiment, suggesting some market optimism, possibly linked to expectations of economic normalization or policy support. However, Morningstar also highlights ongoing concerns regarding potential US shutdown developments and upcoming China data, which could introduce headwinds. Notably, Bloomberg's reporting on emerging markets suggests they are gaining an edge over rich nations due to an \"inflation flip,\" positioning them favorably in the current environment. This suggests a potential rotation of capital towards EM assets, as seen in the broader context of global economic rebalancing. Investors are advised to consult the News Feed below for the full list of articles reviewed. The key Atlas trigger that would escalate the posture to FULL-STORM is a US 10-Year Yield move above 4.75% or HY OAS widening beyond 400 bps.",
-        "composite_summary": "The Atlas Composite Score indicates ELEVATED RISK (MODERATE RISK) driven by escalating leverage and persistent duration concerns, despite a disconnect in implied volatility and credit spread pricing.",
+        "daily_narrative": "The Atlas Composite Score registers an ELEVATED RISK posture at 6.50, primarily driven by critical Red and Amber indicators signaling escalating leverage and duration risks within the financial system. Foremost among these is the Red status of FINRA margin debt, which has surged to 32.94% year-over-year. This substantial increase in investor leverage presents a significant vulnerability, amplifying potential market fragility in the event of adverse shocks and increasing the sensitivity of portfolios to sudden drawdowns. Concurrently, the Small/Large cap ratio is also Red at 0.36, indicating a pronounced shift away from smaller, more growth-oriented companies towards larger, more stable counterparts. This divergence suggests underlying investor caution and a preference for lower duration equity exposure, even as headline equity indices remain robust, highlighting a bifurcated market sentiment where risk appetite is selectively applied.Further contributing to the ELEVATED RISK profile are the Amber statuses across key duration indicators, including the US 3-year, 10-year, and 30-year Treasury yields, currently at 3.57%, 4.11%, and 4.70% respectively. The 30-year yield, in particular, is approaching critical thresholds, reflecting persistent inflationary pressures or increased term premium demands, which elevate funding costs and discount rates across asset classes. This rise in yields contrasts sharply with the Green status of the VIX index at 17.60 and the High Yield OAS at 3.15 bps, which suggest a degree of market complacency. This disconnect is a significant concern: while systemic leverage is building and interest rates are climbing, traditional volatility and credit risk measures remain contained, potentially underpricing the true underlying risks. This creates a false sense of security for investors, making portfolios susceptible to sudden re-pricing events. The Amber status of Gold, AUD/USD, and consumer delinquencies further points to nascent stresses in currency markets, safe-haven demand, and household balance sheets, respectively, adding layers of subtle pressure beneath the surface of apparent stability. This combination of rising leverage and duration risk, coupled with market complacency, implies a heightened sensitivity to any catalyst that could disrupt the current equilibrium.The global macro and policy tone reflects a complex interplay of central bank guidance, fiscal uncertainties, and evolving market dynamics. Per Reuters and Morningstar reporting, market attention remains focused on potential US shutdown developments and upcoming China economic data, signaling ongoing geopolitical and economic uncertainties that could impact global trade and sentiment. Meanwhile, Investing.com highlights the US Dollar's struggle amidst intensifying bets on Federal Reserve rate cuts, a narrative that could influence global capital flows and provide tailwinds for certain asset classes. Conversely, Bloomberg reports on the Bank of Japan indicating a potential December interest rate hike, suggesting a divergence in global monetary policy that could introduce further currency volatility. Bloomberg also offers a nuanced perspective on emerging markets, noting an \"inflation flip\" that gives them an \"edge over rich nations\" and suggesting they can \"swim naked for a while,\" implying a degree of resilience or perhaps a higher tolerance for risk in these regions. Seeking Alpha provides micro-level insights through international equity fund commentaries and corporate earnings calls, while AllianceBernstein's new fixed income ETF offerings underscore continued demand for diversified bond exposure. These external factors collectively paint a picture of a global economy navigating disparate monetary policy paths, fiscal challenges, and shifting investor preferences. Readers are directed to the News Feed below for the full list of articles reviewed. The Atlas posture would escalate to FULL-STORM should the US 10-Year Yield move above 4.75% or High Yield OAS widen beyond 400 bps.",
+        "composite_summary": "The Atlas Composite Score indicates an ELEVATED RISK posture, driven by escalating leverage and duration risks, despite a prevailing sense of market complacency.",
         "key_actions": [
-            "Reduce exposure to highly leveraged assets and speculative equity positions.",
-            "Maintain a defensive sector bias, favoring high-quality, stable companies.",
-            "Implement tactical hedges to mitigate potential downside risk in equity portfolios.",
-            "Closely monitor credit spreads, particularly High Yield OAS, for signs of widening.",
-            "Re-evaluate duration exposure in fixed income portfolios given elevated long-term treasury yields."
+            "Actively deleverage portfolios to reduce sensitivity to market corrections.",
+            "Maintain a defensive sector bias, favoring stable, high-quality companies with strong balance sheets.",
+            "Implement tactical hedging strategies to mitigate downside risk, particularly against equity and interest rate volatility.",
+            "Closely monitor credit spreads for early signs of widening, especially in high-yield segments.",
+            "Manage rate-sensitive exposures by shortening duration in fixed income and evaluating equity sectors highly correlated with interest rate movements."
         ],
-        "date": "2025-11-10 18:51:57",
+        "date": "2025-11-11 08:54:53",
         "news": [
             {
                 "title": "Thornburg International Equity Fund Q3 2025 Commentary ...",

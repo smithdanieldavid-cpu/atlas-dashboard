@@ -788,14 +788,14 @@ def map_score_to_status(score):
     """
 
     if score > 12.0:
-        # 🔴 FULL-STORM: Extreme Risk
-        return "🔴 FULL-STORM (EXTREME RISK)"
+        # 🔵 FULL-STORM: Extreme Risk
+        return "🔵 FULL STORM (EXTREME RISK)"
     elif score > 8.0:
-        # 🟠 SEVERE RISK: High Risk
-        return "🟠 SEVERE RISK (HIGH RISK)"
+        # 🔴 SEVERE RISK: High Risk
+        return "🔴 SEVERE RISK (HIGH RISK)"
     elif score > 4.0:
-        # 🟡 ELEVATED RISK: Moderate Risk
-        return "🟡 ELEVATED RISK (MODERATE RISK)"
+        # 🟠 ELEVATED RISK: Moderate Risk
+        return "🟠 ELEVATED RISK (MODERATE RISK)"
     else:
         # 🟢 MONITOR: Low Risk
         return "🟢 MONITOR (LOW RISK)"

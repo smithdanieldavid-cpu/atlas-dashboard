@@ -3,9 +3,9 @@
         {
             "id": "VIX",
             "name": "VIX index",
-            "value": 17.520000457763672,
+            "value": 17.280000686645508,
             "status": "Green",
-            "note": "VIX close at 17.52. Low implied volatility.",
+            "note": "VIX close at 17.28. Low implied volatility.",
             "action": "No change.",
             "score_value": 0.0,
             "source_link": "https://finance.yahoo.com/quote/%5EVIX/"
@@ -13,9 +13,9 @@
         {
             "id": "GOLD_PRICE",
             "name": "Gold price (GLD)",
-            "value": 378.3500061035156,
+            "value": 379.8699951171875,
             "status": "Amber",
-            "note": "Gold (GLD) is rallying sharply at $378.35. Indicates rising inflation expectations or systemic risk.",
+            "note": "Gold (GLD) is rallying sharply at $379.87. Indicates rising inflation expectations or systemic risk.",
             "action": "Consider increasing real asset allocation.",
             "score_value": 0.5,
             "source_link": "https://finance.yahoo.com/quote/GLD/"
@@ -23,9 +23,9 @@
         {
             "id": "EURUSD",
             "name": "EUR/USD exchange rate",
-            "value": 1.1598236560821533,
+            "value": 1.1584800481796265,
             "status": "Green",
-            "note": "EUR/USD is stable at 1.1598. Indicates balanced global risk/economic outlook.",
+            "note": "EUR/USD is stable at 1.1585. Indicates balanced global risk/economic outlook.",
             "action": "No change.",
             "score_value": 0.0,
             "source_link": "https://finance.yahoo.com/quote/EURUSD=X/"
@@ -33,9 +33,9 @@
         {
             "id": "WTI_CRUDE",
             "name": "WTI crude oil ($/bbl)",
-            "value": 60.9900016784668,
+            "value": 60.84000015258789,
             "status": "Green",
-            "note": "WTI Crude at $60.99/bbl. Normal price range, favorable for growth.",
+            "note": "WTI Crude at $60.84/bbl. Normal price range, favorable for growth.",
             "action": "No change.",
             "score_value": 0.0,
             "source_link": "https://finance.yahoo.com/quote/USO/"
@@ -43,9 +43,9 @@
         {
             "id": "AUDUSD",
             "name": "AUD/USD exchange rate",
-            "value": 0.6534239053726196,
+            "value": 0.6535520553588867,
             "status": "Amber",
-            "note": "AUDUSD at 0.6534. AUD is consolidating. Global risk appetite is tentative.",
+            "note": "AUDUSD at 0.6536. AUD is consolidating. Global risk appetite is tentative.",
             "action": "Monitor closely for breaks below 0.6500.",
             "score_value": 0.5,
             "source_link": "https://finance.yahoo.com/quote/AUDUSD=X/"
@@ -138,9 +138,9 @@
         {
             "id": "SPX_INDEX",
             "name": "S&P 500 index",
-            "value": 6851.39990234375,
+            "value": 6846.60986328125,
             "status": "Green",
-            "note": "S&P 500 Index at 6,851. Strong/stable price action. Low systemic equity risk.",
+            "note": "S&P 500 Index at 6,847. Strong/stable price action. Low systemic equity risk.",
             "action": "Maintain equity exposure.",
             "score_value": 0.0,
             "source_link": "https://finance.yahoo.com/quote/%5EGSPC/"
@@ -148,9 +148,9 @@
         {
             "id": "ASX_200",
             "name": "ASX 200 index",
-            "value": 8818.7998046875,
+            "value": 8799.5,
             "status": "Green",
-            "note": "ASX 200 Index at 8,819. Stable price action.",
+            "note": "ASX 200 Index at 8,800. Stable price action.",
             "action": "No change.",
             "score_value": 0.0,
             "source_link": "https://finance.yahoo.com/quote/%5EAXJO/"
@@ -178,9 +178,9 @@
         {
             "id": "SMALL_LARGE_RATIO",
             "name": "Small/Large cap ratio",
-            "value": 0.3589011911414374,
+            "value": 0.35905069492578623,
             "status": "Red",
-            "note": "Ratio at 0.3589 \u2014 small-caps are heavily underperforming. Poor internals.",
+            "note": "Ratio at 0.3591 \u2014 small-caps are heavily underperforming. Poor internals.",
             "action": "Avoid high-risk small-cap exposure.",
             "score_value": 1.0,
             "source_link": "https://finance.yahoo.com/quote/%5ERUT/"
@@ -230,68 +230,68 @@
         "score": 6.5,
         "status": "\ud83d\udfe0 ELEVATED RISK (MODERATE RISK)",
         "comment": "Risk posture is elevated. Maintain defensive positioning.",
-        "daily_narrative": "Atlas internal indicators signal an ELEVATED RISK posture, with a Composite Score of 6.50. The primary drivers of this elevated risk are centered on increasing leverage and duration concerns. Specifically, FINRA margin debt (YOY %) is flagged Red at 32.94%, indicating a significant increase in speculative activity and market leverage. This is compounded by a Red signal in the Small/Large cap ratio (0.36), suggesting a narrowing of market breadth and concentration of gains, which historically precedes periods of heightened volatility. Amber signals across the US Treasury curve, including the 3-year (3.57%), 10-year (4.11%), and 30-year (4.70%) yields, underscore persistent duration risk, reflecting market expectations of sustained higher rates or inflation premiums. The Put/Call ratio at 0.50 (Amber) also points to a degree of complacency in options markets, despite these underlying risks.A notable contradiction exists with the VIX index remaining Green at 17.52 and High Yield OAS also Green at 3.15 bps. This suggests that while underlying leverage and duration risks are accumulating, market participants are not yet pricing in a commensurate increase in volatility or credit risk. This disconnect implies a potential for sharp re-pricing if any of the Amber or Red indicators deteriorate further. For investors, this environment necessitates a cautious approach, as the market's current calm may mask growing vulnerabilities. The Amber status of consumer delinquencies (3.05%) further highlights potential strain on household balance sheets, which could eventually translate into broader economic weakness. Portfolios should prioritize resilience against potential rate shocks and a widening of credit spreads, given the current complacency in volatility and credit markets.The global macro and policy tone presents a nuanced picture. Per Reuters reporting, the case for a Federal Reserve pause is mounting, while an ECB official, as highlighted by Bloomberg, suggests the European Central Bank is in a good position on interest rates. This indicates a potential stabilization in developed market monetary policy, though the implications for growth remain uncertain. In emerging markets, Reuters notes Brazil's inflation slowing, potentially paving the way for rate cuts, contrasting with the broader narrative. Bloomberg also highlights the potential for dollar carry trades to outperform stock markets and the New Zealand Dollar's struggle against rate cut expectations, underscoring currency market volatility and the attractiveness of yield differentials. Meanwhile, discussions around trade deals, as reported by Bloomberg, suggest ongoing geopolitical and economic realignments. For a full list of articles reviewed, please refer to the News Feed below. Atlas would escalate the posture to FULL-STORM should the US 10-Year Yield move above 4.75% or HY OAS widen beyond 400 bps.",
-        "composite_summary": "Atlas maintains an ELEVATED RISK posture, driven by rising leverage and duration concerns, despite a complacent volatility and credit market.",
+        "daily_narrative": "The current Atlas Composite Score of 6.50 indicates an ELEVATED RISK (MODERATE RISK) posture, driven primarily by critical Red and Amber indicators signaling heightened leverage and duration risks. A primary concern is the Red status of FINRA margin debt, which has seen a significant year-over-year increase of 32.94%. This substantial rise in leverage among market participants introduces considerable fragility, as extended periods of high margin utilization can amplify downside volatility during market corrections. Concurrently, the Small/Large cap ratio is also Red at 0.36, reflecting a clear divergence in market performance where smaller, often more growth-oriented companies are underperforming larger, more established counterparts. This typically signals a flight to quality and a reduction in risk appetite, indicating that investors are becoming more selective and cautious about future growth prospects, which has direct implications for broad equity exposure and sector allocation.Further contributing to the elevated risk profile are several Amber indicators, particularly across duration and liquidity metrics. US Treasury yields across the curve\u20143-year at 3.57%, 10-year at 4.11%, and 30-year at 4.70%\u2014are all in Amber status, reflecting persistent upward pressure on borrowing costs and a re-evaluation of long-term discount rates. This elevated yield environment directly impacts fixed income portfolios and the valuation of long-duration assets. Consumer delinquencies, at 3.05%, are also Amber, suggesting emerging stress in household balance sheets, which could translate into broader economic weakness and impact credit quality. The Put/Call ratio, at 0.50, is Amber, indicating a degree of complacency or insufficient hedging activity relative to the underlying leverage and duration risks. This contrasts with the Green status of the VIX index (17.28) and High Yield OAS (3.15 bps), which currently suggest a benign view of near-term volatility and credit risk. This apparent contradiction implies that while headline volatility remains contained and credit spreads tight, underlying structural risks, particularly in leverage and duration, are accumulating beneath the surface, posing a latent threat to portfolio stability.The global macro and policy tone is characterized by significant central bank uncertainty and data dependency, as highlighted by recent reports. The Wall Street Journal indicates that the Federal Reserve is increasingly divided over the prospect of a December rate cut, a sentiment echoed by Reuters reporting on the dollar's tentative movements amid weakening US jobs data. This suggests a cautious approach to monetary policy, with potential implications for global liquidity and interest rate trajectories. Similarly, Bloomberg reports on the Bank of Korea's stance, emphasizing that future policy decisions are contingent on incoming data, while Reuters notes that Australia's central bank is actively debating the restrictiveness of its current monetary policy. In Europe, Bloomberg also points to the European Central Bank facing risks of a prolonged inflation undershoot, partly due to delays in EU carbon regulations. These discussions collectively underscore a global environment where central banks are navigating complex economic signals, balancing inflation concerns with growth vulnerabilities, and potentially diverging in their policy paths. Investors should monitor these developments closely, as central bank guidance will be pivotal in shaping market expectations and asset performance. For a full list of articles reviewed, please refer to the News Feed below. The Atlas posture would escalate to FULL-STORM if the US 10-Year Yield moves above 4.75% or if the HY OAS widens beyond 400 bps.",
+        "composite_summary": "Atlas indicators signal an ELEVATED RISK (MODERATE RISK) posture, driven by rising leverage and duration risks despite contained headline volatility.",
         "key_actions": [
-            "Reduce overall portfolio leverage and maintain higher cash reserves.",
-            "Shift portfolio bias towards defensive sectors with stable cash flows.",
-            "Implement tactical hedges against potential equity market drawdowns and rising interest rates.",
-            "Closely monitor credit spreads, particularly High Yield OAS, for signs of widening.",
-            "Re-evaluate duration exposure in fixed income portfolios, favoring shorter-duration assets."
+            "Reduce exposure to highly leveraged assets and consider deleveraging strategies within equity portfolios.",
+            "Maintain a defensive bias in equity allocations, favoring sectors with stable cash flows and lower sensitivity to economic cycles.",
+            "Implement tactical hedging strategies to mitigate potential downside risks, particularly given the Amber Put/Call ratio and rising duration risks.",
+            "Closely monitor credit spreads, especially High Yield OAS, for any signs of widening that would indicate deteriorating credit conditions.",
+            "Re-evaluate and adjust exposure to rate-sensitive assets, given the Amber status of US Treasury yields across the curve."
         ],
-        "date": "2025-11-11 18:53:26",
+        "date": "2025-11-12 06:56:26",
         "news": [
             {
-                "title": "Bloomberg - Business News, Stock Markets, Finance, Breaking ...",
-                "url": "https://www.bloomberg.com/",
+                "title": "BOK's Rhee Says Policy Moves Including Direction Depend on Data ...",
+                "url": "https://www.bloomberg.com/news/articles/2025-11-12/bok-s-rhee-says-policy-moves-including-direction-depend-on-data",
                 "snippet": "Contextual article. Click title for details."
             },
             {
-                "title": "The global south does not need a new credit rating system",
-                "url": "https://www.ft.com/content/49f4c8b5-7d69-455d-9262-c97973c7ad53",
+                "title": "ECB Risks Longer Inflation Undershoot as EU Delays Carbon Rules ...",
+                "url": "https://www.bloomberg.com/news/articles/2025-11-12/ecb-risks-longer-inflation-undershoot-as-eu-delays-carbon-rules",
                 "snippet": "Contextual article. Click title for details."
             },
             {
-                "title": "ECB Is in a Good Position on Interest Rates, Kocher Says - Bloomberg",
-                "url": "https://www.bloomberg.com/news/articles/2025-11-11/ecb-is-in-a-good-position-on-interest-rates-kocher-says",
+                "title": "The Fed Is Increasingly Torn Over a December Rate Cut - WSJ",
+                "url": "https://www.wsj.com/economy/central-banking/the-fed-is-increasingly-torn-over-a-december-rate-cut-48a26aad?gaa_at=eafs&gaa_n=AWEtsqeXHJE2_wyI2_CZ-NWH7w_a1ff20SV4GS9jr300xW7JjPuyG3lj8s-p&gaa_ts=6914330c&gaa_sig=8rFlJEIibbTbBZU-OJOix-lmzOzC2nHfd-xAsB6wUUGb3ssoVlMjOpoAkHjAemVEm-Btg_JbEDYihpkpb_qYxA%3D%3D",
                 "snippet": "Contextual article. Click title for details."
             },
             {
-                "title": "Franklin Templeton Western Asset GSM 7-Year Portfolios Q3 2025 ...",
-                "url": "https://seekingalpha.com/article/4841673-franklin-templeton-western-asset-gsm-7-year-portfolios-q3-2025-commentary",
+                "title": "Exclusive: Australia's central bank debates if monetary policy is ...",
+                "url": "https://www.reuters.com/sustainability/sustainable-finance-reporting/australias-central-bank-debates-if-monetary-policy-is-restrictive-deputy-2025-11-12/",
                 "snippet": "Contextual article. Click title for details."
             },
             {
-                "title": "Trump Trade Deals With Switzerland and India - Bloomberg",
-                "url": "https://www.bloomberg.com/news/newsletters/2025-11-11/trump-trade-deals-with-switzerland-and-india",
+                "title": "BNY Mellon Small Cap Value Fund Q3 2025 Commentary (RUDAX ...",
+                "url": "https://seekingalpha.com/article/4842286-bny-mellon-small-cap-value-fund-q3-2025-commentary",
                 "snippet": "Contextual article. Click title for details."
             },
             {
-                "title": "Dollar Carry Trades Set to Trounce World's Booming Stock Markets ...",
-                "url": "https://www.bloomberg.com/news/articles/2025-11-11/dollar-carry-trades-set-to-trounce-world-s-booming-stock-markets",
+                "title": "Macquarie Global Bond Fund Q3 2025 Commentary (IVSAX ...",
+                "url": "https://seekingalpha.com/article/4842277-macquarie-global-bond-fund-q3-2025-commentary",
                 "snippet": "Contextual article. Click title for details."
             },
             {
-                "title": "NZD/USD: New Zealand Dollar on Cusp of Erasing 2025 Gain on ...",
-                "url": "https://www.bloomberg.com/news/articles/2025-11-10/new-zealand-dollar-on-cusp-of-erasing-2025-gain-on-rate-cut-bets",
+                "title": "These Are the Funds in Morningstar's 401(k) | Morningstar",
+                "url": "https://www.morningstar.com/funds/these-are-funds-morningstars-401k",
                 "snippet": "Contextual article. Click title for details."
             },
             {
-                "title": "Case for Fed pause mounts | Reuters",
-                "url": "https://www.reuters.com/markets/us/case-fed-pause-mounts-2025-11-11/",
+                "title": "Dollar tentative as traders mull December Fed cut on weakening US ...",
+                "url": "https://www.reuters.com/world/africa/dollar-eases-traders-eye-december-fed-cut-weakening-us-jobs-market-2025-11-12/",
                 "snippet": "Contextual article. Click title for details."
             },
             {
-                "title": "Gates Strengthens Data Center Portfolio with Launch of Data Master ...",
-                "url": "https://www.morningstar.com/news/pr-newswire/20251111la20744/gates-strengthens-data-center-portfolio-with-launch-of-data-master-eco",
+                "title": "Economics - Bloomberg",
+                "url": "https://www.bloomberg.com/economics-v2",
                 "snippet": "Contextual article. Click title for details."
             },
             {
-                "title": "Brazil's inflation slows in October, paves way for early 2026 rate cut ...",
-                "url": "https://www.reuters.com/world/americas/brazils-inflation-slows-october-paves-way-early-2026-rate-cut-2025-11-11/",
+                "title": "What the Cooling UK Job Market Means for Your Money - Bloomberg",
+                "url": "https://www.bloomberg.com/news/newsletters/2025-11-11/what-the-cooling-uk-job-market-means-for-your-money",
                 "snippet": "Contextual article. Click title for details."
             }
         ],
-        "news_context_raw": "1. [Bloomberg - Business News, Stock Markets, Finance, Breaking ...](https://www.bloomberg.com/)\n2. [The global south does not need a new credit rating system](https://www.ft.com/content/49f4c8b5-7d69-455d-9262-c97973c7ad53)\n3. [ECB Is in a Good Position on Interest Rates, Kocher Says - Bloomberg](https://www.bloomberg.com/news/articles/2025-11-11/ecb-is-in-a-good-position-on-interest-rates-kocher-says)\n4. [Franklin Templeton Western Asset GSM 7-Year Portfolios Q3 2025 ...](https://seekingalpha.com/article/4841673-franklin-templeton-western-asset-gsm-7-year-portfolios-q3-2025-commentary)\n5. [Trump Trade Deals With Switzerland and India - Bloomberg](https://www.bloomberg.com/news/newsletters/2025-11-11/trump-trade-deals-with-switzerland-and-india)\n6. [Dollar Carry Trades Set to Trounce World's Booming Stock Markets ...](https://www.bloomberg.com/news/articles/2025-11-11/dollar-carry-trades-set-to-trounce-world-s-booming-stock-markets)\n7. [NZD/USD: New Zealand Dollar on Cusp of Erasing 2025 Gain on ...](https://www.bloomberg.com/news/articles/2025-11-10/new-zealand-dollar-on-cusp-of-erasing-2025-gain-on-rate-cut-bets)\n8. [Case for Fed pause mounts | Reuters](https://www.reuters.com/markets/us/case-fed-pause-mounts-2025-11-11/)\n9. [Gates Strengthens Data Center Portfolio with Launch of Data Master ...](https://www.morningstar.com/news/pr-newswire/20251111la20744/gates-strengthens-data-center-portfolio-with-launch-of-data-master-eco)\n10. [Brazil's inflation slows in October, paves way for early 2026 rate cut ...](https://www.reuters.com/world/americas/brazils-inflation-slows-october-paves-way-early-2026-rate-cut-2025-11-11/)"
+        "news_context_raw": "1. [BOK's Rhee Says Policy Moves Including Direction Depend on Data ...](https://www.bloomberg.com/news/articles/2025-11-12/bok-s-rhee-says-policy-moves-including-direction-depend-on-data)\n2. [ECB Risks Longer Inflation Undershoot as EU Delays Carbon Rules ...](https://www.bloomberg.com/news/articles/2025-11-12/ecb-risks-longer-inflation-undershoot-as-eu-delays-carbon-rules)\n3. [The Fed Is Increasingly Torn Over a December Rate Cut - WSJ](https://www.wsj.com/economy/central-banking/the-fed-is-increasingly-torn-over-a-december-rate-cut-48a26aad?gaa_at=eafs&gaa_n=AWEtsqeXHJE2_wyI2_CZ-NWH7w_a1ff20SV4GS9jr300xW7JjPuyG3lj8s-p&gaa_ts=6914330c&gaa_sig=8rFlJEIibbTbBZU-OJOix-lmzOzC2nHfd-xAsB6wUUGb3ssoVlMjOpoAkHjAemVEm-Btg_JbEDYihpkpb_qYxA%3D%3D)\n4. [Exclusive: Australia's central bank debates if monetary policy is ...](https://www.reuters.com/sustainability/sustainable-finance-reporting/australias-central-bank-debates-if-monetary-policy-is-restrictive-deputy-2025-11-12/)\n5. [BNY Mellon Small Cap Value Fund Q3 2025 Commentary (RUDAX ...](https://seekingalpha.com/article/4842286-bny-mellon-small-cap-value-fund-q3-2025-commentary)\n6. [Macquarie Global Bond Fund Q3 2025 Commentary (IVSAX ...](https://seekingalpha.com/article/4842277-macquarie-global-bond-fund-q3-2025-commentary)\n7. [These Are the Funds in Morningstar's 401(k) | Morningstar](https://www.morningstar.com/funds/these-are-funds-morningstars-401k)\n8. [Dollar tentative as traders mull December Fed cut on weakening US ...](https://www.reuters.com/world/africa/dollar-eases-traders-eye-december-fed-cut-weakening-us-jobs-market-2025-11-12/)\n9. [Economics - Bloomberg](https://www.bloomberg.com/economics-v2)\n10. [What the Cooling UK Job Market Means for Your Money - Bloomberg](https://www.bloomberg.com/news/newsletters/2025-11-11/what-the-cooling-uk-job-market-means-for-your-money)"
     }
 }

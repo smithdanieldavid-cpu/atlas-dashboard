@@ -1143,6 +1143,10 @@ def score_margin_debt_yoy(value):
     """FINRA Margin Debt YOY Scoring - Measures investor leverage."""
     source_link = "https://www.finra.org/investors/market-and-financial-data/margin-statistics"
 
+    # --- CRITICAL FIX: DEFINE THE CONTEXT STRING ---
+    # NOTE: You MUST update the month/year to reflect your actual data cutoff date
+    SOURCE_CONTEXT = " (FINRA Data, Oct 2025, Not Seasonally Adjusted)"
+    
     if isinstance(value, str):
         if value.upper() == 'N/A':
             return generate_score_output("N/A", "Data N/A: Margin Debt requires FINRA data.", "Cannot score due to missing data.", 0.0, source_link)
@@ -1152,18 +1156,18 @@ def score_margin_debt_yoy(value):
             return generate_score_output("Error", "Error: Debt value could not be converted to number.", "Cannot score due to data error.", 0.0, "")
     
     status = "Green"
-    note = f"Margin Debt YOY at {value:.1f}%. Leverage is consolidating/contracting. Lower risk."
+    note = f"Margin Debt YOY at {value:.1f}%{SOURCE_CONTEXT}. Leverage is consolidating/contracting. Lower risk."
     action = "No change."
     score = 0.0
 
     if value >= 10.0:
         status = "Red"
-        note = f"Margin Debt YOY at {value:.1f}%. Leverage is expanding aggressively. High risk of forced liquidation if markets fall."
+        note = f"Margin Debt YOY at {value:.1f}%{SOURCE_CONTEXT}. Leverage is expanding aggressively. High risk of forced liquidation if markets fall."
         score = 1.5
         action = "Aggressively deleverage equity exposure; increase cash."
     elif value >= 5.0:
         status = "Amber"
-        note = f"Margin Debt YOY at {value:.1f}%. Leverage is expanding. Monitor for an acceleration."
+        note = f"Margin Debt YOY at {value:.1f}%{SOURCE_CONTEXT}. Leverage is expanding. Monitor for an acceleration."
         score = 0.5
         action = "Monitor broker-lending rates closely."
     

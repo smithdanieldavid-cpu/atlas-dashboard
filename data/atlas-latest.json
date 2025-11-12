@@ -3,9 +3,9 @@
         {
             "id": "VIX",
             "name": "VIX index",
-            "value": 17.549999237060547,
+            "value": 17.510000228881836,
             "status": "Green",
-            "note": "VIX close at 17.55. Low implied volatility.",
+            "note": "VIX close at 17.51. Low implied volatility.",
             "action": "No change.",
             "score_value": 0.0,
             "source_link": "https://finance.yahoo.com/quote/%5EVIX/"
@@ -13,9 +13,9 @@
         {
             "id": "GOLD_PRICE",
             "name": "Gold price (GLD)",
-            "value": 387.0950012207031,
+            "value": 385.989990234375,
             "status": "Amber",
-            "note": "Gold (GLD) is rallying sharply at $387.10. Indicates rising inflation expectations or systemic risk.",
+            "note": "Gold (GLD) is rallying sharply at $385.99. Indicates rising inflation expectations or systemic risk.",
             "action": "Consider increasing real asset allocation.",
             "score_value": 0.5,
             "source_link": "https://finance.yahoo.com/quote/GLD/"
@@ -33,9 +33,9 @@
         {
             "id": "WTI_CRUDE",
             "name": "WTI crude oil ($/bbl)",
-            "value": 58.47999954223633,
+            "value": 58.380001068115234,
             "status": "Amber",
-            "note": "WTI Crude at $58.48/bbl. Low price indicates global slowdown or demand weakness.",
+            "note": "WTI Crude at $58.38/bbl. Low price indicates global slowdown or demand weakness.",
             "action": "Monitor global growth indicators.",
             "score_value": 0.5,
             "source_link": "https://finance.yahoo.com/quote/USO/"
@@ -43,9 +43,9 @@
         {
             "id": "AUDUSD",
             "name": "AUD/USD exchange rate",
-            "value": 0.6550933718681335,
+            "value": 0.6543217897415161,
             "status": "Amber",
-            "note": "AUDUSD at 0.6551. AUD is consolidating. Global risk appetite is tentative.",
+            "note": "AUDUSD at 0.6543. AUD is consolidating. Global risk appetite is tentative.",
             "action": "Monitor closely for breaks below 0.6500.",
             "score_value": 0.5,
             "source_link": "https://finance.yahoo.com/quote/AUDUSD=X/"
@@ -53,9 +53,9 @@
         {
             "id": "3Y_YIELD",
             "name": "US 3yr treasury yield",
-            "value": 3.57,
+            "value": 3.56,
             "status": "Amber",
-            "note": "Yield at 3.57%. Medium-term rate pressure.",
+            "note": "Yield at 3.56%. Medium-term rate pressure.",
             "action": "Avoid intermediate locks; prefer short/floating rate instruments.",
             "score_value": 0.5,
             "source_link": "https://fred.stlouisfed.org/series/DGS3"
@@ -63,9 +63,9 @@
         {
             "id": "30Y_YIELD",
             "name": "US 30yr treasury yield",
-            "value": 4.7,
+            "value": 4.71,
             "status": "Amber",
-            "note": "Yield at 4.70%. Elevated long-term yields reflecting fiscal risk/inflation concerns.",
+            "note": "Yield at 4.71%. Elevated long-term yields reflecting fiscal risk/inflation concerns.",
             "action": "Watch the 5.0% threshold. Limit long duration locks.",
             "score_value": 0.5,
             "source_link": "https://fred.stlouisfed.org/series/DGS30"
@@ -73,9 +73,9 @@
         {
             "id": "10Y_YIELD",
             "name": "US 10yr treasury yield",
-            "value": 4.11,
+            "value": 4.13,
             "status": "Amber",
-            "note": "Yield at 4.11%. Elevated yields.",
+            "note": "Yield at 4.13%. Elevated yields.",
             "action": "Watch the Atlas pivot at 4.75%; favour short duration.",
             "score_value": 0.5,
             "source_link": "https://fred.stlouisfed.org/series/DGS10"
@@ -83,9 +83,9 @@
         {
             "id": "HY_OAS",
             "name": "High yield OAS (bps)",
-            "value": 3.15,
+            "value": 302.0,
             "status": "Green",
-            "note": "HY OAS at 3 bps. US credit stress is low and manageable.",
+            "note": "HY OAS at 302 bps. US credit stress is low and manageable.",
             "action": "Favour high-quality corporate bonds.",
             "score_value": 0.0,
             "source_link": "https://fred.stlouisfed.org/series/BAMLH0A0HYM2"
@@ -93,9 +93,9 @@
         {
             "id": "TREASURY_LIQUIDITY",
             "name": "Treasury net liquidity",
-            "value": 6571783.869,
+            "value": 6571785.135,
             "status": "Green",
-            "note": "Net Liquidity at $6571784B. Liquidity is robust and supportive of risk assets.",
+            "note": "Net Liquidity at $6571785B. Liquidity is robust and supportive of risk assets.",
             "action": "No change.",
             "score_value": 0.0,
             "source_link": "https://fred.stlouisfed.org/series/WALCL"
@@ -138,9 +138,9 @@
         {
             "id": "SPX_INDEX",
             "name": "S&P 500 index",
-            "value": 6854.0498046875,
+            "value": 6850.919921875,
             "status": "Green",
-            "note": "S&P 500 Index at 6,854. Strong/stable price action. Low systemic equity risk.",
+            "note": "S&P 500 Index at 6,851. Strong/stable price action. Low systemic equity risk.",
             "action": "Maintain equity exposure.",
             "score_value": 0.0,
             "source_link": "https://finance.yahoo.com/quote/%5EGSPC/"
@@ -178,9 +178,9 @@
         {
             "id": "SMALL_LARGE_RATIO",
             "name": "Small/Large cap ratio",
-            "value": 0.35881703862637093,
+            "value": 0.3577325595815571,
             "status": "Red",
-            "note": "Ratio at 0.3588 \u2014 small-caps are heavily underperforming. Poor internals.",
+            "note": "Ratio at 0.3577 \u2014 small-caps are heavily underperforming. Poor internals.",
             "action": "Avoid high-risk small-cap exposure.",
             "score_value": 1.0,
             "source_link": "https://finance.yahoo.com/quote/%5ERUT/"
@@ -218,37 +218,32 @@
         {
             "id": "CONSUMER_DELINQUENCIES",
             "name": "Consumer delinquencies",
-            "value": 3.05,
-            "status": "Amber",
-            "note": "Delinquency Rate at 3.0%. Rate is rising. Caution warranted for banks and consumer sectors.",
-            "action": "Monitor household debt metrics closely; reduce unsecured credit exposure.",
-            "score_value": 1.0,
+            "value": 305.0,
+            "status": "Red",
+            "note": "Delinquency Rate at 305.0%. Rate is spiking. Signals severe consumer stress.",
+            "action": "Aggressively reduce exposure to consumer discretionary and financial stocks with high unsecured loan exposure.",
+            "score_value": 2.0,
             "source_link": ""
         }
     ],
     "overall": {
-        "score": 7.0,
+        "score": 8.0,
         "status": "\ud83d\udfe0 ELEVATED RISK (MODERATE RISK)",
         "comment": "Risk posture is elevated. Maintain defensive positioning.",
-        "daily_narrative": "The Atlas Composite Score registers at 7.00, indicating an ELEVATED RISK posture. This assessment is primarily driven by critical Red and Amber indicators signaling heightened leverage, duration risk, and underlying market fragility. Specifically, FINRA margin debt, a key leverage indicator, remains in Red territory at 32.94% year-over-year, reflecting an aggressive speculative stance among market participants. This elevated leverage amplifies the potential for sharp market corrections, as positions built on borrowed capital are inherently more vulnerable to adverse price movements. Concurrently, the Small/Large cap ratio is also Red at 0.36, indicating a narrowing market breadth where leadership is concentrated in larger, potentially less cyclical names, often a precursor to broader market weakness as investors de-risk from smaller, more speculative ventures.\nDuration risk is prominently flagged by Amber readings across the US Treasury curve, with the US 3-year, 10-year, and 30-year yields at 3.57%, 4.11%, and 4.70% respectively. These elevated yields exert pressure on fixed-income portfolios and increase the discount rate for future corporate earnings, impacting equity valuations, particularly for growth-oriented sectors. A notable contradiction exists with the VIX index remaining Green at 17.55, suggesting a degree of market complacency regarding immediate volatility despite the clear signals of rising leverage and duration risk. This divergence implies that while systemic vulnerabilities are accumulating, the market has yet to fully price in potential downside risks, creating a precarious environment for investors. Furthermore, Amber consumer delinquencies at 3.05% point to emerging stress in household balance sheets, which could translate into broader economic headwinds and impact credit quality. For investors, this confluence of factors necessitates a defensive stance, prioritizing capital preservation over aggressive growth strategies.\nThe global macro and policy tone reflects a nuanced landscape, as highlighted by recent reports. Central bank guidance, as noted by Bloomberg, indicates a data-dependent approach from the Bank of Korea, while the Federal Reserve's Bostic reiterated inflation as an urgent risk to the US economy. Conversely, Reuters reported a record low inflation rate in India, potentially opening the door for future rate adjustments there. Bloomberg also covered Romania's decision to hold rates steady, capping a volatile year, and discussed the European Central Bank's risk of a longer inflation undershoot due to delayed carbon rules. This diverse policy environment underscores the varying stages of economic cycles and inflationary pressures globally. In terms of market positioning, Bloomberg also highlighted a trend where corporate bonds are increasingly viewed as safe havens amid rising sovereign risk, suggesting a selective flight to quality within credit markets. Investors are directed to the News Feed below for the full list of articles reviewed. The Atlas posture would escalate to FULL-STORM should the US 10-Year Yield move above 4.75% or HY OAS widen beyond 400 bps.",
-        "composite_summary": "The current market environment is characterized by ELEVATED RISK, driven by rising leverage and duration concerns, despite a complacent volatility index.",
+        "daily_narrative": "Atlas indicators signal an ELEVATED RISK posture, with a Composite Score of 8.00, driven primarily by critical Red and Amber flags across leverage, credit, and duration metrics. The most concerning Red indicators include FINRA margin debt, which has surged by 32.94% year-over-year, indicating a significant increase in speculative leverage within the market. This elevated margin debt amplifies portfolio vulnerability to market corrections. Concurrently, consumer delinquencies, registering at 305.00, highlight a deteriorating financial health among households, posing a direct threat to broader credit quality and economic stability. Further reinforcing this cautious outlook is the Small/Large cap ratio at 0.36, a Red indicator signaling a narrowing market breadth where smaller, more economically sensitive companies are underperforming, suggesting underlying economic stress despite headline equity strength. Adding to these concerns, US Treasury yields across the curve remain Amber, with the 3-year at 3.56%, the 10-year at 4.13%, and the 30-year at 4.71%. These elevated yields signify persistent duration risk and increasing borrowing costs, impacting both corporate profitability and fixed-income valuations. The current environment presents a notable contradiction: while leverage and credit quality show clear signs of stress, the VIX index remains Green at 17.51, and High Yield OAS is also Green at 302 bps. This divergence suggests a market that may be underpricing tail risks, with investors exhibiting complacency despite clear signals of underlying fragility. Treasury net liquidity remains Green, providing systemic stability, but this may mask micro-level credit deterioration. For investors, this implies a need for heightened vigilance; the apparent calm in volatility and credit spreads could be temporary, and a rapid re-pricing of risk is a distinct possibility. Portfolios should prioritize resilience, focusing on quality assets and maintaining adequate liquidity to navigate potential market shifts. The global macro and policy tone, as interpreted from recent news, presents a complex picture. Central banks are navigating divergent inflationary pressures and economic conditions. As highlighted by Bloomberg, the Federal Reserve's Bostic continues to emphasize inflation as an urgent risk to the US economy, while the Bank of Korea's Rhee underscores a data-dependent approach to policy. In contrast, Reuters reporting indicates India's retail inflation has slowed to a record low, potentially opening the door for December rate cuts. European policy also faces challenges, with Bloomberg noting the ECB risks a longer inflation undershoot due to delays in EU carbon rules, and Romania holding rates steady to manage market volatility. Despite some optimistic equity forecasts, such as Goldman Sachs' S&P 500 outlook discussed by Morningstar and Barron's, the latter also cautions on underlying economic risks. Furthermore, Bloomberg highlights a trend where corporate bonds are increasingly seen as safe havens amidst rising sovereign risk, suggesting a cautious shift in investor preference. This external context reinforces the Atlas indicators of elevated risk, particularly concerning duration and credit quality, even as some market segments appear resilient. Direct readers to the 'News Feed below' for the full list of articles reviewed. The posture would escalate to FULL-STORM should the US 10-Year Yield move above 4.75% or HY OAS widen beyond 400 bps.",
+        "composite_summary": "The current environment reflects ELEVATED RISK, characterized by rising leverage and consumer credit deterioration, alongside persistent duration risk, despite a seemingly calm volatility backdrop.",
         "key_actions": [
-            "Actively reduce portfolio leverage and maintain conservative capital structures.",
-            "Shift portfolio bias towards defensive sectors with stable cash flows and strong balance sheets.",
-            "Implement tactical hedging strategies to mitigate potential downside risks in equity and credit markets.",
-            "Closely monitor credit spreads, particularly High Yield OAS, for early signs of systemic stress.",
-            "Manage exposure to rate-sensitive assets, favoring shorter-duration fixed income where appropriate."
+            "Reduce exposure to highly leveraged positions across the portfolio.",
+            "Overweight defensive sectors such as utilities, healthcare, and consumer staples within equity allocations.",
+            "Implement tactical hedges against potential equity downside and further increases in interest rates.",
+            "Closely monitor high-yield credit spreads for any signs of widening, indicating deteriorating credit conditions.",
+            "Re-evaluate and potentially reduce exposure to long-duration fixed income assets to mitigate interest rate sensitivity."
         ],
-        "date": "2025-11-12 18:50:35",
+        "date": "2025-11-13 09:03:11",
         "news": [
             {
                 "title": "BOK's Rhee Says Policy Moves Including Direction Depend on Data ...",
                 "url": "https://www.bloomberg.com/news/articles/2025-11-12/bok-s-rhee-says-policy-moves-including-direction-depend-on-data",
-                "snippet": "Contextual article. Click title for details."
-            },
-            {
-                "title": "Abrdn Global Infrastructure Fund Q3 2025 Commentary (MUTF ...",
-                "url": "https://seekingalpha.com/article/4842372-abrdn-global-infrastructure-fund-q3-2025-commentary",
                 "snippet": "Contextual article. Click title for details."
             },
             {
@@ -290,8 +285,13 @@
                 "title": "India's inflation tanks to record low, boosting December rate-cut ...",
                 "url": "https://www.reuters.com/world/india/indias-retail-inflation-slows-record-low-025-october-2025-11-12/",
                 "snippet": "Contextual article. Click title for details."
+            },
+            {
+                "title": "Stock Market: S&P 500 Heads for 7000 \u2014 but Watch Economy ...",
+                "url": "https://www.barrons.com/articles/stock-market-sp500-dow-risks-de0fdd1d?gaa_at=eafs&gaa_n=AWEtsqcPS0WJcEsoKQ4muBpJZM3-g7ug9P3SmTBtjtqDpphNEnUotnHr4InY&gaa_ts=6915078f&gaa_sig=-RfySPF8oyJjIKcgdN2_0ewKkcOYBF6MSb0QSV9Ljnv5oHIht6J-L63dy6lXKsVxvdrT5OJKFgGy293hOYx9fQ%3D%3D",
+                "snippet": "Contextual article. Click title for details."
             }
         ],
-        "news_context_raw": "1. [BOK's Rhee Says Policy Moves Including Direction Depend on Data ...](https://www.bloomberg.com/news/articles/2025-11-12/bok-s-rhee-says-policy-moves-including-direction-depend-on-data)\n2. [Abrdn Global Infrastructure Fund Q3 2025 Commentary (MUTF ...](https://seekingalpha.com/article/4842372-abrdn-global-infrastructure-fund-q3-2025-commentary)\n3. [Bloomberg - Business News, Stock Markets, Finance, Breaking ...](https://www.bloomberg.com/)\n4. [Romania Holds Rates to Cap Volatile Year in Politics and Markets](https://www.bloomberg.com/news/articles/2025-11-12/romania-holds-interest-rates-to-cap-volatile-year-in-politics-and-markets)\n5. [Fed's Bostic Says Inflation Is Still Urgent Risk to US Economy ...](https://www.bloomberg.com/news/articles/2025-11-12/fed-s-bostic-says-inflation-is-still-the-clearer-and-urgent-risk?srnd=phx-fixed-income)\n6. [ECB Risks Longer Inflation Undershoot as EU Delays Carbon Rules ...](https://www.bloomberg.com/news/articles/2025-11-12/ecb-risks-longer-inflation-undershoot-as-eu-delays-carbon-rules)\n7. [Where Goldman Sachs says the S&P 500 is headed next year and ...](https://www.morningstar.com/news/marketwatch/20251112129/where-goldman-sachs-says-the-sp-500-is-headed-next-year-and-the-next-decade)\n8. [Corporate Bonds Are the New Safe Havens as Sovereign Risk Rises](https://www.bloomberg.com/news/newsletters/2025-11-12/corporate-bonds-are-the-new-safe-havens-as-sovereign-risk-rises)\n9. [Allspring Large Cap Core Fund Q3 2025 Commentary | Seeking Alpha](https://seekingalpha.com/article/4842352-allspring-large-cap-core-fund-q3-2025-commentary)\n10. [India's inflation tanks to record low, boosting December rate-cut ...](https://www.reuters.com/world/india/indias-retail-inflation-slows-record-low-025-october-2025-11-12/)"
+        "news_context_raw": "1. [BOK's Rhee Says Policy Moves Including Direction Depend on Data ...](https://www.bloomberg.com/news/articles/2025-11-12/bok-s-rhee-says-policy-moves-including-direction-depend-on-data)\n2. [Bloomberg - Business News, Stock Markets, Finance, Breaking ...](https://www.bloomberg.com/)\n3. [Romania Holds Rates to Cap Volatile Year in Politics and Markets](https://www.bloomberg.com/news/articles/2025-11-12/romania-holds-interest-rates-to-cap-volatile-year-in-politics-and-markets)\n4. [Fed's Bostic Says Inflation Is Still Urgent Risk to US Economy ...](https://www.bloomberg.com/news/articles/2025-11-12/fed-s-bostic-says-inflation-is-still-the-clearer-and-urgent-risk?srnd=phx-fixed-income)\n5. [ECB Risks Longer Inflation Undershoot as EU Delays Carbon Rules ...](https://www.bloomberg.com/news/articles/2025-11-12/ecb-risks-longer-inflation-undershoot-as-eu-delays-carbon-rules)\n6. [Where Goldman Sachs says the S&P 500 is headed next year and ...](https://www.morningstar.com/news/marketwatch/20251112129/where-goldman-sachs-says-the-sp-500-is-headed-next-year-and-the-next-decade)\n7. [Corporate Bonds Are the New Safe Havens as Sovereign Risk Rises](https://www.bloomberg.com/news/newsletters/2025-11-12/corporate-bonds-are-the-new-safe-havens-as-sovereign-risk-rises)\n8. [Allspring Large Cap Core Fund Q3 2025 Commentary | Seeking Alpha](https://seekingalpha.com/article/4842352-allspring-large-cap-core-fund-q3-2025-commentary)\n9. [India's inflation tanks to record low, boosting December rate-cut ...](https://www.reuters.com/world/india/indias-retail-inflation-slows-record-low-025-october-2025-11-12/)\n10. [Stock Market: S&P 500 Heads for 7000 \u2014 but Watch Economy ...](https://www.barrons.com/articles/stock-market-sp500-dow-risks-de0fdd1d?gaa_at=eafs&gaa_n=AWEtsqcPS0WJcEsoKQ4muBpJZM3-g7ug9P3SmTBtjtqDpphNEnUotnHr4InY&gaa_ts=6915078f&gaa_sig=-RfySPF8oyJjIKcgdN2_0ewKkcOYBF6MSb0QSV9Ljnv5oHIht6J-L63dy6lXKsVxvdrT5OJKFgGy293hOYx9fQ%3D%3D)"
     }
 }

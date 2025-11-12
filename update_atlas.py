@@ -396,22 +396,30 @@ def fetch_indicator_data(indicator_id):
 
     
     if indicator_id in fred_series_map:
-        series_id = fred_series_map[indicator_id]
-        fallback = FRED_FALLBACK_VALUE.get(indicator_id, 0.0)
-        
-        if fred: 
-            try:
-                value = fred.get_series_latest_release(series_id).iloc[-1]
-                if indicator_id in ["HY_OAS", "CONSUMER_DELINQUENCIES"]:
-                    value = float(value) * 100.0
-                return float(value)
-            except Exception as e:
-                print(f"FRED Error fetching {indicator_id}: {e}. Returning fallback {fallback}.")
+            series_id = fred_series_map[indicator_id]
+            fallback = FRED_FALLBACK_VALUE.get(indicator_id, 0.0)
+            
+            if fred: 
+                try:
+                    # 1. FETCH RAW VALUE
+                    value = fred.get_series_latest_release(series_id).iloc[-1]
+                    
+                    # 2. CRITICAL FIX: CONVERT PERCENTAGE TO BASIS POINTS
+                    # HY_OAS and CONSUMER_DELINQUENCIES are retrieved as percentage (e.g., 3.15)
+                    # and must be converted to basis points (315.0) for scoring.
+                    if indicator_id in ["HY_OAS", "CONSUMER_DELINQUENCIES"]:
+                        value = float(value) * 100.0
+                    
+                    # 3. RETURN FINAL FLOAT
+                    return float(value)
+                    
+                except Exception as e:
+                    print(f"FRED Error fetching {indicator_id}: {e}. Returning fallback {fallback}.")
+                    return fallback
+            else:
+                print(f"FRED client not initialized. Returning fallback for {indicator_id}.")
                 return fallback
-        else:
-            print(f"FRED client not initialized. Returning fallback for {indicator_id}.")
-            return fallback
-
+        
     # --- CUSTOM FRED API CALLS (Multi-Point Fetch) ---
     elif indicator_id == "SNAP_BENEFITS":
         return _fetch_fred_data_two_points(FRED_SNAP_ID) 

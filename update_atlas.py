@@ -402,6 +402,8 @@ def fetch_indicator_data(indicator_id):
         if fred: 
             try:
                 value = fred.get_series_latest_release(series_id).iloc[-1]
+                if indicator_id in ["HY_OAS", "CONSUMER_DELINQUENCIES"]:
+                    value = float(value) * 100.0
                 return float(value)
             except Exception as e:
                 print(f"FRED Error fetching {indicator_id}: {e}. Returning fallback {fallback}.")

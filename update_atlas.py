@@ -22,6 +22,8 @@ ARCHIVE_FILE = "data/atlas-archive.json"
 
 # 2. Global Constants
 MAX_SCORE = 25.0 # Total possible risk score for composite status
+# New dictionary to hold timestamps and other non-value context
+INDICATOR_CONTEXTS = {}
 
 # --- CONSTANTS & PLACEHOLDER GLOBALS (Ensure these are defined near the top) ---
 # Define the maximum score used for status mapping (adjust as necessary)
@@ -145,17 +147,32 @@ def _fetch_yfinance_quote(symbol):
 # --- YFINANCE WRAPPER FUNCTIONS (Used by fetch_indicator_data) ---
 
 def fetch_vix_index():
-    """Fetches the latest VIX Index value using yfinance."""
+    """Fetches the latest VIX Index value and its timestamp using yfinance."""
+    global INDICATOR_CONTEXTS # Need access to the global context dictionary
+    
     try:
+        # Fetch data for the VIX Index (^VIX)
         vix_data = yf.download('^VIX', period='1d', interval='1d', progress=False)
+        
         if not vix_data.empty:
             vix_value = vix_data['Close'].iloc[-1].item()
+            
+            # --- CRITICAL FIX: CAPTURE AND STORE TIMESTAMP ---
+            # Use the date from the index, assume market close (4:00 PM EST)
+            timestamp = vix_data.index[-1].strftime("%Y-%m-%d 4:00 PM EST") 
+            INDICATOR_CONTEXTS['VIX_TIMESTAMP'] = timestamp
+            # --------------------------------------------------
+            
             print(f"Success: Fetched VIX_INDEX ({vix_value:.2f}) from yfinance.")
             return vix_value
+            
         print("Warning: VIX data is empty. Returning fallback.")
+        INDICATOR_CONTEXTS['VIX_TIMESTAMP'] = "N/A" # Set N/A on failure
         return 18.0 # Fallback
+        
     except Exception as e:
         print(f"Error fetching VIX: {e}. Returning fallback.")
+        INDICATOR_CONTEXTS['VIX_TIMESTAMP'] = "N/A" # Set N/A on error
         return 18.0 # Fallback
 
 def fetch_gold_price():
@@ -861,24 +878,36 @@ def prepare_indicator_summary(atlas_data):
 
 # --- 2. RISK SCORING LOGIC ---
 
-def score_vix(value):
-    """VIX (US implied vol) Scoring"""
+def score_vix_index(value):
+    """VIX Index Scoring - Measures Volatility and Fear."""
+    # Source link updated to the CBOE VIX page for better specificity
+    source_link = "https://www.cboe.com/vix/"
+    global INDICATOR_CONTEXTS # Access the global dictionary
+
+    # Get the stored timestamp, defaulting to a generic message if not found
+    vix_time = INDICATOR_CONTEXTS.get('VIX_TIMESTAMP', 'Previous Close (Time N/A)')
+    
     status = "Green"
-    note = f"VIX close at {value:.2f}. Low implied volatility."
     action = "No change."
     score = 0.0
-    source_link = "https://finance.yahoo.com/quote/%5EVIX/"
 
-    if value >= 22.0:
+    if value >= 25.0:
         status = "Red"
-        note = f"VIX is elevated at {value:.2f}. High market fear."
-        score = 2.0  
-        action = "Increase portfolio volatility hedges."
-    elif value >= 18.0:
+        score = 2.0
+        note = f"VIX at {value:.2f} ({vix_time}). Extreme volatility and market fear. High risk."
+        action = "Implement maximum protective hedges; reduce highly volatile positions."
+    elif value >= 20.0:
         status = "Amber"
-        note = f"VIX is moderate at {value:.2f}. Volatility is starting to increase."
         score = 1.0
-        action = "Monitor volatility trends closely."
+        note = f"VIX at {value:.2f} ({vix_time}). Elevated volatility. Monitor daily swings."
+        action = "Monitor news flow; review volatility exposure."
+    elif value >= 15.0:
+        status = "Amber"
+        score = 0.5
+        note = f"VIX at {value:.2f} ({vix_time}). Heightened complacency is a risk factor."
+        action = "Avoid complacency; maintain appropriate hedging."
+    else:
+        note = f"VIX at {value:.2f} ({vix_time}). Low volatility, stable market conditions."
 
     return generate_score_output(status, note, action, score, source_link)
 
@@ -1375,7 +1404,7 @@ ATLAS_DATA_SCHEMA = {
 # --- 4. MAIN PROCESS FUNCTION ---
 
 SCORING_FUNCTIONS = {
-    "VIX": score_vix, "3Y_YIELD": score_3y_yield, "10Y_YIELD": score_10y_yield, 
+    "VIX": score_vix_index, "3Y_YIELD": score_3y_yield, "10Y_YIELD": score_10y_yield, 
     "30Y_YIELD": score_30y_yield, "GOLD_PRICE": score_gold_price, "EURUSD": score_eurusd, 
     "WTI_CRUDE": score_wti_crude, "AUDUSD": score_audusd, "HY_OAS": score_hy_oas, 
     "SPX_INDEX": score_spx_index, "ASX_200": score_asx_200, "PUT_CALL_RATIO": score_put_call_ratio,

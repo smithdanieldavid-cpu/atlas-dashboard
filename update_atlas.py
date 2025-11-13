@@ -286,14 +286,14 @@ def get_sofr_ois_spread():
         effr = fred.get_series_latest_release(FRED_EFFR_ID).iloc[-1].item()
         
         # CORRECT CALCULATION: Unsecured (EFFR) - Secured (TB3MS)
-        spread_bps = (float(effr) - float(tb3ms)) * 100 
+        spread = (float(effr) - float(tb3ms)) * 100
         
         # Apply a floor of 0.0, as a negative spread means the market is behaving technically, 
         # and we only care about positive stress.
-        spread_bps = max(0.0, spread_bps)
+        final_spread = max(0.0, spread)
         
-        print(f"Success: Calculated SOFR_OIS_SPREAD ({spread_bps:.2f} bps) from FRED data.")
-        return spread_bps
+        print(f"Success: Calculated SOFR_OIS_SPREAD ({final_spread:.2f} bps) from FRED data.")
+        return final_spread
     except Exception as e:
         print(f"FRED API Error for SOFR OIS Spread: {e}. Returning fallback 25.0.")
         return 25.0
@@ -450,7 +450,6 @@ def fetch_indicator_data(indicator_id):
         return fetch_asx_200() 
     elif indicator_id == "SMALL_LARGE_RATIO":
         return calculate_small_large_ratio() 
-    
     elif indicator_id == "PUT_CALL_RATIO": 
         return fetch_put_call_ratio()
     
@@ -655,7 +654,6 @@ def _update_indicator_sources(indicators):
         "TREASURY_LIQUIDITY": "https://fred.stlouisfed.org/series/WALCL", 
         "SOFR_OIS": "https://fred.stlouisfed.org/series/TB3MS", 
         "SNAP_BENEFITS": "https://fred.stlouisfed.org/series/SNPTA",
-        # 🟢 FIX: Added Bank CDS and Credit Card Delinquency FRED links
         "BANK_CDS": "https://fred.stlouisfed.org/series/AAA",
         "CREDIT_CARD_DELINQUENCIES": "https://fred.stlouisfed.org/series/DRCCLACBS"
     }
@@ -1111,18 +1109,18 @@ def score_consumer_delinquencies(value):
 def score_sofr_ois_spread(value):
     """SOFR/OIS Spread Scoring - Measures dollar funding stress."""
     status = "Green"
-    note = f"SOFR/OIS spread is {value:.1f} bps. Dollar funding market is stable."
+    note = f"SOFR/OIS spread is {value:.2f} %. Dollar funding market is stable."
     action = "No change."
     score = 0.0
     source_link = "https://fred.stlouisfed.org/series/TB3MS"
     if value >= 50.0:
         status = "Red"
-        note = f"SOFR/OIS spread is {value:.1f} bps. Aggressive widening. Signals systemic stress in dollar funding."
+        note = f"SOFR/OIS spread is {value:.2f} %. Aggressive widening. Signals systemic stress in dollar funding."
         action = "Reduce exposure to leveraged institutions; favour USD cash."
         score = 1.5
     elif value >= 25.0:
         status = "Amber"
-        note = f"SOFR/OIS spread is {value:.1f} bps. Spread is widening. Caution on dollar funding markets."
+        note = f"SOFR/OIS spread is {value:.2f} %. Spread is widening. Caution on dollar funding markets."
         action = "Monitor closely for further widening/dollar liquidity stress."
         score = 0.75
     return generate_score_output(status, note, action, score, source_link)
@@ -1185,7 +1183,7 @@ ATLAS_DATA_TEMPLATE = {
         {"id": "MARGIN_DEBT_YOY", "name": "FINRA Margin Debt YOY %", "value": 0.0, "status": "N/A", "note": "", "action": "No change.", "score_value": 0.0, "source_link": ""},
         {"id": "SMALL_LARGE_RATIO", "name": "Small/Large Cap Ratio (RUT/SPX)", "value": 0.0, "status": "N/A", "note": "", "action": "No change.", "score_value": 0.0, "source_link": ""},
         {"id": "PUT_CALL_RATIO", "name": "Put/Call Ratio (PCCE)", "value": 0.0, "status": "N/A", "note": "", "action": "No change.", "score_value": 0.0, "source_link": ""},
-        {"id": "SOFR_OIS", "name": "SOFR OIS Spread (bps)", "value": 0.0, "status": "N/A", "note": "", "action": "No change.", "score_value": 0.0, "source_link": ""},
+        {"id": "SOFR_OIS", "name": "SOFR OIS Spread (%)", "value": 0.0, "status": "N/A", "note": "", "action": "No change.", "score_value": 0.0, "source_link": ""},
         {"id": "CREDIT_CARD_DELINQUENCIES", "name": "Credit card delinquencies", "value": 0.0, "status": "N/A", "note": "", "action": "No change.", "score_value": 0.0, "source_link": ""},
         {"id": "EARNINGS_REVISION", "name": "Earnings Revision Momentum", "value": "N/A", "status": "N/A", "note": "", "action": "No change.", "score_value": 0.0, "source_link": ""},
     ],

@@ -1121,18 +1121,18 @@ def score_treasury_liquidity(value):
 def score_bank_cds(value):
     """Bank CDS (AAA Proxy) Scoring - Measures US banking/counterparty stress."""
     status = "Green"
-    note = f"Bank CDS at {value:.0f} bps. Low implied banking stress."
+    note = f"Bank CDS at {value:.0f} %. Low implied banking stress."
     action = "No change."
     score = 0.0
     source_link = "https://fred.stlouisfed.org/series/AAA"
     if value >= 150.0:
         status = "Red"
-        note = f"Bank CDS at {value:.0f} bps. Aggressive widening. Signals high counterparty/banking sector stress."
+        note = f"Bank CDS at {value:.0f} %. Aggressive widening. Signals high counterparty/banking sector stress."
         action = "Exit banking and complex financial sector exposure. Favour treasury bills."
         score = 1.5
     elif value >= 100.0:
         status = "Amber"
-        note = f"Bank CDS at {value:.0f} bps. Spreads are widening. Caution on banking sector."
+        note = f"Bank CDS at {value:.0f} %. Spreads are widening. Caution on banking sector."
         action = "Monitor counterparty risk closely."
         score = 0.75
     return generate_score_output(status, note, action, score, source_link)
@@ -1235,7 +1235,7 @@ ATLAS_DATA_TEMPLATE = {
         {"id": "GEOPOLITICAL", "name": "Geopolitical risk", "value": "N/A", "status": "N/A", "note": "", "action": "No change.", "score_value": 0.0, "source_link": ""},
         {"id": "FISCAL_RISK", "name": "Fiscal integrity/debt risk", "value": 0.0, "status": "N/A", "note": "", "action": "No change.", "score_value": 0.0, "source_link": ""},
         {"id": "SNAP_BENEFITS", "name": "SNAP benefits (MoM % change)", "value": [0.0, 0.0], "status": "N/A", "note": "", "action": "No change.", "score_value": 0.0, "source_link": ""},
-        {"id": "BANK_CDS", "name": "Bank CDS (AAA Proxy, bps)", "value": 0.0, "status": "N/A", "note": "", "action": "No change.", "score_value": 0.0, "source_link": ""},
+        {"id": "BANK_CDS", "name": "Bank CDS (AAA Proxy, %)", "value": 0.0, "status": "N/A", "note": "", "action": "No change.", "score_value": 0.0, "source_link": ""},
     ],
     "micro": [
         {"id": "SPX_INDEX", "name": "S&P 500 index", "value": 0.0, "status": "N/A", "note": "", "action": "No change.", "score_value": 0.0, "source_link": ""},

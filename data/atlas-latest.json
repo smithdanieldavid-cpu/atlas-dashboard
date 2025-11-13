@@ -4,9 +4,9 @@
         {
             "id": "VIX",
             "name": "VIX Index",
-            "value": 17.670000076293945,
+            "value": 17.889999389648438,
             "status": "Amber",
-            "note": "VIX at 17.67 (2025-11-13 4:00 PM EST). Heightened complacency is a risk factor at this level.",
+            "note": "VIX at 17.89 (2025-11-13 4:00 PM EST). Heightened complacency is a risk factor at this level.",
             "action": "No change.",
             "score_value": 0.5,
             "source_link": "https://www.cboe.com/vix/"
@@ -34,9 +34,9 @@
         {
             "id": "WTI_CRUDE",
             "name": "WTI crude oil ($/bbl)",
-            "value": 58.75,
+            "value": 58.9900016784668,
             "status": "Amber",
-            "note": "WTI Crude at $58.75/bbl. Low price indicates global slowdown or demand weakness.",
+            "note": "WTI Crude at $58.99/bbl. Low price indicates global slowdown or demand weakness.",
             "action": "Monitor global growth indicators.",
             "score_value": 0.5,
             "source_link": "https://finance.yahoo.com/quote/CL=F"
@@ -44,9 +44,9 @@
         {
             "id": "AUDUSD",
             "name": "AUD/USD exchange rate",
-            "value": 0.6571165323257446,
+            "value": 0.655350923538208,
             "status": "Green",
-            "note": "AUDUSD at 0.6571. Stable, suggesting moderate risk appetite.",
+            "note": "AUDUSD at 0.6554. Stable, suggesting moderate risk appetite.",
             "action": "No change.",
             "score_value": 0.0,
             "source_link": "https://finance.yahoo.com/quote/AUDUSD=X"
@@ -264,67 +264,63 @@
                 "status": "Green"
             }
         ],
-        "daily_narrative": "The Atlas Composite Score registers ELEVATED RISK (MODERATE RISK) at 6.75, driven by several critical indicators signaling heightened leverage and structural market vulnerabilities. Foremost among these are the Red status of FINRA Margin Debt, showing a substantial 32.94% year-over-year increase, and the Red status of the Small/Large Cap Ratio (RUT/SPX) at 0.36. The elevated margin debt points to significant speculative positioning and potential for rapid deleveraging, which historically precedes market corrections. Concurrently, the persistent underperformance of small-cap equities relative to large-caps indicates a narrowing market breadth, suggesting that economic strength or liquidity is not broad-based and that smaller, often more cyclically sensitive firms, are facing headwinds. This divergence implies a concentration of risk and a potential lack of resilience across the broader market. Further contributing to the risk posture are the Amber signals from the US 30-year Treasury yield at 4.71% and rising credit card delinquencies at 305.00, alongside the Red status of Gold price at 385.99. The 30-year yield's proximity to critical thresholds suggests ongoing duration risk and sensitivity to inflation or fiscal concerns, impacting long-term fixed income portfolios. Rising credit card delinquencies highlight increasing consumer financial stress, a leading indicator for broader economic slowdowns. A notable contradiction exists with the VIX Index remaining at an Amber 17.67 and the Put/Call Ratio at an Amber 0.50, which do not yet reflect extreme market fear despite the underlying leverage and structural risks. This disconnect suggests a degree of complacency or a belief that current risks are contained, potentially setting the stage for a sharper repricing should these underlying vulnerabilities materialize more broadly. For investors, this implies that while headline volatility is low, the foundational elements of market stability are eroding, necessitating a cautious approach to portfolio construction. The global macro landscape presents a mixed picture, with central bank policy divergence and varied economic performance across regions. As reported by Reuters, markets are navigating 2025's upheavals with a \"puzzling ease,\" even as a US shutdown resolution is underway and the Federal Reserve grapples with internal divisions regarding future rate policy, with some officials like Collins expressing hesitation on further hikes. This contrasts with the Bank of Japan's stance, where the Prime Minister's comments on slow rate hikes have contributed to the Yen sinking to record lows against the Euro, as highlighted by Reuters. Economic data reveals divergence, with Bloomberg reporting a fall in Australia's unemployment rate, indicating robust hiring, while the Wall Street Journal and Morningstar detail weak UK economic data, which could cement a downtrend for Sterling and impact European stocks. These developments underscore a complex environment where geopolitical and economic uncertainties persist, yet market sentiment, as observed by Reuters, appears surprisingly resilient. Readers are directed to the News Feed below for the full list of articles reviewed. The Atlas risk posture would escalate to FULL-STORM should the US 10-Year Yield move above 4.75% or High Yield OAS widen beyond 400 bps.",
-        "composite_summary": "The Atlas Composite Score of 6.75 signals ELEVATED RISK (MODERATE RISK), driven by escalating leverage and structural market vulnerabilities, despite a prevailing sense of market complacency.",
+        "daily_narrative": "Gemini API call failed: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",
+        "composite_summary": "Failure",
         "key_actions": [
-            "Reduce exposure to highly leveraged assets and speculative growth equities.",
-            "Increase allocation to defensive sectors and high-quality fixed income.",
-            "Implement tactical hedging strategies to mitigate downside risk in equity portfolios.",
-            "Closely monitor credit spreads, particularly High Yield OAS, for signs of widening stress.",
-            "Re-evaluate duration risk in fixed income portfolios given rising long-term yields."
+            "- Review API call and data structure."
         ],
         "news": [
+            {
+                "title": "Stock market today: Live updates",
+                "url": "https://www.cnbc.com/2025/11/12/stock-market-today-live-updates.html",
+                "snippet": "Contextual article. Click title for details."
+            },
             {
                 "title": "Bloomberg - Business News, Stock Markets, Finance, Breaking ...",
                 "url": "https://www.bloomberg.com/",
                 "snippet": "Contextual article. Click title for details."
             },
             {
-                "title": "Morning Bid: Deal after dinner as Trump signs end to shutdown ...",
-                "url": "https://www.reuters.com/world/china/global-markets-view-europe-2025-11-13/",
+                "title": "Here's an unexpected twist that could throw the stock-market rally off ...",
+                "url": "https://www.morningstar.com/news/marketwatch/20251113126/heres-an-unexpected-twist-that-could-throw-the-stock-market-rally-off-course-next-year",
                 "snippet": "Contextual article. Click title for details."
             },
             {
-                "title": "Weak U.K. Data Could Cement Sterling's Downtrend - WSJ",
-                "url": "https://www.wsj.com/finance/currencies/yen-consolidates-on-cautious-sentiment-over-recent-weakness-1f7582e6?gaa_at=eafs&gaa_n=AWEtsqeOcuBLhYp0Mdw8EB0jRnZ-KD1fbG8wKbaUJSXi-xUEBaMxLVMPzG27&gaa_ts=6915bc42&gaa_sig=SjfAOP4ap7kML02riv3hiC0ZWRVdFTGO_wsHHSoW6TkOFz--W_0n4MJDsMf0NnpxD7wD89oOoTuwPiorwAEj9Q%3D%3D",
+                "title": "Morning Bid: Fed cut now a coin toss | Reuters",
+                "url": "https://www.reuters.com/business/finance/global-markets-view-usa-2025-11-13/",
                 "snippet": "Contextual article. Click title for details."
             },
             {
-                "title": "European Midday Briefing: Stocks Rise with the U.K. Economy in ...",
-                "url": "https://www.morningstar.com/news/dow-jones/202511133461/european-midday-briefing-stocks-rise-with-the-uk-economy-in-focus-after-weak-gdp-data",
+                "title": "Stocks Slip as US Reopens to Clouded Rate Outlook: Markets Wrap",
+                "url": "https://www.bloomberg.com/news/articles/2025-11-12/stock-market-today-dow-s-p-live-updates",
                 "snippet": "Contextual article. Click title for details."
             },
             {
-                "title": "Fed split deepens as Collins says she would hesitate to support ...",
-                "url": "https://www.reuters.com/business/feds-collins-says-likely-appropriate-keep-policy-rate-hold-2025-11-12/",
+                "title": "Chile Central Bank Member Was Open to Weighing October Rate Cut",
+                "url": "https://www.bloomberg.com/news/articles/2025-11-13/chile-central-bank-member-was-open-to-weighing-october-rate-cut",
                 "snippet": "Contextual article. Click title for details."
             },
             {
-                "title": "Australian Unemployment Rate Falls as Hiring Exceeds Forecasts ...",
-                "url": "https://www.bloomberg.com/news/articles/2025-11-13/australian-unemployment-rate-falls-as-hiring-exceeds-forecasts",
+                "title": "FTSE 100 Falls as Misses Out on Tech Rally - Live - Bloomberg",
+                "url": "https://www.bloomberg.com/news/live-blog/2025-11-13/ftse-100-live-uk-gdp-budget-starmer-reeves-pound-bonds-what-s-moving-uk-markets-right-now-markets-today-mhx2cobg",
                 "snippet": "Contextual article. Click title for details."
             },
             {
-                "title": "Markets face down 2025's upheavals with puzzling ease | Reuters",
-                "url": "https://www.reuters.com/markets/europe/markets-face-down-2025s-upheavals-with-puzzling-ease-2025-11-13/",
+                "title": "North American Morning Briefing: Futures Decline as Investor ...",
+                "url": "https://www.morningstar.com/news/dow-jones/202511134286/north-american-morning-briefing-futures-decline-as-investor-caution-rises",
                 "snippet": "Contextual article. Click title for details."
             },
             {
-                "title": "Yen sinks to record low vs euro as Japan PM touts slow rate hikes ...",
-                "url": "https://www.reuters.com/world/africa/dollar-eases-traders-eye-december-fed-cut-weakening-us-jobs-market-2025-11-12/",
+                "title": "Markets - Bloomberg",
+                "url": "https://www.bloomberg.com/markets",
                 "snippet": "Contextual article. Click title for details."
             },
             {
-                "title": "Economics - Bloomberg",
-                "url": "https://www.bloomberg.com/economics-v2",
-                "snippet": "Contextual article. Click title for details."
-            },
-            {
-                "title": "Yen squeezed, stocks firm as US shutdown set to lift | Reuters",
-                "url": "https://www.reuters.com/world/china/global-markets-global-markets-2025-11-13/",
+                "title": "Morningstar | Empowering Investor Success",
+                "url": "https://www.morningstar.com/",
                 "snippet": "Contextual article. Click title for details."
             }
         ],
-        "news_context_raw": "1. [Bloomberg - Business News, Stock Markets, Finance, Breaking ...](https://www.bloomberg.com/)\n2. [Morning Bid: Deal after dinner as Trump signs end to shutdown ...](https://www.reuters.com/world/china/global-markets-view-europe-2025-11-13/)\n3. [Weak U.K. Data Could Cement Sterling's Downtrend - WSJ](https://www.wsj.com/finance/currencies/yen-consolidates-on-cautious-sentiment-over-recent-weakness-1f7582e6?gaa_at=eafs&gaa_n=AWEtsqeOcuBLhYp0Mdw8EB0jRnZ-KD1fbG8wKbaUJSXi-xUEBaMxLVMPzG27&gaa_ts=6915bc42&gaa_sig=SjfAOP4ap7kML02riv3hiC0ZWRVdFTGO_wsHHSoW6TkOFz--W_0n4MJDsMf0NnpxD7wD89oOoTuwPiorwAEj9Q%3D%3D)\n4. [European Midday Briefing: Stocks Rise with the U.K. Economy in ...](https://www.morningstar.com/news/dow-jones/202511133461/european-midday-briefing-stocks-rise-with-the-uk-economy-in-focus-after-weak-gdp-data)\n5. [Fed split deepens as Collins says she would hesitate to support ...](https://www.reuters.com/business/feds-collins-says-likely-appropriate-keep-policy-rate-hold-2025-11-12/)\n6. [Australian Unemployment Rate Falls as Hiring Exceeds Forecasts ...](https://www.bloomberg.com/news/articles/2025-11-13/australian-unemployment-rate-falls-as-hiring-exceeds-forecasts)\n7. [Markets face down 2025's upheavals with puzzling ease | Reuters](https://www.reuters.com/markets/europe/markets-face-down-2025s-upheavals-with-puzzling-ease-2025-11-13/)\n8. [Yen sinks to record low vs euro as Japan PM touts slow rate hikes ...](https://www.reuters.com/world/africa/dollar-eases-traders-eye-december-fed-cut-weakening-us-jobs-market-2025-11-12/)\n9. [Economics - Bloomberg](https://www.bloomberg.com/economics-v2)\n10. [Yen squeezed, stocks firm as US shutdown set to lift | Reuters](https://www.reuters.com/world/china/global-markets-global-markets-2025-11-13/)"
+        "news_context_raw": "1. [Stock market today: Live updates](https://www.cnbc.com/2025/11/12/stock-market-today-live-updates.html)\n2. [Bloomberg - Business News, Stock Markets, Finance, Breaking ...](https://www.bloomberg.com/)\n3. [Here's an unexpected twist that could throw the stock-market rally off ...](https://www.morningstar.com/news/marketwatch/20251113126/heres-an-unexpected-twist-that-could-throw-the-stock-market-rally-off-course-next-year)\n4. [Morning Bid: Fed cut now a coin toss | Reuters](https://www.reuters.com/business/finance/global-markets-view-usa-2025-11-13/)\n5. [Stocks Slip as US Reopens to Clouded Rate Outlook: Markets Wrap](https://www.bloomberg.com/news/articles/2025-11-12/stock-market-today-dow-s-p-live-updates)\n6. [Chile Central Bank Member Was Open to Weighing October Rate Cut](https://www.bloomberg.com/news/articles/2025-11-13/chile-central-bank-member-was-open-to-weighing-october-rate-cut)\n7. [FTSE 100 Falls as Misses Out on Tech Rally - Live - Bloomberg](https://www.bloomberg.com/news/live-blog/2025-11-13/ftse-100-live-uk-gdp-budget-starmer-reeves-pound-bonds-what-s-moving-uk-markets-right-now-markets-today-mhx2cobg)\n8. [North American Morning Briefing: Futures Decline as Investor ...](https://www.morningstar.com/news/dow-jones/202511134286/north-american-morning-briefing-futures-decline-as-investor-caution-rises)\n9. [Markets - Bloomberg](https://www.bloomberg.com/markets)\n10. [Morningstar | Empowering Investor Success](https://www.morningstar.com/)"
     }
 }

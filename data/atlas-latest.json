@@ -3,9 +3,9 @@
         {
             "id": "VIX",
             "name": "VIX index",
-            "value": 17.719999313354492,
+            "value": 17.860000610351562,
             "status": "Amber",
-            "note": "VIX at 17.72 (2025-11-13 4:00 PM EST). Heightened complacency is a risk factor.",
+            "note": "VIX at 17.86 (2025-11-13 4:00 PM EST). Heightened complacency is a risk factor.",
             "action": "Avoid complacency; maintain appropriate hedging.",
             "score_value": 0.5,
             "source_link": "https://finance.yahoo.com/quote/%5EVIX/"
@@ -23,9 +23,9 @@
         {
             "id": "EURUSD",
             "name": "EUR/USD exchange rate",
-            "value": 1.1633317470550537,
+            "value": 1.1626555919647217,
             "status": "Green",
-            "note": "EUR/USD is stable at 1.1633. Indicates balanced global risk/economic outlook.",
+            "note": "EUR/USD is stable at 1.1627. Indicates balanced global risk/economic outlook.",
             "action": "No change.",
             "score_value": 0.0,
             "source_link": "https://finance.yahoo.com/quote/EURUSD=X/"
@@ -33,9 +33,9 @@
         {
             "id": "WTI_CRUDE",
             "name": "WTI crude oil ($/bbl)",
-            "value": 58.290000915527344,
+            "value": 58.25,
             "status": "Amber",
-            "note": "WTI Crude at $58.29/bbl. Low price indicates global slowdown or demand weakness.",
+            "note": "WTI Crude at $58.25/bbl. Low price indicates global slowdown or demand weakness.",
             "action": "Monitor global growth indicators.",
             "score_value": 0.5,
             "source_link": "https://finance.yahoo.com/quote/USO/"
@@ -216,7 +216,7 @@
             "source_link": ""
         },
         {
-            "id": "CONSUMER_DELINQUENCIES",
+            "id": "CREDIT_CARD_DELINQUENCIES",
             "name": "Consumer delinquencies",
             "value": "N/A",
             "status": "N/A",
@@ -235,7 +235,7 @@
         "key_actions": [
             "- Review API call and data structure."
         ],
-        "date": "2025-11-13 20:24:31",
+        "date": "2025-11-13 20:35:19",
         "news": [
             {
                 "title": "Bloomberg - Business News, Stock Markets, Finance, Breaking ...",
@@ -248,8 +248,8 @@
                 "snippet": "Contextual article. Click title for details."
             },
             {
-                "title": "Morningstar | Empowering Investor Success",
-                "url": "https://www.morningstar.com/",
+                "title": "Markets - Bloomberg",
+                "url": "https://www.bloomberg.com/markets",
                 "snippet": "Contextual article. Click title for details."
             },
             {
@@ -260,6 +260,11 @@
             {
                 "title": "Australian Unemployment Rate Falls as Hiring Exceeds Forecasts ...",
                 "url": "https://www.bloomberg.com/news/articles/2025-11-13/australian-unemployment-rate-falls-as-hiring-exceeds-forecasts",
+                "snippet": "Contextual article. Click title for details."
+            },
+            {
+                "title": "Markets face down 2025's upheavals with puzzling ease | Reuters",
+                "url": "https://www.reuters.com/markets/europe/markets-face-down-2025s-upheavals-with-puzzling-ease-2025-11-13/",
                 "snippet": "Contextual article. Click title for details."
             },
             {
@@ -281,13 +286,8 @@
                 "title": "Bank of Japan aims for wage-driven inflation, aligns with ...",
                 "url": "https://www.reuters.com/markets/us/boj-targetting-moderate-inflation-backed-by-wage-gains-ueda-says-2025-11-13/",
                 "snippet": "Contextual article. Click title for details."
-            },
-            {
-                "title": "India's stock benchmarks flat after three sessions of gains | Reuters",
-                "url": "https://www.reuters.com/world/india/indias-stock-benchmarks-set-open-higher-easing-inflation-global-optimism-2025-11-13/",
-                "snippet": "Contextual article. Click title for details."
             }
         ],
-        "news_context_raw": "1. [Bloomberg - Business News, Stock Markets, Finance, Breaking ...](https://www.bloomberg.com/)\n2. [Morning Bid: Deal after dinner as Trump signs end to shutdown ...](https://www.reuters.com/world/china/global-markets-view-europe-2025-11-13/)\n3. [Morningstar | Empowering Investor Success](https://www.morningstar.com/)\n4. [Fed split deepens as Collins says she would hesitate to support ...](https://www.reuters.com/business/feds-collins-says-likely-appropriate-keep-policy-rate-hold-2025-11-12/)\n5. [Australian Unemployment Rate Falls as Hiring Exceeds Forecasts ...](https://www.bloomberg.com/news/articles/2025-11-13/australian-unemployment-rate-falls-as-hiring-exceeds-forecasts)\n6. [Yen sinks to record low vs euro as Japan PM touts slow rate hikes ...](https://www.reuters.com/world/africa/dollar-eases-traders-eye-december-fed-cut-weakening-us-jobs-market-2025-11-12/)\n7. [Economics - Bloomberg](https://www.bloomberg.com/economics-v2)\n8. [Yen squeezed, stocks firm as US shutdown set to lift | Reuters](https://www.reuters.com/world/china/global-markets-global-markets-2025-11-13/)\n9. [Bank of Japan aims for wage-driven inflation, aligns with ...](https://www.reuters.com/markets/us/boj-targetting-moderate-inflation-backed-by-wage-gains-ueda-says-2025-11-13/)\n10. [India's stock benchmarks flat after three sessions of gains | Reuters](https://www.reuters.com/world/india/indias-stock-benchmarks-set-open-higher-easing-inflation-global-optimism-2025-11-13/)"
+        "news_context_raw": "1. [Bloomberg - Business News, Stock Markets, Finance, Breaking ...](https://www.bloomberg.com/)\n2. [Morning Bid: Deal after dinner as Trump signs end to shutdown ...](https://www.reuters.com/world/china/global-markets-view-europe-2025-11-13/)\n3. [Markets - Bloomberg](https://www.bloomberg.com/markets)\n4. [Fed split deepens as Collins says she would hesitate to support ...](https://www.reuters.com/business/feds-collins-says-likely-appropriate-keep-policy-rate-hold-2025-11-12/)\n5. [Australian Unemployment Rate Falls as Hiring Exceeds Forecasts ...](https://www.bloomberg.com/news/articles/2025-11-13/australian-unemployment-rate-falls-as-hiring-exceeds-forecasts)\n6. [Markets face down 2025's upheavals with puzzling ease | Reuters](https://www.reuters.com/markets/europe/markets-face-down-2025s-upheavals-with-puzzling-ease-2025-11-13/)\n7. [Yen sinks to record low vs euro as Japan PM touts slow rate hikes ...](https://www.reuters.com/world/africa/dollar-eases-traders-eye-december-fed-cut-weakening-us-jobs-market-2025-11-12/)\n8. [Economics - Bloomberg](https://www.bloomberg.com/economics-v2)\n9. [Yen squeezed, stocks firm as US shutdown set to lift | Reuters](https://www.reuters.com/world/china/global-markets-global-markets-2025-11-13/)\n10. [Bank of Japan aims for wage-driven inflation, aligns with ...](https://www.reuters.com/markets/us/boj-targetting-moderate-inflation-backed-by-wage-gains-ueda-says-2025-11-13/)"
     }
 }

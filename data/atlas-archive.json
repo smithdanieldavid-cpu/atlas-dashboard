@@ -1,5 +1,19 @@
 [
     {
+        "date": "2025-11-13 20:35:19",
+        "status": "\ud83d\udfe0 ELEVATED RISK (MODERATE RISK)",
+        "score": 6.5,
+        "comment": "Risk posture is elevated. Maintain defensive positioning.",
+        "daily_narrative": "Gemini API call failed: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}"
+    },
+    {
+        "date": "2025-11-13 20:32:11",
+        "status": "\ud83d\udfe0 ELEVATED RISK (MODERATE RISK)",
+        "score": 6.5,
+        "comment": "Risk posture is elevated. Maintain defensive positioning.",
+        "daily_narrative": "Gemini API call failed: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}"
+    },
+    {
         "date": "2025-11-13 20:24:31",
         "status": "\ud83d\udfe0 ELEVATED RISK (MODERATE RISK)",
         "score": 6.5,

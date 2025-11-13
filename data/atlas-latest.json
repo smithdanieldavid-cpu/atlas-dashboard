@@ -23,9 +23,9 @@
         {
             "id": "EURUSD",
             "name": "EUR/USD exchange rate",
-            "value": 1.1595547199249268,
+            "value": 1.1587486267089844,
             "status": "Green",
-            "note": "EUR/USD is stable at 1.1596. Indicates balanced global risk/economic outlook.",
+            "note": "EUR/USD is stable at 1.1587. Indicates balanced global risk/economic outlook.",
             "action": "No change.",
             "score_value": 0.0,
             "source_link": "https://finance.yahoo.com/quote/EURUSD=X/"
@@ -43,9 +43,9 @@
         {
             "id": "AUDUSD",
             "name": "AUD/USD exchange rate",
-            "value": 0.6543217897415161,
+            "value": 0.6562110185623169,
             "status": "Amber",
-            "note": "AUDUSD at 0.6543. AUD is consolidating. Global risk appetite is tentative.",
+            "note": "AUDUSD at 0.6562. AUD is consolidating. Global risk appetite is tentative.",
             "action": "Monitor closely for breaks below 0.6500.",
             "score_value": 0.5,
             "source_link": "https://finance.yahoo.com/quote/AUDUSD=X/"
@@ -148,9 +148,9 @@
         {
             "id": "ASX_200",
             "name": "ASX 200 index",
-            "value": 8799.5,
+            "value": 8753.400390625,
             "status": "Green",
-            "note": "ASX 200 Index at 8,800. Stable price action.",
+            "note": "ASX 200 Index at 8,753. Stable price action.",
             "action": "No change.",
             "score_value": 0.0,
             "source_link": "https://finance.yahoo.com/quote/%5EAXJO/"
@@ -178,7 +178,7 @@
         {
             "id": "SMALL_LARGE_RATIO",
             "name": "Small/Large cap ratio",
-            "value": 0.3577325595815571,
+            "value": 0.35773298721573377,
             "status": "Red",
             "note": "Ratio at 0.3577 \u2014 small-caps are heavily underperforming. Poor internals.",
             "action": "Avoid high-risk small-cap exposure.",
@@ -230,68 +230,68 @@
         "score": 8.0,
         "status": "\ud83d\udfe0 ELEVATED RISK (MODERATE RISK)",
         "comment": "Risk posture is elevated. Maintain defensive positioning.",
-        "daily_narrative": "Atlas indicators signal an ELEVATED RISK posture, driven by several critical Red and Amber flags across leverage, liquidity, and duration metrics. Most notably, FINRA margin debt has surged to 32.94% year-over-year, indicating a significant build-up of speculative leverage within the equity market. This elevated leverage increases systemic vulnerability, making portfolios susceptible to sharper drawdowns should market sentiment shift. Concurrently, consumer delinquencies have reached 305.00, a Red indicator highlighting deteriorating household financial health and potential stress on broader credit markets. This suggests a weakening consumer base, which could translate into reduced spending and increased default risk for credit-sensitive sectors. Furthermore, the small/large cap ratio stands at 0.36, another Red flag, signaling a narrowing market breadth where performance is concentrated in a few large-cap names, often a precursor to broader market weakness and reduced diversification benefits for investors.Adding to these concerns, US Treasury yields across the curve remain elevated, with the 3-year at 3.56%, the 10-year at 4.13%, and the 30-year at 4.71%, all registering Amber. This persistent upward pressure on long-term rates implies significant duration risk for fixed-income portfolios and higher borrowing costs for corporations and consumers. A notable contradiction exists as the VIX index remains Green at 17.51 and High Yield OAS is also Green at 302.00 bps. This suggests a degree of market complacency, where perceived volatility is low and credit spreads are tight, despite the underlying build-up in leverage and consumer credit stress. This divergence implies that investors may not be fully pricing in the potential for a credit event or a sharp market correction, creating a fragile environment where a sudden catalyst could lead to a rapid repricing of risk. For investors, this means that while headline equity indices might appear resilient, the underlying market structure is exhibiting signs of strain, necessitating a cautious and defensive approach to portfolio construction.The global macro and policy tone remains data-dependent and cautious, as evidenced by recent central bank commentary. Bloomberg reported that the Bank of Korea's Rhee emphasized data-driven policy decisions, a sentiment echoed by the Federal Reserve's Bostic, who highlighted inflation as an urgent risk to the US economy. Conversely, the European Central Bank faces risks of a longer inflation undershoot, partly due to delays in EU carbon rules, as noted by Bloomberg. Reuters also pointed to a \"data deluge\" and tech sector turbulence, reflecting ongoing market uncertainty. Amidst these varied regional dynamics, Bloomberg suggested that corporate bonds are emerging as new safe havens, indicating a shift in investor preference towards perceived lower-risk credit assets as sovereign risk concerns rise. Meanwhile, India's inflation has reportedly tanked to a record low, according to Reuters, potentially paving the way for rate cuts there. These developments underscore a complex global economic landscape where monetary policy divergence and selective risk-aversion are key themes. Readers are directed to the News Feed below for the full list of articles reviewed. The Atlas posture would escalate to FULL-STORM should the US 10-Year Yield move above 4.75% or HY OAS widen beyond 400 bps.",
-        "composite_summary": "Atlas indicates an ELEVATED RISK posture, characterized by rising leverage and consumer credit stress, masked by complacent volatility and tight credit spreads, signaling underlying market fragility.",
+        "daily_narrative": "Atlas maintains an ELEVATED RISK (MODERATE RISK) posture, underscored by a Composite Score of 8.00. The most critical indicators driving this assessment are concentrated in leverage and duration risk. Red flags include a significant year-over-year increase in FINRA margin debt (32.94%), indicating heightened speculative leverage within the equity market, and rising consumer delinquencies (305.00), signaling increasing financial strain on households and potential future credit deterioration. Concurrently, duration risk remains elevated, with US 3yr, 10yr, and 30yr Treasury yields all registering Amber status at 3.56%, 4.13%, and 4.71% respectively. This sustained pressure on yields suggests a challenging environment for fixed-income portfolios and a higher cost of capital. The Red status of the Small/Large cap ratio (0.36) further suggests a narrowing of market leadership, implying that broad market health may be weaker than headline equity indices suggest, with capital concentrating in larger, more established names. These internal metrics collectively point to a market environment where underlying vulnerabilities are accumulating, demanding increased vigilance from investors.\nA notable contradiction exists between these elevated risks and certain market sentiment indicators. The VIX index remains Green at 17.51, suggesting a low perception of immediate volatility, while high yield OAS is also Green at 302.00 bps, indicating tight credit spreads. This disconnect implies a degree of market complacency, where investors may not be fully pricing in the systemic credit and interest rate risks highlighted by our leverage and duration indicators. The robust performance of major equity indices like the S&P 500 and ASX 200 (both Green) further masks the underlying fragility indicated by the Red Small/Large cap ratio and Amber gold and crude oil prices, which suggest underlying inflationary pressures and safe-haven demand. For institutional portfolios, this environment necessitates a defensive stance, prioritizing capital preservation over aggressive growth. The persistent upward pressure on Treasury yields implies continued headwinds for fixed-income allocations and a higher discount rate for future earnings, demanding careful management of interest-rate sensitive exposures and a critical assessment of risk-adjusted returns across asset classes.\nThe global macro and policy tone is characterized by central bank divergence and economic uncertainty. As highlighted by Bloomberg, equity markets are holding gains and gold is rising, driven by investor bets on potential rate cuts. However, this sentiment appears to be at odds with the internal divisions within the Federal Reserve regarding a December interest rate cut, as reported by the Wall Street Journal and Reuters, with some officials expressing hesitation. Concurrently, Reuters notes the Yen's significant depreciation against the Euro, following comments from Japan's Prime Minister hinting at a slow pace of rate hikes, while the Bank of Japan aims for wage-driven inflation. Economic data from Australia, per Reuters, shows a strong jobs rebound, which has tempered expectations for rate cuts in that region. Meanwhile, Reuters also suggests that the resolution of the US government shutdown may not significantly alleviate economic uncertainty. In China, Bloomberg reporting indicates a slowdown in credit growth, though booming tech and exports are providing some temporary support for its economic transition. This confluence of factors suggests a complex global landscape where market optimism for dovish central bank pivots may be premature, given the persistent underlying economic and policy uncertainties. Readers are directed to the News Feed below for the full list of articles reviewed. An escalation to FULL-STORM posture would be triggered by the US 10-Year Yield moving above 4.75% or HY OAS widening beyond 400 bps.",
+        "composite_summary": "Atlas maintains an ELEVATED RISK (MODERATE RISK) posture, driven by significant leverage and duration risks despite apparent market complacency.",
         "key_actions": [
-            "Reduce overall portfolio leverage and maintain higher cash reserves to enhance liquidity.",
-            "Shift equity exposure towards defensive sectors with stable cash flows and strong balance sheets.",
-            "Implement tactical hedges, particularly against potential equity market downturns and rising interest rates.",
-            "Closely monitor credit spreads, especially in high-yield segments, for early signs of widening beyond current levels.",
-            "Re-evaluate duration risk in fixed-income portfolios, favoring shorter-duration assets or inflation-protected securities."
+            "Reduce exposure to highly leveraged assets and speculative growth equities.",
+            "Increase allocation to defensive sectors and high-quality fixed income with shorter duration.",
+            "Implement tactical hedging strategies to mitigate potential equity market drawdowns and interest rate volatility.",
+            "Closely monitor credit spreads, particularly in high-yield markets, for signs of widening beyond current levels.",
+            "Re-evaluate rate-sensitive exposures, considering the persistent upward pressure on Treasury yields."
         ],
-        "date": "2025-11-13 09:14:17",
+        "date": "2025-11-13 06:54:44",
         "news": [
             {
-                "title": "BOK's Rhee Says Policy Moves Including Direction Depend on Data ...",
-                "url": "https://www.bloomberg.com/news/articles/2025-11-12/bok-s-rhee-says-policy-moves-including-direction-depend-on-data",
+                "title": "Stocks Hold Gains, Gold Rises on Rate-Cut Bets: Markets Wrap",
+                "url": "https://www.bloomberg.com/news/articles/2025-11-12/stock-market-today-dow-s-p-live-updates",
                 "snippet": "Contextual article. Click title for details."
             },
             {
-                "title": "Bloomberg - Business News, Stock Markets, Finance, Breaking ...",
-                "url": "https://www.bloomberg.com/",
+                "title": "The Fed Is Increasingly Torn Over a December Interest-Rate Cut - WSJ",
+                "url": "https://www.wsj.com/economy/central-banking/the-fed-is-increasingly-torn-over-a-december-rate-cut-48a26aad?gaa_at=eafs&gaa_n=AWEtsqdGOw-FKwYFQB6oWU9sMGtVz97W0is8uExZxRWZsLrJW1Eyws-CNvpe&gaa_ts=69158422&gaa_sig=FhUl_qv9cAiggMhomplLSMUryywLhtMu-1Pg3NIU3qbEk5ePAcYF-6lj3OJDZdgOJLAagjGKko9Q338-EyU2Aw%3D%3D",
                 "snippet": "Contextual article. Click title for details."
             },
             {
-                "title": "Morning Bid: Tech turbulence and data deluge due | Reuters",
-                "url": "https://www.reuters.com/business/finance/global-markets-view-usa-2025-11-12/",
+                "title": "Fed split deepens as Collins says she would hesitate to support ...",
+                "url": "https://www.reuters.com/business/feds-collins-says-likely-appropriate-keep-policy-rate-hold-2025-11-12/",
                 "snippet": "Contextual article. Click title for details."
             },
             {
-                "title": "Romania Holds Rates to Cap Volatile Year in Politics and Markets",
-                "url": "https://www.bloomberg.com/news/articles/2025-11-12/romania-holds-interest-rates-to-cap-volatile-year-in-politics-and-markets",
+                "title": "Yen sinks to record low vs euro as Japan PM touts slow rate hikes ...",
+                "url": "https://www.reuters.com/world/africa/dollar-eases-traders-eye-december-fed-cut-weakening-us-jobs-market-2025-11-12/",
                 "snippet": "Contextual article. Click title for details."
             },
             {
-                "title": "Fed's Bostic Says Inflation Is Still Urgent Risk to US Economy ...",
-                "url": "https://www.bloomberg.com/news/articles/2025-11-12/fed-s-bostic-says-inflation-is-still-the-clearer-and-urgent-risk?srnd=phx-fixed-income",
+                "title": "Economics - Bloomberg",
+                "url": "https://www.bloomberg.com/economics-v2",
                 "snippet": "Contextual article. Click title for details."
             },
             {
-                "title": "ECB Risks Longer Inflation Undershoot as EU Delays Carbon Rules ...",
-                "url": "https://www.bloomberg.com/news/articles/2025-11-12/ecb-risks-longer-inflation-undershoot-as-eu-delays-carbon-rules",
+                "title": "Bank of Japan aims for wage-driven inflation, aligns with ...",
+                "url": "https://www.reuters.com/markets/us/boj-targetting-moderate-inflation-backed-by-wage-gains-ueda-says-2025-11-13/",
                 "snippet": "Contextual article. Click title for details."
             },
             {
-                "title": "Where Goldman Sachs says the S&P 500 is headed next year and ...",
-                "url": "https://www.morningstar.com/news/marketwatch/20251112129/where-goldman-sachs-says-the-sp-500-is-headed-next-year-and-the-next-decade",
+                "title": "Australia's jobs roar back in October, rate cut prospects tumble ...",
+                "url": "https://www.reuters.com/business/world-at-work/australia-employment-rises-42200-october-jobless-rate-falls-43-2025-11-13/",
                 "snippet": "Contextual article. Click title for details."
             },
             {
-                "title": "Corporate Bonds Are the New Safe Havens as Sovereign Risk Rises",
-                "url": "https://www.bloomberg.com/news/newsletters/2025-11-12/corporate-bonds-are-the-new-safe-havens-as-sovereign-risk-rises",
+                "title": "End of US government shutdown won't lift economic fog | Reuters",
+                "url": "https://www.reuters.com/markets/us/end-us-government-shutdown-wont-lift-economic-fog-2025-11-12/",
                 "snippet": "Contextual article. Click title for details."
             },
             {
-                "title": "Allspring Large Cap Core Fund Q3 2025 Commentary | Seeking Alpha",
-                "url": "https://seekingalpha.com/article/4842352-allspring-large-cap-core-fund-q3-2025-commentary",
+                "title": "Financial Times: Home",
+                "url": "https://www.ft.com/",
                 "snippet": "Contextual article. Click title for details."
             },
             {
-                "title": "India's inflation tanks to record low, boosting December rate-cut ...",
-                "url": "https://www.reuters.com/world/india/indias-retail-inflation-slows-record-low-025-october-2025-11-12/",
+                "title": "China's Credit Growth Slows as Booming Tech, Exports Buy Time for ...",
+                "url": "https://www.bloomberg.com/news/newsletters/2025-11-12/china-s-credit-growth-slows-as-booming-tech-exports-buy-time-for-transition",
                 "snippet": "Contextual article. Click title for details."
             }
         ],
-        "news_context_raw": "1. [BOK's Rhee Says Policy Moves Including Direction Depend on Data ...](https://www.bloomberg.com/news/articles/2025-11-12/bok-s-rhee-says-policy-moves-including-direction-depend-on-data)\n2. [Bloomberg - Business News, Stock Markets, Finance, Breaking ...](https://www.bloomberg.com/)\n3. [Morning Bid: Tech turbulence and data deluge due | Reuters](https://www.reuters.com/business/finance/global-markets-view-usa-2025-11-12/)\n4. [Romania Holds Rates to Cap Volatile Year in Politics and Markets](https://www.bloomberg.com/news/articles/2025-11-12/romania-holds-interest-rates-to-cap-volatile-year-in-politics-and-markets)\n5. [Fed's Bostic Says Inflation Is Still Urgent Risk to US Economy ...](https://www.bloomberg.com/news/articles/2025-11-12/fed-s-bostic-says-inflation-is-still-the-clearer-and-urgent-risk?srnd=phx-fixed-income)\n6. [ECB Risks Longer Inflation Undershoot as EU Delays Carbon Rules ...](https://www.bloomberg.com/news/articles/2025-11-12/ecb-risks-longer-inflation-undershoot-as-eu-delays-carbon-rules)\n7. [Where Goldman Sachs says the S&P 500 is headed next year and ...](https://www.morningstar.com/news/marketwatch/20251112129/where-goldman-sachs-says-the-sp-500-is-headed-next-year-and-the-next-decade)\n8. [Corporate Bonds Are the New Safe Havens as Sovereign Risk Rises](https://www.bloomberg.com/news/newsletters/2025-11-12/corporate-bonds-are-the-new-safe-havens-as-sovereign-risk-rises)\n9. [Allspring Large Cap Core Fund Q3 2025 Commentary | Seeking Alpha](https://seekingalpha.com/article/4842352-allspring-large-cap-core-fund-q3-2025-commentary)\n10. [India's inflation tanks to record low, boosting December rate-cut ...](https://www.reuters.com/world/india/indias-retail-inflation-slows-record-low-025-october-2025-11-12/)"
+        "news_context_raw": "1. [Stocks Hold Gains, Gold Rises on Rate-Cut Bets: Markets Wrap](https://www.bloomberg.com/news/articles/2025-11-12/stock-market-today-dow-s-p-live-updates)\n2. [The Fed Is Increasingly Torn Over a December Interest-Rate Cut - WSJ](https://www.wsj.com/economy/central-banking/the-fed-is-increasingly-torn-over-a-december-rate-cut-48a26aad?gaa_at=eafs&gaa_n=AWEtsqdGOw-FKwYFQB6oWU9sMGtVz97W0is8uExZxRWZsLrJW1Eyws-CNvpe&gaa_ts=69158422&gaa_sig=FhUl_qv9cAiggMhomplLSMUryywLhtMu-1Pg3NIU3qbEk5ePAcYF-6lj3OJDZdgOJLAagjGKko9Q338-EyU2Aw%3D%3D)\n3. [Fed split deepens as Collins says she would hesitate to support ...](https://www.reuters.com/business/feds-collins-says-likely-appropriate-keep-policy-rate-hold-2025-11-12/)\n4. [Yen sinks to record low vs euro as Japan PM touts slow rate hikes ...](https://www.reuters.com/world/africa/dollar-eases-traders-eye-december-fed-cut-weakening-us-jobs-market-2025-11-12/)\n5. [Economics - Bloomberg](https://www.bloomberg.com/economics-v2)\n6. [Bank of Japan aims for wage-driven inflation, aligns with ...](https://www.reuters.com/markets/us/boj-targetting-moderate-inflation-backed-by-wage-gains-ueda-says-2025-11-13/)\n7. [Australia's jobs roar back in October, rate cut prospects tumble ...](https://www.reuters.com/business/world-at-work/australia-employment-rises-42200-october-jobless-rate-falls-43-2025-11-13/)\n8. [End of US government shutdown won't lift economic fog | Reuters](https://www.reuters.com/markets/us/end-us-government-shutdown-wont-lift-economic-fog-2025-11-12/)\n9. [Financial Times: Home](https://www.ft.com/)\n10. [China's Credit Growth Slows as Booming Tech, Exports Buy Time for ...](https://www.bloomberg.com/news/newsletters/2025-11-12/china-s-credit-growth-slows-as-booming-tech-exports-buy-time-for-transition)"
     }
 }

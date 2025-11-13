@@ -3,11 +3,11 @@
         {
             "id": "VIX",
             "name": "VIX index",
-            "value": 17.510000228881836,
-            "status": "Green",
-            "note": "VIX close at 17.51. Low implied volatility.",
-            "action": "No change.",
-            "score_value": 0.0,
+            "value": 17.719999313354492,
+            "status": "Amber",
+            "note": "VIX at 17.72 (2025-11-13 4:00 PM EST). Heightened complacency is a risk factor.",
+            "action": "Avoid complacency; maintain appropriate hedging.",
+            "score_value": 0.5,
             "source_link": "https://finance.yahoo.com/quote/%5EVIX/"
         },
         {
@@ -23,9 +23,9 @@
         {
             "id": "EURUSD",
             "name": "EUR/USD exchange rate",
-            "value": 1.1587486267089844,
+            "value": 1.1633317470550537,
             "status": "Green",
-            "note": "EUR/USD is stable at 1.1587. Indicates balanced global risk/economic outlook.",
+            "note": "EUR/USD is stable at 1.1633. Indicates balanced global risk/economic outlook.",
             "action": "No change.",
             "score_value": 0.0,
             "source_link": "https://finance.yahoo.com/quote/EURUSD=X/"
@@ -33,9 +33,9 @@
         {
             "id": "WTI_CRUDE",
             "name": "WTI crude oil ($/bbl)",
-            "value": 58.47999954223633,
+            "value": 58.290000915527344,
             "status": "Amber",
-            "note": "WTI Crude at $58.48/bbl. Low price indicates global slowdown or demand weakness.",
+            "note": "WTI Crude at $58.29/bbl. Low price indicates global slowdown or demand weakness.",
             "action": "Monitor global growth indicators.",
             "score_value": 0.5,
             "source_link": "https://finance.yahoo.com/quote/USO/"
@@ -43,9 +43,9 @@
         {
             "id": "AUDUSD",
             "name": "AUD/USD exchange rate",
-            "value": 0.6562110185623169,
+            "value": 0.6577649116516113,
             "status": "Amber",
-            "note": "AUDUSD at 0.6562. AUD is consolidating. Global risk appetite is tentative.",
+            "note": "AUDUSD at 0.6578. AUD is consolidating. Global risk appetite is tentative.",
             "action": "Monitor closely for breaks below 0.6500.",
             "score_value": 0.5,
             "source_link": "https://finance.yahoo.com/quote/AUDUSD=X/"
@@ -218,42 +218,48 @@
         {
             "id": "CONSUMER_DELINQUENCIES",
             "name": "Consumer delinquencies",
-            "value": 305.0,
-            "status": "Red",
-            "note": "Delinquency Rate at 305.0%. Rate is spiking. Signals severe consumer stress.",
-            "action": "Aggressively reduce exposure to consumer discretionary and financial stocks with high unsecured loan exposure.",
-            "score_value": 2.0,
+            "value": "N/A",
+            "status": "N/A",
+            "note": "",
+            "action": "No change.",
+            "score_value": 0.0,
             "source_link": ""
         }
     ],
     "overall": {
-        "score": 8.0,
+        "score": 6.5,
         "status": "\ud83d\udfe0 ELEVATED RISK (MODERATE RISK)",
         "comment": "Risk posture is elevated. Maintain defensive positioning.",
-        "daily_narrative": "Atlas maintains an ELEVATED RISK (MODERATE RISK) posture, underscored by a Composite Score of 8.00. The most critical indicators driving this assessment are concentrated in leverage and duration risk. Red flags include a significant year-over-year increase in FINRA margin debt (32.94%), indicating heightened speculative leverage within the equity market, and rising consumer delinquencies (305.00), signaling increasing financial strain on households and potential future credit deterioration. Concurrently, duration risk remains elevated, with US 3yr, 10yr, and 30yr Treasury yields all registering Amber status at 3.56%, 4.13%, and 4.71% respectively. This sustained pressure on yields suggests a challenging environment for fixed-income portfolios and a higher cost of capital. The Red status of the Small/Large cap ratio (0.36) further suggests a narrowing of market leadership, implying that broad market health may be weaker than headline equity indices suggest, with capital concentrating in larger, more established names. These internal metrics collectively point to a market environment where underlying vulnerabilities are accumulating, demanding increased vigilance from investors.\nA notable contradiction exists between these elevated risks and certain market sentiment indicators. The VIX index remains Green at 17.51, suggesting a low perception of immediate volatility, while high yield OAS is also Green at 302.00 bps, indicating tight credit spreads. This disconnect implies a degree of market complacency, where investors may not be fully pricing in the systemic credit and interest rate risks highlighted by our leverage and duration indicators. The robust performance of major equity indices like the S&P 500 and ASX 200 (both Green) further masks the underlying fragility indicated by the Red Small/Large cap ratio and Amber gold and crude oil prices, which suggest underlying inflationary pressures and safe-haven demand. For institutional portfolios, this environment necessitates a defensive stance, prioritizing capital preservation over aggressive growth. The persistent upward pressure on Treasury yields implies continued headwinds for fixed-income allocations and a higher discount rate for future earnings, demanding careful management of interest-rate sensitive exposures and a critical assessment of risk-adjusted returns across asset classes.\nThe global macro and policy tone is characterized by central bank divergence and economic uncertainty. As highlighted by Bloomberg, equity markets are holding gains and gold is rising, driven by investor bets on potential rate cuts. However, this sentiment appears to be at odds with the internal divisions within the Federal Reserve regarding a December interest rate cut, as reported by the Wall Street Journal and Reuters, with some officials expressing hesitation. Concurrently, Reuters notes the Yen's significant depreciation against the Euro, following comments from Japan's Prime Minister hinting at a slow pace of rate hikes, while the Bank of Japan aims for wage-driven inflation. Economic data from Australia, per Reuters, shows a strong jobs rebound, which has tempered expectations for rate cuts in that region. Meanwhile, Reuters also suggests that the resolution of the US government shutdown may not significantly alleviate economic uncertainty. In China, Bloomberg reporting indicates a slowdown in credit growth, though booming tech and exports are providing some temporary support for its economic transition. This confluence of factors suggests a complex global landscape where market optimism for dovish central bank pivots may be premature, given the persistent underlying economic and policy uncertainties. Readers are directed to the News Feed below for the full list of articles reviewed. An escalation to FULL-STORM posture would be triggered by the US 10-Year Yield moving above 4.75% or HY OAS widening beyond 400 bps.",
-        "composite_summary": "Atlas maintains an ELEVATED RISK (MODERATE RISK) posture, driven by significant leverage and duration risks despite apparent market complacency.",
+        "daily_narrative": "Gemini API call failed: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",
+        "composite_summary": "Failure",
         "key_actions": [
-            "Reduce exposure to highly leveraged assets and speculative growth equities.",
-            "Increase allocation to defensive sectors and high-quality fixed income with shorter duration.",
-            "Implement tactical hedging strategies to mitigate potential equity market drawdowns and interest rate volatility.",
-            "Closely monitor credit spreads, particularly in high-yield markets, for signs of widening beyond current levels.",
-            "Re-evaluate rate-sensitive exposures, considering the persistent upward pressure on Treasury yields."
+            "- Review API call and data structure."
         ],
-        "date": "2025-11-13 06:54:44",
+        "date": "2025-11-13 20:24:31",
         "news": [
             {
-                "title": "Stocks Hold Gains, Gold Rises on Rate-Cut Bets: Markets Wrap",
-                "url": "https://www.bloomberg.com/news/articles/2025-11-12/stock-market-today-dow-s-p-live-updates",
+                "title": "Bloomberg - Business News, Stock Markets, Finance, Breaking ...",
+                "url": "https://www.bloomberg.com/",
                 "snippet": "Contextual article. Click title for details."
             },
             {
-                "title": "The Fed Is Increasingly Torn Over a December Interest-Rate Cut - WSJ",
-                "url": "https://www.wsj.com/economy/central-banking/the-fed-is-increasingly-torn-over-a-december-rate-cut-48a26aad?gaa_at=eafs&gaa_n=AWEtsqdGOw-FKwYFQB6oWU9sMGtVz97W0is8uExZxRWZsLrJW1Eyws-CNvpe&gaa_ts=69158422&gaa_sig=FhUl_qv9cAiggMhomplLSMUryywLhtMu-1Pg3NIU3qbEk5ePAcYF-6lj3OJDZdgOJLAagjGKko9Q338-EyU2Aw%3D%3D",
+                "title": "Morning Bid: Deal after dinner as Trump signs end to shutdown ...",
+                "url": "https://www.reuters.com/world/china/global-markets-view-europe-2025-11-13/",
+                "snippet": "Contextual article. Click title for details."
+            },
+            {
+                "title": "Morningstar | Empowering Investor Success",
+                "url": "https://www.morningstar.com/",
                 "snippet": "Contextual article. Click title for details."
             },
             {
                 "title": "Fed split deepens as Collins says she would hesitate to support ...",
                 "url": "https://www.reuters.com/business/feds-collins-says-likely-appropriate-keep-policy-rate-hold-2025-11-12/",
+                "snippet": "Contextual article. Click title for details."
+            },
+            {
+                "title": "Australian Unemployment Rate Falls as Hiring Exceeds Forecasts ...",
+                "url": "https://www.bloomberg.com/news/articles/2025-11-13/australian-unemployment-rate-falls-as-hiring-exceeds-forecasts",
                 "snippet": "Contextual article. Click title for details."
             },
             {
@@ -267,31 +273,21 @@
                 "snippet": "Contextual article. Click title for details."
             },
             {
+                "title": "Yen squeezed, stocks firm as US shutdown set to lift | Reuters",
+                "url": "https://www.reuters.com/world/china/global-markets-global-markets-2025-11-13/",
+                "snippet": "Contextual article. Click title for details."
+            },
+            {
                 "title": "Bank of Japan aims for wage-driven inflation, aligns with ...",
                 "url": "https://www.reuters.com/markets/us/boj-targetting-moderate-inflation-backed-by-wage-gains-ueda-says-2025-11-13/",
                 "snippet": "Contextual article. Click title for details."
             },
             {
-                "title": "Australia's jobs roar back in October, rate cut prospects tumble ...",
-                "url": "https://www.reuters.com/business/world-at-work/australia-employment-rises-42200-october-jobless-rate-falls-43-2025-11-13/",
-                "snippet": "Contextual article. Click title for details."
-            },
-            {
-                "title": "End of US government shutdown won't lift economic fog | Reuters",
-                "url": "https://www.reuters.com/markets/us/end-us-government-shutdown-wont-lift-economic-fog-2025-11-12/",
-                "snippet": "Contextual article. Click title for details."
-            },
-            {
-                "title": "Financial Times: Home",
-                "url": "https://www.ft.com/",
-                "snippet": "Contextual article. Click title for details."
-            },
-            {
-                "title": "China's Credit Growth Slows as Booming Tech, Exports Buy Time for ...",
-                "url": "https://www.bloomberg.com/news/newsletters/2025-11-12/china-s-credit-growth-slows-as-booming-tech-exports-buy-time-for-transition",
+                "title": "India's stock benchmarks flat after three sessions of gains | Reuters",
+                "url": "https://www.reuters.com/world/india/indias-stock-benchmarks-set-open-higher-easing-inflation-global-optimism-2025-11-13/",
                 "snippet": "Contextual article. Click title for details."
             }
         ],
-        "news_context_raw": "1. [Stocks Hold Gains, Gold Rises on Rate-Cut Bets: Markets Wrap](https://www.bloomberg.com/news/articles/2025-11-12/stock-market-today-dow-s-p-live-updates)\n2. [The Fed Is Increasingly Torn Over a December Interest-Rate Cut - WSJ](https://www.wsj.com/economy/central-banking/the-fed-is-increasingly-torn-over-a-december-rate-cut-48a26aad?gaa_at=eafs&gaa_n=AWEtsqdGOw-FKwYFQB6oWU9sMGtVz97W0is8uExZxRWZsLrJW1Eyws-CNvpe&gaa_ts=69158422&gaa_sig=FhUl_qv9cAiggMhomplLSMUryywLhtMu-1Pg3NIU3qbEk5ePAcYF-6lj3OJDZdgOJLAagjGKko9Q338-EyU2Aw%3D%3D)\n3. [Fed split deepens as Collins says she would hesitate to support ...](https://www.reuters.com/business/feds-collins-says-likely-appropriate-keep-policy-rate-hold-2025-11-12/)\n4. [Yen sinks to record low vs euro as Japan PM touts slow rate hikes ...](https://www.reuters.com/world/africa/dollar-eases-traders-eye-december-fed-cut-weakening-us-jobs-market-2025-11-12/)\n5. [Economics - Bloomberg](https://www.bloomberg.com/economics-v2)\n6. [Bank of Japan aims for wage-driven inflation, aligns with ...](https://www.reuters.com/markets/us/boj-targetting-moderate-inflation-backed-by-wage-gains-ueda-says-2025-11-13/)\n7. [Australia's jobs roar back in October, rate cut prospects tumble ...](https://www.reuters.com/business/world-at-work/australia-employment-rises-42200-october-jobless-rate-falls-43-2025-11-13/)\n8. [End of US government shutdown won't lift economic fog | Reuters](https://www.reuters.com/markets/us/end-us-government-shutdown-wont-lift-economic-fog-2025-11-12/)\n9. [Financial Times: Home](https://www.ft.com/)\n10. [China's Credit Growth Slows as Booming Tech, Exports Buy Time for ...](https://www.bloomberg.com/news/newsletters/2025-11-12/china-s-credit-growth-slows-as-booming-tech-exports-buy-time-for-transition)"
+        "news_context_raw": "1. [Bloomberg - Business News, Stock Markets, Finance, Breaking ...](https://www.bloomberg.com/)\n2. [Morning Bid: Deal after dinner as Trump signs end to shutdown ...](https://www.reuters.com/world/china/global-markets-view-europe-2025-11-13/)\n3. [Morningstar | Empowering Investor Success](https://www.morningstar.com/)\n4. [Fed split deepens as Collins says she would hesitate to support ...](https://www.reuters.com/business/feds-collins-says-likely-appropriate-keep-policy-rate-hold-2025-11-12/)\n5. [Australian Unemployment Rate Falls as Hiring Exceeds Forecasts ...](https://www.bloomberg.com/news/articles/2025-11-13/australian-unemployment-rate-falls-as-hiring-exceeds-forecasts)\n6. [Yen sinks to record low vs euro as Japan PM touts slow rate hikes ...](https://www.reuters.com/world/africa/dollar-eases-traders-eye-december-fed-cut-weakening-us-jobs-market-2025-11-12/)\n7. [Economics - Bloomberg](https://www.bloomberg.com/economics-v2)\n8. [Yen squeezed, stocks firm as US shutdown set to lift | Reuters](https://www.reuters.com/world/china/global-markets-global-markets-2025-11-13/)\n9. [Bank of Japan aims for wage-driven inflation, aligns with ...](https://www.reuters.com/markets/us/boj-targetting-moderate-inflation-backed-by-wage-gains-ueda-says-2025-11-13/)\n10. [India's stock benchmarks flat after three sessions of gains | Reuters](https://www.reuters.com/world/india/indias-stock-benchmarks-set-open-higher-easing-inflation-global-optimism-2025-11-13/)"
     }
 }

@@ -398,7 +398,7 @@ def fetch_indicator_data(indicator_id):
         "TREASURY_LIQUIDITY": 100.0,
         "SOFR_OIS": 25.0,
         "BANK_CDS": 85.0,
-        "CONSUMER_DELINQUENCIES": 2.2, 
+        "CREDIT_CARD_DELINQUENCIES": 305.0, 
     }
 
     # --- FRED API CALLS (Single-Point Fetch) ---
@@ -408,7 +408,7 @@ def fetch_indicator_data(indicator_id):
         "10Y_YIELD": FRED_10YR_ID, 
         "HY_OAS": FRED_HYOAS_ID,
         "BANK_CDS": FRED_BANK_CDS_ID, 
-        "CONSUMER_DELINQUENCIES": FRED_CONSUMER_DELINQ_ID, 
+        "CREDIT_CARD_DELINQUENCIES": FRED_CONSUMER_DELINQ_ID, 
     }
 
     
@@ -1410,7 +1410,7 @@ SCORING_FUNCTIONS = {
     "SPX_INDEX": score_spx_index, "ASX_200": score_asx_200, "PUT_CALL_RATIO": score_put_call_ratio,
     "MARGIN_DEBT_YOY": score_margin_debt_yoy, "SMALL_LARGE_RATIO": score_small_large_ratio, 
     "TREASURY_LIQUIDITY": score_treasury_liquidity, "BANK_CDS": score_bank_cds, 
-    "CONSUMER_DELINQUENCIES": score_consumer_delinquencies, "SOFR_OIS": score_sofr_ois_spread,
+    "CREDIT_CARD_DELINQUENCIES": score_consumer_delinquencies, "SOFR_OIS": score_sofr_ois_spread,
 }
 
 def run_update_process(atlas_data, news_context=""):

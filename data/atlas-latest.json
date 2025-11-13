@@ -3,9 +3,9 @@
         {
             "id": "VIX",
             "name": "VIX index",
-            "value": 17.860000610351562,
+            "value": 17.90999984741211,
             "status": "Amber",
-            "note": "VIX at 17.86 (2025-11-13 4:00 PM EST). Heightened complacency is a risk factor.",
+            "note": "VIX at 17.91 (2025-11-13 4:00 PM EST). Heightened complacency is a risk factor.",
             "action": "Avoid complacency; maintain appropriate hedging.",
             "score_value": 0.5,
             "source_link": "https://finance.yahoo.com/quote/%5EVIX/"
@@ -23,9 +23,9 @@
         {
             "id": "EURUSD",
             "name": "EUR/USD exchange rate",
-            "value": 1.1626555919647217,
+            "value": 1.161440134048462,
             "status": "Green",
-            "note": "EUR/USD is stable at 1.1627. Indicates balanced global risk/economic outlook.",
+            "note": "EUR/USD is stable at 1.1614. Indicates balanced global risk/economic outlook.",
             "action": "No change.",
             "score_value": 0.0,
             "source_link": "https://finance.yahoo.com/quote/EURUSD=X/"
@@ -33,9 +33,9 @@
         {
             "id": "WTI_CRUDE",
             "name": "WTI crude oil ($/bbl)",
-            "value": 58.25,
+            "value": 58.349998474121094,
             "status": "Amber",
-            "note": "WTI Crude at $58.25/bbl. Low price indicates global slowdown or demand weakness.",
+            "note": "WTI Crude at $58.35/bbl. Low price indicates global slowdown or demand weakness.",
             "action": "Monitor global growth indicators.",
             "score_value": 0.5,
             "source_link": "https://finance.yahoo.com/quote/USO/"
@@ -43,9 +43,9 @@
         {
             "id": "AUDUSD",
             "name": "AUD/USD exchange rate",
-            "value": 0.6577649116516113,
+            "value": 0.6571597456932068,
             "status": "Amber",
-            "note": "AUDUSD at 0.6578. AUD is consolidating. Global risk appetite is tentative.",
+            "note": "AUDUSD at 0.6572. AUD is consolidating. Global risk appetite is tentative.",
             "action": "Monitor closely for breaks below 0.6500.",
             "score_value": 0.5,
             "source_link": "https://finance.yahoo.com/quote/AUDUSD=X/"
@@ -216,7 +216,7 @@
             "source_link": ""
         },
         {
-            "id": "CREDIT_CARD_DELINQUENCIES",
+            "id": "CONSUMER_DELINQUENCIES",
             "name": "Consumer delinquencies",
             "value": "N/A",
             "status": "N/A",
@@ -235,7 +235,7 @@
         "key_actions": [
             "- Review API call and data structure."
         ],
-        "date": "2025-11-13 20:35:19",
+        "date": "2025-11-13 20:43:21",
         "news": [
             {
                 "title": "Bloomberg - Business News, Stock Markets, Finance, Breaking ...",
@@ -248,8 +248,8 @@
                 "snippet": "Contextual article. Click title for details."
             },
             {
-                "title": "Markets - Bloomberg",
-                "url": "https://www.bloomberg.com/markets",
+                "title": "Morningstar | Empowering Investor Success",
+                "url": "https://www.morningstar.com/",
                 "snippet": "Contextual article. Click title for details."
             },
             {
@@ -288,6 +288,6 @@
                 "snippet": "Contextual article. Click title for details."
             }
         ],
-        "news_context_raw": "1. [Bloomberg - Business News, Stock Markets, Finance, Breaking ...](https://www.bloomberg.com/)\n2. [Morning Bid: Deal after dinner as Trump signs end to shutdown ...](https://www.reuters.com/world/china/global-markets-view-europe-2025-11-13/)\n3. [Markets - Bloomberg](https://www.bloomberg.com/markets)\n4. [Fed split deepens as Collins says she would hesitate to support ...](https://www.reuters.com/business/feds-collins-says-likely-appropriate-keep-policy-rate-hold-2025-11-12/)\n5. [Australian Unemployment Rate Falls as Hiring Exceeds Forecasts ...](https://www.bloomberg.com/news/articles/2025-11-13/australian-unemployment-rate-falls-as-hiring-exceeds-forecasts)\n6. [Markets face down 2025's upheavals with puzzling ease | Reuters](https://www.reuters.com/markets/europe/markets-face-down-2025s-upheavals-with-puzzling-ease-2025-11-13/)\n7. [Yen sinks to record low vs euro as Japan PM touts slow rate hikes ...](https://www.reuters.com/world/africa/dollar-eases-traders-eye-december-fed-cut-weakening-us-jobs-market-2025-11-12/)\n8. [Economics - Bloomberg](https://www.bloomberg.com/economics-v2)\n9. [Yen squeezed, stocks firm as US shutdown set to lift | Reuters](https://www.reuters.com/world/china/global-markets-global-markets-2025-11-13/)\n10. [Bank of Japan aims for wage-driven inflation, aligns with ...](https://www.reuters.com/markets/us/boj-targetting-moderate-inflation-backed-by-wage-gains-ueda-says-2025-11-13/)"
+        "news_context_raw": "1. [Bloomberg - Business News, Stock Markets, Finance, Breaking ...](https://www.bloomberg.com/)\n2. [Morning Bid: Deal after dinner as Trump signs end to shutdown ...](https://www.reuters.com/world/china/global-markets-view-europe-2025-11-13/)\n3. [Morningstar | Empowering Investor Success](https://www.morningstar.com/)\n4. [Fed split deepens as Collins says she would hesitate to support ...](https://www.reuters.com/business/feds-collins-says-likely-appropriate-keep-policy-rate-hold-2025-11-12/)\n5. [Australian Unemployment Rate Falls as Hiring Exceeds Forecasts ...](https://www.bloomberg.com/news/articles/2025-11-13/australian-unemployment-rate-falls-as-hiring-exceeds-forecasts)\n6. [Markets face down 2025's upheavals with puzzling ease | Reuters](https://www.reuters.com/markets/europe/markets-face-down-2025s-upheavals-with-puzzling-ease-2025-11-13/)\n7. [Yen sinks to record low vs euro as Japan PM touts slow rate hikes ...](https://www.reuters.com/world/africa/dollar-eases-traders-eye-december-fed-cut-weakening-us-jobs-market-2025-11-12/)\n8. [Economics - Bloomberg](https://www.bloomberg.com/economics-v2)\n9. [Yen squeezed, stocks firm as US shutdown set to lift | Reuters](https://www.reuters.com/world/china/global-markets-global-markets-2025-11-13/)\n10. [Bank of Japan aims for wage-driven inflation, aligns with ...](https://www.reuters.com/markets/us/boj-targetting-moderate-inflation-backed-by-wage-gains-ueda-says-2025-11-13/)"
     }
 }

@@ -401,14 +401,14 @@ def fetch_indicator_data(indicator_id):
         "CREDIT_CARD_DELINQUENCIES": 305.0, 
     }
 
-    # --- FRED API CALLS (Single-Point Fetch) ---
+# --- FRED API CALLS (Single-Point Fetch) ---
     fred_series_map = {
         "3Y_YIELD": FRED_3YR_ID, 
         "30Y_YIELD": FRED_30YR_ID,
         "10Y_YIELD": FRED_10YR_ID, 
         "HY_OAS": FRED_HYOAS_ID,
         "BANK_CDS": FRED_BANK_CDS_ID, 
-        "CREDIT_CARD_DELINQUENCIES": FRED_CONSUMER_DELINQ_ID, 
+        "CREDIT_CARD_DELINQUENCIES": FRED_CONSUMER_DELINQ_ID, # Corrected line
     }
 
     

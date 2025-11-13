@@ -544,7 +544,7 @@ def generate_ai_commentary(data_dict, news_context):
         "The analysis for the 'daily_narrative' field must follow the official Atlas commentary structure: "
         
         "1. **Technical Indicator Analysis (Paragraph 1 and 2):** Begin with the internal Atlas data. "
-        "Analysis is to be 300-350 words over 2 paragraphs"
+        "Analysis is to be 300-350 words over 2 paragraphs - each paragraph must be paragraph seperated"
         "State the current overall risk posture (e.g., SEVERE RISK) and identify the two-to-three most critical "
         "Red or Amber indicators driving the Composite Score — focusing on Leverage, Liquidity, and Duration risk. "
         "Explain any contradictions (for example, a low VIX despite rising leverage or yields). "

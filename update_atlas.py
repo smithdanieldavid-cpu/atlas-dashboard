@@ -50,6 +50,20 @@ def map_score_to_comment(score):
     else:
         return "Base case stability; monitor geopolitical and inflation risks."
 
+def _return_failure_value(indicator_id, initial_startup_value=0.70):
+    """
+    Returns the last known good value from INDICATOR_CONTEXTS on API failure.
+    Uses the initial_startup_value only if no history exists (first run).
+    """
+    if indicator_id in INDICATOR_CONTEXTS:
+        last_measure = INDICATOR_CONTEXTS[indicator_id]["value"]
+        last_time = INDICATOR_CONTEXTS[indicator_id]["timestamp"]
+        print(f"Warning: API failed/data invalid for {indicator_id}. Returning last successful measure ({last_measure:.2f}) from {last_time}.")
+        return last_measure
+    else:
+        # This only happens on the very first script run when the API fails.
+        print(f"FATAL: API failed for {indicator_id}. No history. Returning initial startup value {initial_startup_value:.2f}.")
+        return initial_startup_value
 
 # Initialize FRED client
 FRED_API_KEY = os.environ.get("FRED_API_KEY")
@@ -326,51 +340,56 @@ def calculate_small_large_ratio():
         print(f"Error calculating Small/Large Cap ratio: {e}. Returning fallback.")
         return 0.42 
 
-def fetch_put_call_ratio():
+def fetch_put_call_ratio(ticker_symbol="SPY"):
     """
-    Fetches the Put/Call Ratio (PCCE Ticker) from Polygon.io, securing the key from the environment.
+    Calculates the Volume Put/Call Ratio (PCR) for a specific ETF (SPY) 
+    by aggregating options volume across all available expiration dates using yfinance.
+    This acts as a high-liquidity proxy for the CBOE Equity PCR.
     """
-    PUT_CALL_API_KEY = os.environ.get("PUT_CALL_API_KEY")
-    URL = "https://api.polygon.io/v2/aggs/ticker/PCCE/prev"
-
-    if not PUT_CALL_API_KEY:
-        print("Warning: PUT_CALL_API_KEY not found in environment. Using fallback value (0.5).")
-        return 0.5 
-
-    params = {
-        "apiKey": PUT_CALL_API_KEY,
-    }
-
+    indicator_id = "PUT_CALL_RATIO"
+    
     try:
-        response = requests.get(URL, params=params)
-        response.raise_for_status() 
-        data = response.json()
+        ticker = yf.Ticker(ticker_symbol)
+        expiration_dates = ticker.options
         
-        results = data.get("results")
-        if not results or not isinstance(results, list) or len(results) == 0:
-            print("Warning: Polygon.io API returned no results for PCCE. Using fallback.")
-            return 0.5
+        if not expiration_dates:
+            print(f"Warning: No options data found for {ticker_symbol}. Using last measure.")
+            return _return_failure_value(indicator_id)
 
-        ratio_value = results[0].get("c") 
+        total_put_volume = 0
+        total_call_volume = 0
 
-        if ratio_value is None:
-            print("Warning: Polygon.io data parsing failed: 'c' (close) price is missing. Using fallback.")
-            return 0.5
-             
-        pcr_value = float(ratio_value)
+        # Sum volumes across all strikes for all expiration dates
+        for date in expiration_dates:
+            try:
+                options_chain = ticker.option_chain(date)
+                total_call_volume += options_chain.calls['volume'].sum()
+                total_put_volume += options_chain.puts['volume'].sum()
 
-        if 0.3 <= pcr_value <= 1.5:
-            print(f"Success: Fetched PUT_CALL_RATIO ({pcr_value:.2f}) from Polygon.io.")
-            return pcr_value
-        else:
-            print(f"Warning: PUT_CALL_RATIO ({pcr_value:.2f}) is outside normal range (0.3-1.5). Using fallback.")
-            return 0.5
+            except Exception:
+                # Silently skip dates that fail to process
+                continue
+
+        if total_call_volume == 0:
+            print(f"Warning: Insufficient call volume to calculate PCR for {ticker_symbol}. Using last measure.")
+            return _return_failure_value(indicator_id)
+
+        pcr_value = total_put_volume / total_call_volume
+
+        # Store the successful value and current timestamp
+        INDICATOR_CONTEXTS[indicator_id] = {
+            "value": pcr_value,
+            "timestamp": datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+        }
         
-    except requests.exceptions.RequestException as e:
-        print(f"Error fetching PUT_CALL_RATIO from Polygon.io: {e}. Using fallback.")
-        return 0.5
-
-
+        print(f"Success: Calculated PUT_CALL_RATIO ({pcr_value:.4f}) using yfinance for {ticker_symbol}.")
+        return pcr_value
+        
+    except Exception as e:
+        # Catch any connection or calculation errors (e.g., API rate limiting)
+        print(f"Error fetching PUT_CALL_RATIO using yfinance: {e}.")
+        return _return_failure_value(indicator_id)
+    
 # --- MAIN DATA FETCHER ---
 
 def fetch_indicator_data(indicator_id):
@@ -938,21 +957,40 @@ def score_hy_oas(value):
 
 def score_put_call_ratio(value):
     """Put/Call Ratio (PCCE) Scoring - Measures retail options sentiment."""
+    # NOTE: source_link should be updated once a reliable CBOE API is found.
+    source_link = "Calculated using yfinance aggregation of SPY options volume."
+    
+    # Check if the data is stale (i.e., we are returning a historical value)
+    age_note = ""
+    indicator_id = "PUT_CALL_RATIO"
+    current_time_str = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+
+    if indicator_id in INDICATOR_CONTEXTS and INDICATOR_CONTEXTS[indicator_id]["timestamp"] != current_time_str:
+        last_time = INDICATOR_CONTEXTS[indicator_id]["timestamp"]
+        age_note = f" (NOTE: API FAILED. Data last successfully updated on {last_time})."
+    
     status = "Green"
-    note = f"PCEE Ratio at {value:.2f}. Balanced options sentiment."
     action = "No change."
     score = 0.0
-    source_link = "https://polygon.io/docs/options/get_v2_aggs_ticker__tickervar__prev"
+
+    note = f"PCEE Ratio at {value:.2f}. Balanced options sentiment." + age_note
+
+    # --- SCORING LOGIC ---
+    
+    # Red Threshold: High Fear/Bearishness (Contrarian Buy Signal)
     if value >= 1.0:
         status = "Red"
-        note = f"PCEE Ratio at {value:.2f}. Extreme retail options hedging (put-buying). High market fear/bearish sentiment."
+        note = f"PCEE Ratio at {value:.2f}. Extreme retail options hedging (put-buying). High market fear/bearish sentiment." + age_note
         action = "Consider contrarian bullish positioning; watch VIX for confirmation."
         score = 1.0
+        
+    # Amber Threshold: High Complacency/Bullishness (Risk Signal)
     elif value <= 0.7:
         status = "Amber"
-        note = f"PCEE Ratio at {value:.2f}. Low hedging (call-buying dominance). High complacency/bullish sentiment."
+        note = f"PCEE Ratio at {value:.2f}. Low hedging (call-buying dominance). High complacency/bullish sentiment." + age_note
         action = "Implement small hedges; avoid chasing market highs."
         score = 0.5
+    
     return generate_score_output(status, note, action, score, source_link)
 
 def score_spx_index(value):

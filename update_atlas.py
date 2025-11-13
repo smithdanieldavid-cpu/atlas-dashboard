@@ -269,24 +269,35 @@ def get_finra_margin_debt_yoy():
 
 def get_sofr_ois_spread():
     """
-    Calculates the SOFR OIS Spread using two FRED series: TB3MS (3-Month Treasury Bill) 
-    and EFFR (Effective Federal Funds Rate) as a proxy.
+    Calculates the Credit Risk Spread using two FRED series: 
+    EFFR (Effective Federal Funds Rate - Unsecured) minus 
+    TB3MS (3-Month Treasury Bill - Secured).
     """
+    # NOTE: You must ensure FRED_SOFR_3M_ID is defined as 'TB3MS' 
+    # and FRED_EFFR_ID is defined as 'EFFR' elsewhere in your script.
+    
+    # Fallback score if FRED is unavailable
     if not fred:
-        print("FRED client not initialized. Cannot calculate SOFR OIS Spread. Returning fallback.")
+        print("FRED client not initialized. Cannot calculate SOFR OIS Spread. Returning fallback 25.0.")
         return 25.0 
     
     try:
         tb3ms = fred.get_series_latest_release(FRED_SOFR_3M_ID).iloc[-1].item()
         effr = fred.get_series_latest_release(FRED_EFFR_ID).iloc[-1].item()
         
-        spread_bps = (float(tb3ms) - float(effr)) * 100 
+        # CORRECT CALCULATION: Unsecured (EFFR) - Secured (TB3MS)
+        spread_bps = (float(effr) - float(tb3ms)) * 100 
+        
+        # Apply a floor of 0.0, as a negative spread means the market is behaving technically, 
+        # and we only care about positive stress.
+        spread_bps = max(0.0, spread_bps)
         
         print(f"Success: Calculated SOFR_OIS_SPREAD ({spread_bps:.2f} bps) from FRED data.")
         return spread_bps
     except Exception as e:
         print(f"FRED API Error for SOFR OIS Spread: {e}. Returning fallback 25.0.")
         return 25.0
+    
 
 def calculate_small_large_ratio():
     """

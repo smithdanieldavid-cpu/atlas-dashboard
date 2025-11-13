@@ -4,19 +4,19 @@
         {
             "id": "VIX",
             "name": "VIX Index",
-            "value": 17.889999389648438,
+            "value": 20.969999313354492,
             "status": "Amber",
-            "note": "VIX at 17.89 (2025-11-13 4:00 PM EST). Heightened complacency is a risk factor at this level.",
-            "action": "No change.",
-            "score_value": 0.5,
+            "note": "VIX at 20.97 (2025-11-13 4:00 PM EST). Elevated volatility. Monitor daily swings.",
+            "action": "Monitor news flow; review volatility exposure.",
+            "score_value": 1.0,
             "source_link": "https://www.cboe.com/vix/"
         },
         {
             "id": "GOLD_PRICE",
             "name": "Gold price (GLD proxy)",
-            "value": 385.989990234375,
+            "value": 382.4200134277344,
             "status": "Red",
-            "note": "Gold (GLD) at $385.99. Signals extreme flight to safety or high inflation expectations.",
+            "note": "Gold (GLD) at $382.42. Signals extreme flight to safety or high inflation expectations.",
             "action": "Maintain gold position as a core hedge; reduce risk assets.",
             "score_value": 1.0,
             "source_link": "https://finance.yahoo.com/quote/GLD"
@@ -24,9 +24,9 @@
         {
             "id": "EURUSD",
             "name": "EUR/USD exchange rate",
-            "value": 1.1617100238800049,
+            "value": 1.1641442775726318,
             "status": "Green",
-            "note": "EUR/USD is at 1.1617. Normal range.",
+            "note": "EUR/USD is at 1.1641. Normal range.",
             "action": "No change.",
             "score_value": 0.0,
             "source_link": "https://finance.yahoo.com/quote/EURUSD=X"
@@ -34,9 +34,9 @@
         {
             "id": "WTI_CRUDE",
             "name": "WTI crude oil ($/bbl)",
-            "value": 58.9900016784668,
+            "value": 58.619998931884766,
             "status": "Amber",
-            "note": "WTI Crude at $58.99/bbl. Low price indicates global slowdown or demand weakness.",
+            "note": "WTI Crude at $58.62/bbl. Low price indicates global slowdown or demand weakness.",
             "action": "Monitor global growth indicators.",
             "score_value": 0.5,
             "source_link": "https://finance.yahoo.com/quote/CL=F"
@@ -44,9 +44,9 @@
         {
             "id": "AUDUSD",
             "name": "AUD/USD exchange rate",
-            "value": 0.655350923538208,
+            "value": 0.652954638004303,
             "status": "Green",
-            "note": "AUDUSD at 0.6554. Stable, suggesting moderate risk appetite.",
+            "note": "AUDUSD at 0.6530. Stable, suggesting moderate risk appetite.",
             "action": "No change.",
             "score_value": 0.0,
             "source_link": "https://finance.yahoo.com/quote/AUDUSD=X"
@@ -149,9 +149,9 @@
         {
             "id": "SPX_INDEX",
             "name": "S&P 500 index",
-            "value": 6850.919921875,
+            "value": 6743.25,
             "status": "Green",
-            "note": "S&P 500 Index at 6,851. Strong market momentum.",
+            "note": "S&P 500 Index at 6,743. Strong market momentum.",
             "action": "No change.",
             "score_value": 0.0,
             "source_link": "https://finance.yahoo.com/quote/%5EGSPC"
@@ -169,9 +169,9 @@
         {
             "id": "MARGIN_DEBT_YOY",
             "name": "FINRA Margin Debt YOY %",
-            "value": 32.94,
+            "value": 38.52,
             "status": "Red",
-            "note": "Margin Debt YOY at 32.9% (FINRA Data, Oct 2025, Not Seasonally Adjusted). Leverage is expanding aggressively. High risk of forced liquidation if markets fall.",
+            "note": "Margin Debt YOY at 38.5% (FINRA Data, Oct 2025, Not Seasonally Adjusted). Leverage is expanding aggressively. High risk of forced liquidation if markets fall.",
             "action": "Aggressively deleverage equity exposure; increase cash.",
             "score_value": 1.5,
             "source_link": "https://www.finra.org/investors/market-and-financial-data/margin-statistics"
@@ -179,9 +179,9 @@
         {
             "id": "SMALL_LARGE_RATIO",
             "name": "Small/Large Cap Ratio (RUT/SPX)",
-            "value": 0.35773298721573377,
+            "value": 0.35394645305878814,
             "status": "Red",
-            "note": "Small/Large Cap ratio at 0.3577. Severe small-cap underperformance. Recessionary signal/high risk-off sentiment.",
+            "note": "Small/Large Cap ratio at 0.3539. Severe small-cap underperformance. Recessionary signal/high risk-off sentiment.",
             "action": "Avoid small-cap exposure entirely. Favour high-quality large-caps.",
             "score_value": 1.5,
             "source_link": "https://finance.yahoo.com/quote/%5ERUT"
@@ -229,11 +229,11 @@
     ],
     "overall": {
         "date": "2025-11-13",
-        "score": 6.75,
+        "score": 7.25,
         "status": "ELEVATED RISK (MODERATE RISK)",
         "comment": "Caution warranted; mixed signals dominating market trends.",
         "raw_score_list": [
-            0.5,
+            1.0,
             1.0,
             0.0,
             0.5,
@@ -258,18 +258,33 @@
         ],
         "escalation_watch": [
             {
+                "name": "VIX Index",
+                "value": "20.97",
+                "threshold": "Above 18.0",
+                "status": "Amber"
+            },
+            {
                 "name": "10Y Yield",
                 "value": "4.13",
                 "threshold": "Above 4.0%",
                 "status": "Green"
             }
         ],
-        "daily_narrative": "Gemini API call failed: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",
-        "composite_summary": "Failure",
+        "daily_narrative": "Atlas indicators currently signal an ELEVATED RISK (MODERATE RISK) posture, with a Composite Score of 7.25. Critical Red and Amber indicators are predominantly concentrated in leverage and market breadth. Specifically, FINRA Margin Debt YOY % is flashing Red at 38.52%, indicating significant investor leverage. Concurrently, the Small/Large Cap Ratio (RUT/SPX) is Red at 0.35, signaling a narrowing market leadership and underperformance of smaller, more cyclically sensitive companies. The Gold price, a traditional safe-haven asset, is also Red at 382.42, suggesting a flight to quality. While the VIX Index is Amber at 20.97, indicating elevated volatility expectations, it does not yet reflect a panic-level spike, creating a potential contradiction with the underlying leverage and risk-off signals from Gold and small-cap underperformance. This divergence suggests that while broad market indices like the S&P 500 remain green, the foundational elements of market health are deteriorating.\nThe elevated FINRA Margin Debt points to a significant build-up of speculative positioning, increasing systemic vulnerability to market corrections. The persistent underperformance of small-cap stocks relative to large-caps, as indicated by the Red Small/Large Cap Ratio, implies that economic growth is not broad-based and that investors are increasingly favoring larger, more stable companies, or are de-risking from more speculative segments. This is further compounded by Amber credit card delinquencies at 305.00, hinting at broader consumer financial stress. The Amber 30-year Treasury yield at 4.71% suggests some duration risk, though the 10-year remains Green. The contradiction of a moderately elevated VIX alongside significant leverage and risk-off signals from Gold and small-caps implies that market participants may be complacent regarding the underlying build-up of risk. For investors, this environment necessitates a cautious approach, as the market's resilience may be masking increasing fragility, particularly concerning leverage and the health of smaller enterprises.\nThe global macro and policy tone reflects increasing caution amidst economic uncertainties. As highlighted by Reuters, the IMF observes signs of US economic strain, though a lack of comprehensive data due to a recent shutdown clouds the full picture, aligning with our internal indicators of underlying stress. Reuters also reports that a Federal Reserve rate cut is now considered a \"coin toss,\" indicating persistent uncertainty regarding future monetary policy, which could sustain higher-for-longer rate expectations and exacerbate duration risk. Bloomberg and Morningstar reporting indicates a general decline in futures and rising investor caution, suggesting that the recent stock market rally may be losing momentum. This external context reinforces the Atlas assessment of ELEVATED RISK, where economic data gaps and uncertain policy paths could amplify the impact of existing leverage and market breadth issues. Readers are directed to the News Feed below for the full list of articles reviewed. The posture would escalate to FULL-STORM upon a US 10-Year Yield move above 4.75% or HY OAS widening beyond 400 bps.",
+        "composite_summary": "Atlas indicators point to an ELEVATED RISK (MODERATE RISK) environment driven by significant leverage and narrowing market breadth, despite broad equity market resilience.",
         "key_actions": [
-            "- Review API call and data structure."
+            "Reduce overall portfolio leverage to mitigate exposure to potential market corrections.",
+            "Shift portfolio allocation towards defensive sectors with stable cash flows and lower cyclicality.",
+            "Implement tactical hedging strategies to protect against downside risk, particularly in highly leveraged or growth-oriented positions.",
+            "Closely monitor credit spreads, especially High Yield OAS, for early signs of broader credit market deterioration.",
+            "Manage exposure to rate-sensitive assets, given the persistent uncertainty around central bank policy and potential for higher-for-longer interest rates."
         ],
         "news": [
+            {
+                "title": "IMF sees signs of US economic strain but lack of data due to ...",
+                "url": "https://www.reuters.com/world/imf-sees-signs-us-economic-strain-lack-data-due-shutdown-clouds-picture-2025-11-13/",
+                "snippet": "Contextual article. Click title for details."
+            },
             {
                 "title": "Stock market today: Live updates",
                 "url": "https://www.cnbc.com/2025/11/12/stock-market-today-live-updates.html",
@@ -291,7 +306,7 @@
                 "snippet": "Contextual article. Click title for details."
             },
             {
-                "title": "Stocks Slip as US Reopens to Clouded Rate Outlook: Markets Wrap",
+                "title": "Stock Market Today: Dow, S&P Live Updates for November 13 ...",
                 "url": "https://www.bloomberg.com/news/articles/2025-11-12/stock-market-today-dow-s-p-live-updates",
                 "snippet": "Contextual article. Click title for details."
             },
@@ -301,7 +316,7 @@
                 "snippet": "Contextual article. Click title for details."
             },
             {
-                "title": "FTSE 100 Falls as Misses Out on Tech Rally - Live - Bloomberg",
+                "title": "FTSE 100 Slides as Stocks Rally Runs Out of Steam - Live ...",
                 "url": "https://www.bloomberg.com/news/live-blog/2025-11-13/ftse-100-live-uk-gdp-budget-starmer-reeves-pound-bonds-what-s-moving-uk-markets-right-now-markets-today-mhx2cobg",
                 "snippet": "Contextual article. Click title for details."
             },
@@ -311,16 +326,11 @@
                 "snippet": "Contextual article. Click title for details."
             },
             {
-                "title": "Markets - Bloomberg",
-                "url": "https://www.bloomberg.com/markets",
-                "snippet": "Contextual article. Click title for details."
-            },
-            {
-                "title": "Morningstar | Empowering Investor Success",
-                "url": "https://www.morningstar.com/",
+                "title": "Earnings call transcript: EuroDry Q3 2025 beats EPS forecasts, stock ...",
+                "url": "https://www.investing.com/news/transcripts/earnings-call-transcript-eurodry-q3-2025-beats-eps-forecasts-stock-rises-93CH-4356368",
                 "snippet": "Contextual article. Click title for details."
             }
         ],
-        "news_context_raw": "1. [Stock market today: Live updates](https://www.cnbc.com/2025/11/12/stock-market-today-live-updates.html)\n2. [Bloomberg - Business News, Stock Markets, Finance, Breaking ...](https://www.bloomberg.com/)\n3. [Here's an unexpected twist that could throw the stock-market rally off ...](https://www.morningstar.com/news/marketwatch/20251113126/heres-an-unexpected-twist-that-could-throw-the-stock-market-rally-off-course-next-year)\n4. [Morning Bid: Fed cut now a coin toss | Reuters](https://www.reuters.com/business/finance/global-markets-view-usa-2025-11-13/)\n5. [Stocks Slip as US Reopens to Clouded Rate Outlook: Markets Wrap](https://www.bloomberg.com/news/articles/2025-11-12/stock-market-today-dow-s-p-live-updates)\n6. [Chile Central Bank Member Was Open to Weighing October Rate Cut](https://www.bloomberg.com/news/articles/2025-11-13/chile-central-bank-member-was-open-to-weighing-october-rate-cut)\n7. [FTSE 100 Falls as Misses Out on Tech Rally - Live - Bloomberg](https://www.bloomberg.com/news/live-blog/2025-11-13/ftse-100-live-uk-gdp-budget-starmer-reeves-pound-bonds-what-s-moving-uk-markets-right-now-markets-today-mhx2cobg)\n8. [North American Morning Briefing: Futures Decline as Investor ...](https://www.morningstar.com/news/dow-jones/202511134286/north-american-morning-briefing-futures-decline-as-investor-caution-rises)\n9. [Markets - Bloomberg](https://www.bloomberg.com/markets)\n10. [Morningstar | Empowering Investor Success](https://www.morningstar.com/)"
+        "news_context_raw": "1. [IMF sees signs of US economic strain but lack of data due to ...](https://www.reuters.com/world/imf-sees-signs-us-economic-strain-lack-data-due-shutdown-clouds-picture-2025-11-13/)\n2. [Stock market today: Live updates](https://www.cnbc.com/2025/11/12/stock-market-today-live-updates.html)\n3. [Bloomberg - Business News, Stock Markets, Finance, Breaking ...](https://www.bloomberg.com/)\n4. [Here's an unexpected twist that could throw the stock-market rally off ...](https://www.morningstar.com/news/marketwatch/20251113126/heres-an-unexpected-twist-that-could-throw-the-stock-market-rally-off-course-next-year)\n5. [Morning Bid: Fed cut now a coin toss | Reuters](https://www.reuters.com/business/finance/global-markets-view-usa-2025-11-13/)\n6. [Stock Market Today: Dow, S&P Live Updates for November 13 ...](https://www.bloomberg.com/news/articles/2025-11-12/stock-market-today-dow-s-p-live-updates)\n7. [Chile Central Bank Member Was Open to Weighing October Rate Cut](https://www.bloomberg.com/news/articles/2025-11-13/chile-central-bank-member-was-open-to-weighing-october-rate-cut)\n8. [FTSE 100 Slides as Stocks Rally Runs Out of Steam - Live ...](https://www.bloomberg.com/news/live-blog/2025-11-13/ftse-100-live-uk-gdp-budget-starmer-reeves-pound-bonds-what-s-moving-uk-markets-right-now-markets-today-mhx2cobg)\n9. [North American Morning Briefing: Futures Decline as Investor ...](https://www.morningstar.com/news/dow-jones/202511134286/north-american-morning-briefing-futures-decline-as-investor-caution-rises)\n10. [Earnings call transcript: EuroDry Q3 2025 beats EPS forecasts, stock ...](https://www.investing.com/news/transcripts/earnings-call-transcript-eurodry-q3-2025-beats-eps-forecasts-stock-rises-93CH-4356368)"
     }
 }

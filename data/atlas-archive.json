@@ -1,5 +1,19 @@
 [
     {
+        "date": "2025-11-13 21:09:10",
+        "status": "\ud83d\udd34 SEVERE RISK (HIGH RISK)",
+        "score": 8.5,
+        "comment": "Market stability deteriorating rapidly. High caution required.",
+        "daily_narrative": "The Atlas Composite Score registers a SEVERE RISK posture at 8.50, driven by critical Red indicators in leverage and persistent Amber signals across duration risk. Most notably, FINRA margin debt has surged to 32.94% year-over-year, signaling excessive speculative leverage within the equity market, while credit card delinquencies have reached 305.00, underscoring significant stress in consumer balance sheets. These leverage metrics are compounded by a Red signal from the Small/Large cap ratio at 0.36, indicating a clear flight to quality within equities and a preference for larger, more stable companies over smaller, more growth-sensitive firms. Simultaneously, duration risk remains elevated, with the US 3-year, 10-year, and 30-year Treasury yields all in Amber status at 3.56%, 4.13%, and 4.71% respectively, reflecting ongoing upward pressure on borrowing costs across the curve.\nA notable contradiction exists in the VIX index, which remains at an Amber 17.86, suggesting a degree of market complacency despite the severe underlying leverage and duration risks. This divergence implies that while systemic vulnerabilities are accumulating, market participants may not yet be fully pricing in the potential for a sharp correction. Furthermore, Treasury net liquidity and the SOFR OIS Spread remain Green, indicating that immediate, broad-based systemic liquidity stress is not currently evident, which could be a lagging indicator or a reflection of existing central bank backstops. For investors, this environment necessitates a defensive stance, prioritizing capital preservation and reducing exposure to assets highly sensitive to credit tightening and rising rates. The confluence of high leverage and increasing duration risk points to a fragile financial landscape where even minor catalysts could trigger significant market volatility.\nGlobally, the macro and policy tone remains complex, as highlighted by Reuters reporting on the Federal Reserve's internal divisions, with some officials expressing hesitation to support further rate hikes, suggesting a potential pause or slower pace in monetary tightening. Concurrently, Reuters also noted the Yen's continued weakness against the Euro, influenced by Japan's Prime Minister signaling a cautious approach to rate increases. Despite these developments, Reuters observed that markets appear to be navigating 2025's upheavals with \"puzzling ease,\" even as the US shutdown was resolved. Economic data presents a mixed picture, with Bloomberg reporting a fall in Australian unemployment, while the Wall Street Journal highlighted weak UK data potentially cementing a downtrend for Sterling. These external factors underscore a global environment characterized by divergent economic performance and cautious central bank postures, against a backdrop of underlying financial system stress. Readers are directed to the News Feed below for the full list of articles reviewed.\nThe Atlas posture would escalate to FULL-STORM should the US 10-Year Yield move above 4.75% or High Yield OAS widen beyond 400 bps."
+    },
+    {
+        "date": "2025-11-13 20:53:04",
+        "status": "\ud83d\udd34 SEVERE RISK (HIGH RISK)",
+        "score": 8.5,
+        "comment": "Market stability deteriorating rapidly. High caution required.",
+        "daily_narrative": "Gemini API call failed: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}"
+    },
+    {
         "date": "2025-11-13 20:43:21",
         "status": "\ud83d\udfe0 ELEVATED RISK (MODERATE RISK)",
         "score": 6.5,

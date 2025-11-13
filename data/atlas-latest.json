@@ -3,9 +3,9 @@
         {
             "id": "VIX",
             "name": "VIX index",
-            "value": 17.90999984741211,
+            "value": 17.860000610351562,
             "status": "Amber",
-            "note": "VIX at 17.91 (2025-11-13 4:00 PM EST). Heightened complacency is a risk factor.",
+            "note": "VIX at 17.86 (2025-11-13 4:00 PM EST). Heightened complacency is a risk factor.",
             "action": "Avoid complacency; maintain appropriate hedging.",
             "score_value": 0.5,
             "source_link": "https://finance.yahoo.com/quote/%5EVIX/"
@@ -23,9 +23,9 @@
         {
             "id": "EURUSD",
             "name": "EUR/USD exchange rate",
-            "value": 1.161440134048462,
+            "value": 1.1618449687957764,
             "status": "Green",
-            "note": "EUR/USD is stable at 1.1614. Indicates balanced global risk/economic outlook.",
+            "note": "EUR/USD is stable at 1.1618. Indicates balanced global risk/economic outlook.",
             "action": "No change.",
             "score_value": 0.0,
             "source_link": "https://finance.yahoo.com/quote/EURUSD=X/"
@@ -33,9 +33,9 @@
         {
             "id": "WTI_CRUDE",
             "name": "WTI crude oil ($/bbl)",
-            "value": 58.349998474121094,
+            "value": 58.29999923706055,
             "status": "Amber",
-            "note": "WTI Crude at $58.35/bbl. Low price indicates global slowdown or demand weakness.",
+            "note": "WTI Crude at $58.30/bbl. Low price indicates global slowdown or demand weakness.",
             "action": "Monitor global growth indicators.",
             "score_value": 0.5,
             "source_link": "https://finance.yahoo.com/quote/USO/"
@@ -43,9 +43,9 @@
         {
             "id": "AUDUSD",
             "name": "AUD/USD exchange rate",
-            "value": 0.6571597456932068,
+            "value": 0.6575053930282593,
             "status": "Amber",
-            "note": "AUDUSD at 0.6572. AUD is consolidating. Global risk appetite is tentative.",
+            "note": "AUDUSD at 0.6575. AUD is consolidating. Global risk appetite is tentative.",
             "action": "Monitor closely for breaks below 0.6500.",
             "score_value": 0.5,
             "source_link": "https://finance.yahoo.com/quote/AUDUSD=X/"
@@ -216,26 +216,30 @@
             "source_link": ""
         },
         {
-            "id": "CONSUMER_DELINQUENCIES",
-            "name": "Consumer delinquencies",
-            "value": "N/A",
-            "status": "N/A",
-            "note": "",
-            "action": "No change.",
-            "score_value": 0.0,
+            "id": "CREDIT_CARD_DELINQUENCIES",
+            "name": "Credit card delinquencies",
+            "value": 305.0,
+            "status": "Red",
+            "note": "Delinquency Rate at 305.0%. Rate is spiking. Signals severe consumer stress.",
+            "action": "Aggressively reduce exposure to consumer discretionary and financial stocks with high unsecured loan exposure.",
+            "score_value": 2.0,
             "source_link": ""
         }
     ],
     "overall": {
-        "score": 6.5,
-        "status": "\ud83d\udfe0 ELEVATED RISK (MODERATE RISK)",
-        "comment": "Risk posture is elevated. Maintain defensive positioning.",
-        "daily_narrative": "Gemini API call failed: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",
-        "composite_summary": "Failure",
+        "score": 8.5,
+        "status": "\ud83d\udd34 SEVERE RISK (HIGH RISK)",
+        "comment": "Market stability deteriorating rapidly. High caution required.",
+        "daily_narrative": "The Atlas Composite Score registers a SEVERE RISK posture at 8.50, driven by critical Red indicators in leverage and persistent Amber signals across duration risk. Most notably, FINRA margin debt has surged to 32.94% year-over-year, signaling excessive speculative leverage within the equity market, while credit card delinquencies have reached 305.00, underscoring significant stress in consumer balance sheets. These leverage metrics are compounded by a Red signal from the Small/Large cap ratio at 0.36, indicating a clear flight to quality within equities and a preference for larger, more stable companies over smaller, more growth-sensitive firms. Simultaneously, duration risk remains elevated, with the US 3-year, 10-year, and 30-year Treasury yields all in Amber status at 3.56%, 4.13%, and 4.71% respectively, reflecting ongoing upward pressure on borrowing costs across the curve.\nA notable contradiction exists in the VIX index, which remains at an Amber 17.86, suggesting a degree of market complacency despite the severe underlying leverage and duration risks. This divergence implies that while systemic vulnerabilities are accumulating, market participants may not yet be fully pricing in the potential for a sharp correction. Furthermore, Treasury net liquidity and the SOFR OIS Spread remain Green, indicating that immediate, broad-based systemic liquidity stress is not currently evident, which could be a lagging indicator or a reflection of existing central bank backstops. For investors, this environment necessitates a defensive stance, prioritizing capital preservation and reducing exposure to assets highly sensitive to credit tightening and rising rates. The confluence of high leverage and increasing duration risk points to a fragile financial landscape where even minor catalysts could trigger significant market volatility.\nGlobally, the macro and policy tone remains complex, as highlighted by Reuters reporting on the Federal Reserve's internal divisions, with some officials expressing hesitation to support further rate hikes, suggesting a potential pause or slower pace in monetary tightening. Concurrently, Reuters also noted the Yen's continued weakness against the Euro, influenced by Japan's Prime Minister signaling a cautious approach to rate increases. Despite these developments, Reuters observed that markets appear to be navigating 2025's upheavals with \"puzzling ease,\" even as the US shutdown was resolved. Economic data presents a mixed picture, with Bloomberg reporting a fall in Australian unemployment, while the Wall Street Journal highlighted weak UK data potentially cementing a downtrend for Sterling. These external factors underscore a global environment characterized by divergent economic performance and cautious central bank postures, against a backdrop of underlying financial system stress. Readers are directed to the News Feed below for the full list of articles reviewed.\nThe Atlas posture would escalate to FULL-STORM should the US 10-Year Yield move above 4.75% or High Yield OAS widen beyond 400 bps.",
+        "composite_summary": "The Atlas Composite Score of 8.50 signals a SEVERE RISK environment, driven by escalating leverage and duration risks, despite a degree of market complacency.",
         "key_actions": [
-            "- Review API call and data structure."
+            "Reduce exposure to highly leveraged assets and speculative credit segments.",
+            "Increase allocation to defensive equity sectors and high-quality, dividend-paying companies.",
+            "Implement tactical hedges against potential equity market downside and rising interest rates.",
+            "Closely monitor High Yield OAS for any widening beyond the 400 bps threshold, indicating further credit deterioration.",
+            "Re-evaluate duration exposure in fixed income portfolios, favoring shorter-duration instruments to mitigate interest rate risk."
         ],
-        "date": "2025-11-13 20:43:21",
+        "date": "2025-11-13 21:09:10",
         "news": [
             {
                 "title": "Bloomberg - Business News, Stock Markets, Finance, Breaking ...",
@@ -248,8 +252,13 @@
                 "snippet": "Contextual article. Click title for details."
             },
             {
-                "title": "Morningstar | Empowering Investor Success",
-                "url": "https://www.morningstar.com/",
+                "title": "Markets - Bloomberg",
+                "url": "https://www.bloomberg.com/markets",
+                "snippet": "Contextual article. Click title for details."
+            },
+            {
+                "title": "Weak U.K. Data Could Cement Sterling's Downtrend - WSJ",
+                "url": "https://www.wsj.com/finance/currencies/yen-consolidates-on-cautious-sentiment-over-recent-weakness-1f7582e6?gaa_at=eafs&gaa_n=AWEtsqffrlViVpF2bfQIktuwW-kS4FKcnDEwI-abn2SlOhyvXAdiwTuYQLwQ&gaa_ts=6915b1b5&gaa_sig=CAUplgw2Xk66y2llraJkG4_KO_snhXaO7GADLVaclxtPEBsFoaanDP0SdRwBYjRM_gflCvy5AR82msEFDHb_uw%3D%3D",
                 "snippet": "Contextual article. Click title for details."
             },
             {
@@ -281,13 +290,8 @@
                 "title": "Yen squeezed, stocks firm as US shutdown set to lift | Reuters",
                 "url": "https://www.reuters.com/world/china/global-markets-global-markets-2025-11-13/",
                 "snippet": "Contextual article. Click title for details."
-            },
-            {
-                "title": "Bank of Japan aims for wage-driven inflation, aligns with ...",
-                "url": "https://www.reuters.com/markets/us/boj-targetting-moderate-inflation-backed-by-wage-gains-ueda-says-2025-11-13/",
-                "snippet": "Contextual article. Click title for details."
             }
         ],
-        "news_context_raw": "1. [Bloomberg - Business News, Stock Markets, Finance, Breaking ...](https://www.bloomberg.com/)\n2. [Morning Bid: Deal after dinner as Trump signs end to shutdown ...](https://www.reuters.com/world/china/global-markets-view-europe-2025-11-13/)\n3. [Morningstar | Empowering Investor Success](https://www.morningstar.com/)\n4. [Fed split deepens as Collins says she would hesitate to support ...](https://www.reuters.com/business/feds-collins-says-likely-appropriate-keep-policy-rate-hold-2025-11-12/)\n5. [Australian Unemployment Rate Falls as Hiring Exceeds Forecasts ...](https://www.bloomberg.com/news/articles/2025-11-13/australian-unemployment-rate-falls-as-hiring-exceeds-forecasts)\n6. [Markets face down 2025's upheavals with puzzling ease | Reuters](https://www.reuters.com/markets/europe/markets-face-down-2025s-upheavals-with-puzzling-ease-2025-11-13/)\n7. [Yen sinks to record low vs euro as Japan PM touts slow rate hikes ...](https://www.reuters.com/world/africa/dollar-eases-traders-eye-december-fed-cut-weakening-us-jobs-market-2025-11-12/)\n8. [Economics - Bloomberg](https://www.bloomberg.com/economics-v2)\n9. [Yen squeezed, stocks firm as US shutdown set to lift | Reuters](https://www.reuters.com/world/china/global-markets-global-markets-2025-11-13/)\n10. [Bank of Japan aims for wage-driven inflation, aligns with ...](https://www.reuters.com/markets/us/boj-targetting-moderate-inflation-backed-by-wage-gains-ueda-says-2025-11-13/)"
+        "news_context_raw": "1. [Bloomberg - Business News, Stock Markets, Finance, Breaking ...](https://www.bloomberg.com/)\n2. [Morning Bid: Deal after dinner as Trump signs end to shutdown ...](https://www.reuters.com/world/china/global-markets-view-europe-2025-11-13/)\n3. [Markets - Bloomberg](https://www.bloomberg.com/markets)\n4. [Weak U.K. Data Could Cement Sterling's Downtrend - WSJ](https://www.wsj.com/finance/currencies/yen-consolidates-on-cautious-sentiment-over-recent-weakness-1f7582e6?gaa_at=eafs&gaa_n=AWEtsqffrlViVpF2bfQIktuwW-kS4FKcnDEwI-abn2SlOhyvXAdiwTuYQLwQ&gaa_ts=6915b1b5&gaa_sig=CAUplgw2Xk66y2llraJkG4_KO_snhXaO7GADLVaclxtPEBsFoaanDP0SdRwBYjRM_gflCvy5AR82msEFDHb_uw%3D%3D)\n5. [Fed split deepens as Collins says she would hesitate to support ...](https://www.reuters.com/business/feds-collins-says-likely-appropriate-keep-policy-rate-hold-2025-11-12/)\n6. [Australian Unemployment Rate Falls as Hiring Exceeds Forecasts ...](https://www.bloomberg.com/news/articles/2025-11-13/australian-unemployment-rate-falls-as-hiring-exceeds-forecasts)\n7. [Markets face down 2025's upheavals with puzzling ease | Reuters](https://www.reuters.com/markets/europe/markets-face-down-2025s-upheavals-with-puzzling-ease-2025-11-13/)\n8. [Yen sinks to record low vs euro as Japan PM touts slow rate hikes ...](https://www.reuters.com/world/africa/dollar-eases-traders-eye-december-fed-cut-weakening-us-jobs-market-2025-11-12/)\n9. [Economics - Bloomberg](https://www.bloomberg.com/economics-v2)\n10. [Yen squeezed, stocks firm as US shutdown set to lift | Reuters](https://www.reuters.com/world/china/global-markets-global-markets-2025-11-13/)"
     }
 }

@@ -345,6 +345,7 @@ def fetch_put_call_ratio(ticker_symbol="SPY"):
     Calculates the Volume Put/Call Ratio (PCR) for a specific ETF (SPY) 
     by aggregating options volume across all available expiration dates using yfinance.
     This acts as a high-liquidity proxy for the CBOE Equity PCR.
+    Returns the PCR value (float) on success, or the historical value on API failure.
     """
     indicator_id = "PUT_CALL_RATIO"
     
@@ -352,8 +353,8 @@ def fetch_put_call_ratio(ticker_symbol="SPY"):
         ticker = yf.Ticker(ticker_symbol)
         expiration_dates = ticker.options
         
+        # If no options data available, return last measure via failure value
         if not expiration_dates:
-            print(f"Warning: No options data found for {ticker_symbol}. Using last measure.")
             return _return_failure_value(indicator_id)
 
         total_put_volume = 0
@@ -365,13 +366,12 @@ def fetch_put_call_ratio(ticker_symbol="SPY"):
                 options_chain = ticker.option_chain(date)
                 total_call_volume += options_chain.calls['volume'].sum()
                 total_put_volume += options_chain.puts['volume'].sum()
-
             except Exception:
                 # Silently skip dates that fail to process
                 continue
 
+        # If no call volume, return last measure via failure value
         if total_call_volume == 0:
-            print(f"Warning: Insufficient call volume to calculate PCR for {ticker_symbol}. Using last measure.")
             return _return_failure_value(indicator_id)
 
         pcr_value = total_put_volume / total_call_volume
@@ -382,11 +382,12 @@ def fetch_put_call_ratio(ticker_symbol="SPY"):
             "timestamp": datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
         }
         
+        # Success log
         print(f"Success: Calculated PUT_CALL_RATIO ({pcr_value:.4f}) using yfinance for {ticker_symbol}.")
         return pcr_value
         
     except Exception as e:
-        # Catch any connection or calculation errors (e.g., API rate limiting)
+        # Catch any connection or calculation errors and return to failure handling
         print(f"Error fetching PUT_CALL_RATIO using yfinance: {e}.")
         return _return_failure_value(indicator_id)
     
@@ -956,15 +957,17 @@ def score_hy_oas(value):
     return generate_score_output(status, note, action, score, source_link)
 
 def score_put_call_ratio(value):
-    """Put/Call Ratio (PCCE) Scoring - Measures retail options sentiment."""
-    # NOTE: source_link should be updated once a reliable CBOE API is found.
-    source_link = "Calculated using yfinance aggregation of SPY options volume."
+    """Put/Call Ratio (SPY PCR) Scoring - Measures retail options sentiment."""
+    ticker_symbol = "SPY"
+    # Source link includes the Yahoo Finance URL for the input data.
+    source_link = f"Data calculated from aggregated {ticker_symbol} options volume: [Yahoo Finance Link](https://finance.yahoo.com/quote/{ticker_symbol})"
     
-    # Check if the data is stale (i.e., we are returning a historical value)
+    # Check if the data is stale (i.e., we are returning a historical value due to API failure)
     age_note = ""
     indicator_id = "PUT_CALL_RATIO"
     current_time_str = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 
+    # Only set age_note if the stored timestamp differs from the current script time (i.e., API failed)
     if indicator_id in INDICATOR_CONTEXTS and INDICATOR_CONTEXTS[indicator_id]["timestamp"] != current_time_str:
         last_time = INDICATOR_CONTEXTS[indicator_id]["timestamp"]
         age_note = f" (NOTE: API FAILED. Data last successfully updated on {last_time})."
@@ -973,7 +976,26 @@ def score_put_call_ratio(value):
     action = "No change."
     score = 0.0
 
-    note = f"PCEE Ratio at {value:.2f}. Balanced options sentiment." + age_note
+    # Note updated for SPY PCR and 4 decimal places
+    note = f"SPY PCR at {value:.4f}. Balanced options sentiment." + age_note
+
+    # --- SCORING LOGIC ---
+    
+    # Red Threshold: High Fear/Bearishness (Contrarian Buy Signal)
+    if value >= 1.0:
+        status = "Red"
+        note = f"SPY PCR at {value:.4f}. Extreme retail options hedging (put-buying). High market fear/bearish sentiment." + age_note
+        action = "Consider contrarian bullish positioning; watch VIX for confirmation."
+        score = 1.0
+        
+    # Amber Threshold: High Complacency/Bullishness (Risk Signal)
+    elif value <= 0.7:
+        status = "Amber"
+        note = f"SPY PCR at {value:.4f}. Low hedging (call-buying dominance). High complacency/bullish sentiment." + age_note
+        action = "Implement small hedges; avoid chasing market highs."
+        score = 0.5
+    
+    return generate_score_output(status, note, action, score, source_link)
 
     # --- SCORING LOGIC ---
     

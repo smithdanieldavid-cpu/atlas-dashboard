@@ -4,9 +4,9 @@
         {
             "id": "VIX",
             "name": "VIX Index",
-            "value": 22.56999969482422,
+            "value": 20.479999542236328,
             "status": "Amber",
-            "note": "VIX at 22.57 (2025-11-14 4:00 PM EST). Elevated volatility. Monitor daily swings.",
+            "note": "VIX at 20.48 (2025-11-14 4:00 PM EST). Elevated volatility. Monitor daily swings.",
             "action": "Monitor news flow; review volatility exposure.",
             "score_value": 1.0,
             "source_link": "https://www.cboe.com/vix/"
@@ -14,9 +14,9 @@
         {
             "id": "GOLD_PRICE",
             "name": "Gold price (GLD proxy)",
-            "value": 382.8699951171875,
+            "value": 377.4100036621094,
             "status": "Red",
-            "note": "Gold (GLD) at $382.87. Signals extreme flight to safety or high inflation expectations.",
+            "note": "Gold (GLD) at $377.41. Signals extreme flight to safety or high inflation expectations.",
             "action": "Maintain gold position as a core hedge; reduce risk assets.",
             "score_value": 1.0,
             "source_link": "https://finance.yahoo.com/quote/GLD"
@@ -24,9 +24,9 @@
         {
             "id": "EURUSD",
             "name": "EUR/USD exchange rate",
-            "value": 1.164686679840088,
+            "value": 1.1618449687957764,
             "status": "Green",
-            "note": "EUR/USD is at 1.1647. Normal range.",
+            "note": "EUR/USD is at 1.1618. Normal range.",
             "action": "No change.",
             "score_value": 0.0,
             "source_link": "https://finance.yahoo.com/quote/EURUSD=X"
@@ -34,19 +34,19 @@
         {
             "id": "WTI_CRUDE",
             "name": "WTI crude oil ($/bbl)",
-            "value": 59.54999923706055,
-            "status": "Amber",
-            "note": "WTI Crude at $59.55/bbl. Low price indicates global slowdown or demand weakness.",
-            "action": "Monitor global growth indicators.",
-            "score_value": 0.5,
+            "value": 60.130001068115234,
+            "status": "Green",
+            "note": "WTI Crude at $60.13/bbl. Normal price range, favorable for growth.",
+            "action": "No change.",
+            "score_value": 0.0,
             "source_link": "https://finance.yahoo.com/quote/CL=F"
         },
         {
             "id": "AUDUSD",
             "name": "AUD/USD exchange rate",
-            "value": 0.6522731781005859,
+            "value": 0.6537229418754578,
             "status": "Green",
-            "note": "AUDUSD at 0.6523. Stable, suggesting moderate risk appetite.",
+            "note": "AUDUSD at 0.6537. Stable, suggesting moderate risk appetite.",
             "action": "No change.",
             "score_value": 0.0,
             "source_link": "https://finance.yahoo.com/quote/AUDUSD=X"
@@ -84,9 +84,9 @@
         {
             "id": "HY_OAS",
             "name": "High yield OAS (bps)",
-            "value": 302.0,
+            "value": 309.0,
             "status": "Green",
-            "note": "HY OAS at 302 bps. Spreads are tight. Indicates low corporate default risk.",
+            "note": "HY OAS at 309 bps. Spreads are tight. Indicates low corporate default risk.",
             "action": "No change.",
             "score_value": 0.0,
             "source_link": "https://fred.stlouisfed.org/series/BAMLH0A0HYM2"
@@ -149,9 +149,9 @@
         {
             "id": "SPX_INDEX",
             "name": "S&P 500 index",
-            "value": 6737.490234375,
+            "value": 6747.830078125,
             "status": "Green",
-            "note": "S&P 500 Index at 6,737. Strong market momentum.",
+            "note": "S&P 500 Index at 6,748. Strong market momentum.",
             "action": "No change.",
             "score_value": 0.0,
             "source_link": "https://finance.yahoo.com/quote/%5EGSPC"
@@ -179,9 +179,9 @@
         {
             "id": "SMALL_LARGE_RATIO",
             "name": "Small/Large Cap Ratio (RUT/SPX)",
-            "value": 0.3536895635574611,
+            "value": 0.35437498860310707,
             "status": "Red",
-            "note": "Small/Large Cap ratio at 0.3537. Severe small-cap underperformance. Recessionary signal/high risk-off sentiment.",
+            "note": "Small/Large Cap ratio at 0.3544. Severe small-cap underperformance. Recessionary signal/high risk-off sentiment.",
             "action": "Avoid small-cap exposure entirely. Favour high-quality large-caps.",
             "score_value": 1.5,
             "source_link": "https://finance.yahoo.com/quote/%5ERUT"
@@ -189,9 +189,9 @@
         {
             "id": "PUT_CALL_RATIO",
             "name": "Put/Call Ratio (PCCE)",
-            "value": 1.3562690828810944,
+            "value": 1.0525604327020788,
             "status": "Red",
-            "note": "SPY PCR at 1.3563. Extreme retail options hedging (put-buying). High market fear/bearish sentiment.",
+            "note": "SPY PCR at 1.0526. Extreme retail options hedging (put-buying). High market fear/bearish sentiment.",
             "action": "Consider contrarian bullish positioning; watch VIX for confirmation.",
             "score_value": 1.0,
             "source_link": "Data calculated from aggregated SPY options volume: [Yahoo Finance Link](https://finance.yahoo.com/quote/SPY)"
@@ -199,9 +199,9 @@
         {
             "id": "SOFR_OIS",
             "name": "SOFR OIS Spread (%)",
-            "value": 5.000000000000027,
+            "value": 6.000000000000005,
             "status": "Green",
-            "note": "SOFR/OIS spread is 5.00 %. Dollar funding market is stable.",
+            "note": "SOFR/OIS spread is 6.00 %. Dollar funding market is stable.",
             "action": "No change.",
             "score_value": 0.0,
             "source_link": "https://fred.stlouisfed.org/series/TB3MS"
@@ -229,14 +229,14 @@
     ],
     "overall": {
         "date": "2025-11-14",
-        "score": 7.75,
+        "score": 7.25,
         "status": "ELEVATED RISK (MODERATE RISK)",
         "comment": "Caution warranted; mixed signals dominating market trends.",
         "raw_score_list": [
             1.0,
             1.0,
             0.0,
-            0.5,
+            0.0,
             0.0,
             0.0,
             0.5,
@@ -259,7 +259,7 @@
         "escalation_watch": [
             {
                 "name": "VIX Index",
-                "value": "22.57",
+                "value": "20.48",
                 "threshold": "Above 18.0",
                 "status": "Amber"
             },
@@ -270,12 +270,21 @@
                 "status": "Green"
             }
         ],
-        "daily_narrative": "Gemini API call failed: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",
-        "composite_summary": "Failure",
+        "daily_narrative": "The current Atlas Composite Score stands at 7.25, indicating an ELEVATED RISK (MODERATE RISK) posture. This assessment is primarily driven by several critical Red and Amber indicators signaling increasing systemic vulnerabilities, particularly in leverage and market breadth. The most prominent Red flags include the FINRA Margin Debt YOY % at 38.52, reflecting elevated speculative activity and potential overextension in equity markets. Concurrently, the Small/Large Cap Ratio (RUT/SPX) at 0.35, also a Red indicator, suggests a significant divergence in market performance, with smaller, more cyclically sensitive companies underperforming larger counterparts, often a precursor to broader market weakness. Furthermore, the Put/Call Ratio (PCCE) at 1.05, another Red signal, indicates a rising demand for downside protection, hinting at increasing investor caution despite headline equity market stability. The Gold price, serving as a traditional safe-haven asset, is also Red at 377.41, reinforcing a flight to quality sentiment.\n\nWhile the VIX Index remains Amber at 20.48, not yet signaling SEVERE RISK, its elevated state alongside the Red indicators in leverage and market sentiment presents a notable contradiction. This suggests that while underlying systemic risks are accumulating, as evidenced by rising margin debt and a deteriorating small-cap performance, market participants may still be exhibiting a degree of complacency or are yet to fully price in these accumulating risks into broader volatility measures. The US 30yr treasury yield, at 4.67 and Amber, points to persistent duration risk and inflationary concerns, further complicating the risk landscape. For investors, this environment necessitates a defensive posture, emphasizing capital preservation and a critical re-evaluation of highly leveraged positions. The divergence between broad market indices and underlying breadth/leverage metrics suggests that current market valuations may not fully reflect the increasing fragility.\n\nThe global macro and policy tone remains cautious, with central bank rhetoric reinforcing a commitment to inflation control. As highlighted by Reuters, a Federal Reserve official reiterated that inflation remains too high and current policy settings are appropriate, suggesting no immediate pivot to easing. This stance contributes to the persistent duration risk observed in Atlas indicators. Meanwhile, UK markets experienced significant volatility, as reported by Bloomberg and the Financial Times, following discussions around potential income tax changes, leading to a sell-off in gilts and broader market swings. This underscores the sensitivity of sovereign debt markets to fiscal policy uncertainty. On the economic front, the Wall Street Journal reported a challenging job market for upcoming graduates, signaling potential softening in labor conditions, which could eventually impact consumer credit quality, aligning with the Amber status of credit card delinquencies in our internal metrics. CNBC also noted upcoming changes in the release schedule for key government economic reports, which could introduce periods of data scarcity and increased market uncertainty. These external factors, combined with the \"buy the rumor, sell the news\" dynamic observed by Reuters, suggest a market susceptible to rapid shifts based on policy expectations and economic data. Readers are directed to the News Feed below for the full list of articles reviewed. A move in the US 10-Year Yield above 4.75% or HY OAS widening beyond 400 bps would escalate the posture to FULL-STORM.",
+        "composite_summary": "The Atlas Composite Score of 7.25 signals an ELEVATED RISK (MODERATE RISK) environment, characterized by rising leverage and market breadth deterioration, warranting a defensive investment stance.",
         "key_actions": [
-            "- Review API call and data structure."
+            "Reduce exposure to highly leveraged assets and speculative growth equities.",
+            "Increase allocation to defensive sectors and high-quality fixed income with shorter duration.",
+            "Implement tactical hedging strategies to mitigate potential equity market downside.",
+            "Actively monitor credit spreads, particularly High Yield OAS, for signs of further widening.",
+            "Re-evaluate rate-sensitive exposures given persistent duration risk indicated by longer-term treasury yields."
         ],
         "news": [
+            {
+                "title": "Here's where things stand on when the government will start ...",
+                "url": "https://www.cnbc.com/2025/11/14/heres-where-things-stand-on-when-the-government-will-start-releasing-key-economic-reports.html",
+                "snippet": "Contextual article. Click title for details."
+            },
             {
                 "title": "Bloomberg - Business News, Stock Markets, Finance, Breaking ...",
                 "url": "https://www.bloomberg.com/",
@@ -292,18 +301,18 @@
                 "snippet": "Contextual article. Click title for details."
             },
             {
-                "title": "Take Five: Clearing the backlog | Reuters",
-                "url": "https://www.reuters.com/business/take-five/global-markets-themes-graphic-2025-11-14/",
+                "title": "2026 Graduates Face Worst Jobs Market in 5 years - What's News ...",
+                "url": "https://www.wsj.com/podcasts/whats-news/2026-graduates-face-worst-jobs-market-in-5-years/e0ec4f45-2b80-488d-bf20-82aeb5b561e3?gaa_at=eafs&gaa_n=AWEtsqdCTcdmQhnAbKWSEiyvoBzIvPfRPumwcoTlOC2VMvR5QzkuTii3jpZ0&gaa_ts=69177e1d&gaa_sig=yh9KULxeCcvzLWSv3IAGy5HVsemlVOnullVN6plc8Rd6jPiHhHdn3Z7MdpZonMExW80iNZuW4j22D4F_Es0dUw%3D%3D",
                 "snippet": "Contextual article. Click title for details."
             },
             {
-                "title": "US futures drop on fading December rate-cut expectations | Reuters",
-                "url": "https://www.reuters.com/world/africa/us-futures-drop-fading-december-rate-cut-expectations-2025-11-14/",
+                "title": "Fed's Schmid: inflation is too hot, policy is where it should be | Reuters",
+                "url": "https://www.reuters.com/business/feds-schmid-inflation-is-too-hot-policy-is-where-it-should-be-2025-11-14/",
                 "snippet": "Contextual article. Click title for details."
             },
             {
-                "title": "Rattled Bulls Look to Strong Earnings Outlooks as Market Wobbles ...",
-                "url": "https://www.bloomberg.com/news/articles/2025-11-14/rattled-bulls-look-to-strong-earnings-outlooks-as-market-wobbles",
+                "title": "Morning Bid: Buy the Rumor, Sell the News | Reuters",
+                "url": "https://www.reuters.com/business/finance/global-markets-view-usa-2025-11-14/",
                 "snippet": "Contextual article. Click title for details."
             },
             {
@@ -312,21 +321,16 @@
                 "snippet": "Contextual article. Click title for details."
             },
             {
-                "title": "Swiss Franc Surges to Decade High on Stickier Inflation Outlook ...",
-                "url": "https://www.bloomberg.com/news/articles/2025-11-14/swiss-franc-surges-to-decade-high-on-stickier-inflation-outlook",
+                "title": "Cincinnati Financial Corporation Declares Regular Quarterly Cash ...",
+                "url": "https://www.morningstar.com/news/pr-newswire/20251114cl24927/cincinnati-financial-corporation-declares-regular-quarterly-cash-dividend",
                 "snippet": "Contextual article. Click title for details."
             },
             {
-                "title": "Hong Kong Q3 GDP expands 3.8% y/y, 2025 growth forecast ...",
-                "url": "https://www.reuters.com/world/asia-pacific/hong-kong-q3-gdp-expands-38-yy-2025-growth-forecast-revised-up-2025-11-14/",
-                "snippet": "Contextual article. Click title for details."
-            },
-            {
-                "title": "Watch Citi's Sheets on Global Economy, China - Bloomberg",
-                "url": "https://www.bloomberg.com/news/videos/2025-11-14/citi-s-sheets-on-global-economy-china-video",
+                "title": "Stock Market Today: Dow falls modestly, S&P 500 and Nasdaq ...",
+                "url": "https://www.marketwatch.com/livecoverage/stock-market-today-dow-s-p-500-and-nasdaq-set-for-more-selling-bitcoin-trades-below-100-000?gaa_at=eafs&gaa_n=AWEtsqd2bR4fN52TMfWExMZYnNeI0Ll_GY-NQXreXERAGPp3GyvsXbGsZqSi&gaa_ts=69177e1d&gaa_sig=3qkmgwUR4P3r3Ter3QTwizFiYYDl2W0zslUCN7wjMbiTV-oayN9wr5fej5dF6wM6N7c5qHk67Odrs6EGqIT1YA%3D%3D",
                 "snippet": "Contextual article. Click title for details."
             }
         ],
-        "news_context_raw": "1. [Bloomberg - Business News, Stock Markets, Finance, Breaking ...](https://www.bloomberg.com/)\n2. [UK Markets Swing Wildly on Income Tax Reports](https://www.bloomberg.com/news/live-blog/2025-11-14/ftse-100-live-budget-rachel-reeves-pound-bonds-trump-tariffs-what-s-moving-uk-markets-right-now-markets-today)\n3. [Reeves' plan to ditch income tax rise sparks gilts sell-off](https://www.ft.com/content/abfe8e95-e7c2-4bcd-bd72-b5fe03e9481d)\n4. [Take Five: Clearing the backlog | Reuters](https://www.reuters.com/business/take-five/global-markets-themes-graphic-2025-11-14/)\n5. [US futures drop on fading December rate-cut expectations | Reuters](https://www.reuters.com/world/africa/us-futures-drop-fading-december-rate-cut-expectations-2025-11-14/)\n6. [Rattled Bulls Look to Strong Earnings Outlooks as Market Wobbles ...](https://www.bloomberg.com/news/articles/2025-11-14/rattled-bulls-look-to-strong-earnings-outlooks-as-market-wobbles)\n7. [Weekly Recap: 12 Finance Press Releases You Need to See ...](https://www.morningstar.com/news/pr-newswire/20251114ny24472/weekly-recap-12-finance-press-releases-you-need-to-see)\n8. [Swiss Franc Surges to Decade High on Stickier Inflation Outlook ...](https://www.bloomberg.com/news/articles/2025-11-14/swiss-franc-surges-to-decade-high-on-stickier-inflation-outlook)\n9. [Hong Kong Q3 GDP expands 3.8% y/y, 2025 growth forecast ...](https://www.reuters.com/world/asia-pacific/hong-kong-q3-gdp-expands-38-yy-2025-growth-forecast-revised-up-2025-11-14/)\n10. [Watch Citi's Sheets on Global Economy, China - Bloomberg](https://www.bloomberg.com/news/videos/2025-11-14/citi-s-sheets-on-global-economy-china-video)"
+        "news_context_raw": "1. [Here's where things stand on when the government will start ...](https://www.cnbc.com/2025/11/14/heres-where-things-stand-on-when-the-government-will-start-releasing-key-economic-reports.html)\n2. [Bloomberg - Business News, Stock Markets, Finance, Breaking ...](https://www.bloomberg.com/)\n3. [UK Markets Swing Wildly on Income Tax Reports](https://www.bloomberg.com/news/live-blog/2025-11-14/ftse-100-live-budget-rachel-reeves-pound-bonds-trump-tariffs-what-s-moving-uk-markets-right-now-markets-today)\n4. [Reeves' plan to ditch income tax rise sparks gilts sell-off](https://www.ft.com/content/abfe8e95-e7c2-4bcd-bd72-b5fe03e9481d)\n5. [2026 Graduates Face Worst Jobs Market in 5 years - What's News ...](https://www.wsj.com/podcasts/whats-news/2026-graduates-face-worst-jobs-market-in-5-years/e0ec4f45-2b80-488d-bf20-82aeb5b561e3?gaa_at=eafs&gaa_n=AWEtsqdCTcdmQhnAbKWSEiyvoBzIvPfRPumwcoTlOC2VMvR5QzkuTii3jpZ0&gaa_ts=69177e1d&gaa_sig=yh9KULxeCcvzLWSv3IAGy5HVsemlVOnullVN6plc8Rd6jPiHhHdn3Z7MdpZonMExW80iNZuW4j22D4F_Es0dUw%3D%3D)\n6. [Fed's Schmid: inflation is too hot, policy is where it should be | Reuters](https://www.reuters.com/business/feds-schmid-inflation-is-too-hot-policy-is-where-it-should-be-2025-11-14/)\n7. [Morning Bid: Buy the Rumor, Sell the News | Reuters](https://www.reuters.com/business/finance/global-markets-view-usa-2025-11-14/)\n8. [Weekly Recap: 12 Finance Press Releases You Need to See ...](https://www.morningstar.com/news/pr-newswire/20251114ny24472/weekly-recap-12-finance-press-releases-you-need-to-see)\n9. [Cincinnati Financial Corporation Declares Regular Quarterly Cash ...](https://www.morningstar.com/news/pr-newswire/20251114cl24927/cincinnati-financial-corporation-declares-regular-quarterly-cash-dividend)\n10. [Stock Market Today: Dow falls modestly, S&P 500 and Nasdaq ...](https://www.marketwatch.com/livecoverage/stock-market-today-dow-s-p-500-and-nasdaq-set-for-more-selling-bitcoin-trades-below-100-000?gaa_at=eafs&gaa_n=AWEtsqd2bR4fN52TMfWExMZYnNeI0Ll_GY-NQXreXERAGPp3GyvsXbGsZqSi&gaa_ts=69177e1d&gaa_sig=3qkmgwUR4P3r3Ter3QTwizFiYYDl2W0zslUCN7wjMbiTV-oayN9wr5fej5dF6wM6N7c5qHk67Odrs6EGqIT1YA%3D%3D)"
     }
 }

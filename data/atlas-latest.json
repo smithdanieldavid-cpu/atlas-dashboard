@@ -24,9 +24,9 @@
         {
             "id": "EURUSD",
             "name": "EUR/USD exchange rate",
-            "value": 1.1633317470550537,
+            "value": 1.163602590560913,
             "status": "Green",
-            "note": "EUR/USD is at 1.1633. Normal range.",
+            "note": "EUR/USD is at 1.1636. Normal range.",
             "action": "No change.",
             "score_value": 0.0,
             "source_link": "https://finance.yahoo.com/quote/EURUSD=X"
@@ -34,9 +34,9 @@
         {
             "id": "WTI_CRUDE",
             "name": "WTI crude oil ($/bbl)",
-            "value": 58.9900016784668,
+            "value": 59.08000183105469,
             "status": "Amber",
-            "note": "WTI Crude at $58.99/bbl. Low price indicates global slowdown or demand weakness.",
+            "note": "WTI Crude at $59.08/bbl. Low price indicates global slowdown or demand weakness.",
             "action": "Monitor global growth indicators.",
             "score_value": 0.5,
             "source_link": "https://finance.yahoo.com/quote/CL=F"
@@ -44,9 +44,9 @@
         {
             "id": "AUDUSD",
             "name": "AUD/USD exchange rate",
-            "value": 0.6526989340782166,
+            "value": 0.6532105207443237,
             "status": "Green",
-            "note": "AUDUSD at 0.6527. Stable, suggesting moderate risk appetite.",
+            "note": "AUDUSD at 0.6532. Stable, suggesting moderate risk appetite.",
             "action": "No change.",
             "score_value": 0.0,
             "source_link": "https://finance.yahoo.com/quote/AUDUSD=X"
@@ -159,9 +159,9 @@
         {
             "id": "ASX_200",
             "name": "ASX 200 index",
-            "value": 8621.599609375,
+            "value": 8620.5,
             "status": "Green",
-            "note": "ASX 200 Index at 8,622. Stable price action.",
+            "note": "ASX 200 Index at 8,620. Stable price action.",
             "action": "No change.",
             "score_value": 0.0,
             "source_link": "https://finance.yahoo.com/quote/%5EAXJO"
@@ -189,9 +189,9 @@
         {
             "id": "PUT_CALL_RATIO",
             "name": "Put/Call Ratio (PCCE)",
-            "value": 1.3565077393077276,
+            "value": 1.356256904879511,
             "status": "Red",
-            "note": "SPY PCR at 1.3565. Extreme retail options hedging (put-buying). High market fear/bearish sentiment. (NOTE: API FAILED. Data last successfully updated on 2025-11-14 11:11:33).",
+            "note": "SPY PCR at 1.3563. Extreme retail options hedging (put-buying). High market fear/bearish sentiment.",
             "action": "Consider contrarian bullish positioning; watch VIX for confirmation.",
             "score_value": 1.0,
             "source_link": "Data calculated from aggregated SPY options volume: [Yahoo Finance Link](https://finance.yahoo.com/quote/SPY)"
@@ -270,14 +270,14 @@
                 "status": "Green"
             }
         ],
-        "daily_narrative": "The Atlas Composite Score registers ELEVATED RISK (MODERATE RISK) at 7.75, driven primarily by critical Red indicators in leverage and market breadth, alongside Amber signals in duration and consumer credit. Specifically, the year-over-year increase in FINRA Margin Debt at 38.52% highlights significant leverage accumulation within the market, posing a substantial risk to portfolio stability should market conditions deteriorate. Concurrently, the Small/Large Cap Ratio, at a concerning 0.35, indicates a pronounced underperformance of smaller capitalization companies relative to their larger counterparts. This divergence often signals tightening credit conditions for smaller, more growth-dependent firms and a flight to quality, reflecting underlying market fragility despite headline equity strength. The Put/Call Ratio at 1.36 further underscores a heightened demand for downside protection, indicating a cautious or outright bearish sentiment among options traders. \n\nDespite these clear warning signs, the VIX Index, while Amber at 20.00, does not yet reflect a state of severe market panic, creating a potential contradiction. Similarly, the High Yield OAS remains Green at 302.00 bps, suggesting credit markets are not yet pricing in significant distress, and broad equity indices like the S&P 500 are also Green. This divergence implies a market where robust headline performance and perceived credit stability mask growing underlying leverage and a weakening breadth, which could leave portfolios vulnerable to sudden shifts. The US 30yr Treasury Yield at 4.67% (Amber) also points to persistent duration risk, nearing critical thresholds, while rising credit card delinquencies at 305.00 (Amber) signal increasing consumer financial strain. Investors should interpret this environment as one requiring vigilance, as the apparent calm in some areas may be masking accumulating systemic risks, particularly those related to over-leveraged positions and the health of smaller enterprises.\n\nThe global macro and policy tone reflects a cautious stance, with central banks signaling continued restrictive monetary policy. Reuters reports indicate that a Federal Reserve official emphasized the ongoing need for restrictive policy to cool inflation, while also noting that a Fed rate cut is now considered a coin toss. This sentiment is echoed by Bloomberg's coverage of the stock market, which has seen the S&P 500 slump on falling rate-cut odds, suggesting market participants are adjusting to a 'higher for longer' interest rate environment. The International Monetary Fund, as highlighted by Reuters, observes signs of US economic strain, though a lack of comprehensive data due to a potential government shutdown clouds the full picture. Geopolitically, Reuters also suggests that most emerging nations possess the flexibility to realalign trade and weather potential US tariffs. Meanwhile, Morningstar points to December 10th as a critical date for option traders, indicating a focus on upcoming market catalysts. For the full list of articles reviewed, please refer to the News Feed below. A move in the US 10-Year Yield above 4.75% or HY OAS widening beyond 400 bps would escalate the Atlas posture to FULL-STORM.",
-        "composite_summary": "The Atlas Composite Score of 7.75 signals ELEVATED RISK (MODERATE RISK), driven by escalating leverage and weakening market breadth, despite a seemingly calm surface in broader equity and credit markets.",
+        "daily_narrative": "Atlas indicators signal an ELEVATED RISK (MODERATE RISK) posture, with a Composite Score of 7.75. The primary drivers of this elevated risk are concentrated in leverage, duration, and underlying market sentiment. Specifically, FINRA Margin Debt YOY % remains in the Red at 38.52%, indicating significant speculative leverage within the system. Concurrently, the Small/Large Cap Ratio (RUT/SPX) is also Red at 0.35, signifying a pronounced underperformance of smaller, more growth-sensitive companies relative to larger, more established firms. This divergence suggests a flight to quality within equities and concerns about funding costs or economic resilience for smaller enterprises. Further reinforcing this cautious sentiment, the Put/Call Ratio (PCCE) stands at a Red 1.36, reflecting increased demand for downside protection and a growing bearish bias among options traders. These indicators collectively point to a market where underlying vulnerabilities are accumulating, despite broader equity indices remaining in Green territory.\nA notable contradiction lies in the VIX Index, which registers an Amber 20.00. While elevated, this level does not fully reflect the deep Red signals from leverage and risk appetite indicators. This suggests a potential complacency in broad market volatility measures, even as specific segments exhibit significant stress and hedging activity. The US 30yr treasury yield is Amber at 4.67%, nearing critical thresholds, while the US 10yr yield remains Green at 4.08%, indicating building duration risk, particularly at the longer end of the curve. Gold prices are Red at 382.87, suggesting a flight to safety or inflation hedge, further contradicting a seemingly benign VIX. For investors, this environment implies that while headline volatility may appear contained, the underlying market structure is becoming increasingly fragile due to high leverage and a deteriorating risk appetite for growth assets. Portfolios should prioritize de-risking and defensive positioning, as the potential for rapid unwinding of leveraged positions is heightened, especially if a catalyst emerges to break the current VIX complacency.\nThe external macro environment reinforces a cautious outlook, with central bank rhetoric and economic data signaling persistent headwinds. As highlighted by Reuters, the IMF observes signs of strain within the US economy, though a lack of comprehensive data due to a recent shutdown complicates a full assessment. This uncertainty is compounded by Federal Reserve guidance, with Reuters reporting comments from Fed's Hammack emphasizing the continued necessity of restrictive monetary policy to effectively cool inflation. This stance contributes to market speculation regarding future rate actions, with Reuters' 'Morning Bid' indicating that a Fed cut is now considered a coin toss, reflecting significant uncertainty among market participants. Bloomberg's coverage of daily market movements also reflects this cautious sentiment. Option traders, as noted by Morningstar, are closely watching December 10th as a potentially pivotal day for markets, likely tied to upcoming central bank announcements or economic data releases. This confluence of economic strain, hawkish central bank posture, and market uncertainty suggests a challenging environment for risk assets. Readers are directed to the News Feed below for the full list of articles reviewed. The Atlas posture would escalate to FULL-STORM should the US 10-Year Yield move above 4.75% or HY OAS widen beyond 400 bps.",
+        "composite_summary": "Atlas indicators point to an ELEVATED RISK (MODERATE RISK) environment, driven by high leverage, deteriorating risk appetite in growth segments, and increasing hedging activity, despite a seemingly contained VIX.",
         "key_actions": [
-            "Reduce exposure to highly leveraged assets and speculative growth equities.",
+            "Reduce overall portfolio leverage and rebalance towards lower-volatility assets.",
             "Increase allocation to defensive sectors and high-quality fixed income.",
-            "Implement tactical hedging strategies to protect against downside equity risk, particularly through options.",
-            "Closely monitor credit spreads, especially High Yield OAS, for early signs of systemic stress.",
-            "Re-evaluate duration exposure given the elevated 30-year Treasury yield and potential for further rate volatility."
+            "Implement tactical hedges to mitigate downside risk, particularly in equity exposures.",
+            "Closely monitor credit spreads, especially High Yield OAS, for signs of widening.",
+            "Manage duration risk by favoring shorter-dated fixed income or employing interest rate hedges."
         ],
         "news": [
             {
@@ -316,11 +316,6 @@
                 "snippet": "Contextual article. Click title for details."
             },
             {
-                "title": "Stock market today: S&P 500 slumps on falling rate-cut odds ...",
-                "url": "https://www.investing.com/news/stock-market-news/wall-st-futures-dip-as-tech-shares-lag-house-vote-on-govt-shutdown-in-focus-4353673",
-                "snippet": "Contextual article. Click title for details."
-            },
-            {
                 "title": "Chile Central Bank Member Was Open to Weighing October Rate Cut",
                 "url": "https://www.bloomberg.com/news/articles/2025-11-13/chile-central-bank-member-was-open-to-weighing-october-rate-cut",
                 "snippet": "Contextual article. Click title for details."
@@ -329,8 +324,13 @@
                 "title": "Most emerging nations can realign trade to weather US tariffs, report ...",
                 "url": "https://www.reuters.com/world/china/most-emerging-nations-can-realign-trade-weather-us-tariffs-report-finds-2025-11-13/",
                 "snippet": "Contextual article. Click title for details."
+            },
+            {
+                "title": "Morning Bid: Deal after dinner as Trump signs end to shutdown ...",
+                "url": "https://www.reuters.com/world/china/global-markets-view-europe-2025-11-13/",
+                "snippet": "Contextual article. Click title for details."
             }
         ],
-        "news_context_raw": "1. [IMF sees signs of US economic strain but lack of data due to ...](https://www.reuters.com/world/imf-sees-signs-us-economic-strain-lack-data-due-shutdown-clouds-picture-2025-11-13/)\n2. [Fed's Hammack says restrictive monetary policy needed to cool ...](https://www.reuters.com/business/feds-hammack-restrictive-monetary-policy-needed-cool-inflation-2025-11-13/)\n3. [Why Wills and Trusts Aren't Enough in the Great Wealth Transfer ...](https://www.kiplinger.com/retirement/estate-planning/wills-and-trusts-arent-enough-in-the-great-wealth-transfer)\n4. [Bloomberg - Business News, Stock Markets, Finance, Breaking ...](https://www.bloomberg.com/)\n5. [Why option traders think Dec. 10 will be the most important day for ...](https://www.morningstar.com/news/marketwatch/20251113206/why-option-traders-think-dec-10-will-be-the-most-important-day-for-markets-before-the-end-of-2025)\n6. [Morning Bid: Fed cut now a coin toss | Reuters](https://www.reuters.com/business/finance/global-markets-view-usa-2025-11-13/)\n7. [Stock Market Today: Dow, S&P Live Updates for November 13 ...](https://www.bloomberg.com/news/articles/2025-11-12/stock-market-today-dow-s-p-live-updates)\n8. [Stock market today: S&P 500 slumps on falling rate-cut odds ...](https://www.investing.com/news/stock-market-news/wall-st-futures-dip-as-tech-shares-lag-house-vote-on-govt-shutdown-in-focus-4353673)\n9. [Chile Central Bank Member Was Open to Weighing October Rate Cut](https://www.bloomberg.com/news/articles/2025-11-13/chile-central-bank-member-was-open-to-weighing-october-rate-cut)\n10. [Most emerging nations can realign trade to weather US tariffs, report ...](https://www.reuters.com/world/china/most-emerging-nations-can-realign-trade-weather-us-tariffs-report-finds-2025-11-13/)"
+        "news_context_raw": "1. [IMF sees signs of US economic strain but lack of data due to ...](https://www.reuters.com/world/imf-sees-signs-us-economic-strain-lack-data-due-shutdown-clouds-picture-2025-11-13/)\n2. [Fed's Hammack says restrictive monetary policy needed to cool ...](https://www.reuters.com/business/feds-hammack-restrictive-monetary-policy-needed-cool-inflation-2025-11-13/)\n3. [Why Wills and Trusts Aren't Enough in the Great Wealth Transfer ...](https://www.kiplinger.com/retirement/estate-planning/wills-and-trusts-arent-enough-in-the-great-wealth-transfer)\n4. [Bloomberg - Business News, Stock Markets, Finance, Breaking ...](https://www.bloomberg.com/)\n5. [Why option traders think Dec. 10 will be the most important day for ...](https://www.morningstar.com/news/marketwatch/20251113206/why-option-traders-think-dec-10-will-be-the-most-important-day-for-markets-before-the-end-of-2025)\n6. [Morning Bid: Fed cut now a coin toss | Reuters](https://www.reuters.com/business/finance/global-markets-view-usa-2025-11-13/)\n7. [Stock Market Today: Dow, S&P Live Updates for November 13 ...](https://www.bloomberg.com/news/articles/2025-11-12/stock-market-today-dow-s-p-live-updates)\n8. [Chile Central Bank Member Was Open to Weighing October Rate Cut](https://www.bloomberg.com/news/articles/2025-11-13/chile-central-bank-member-was-open-to-weighing-october-rate-cut)\n9. [Most emerging nations can realign trade to weather US tariffs, report ...](https://www.reuters.com/world/china/most-emerging-nations-can-realign-trade-weather-us-tariffs-report-finds-2025-11-13/)\n10. [Morning Bid: Deal after dinner as Trump signs end to shutdown ...](https://www.reuters.com/world/china/global-markets-view-europe-2025-11-13/)"
     }
 }

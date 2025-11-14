@@ -379,7 +379,8 @@ def fetch_put_call_ratio(ticker_symbol="SPY"):
         # Store the successful value and current timestamp
         INDICATOR_CONTEXTS[indicator_id] = {
             "value": pcr_value,
-            "timestamp": datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+            "timestamp": datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
+            "is_stale": False
         }
         
         # Success log
@@ -968,8 +969,10 @@ def score_put_call_ratio(value):
     current_time_str = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 
     # Only set age_note if the stored timestamp differs from the current script time (i.e., API failed)
-    if indicator_id in INDICATOR_CONTEXTS and INDICATOR_CONTEXTS[indicator_id]["timestamp"] != current_time_str:
-        last_time = INDICATOR_CONTEXTS[indicator_id]["timestamp"]
+    if (indicator_id in INDICATOR_CONTEXTS and 
+        INDICATOR_CONTEXTS[indicator_id].get("is_stale", True)): # Default to True if key is missing/old
+        
+        last_time = INDICATOR_CONTEXTS[indicator_id].get("timestamp", "N/A")
         age_note = f" (NOTE: API FAILED. Data last successfully updated on {last_time})."
     
     status = "Green"

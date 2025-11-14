@@ -24,9 +24,9 @@
         {
             "id": "EURUSD",
             "name": "EUR/USD exchange rate",
-            "value": 1.1631964445114136,
+            "value": 1.1633317470550537,
             "status": "Green",
-            "note": "EUR/USD is at 1.1632. Normal range.",
+            "note": "EUR/USD is at 1.1633. Normal range.",
             "action": "No change.",
             "score_value": 0.0,
             "source_link": "https://finance.yahoo.com/quote/EURUSD=X"
@@ -34,9 +34,9 @@
         {
             "id": "WTI_CRUDE",
             "name": "WTI crude oil ($/bbl)",
-            "value": 58.959999084472656,
+            "value": 58.9900016784668,
             "status": "Amber",
-            "note": "WTI Crude at $58.96/bbl. Low price indicates global slowdown or demand weakness.",
+            "note": "WTI Crude at $58.99/bbl. Low price indicates global slowdown or demand weakness.",
             "action": "Monitor global growth indicators.",
             "score_value": 0.5,
             "source_link": "https://finance.yahoo.com/quote/CL=F"
@@ -44,9 +44,9 @@
         {
             "id": "AUDUSD",
             "name": "AUD/USD exchange rate",
-            "value": 0.6529972553253174,
+            "value": 0.6526989340782166,
             "status": "Green",
-            "note": "AUDUSD at 0.6530. Stable, suggesting moderate risk appetite.",
+            "note": "AUDUSD at 0.6527. Stable, suggesting moderate risk appetite.",
             "action": "No change.",
             "score_value": 0.0,
             "source_link": "https://finance.yahoo.com/quote/AUDUSD=X"
@@ -136,10 +136,10 @@
         },
         {
             "id": "BANK_CDS",
-            "name": "Bank CDS (AAA Proxy, bps)",
+            "name": "Bank CDS (AAA Proxy, %)",
             "value": 5.13,
             "status": "Green",
-            "note": "Bank CDS at 5 bps. Low implied banking stress.",
+            "note": "Bank CDS at 5 %. Low implied banking stress.",
             "action": "No change.",
             "score_value": 0.0,
             "source_link": "https://fred.stlouisfed.org/series/AAA"
@@ -159,9 +159,9 @@
         {
             "id": "ASX_200",
             "name": "ASX 200 index",
-            "value": 8620.2998046875,
+            "value": 8621.599609375,
             "status": "Green",
-            "note": "ASX 200 Index at 8,620. Stable price action.",
+            "note": "ASX 200 Index at 8,622. Stable price action.",
             "action": "No change.",
             "score_value": 0.0,
             "source_link": "https://finance.yahoo.com/quote/%5EAXJO"
@@ -189,11 +189,11 @@
         {
             "id": "PUT_CALL_RATIO",
             "name": "Put/Call Ratio (PCCE)",
-            "value": 0.9408702039195934,
-            "status": "Green",
-            "note": "SPY PCR at 0.9409. Balanced options sentiment. (NOTE: API FAILED. Data last successfully updated on 2025-11-14 10:54:34).",
-            "action": "No change.",
-            "score_value": 0.0,
+            "value": 1.3565077393077276,
+            "status": "Red",
+            "note": "SPY PCR at 1.3565. Extreme retail options hedging (put-buying). High market fear/bearish sentiment. (NOTE: API FAILED. Data last successfully updated on 2025-11-14 11:11:33).",
+            "action": "Consider contrarian bullish positioning; watch VIX for confirmation.",
+            "score_value": 1.0,
             "source_link": "Data calculated from aggregated SPY options volume: [Yahoo Finance Link](https://finance.yahoo.com/quote/SPY)"
         },
         {
@@ -229,7 +229,7 @@
     ],
     "overall": {
         "date": "2025-11-14",
-        "score": 6.75,
+        "score": 7.75,
         "status": "ELEVATED RISK (MODERATE RISK)",
         "comment": "Caution warranted; mixed signals dominating market trends.",
         "raw_score_list": [
@@ -251,7 +251,7 @@
             0.0,
             1.5,
             1.5,
-            0.0,
+            1.0,
             0.0,
             0.75,
             0.0
@@ -270,14 +270,14 @@
                 "status": "Green"
             }
         ],
-        "daily_narrative": "Atlas indicators currently signal an ELEVATED RISK (MODERATE RISK) posture, driven by a Composite Score of 6.75. The most critical Red indicators highlighting systemic vulnerabilities are the year-over-year increase in FINRA Margin Debt at 38.52% and the Small/Large Cap Ratio (RUT/SPX) at 0.35, both scoring 1.50. These metrics underscore significant leverage accumulation within the market and a pronounced divergence in market breadth, with smaller, more cyclically sensitive companies underperforming large-cap counterparts. This indicates a narrowing market leadership and a potential fragility in broader economic recovery expectations. Concurrently, the Gold price (GLD proxy) is Red at 382.87, suggesting a persistent flight to safety and underlying systemic concerns, despite strong headline equity performance.\n\nFurther contributing to the elevated risk profile are Amber indicators such as the US 30-year Treasury yield at 4.67% and rising credit card delinquencies at 305.00. The elevated 30-year yield points to increasing duration risk and higher long-term borrowing costs, impacting fixed-income valuations and corporate financing. Credit card delinquencies signal growing consumer stress, which could translate into broader economic headwinds. A notable contradiction lies in the VIX Index, which remains at an Amber 20.00, suggesting elevated but not extreme volatility, even as leverage indicators flash Red. This implies a degree of market complacency or a delayed recognition of the full implications of high margin debt and duration risk, potentially masked by the robust performance of headline equity indices like the S&P 500. For investors, this environment necessitates a cautious approach, as the confluence of high leverage, narrowing market leadership, and rising long-term rates creates a fragile backdrop susceptible to sudden shifts, despite the absence of a full-blown liquidity crisis as indicated by green Treasury net liquidity and SOFR OIS spread.\n\nThe global macro and policy tone remains cautious, with central bank guidance indicating a sustained restrictive stance. Reuters reports highlight the Federal Reserve's continued need for restrictive monetary policy to cool inflation, while also noting that a Fed rate cut is now considered a coin toss by some market participants. This sentiment is echoed by Bloomberg's coverage of stock market movements, which saw the S&P 500 slump on falling rate-cut odds. The International Monetary Fund, as reported by Reuters, observes signs of US economic strain, though data limitations due to a potential government shutdown cloud the full picture. Geopolitical and trade dynamics are also in focus, with Reuters reporting that most emerging nations are seen as capable of realigning trade to weather potential US tariffs. Investors are keenly watching for upcoming market catalysts, with Morningstar highlighting December 10 as a critical date for option traders, suggesting significant market positioning around future events. For the full list of articles reviewed, please refer to the News Feed below.\n\nAn escalation to a FULL-STORM posture would be triggered by the US 10-Year Yield moving above 4.75% or HY OAS widening beyond 400 bps.",
-        "composite_summary": "Atlas maintains an ELEVATED RISK (MODERATE RISK) posture, driven by high market leverage and duration risk, despite a relatively contained volatility environment.",
+        "daily_narrative": "The Atlas Composite Score registers ELEVATED RISK (MODERATE RISK) at 7.75, driven primarily by critical Red indicators in leverage and market breadth, alongside Amber signals in duration and consumer credit. Specifically, the year-over-year increase in FINRA Margin Debt at 38.52% highlights significant leverage accumulation within the market, posing a substantial risk to portfolio stability should market conditions deteriorate. Concurrently, the Small/Large Cap Ratio, at a concerning 0.35, indicates a pronounced underperformance of smaller capitalization companies relative to their larger counterparts. This divergence often signals tightening credit conditions for smaller, more growth-dependent firms and a flight to quality, reflecting underlying market fragility despite headline equity strength. The Put/Call Ratio at 1.36 further underscores a heightened demand for downside protection, indicating a cautious or outright bearish sentiment among options traders. \n\nDespite these clear warning signs, the VIX Index, while Amber at 20.00, does not yet reflect a state of severe market panic, creating a potential contradiction. Similarly, the High Yield OAS remains Green at 302.00 bps, suggesting credit markets are not yet pricing in significant distress, and broad equity indices like the S&P 500 are also Green. This divergence implies a market where robust headline performance and perceived credit stability mask growing underlying leverage and a weakening breadth, which could leave portfolios vulnerable to sudden shifts. The US 30yr Treasury Yield at 4.67% (Amber) also points to persistent duration risk, nearing critical thresholds, while rising credit card delinquencies at 305.00 (Amber) signal increasing consumer financial strain. Investors should interpret this environment as one requiring vigilance, as the apparent calm in some areas may be masking accumulating systemic risks, particularly those related to over-leveraged positions and the health of smaller enterprises.\n\nThe global macro and policy tone reflects a cautious stance, with central banks signaling continued restrictive monetary policy. Reuters reports indicate that a Federal Reserve official emphasized the ongoing need for restrictive policy to cool inflation, while also noting that a Fed rate cut is now considered a coin toss. This sentiment is echoed by Bloomberg's coverage of the stock market, which has seen the S&P 500 slump on falling rate-cut odds, suggesting market participants are adjusting to a 'higher for longer' interest rate environment. The International Monetary Fund, as highlighted by Reuters, observes signs of US economic strain, though a lack of comprehensive data due to a potential government shutdown clouds the full picture. Geopolitically, Reuters also suggests that most emerging nations possess the flexibility to realalign trade and weather potential US tariffs. Meanwhile, Morningstar points to December 10th as a critical date for option traders, indicating a focus on upcoming market catalysts. For the full list of articles reviewed, please refer to the News Feed below. A move in the US 10-Year Yield above 4.75% or HY OAS widening beyond 400 bps would escalate the Atlas posture to FULL-STORM.",
+        "composite_summary": "The Atlas Composite Score of 7.75 signals ELEVATED RISK (MODERATE RISK), driven by escalating leverage and weakening market breadth, despite a seemingly calm surface in broader equity and credit markets.",
         "key_actions": [
-            "Reduce exposure to highly leveraged assets and sectors.",
+            "Reduce exposure to highly leveraged assets and speculative growth equities.",
             "Increase allocation to defensive sectors and high-quality fixed income.",
-            "Implement tactical hedging strategies to mitigate downside equity risk.",
-            "Closely monitor credit spreads, particularly in high-yield markets, for signs of widening.",
-            "Re-evaluate duration exposure in fixed income portfolios, favoring shorter-duration assets."
+            "Implement tactical hedging strategies to protect against downside equity risk, particularly through options.",
+            "Closely monitor credit spreads, especially High Yield OAS, for early signs of systemic stress.",
+            "Re-evaluate duration exposure given the elevated 30-year Treasury yield and potential for further rate volatility."
         ],
         "news": [
             {

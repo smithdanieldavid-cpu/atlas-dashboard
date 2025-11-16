@@ -34,11 +34,11 @@
         {
             "id": "WTI_CRUDE",
             "name": "WTI crude oil ($/bbl)",
-            "value": 60.09000015258789,
-            "status": "Green",
-            "note": "WTI Crude at $60.09/bbl. Normal price range, favorable for growth.",
-            "action": "No change.",
-            "score_value": 0.0,
+            "value": 0.0,
+            "status": "Amber",
+            "note": "WTI Crude at $0.00/bbl. Low price indicates global slowdown or demand weakness.",
+            "action": "Monitor global growth indicators.",
+            "score_value": 0.5,
             "source_link": "https://finance.yahoo.com/quote/CL=F"
         },
         {
@@ -189,9 +189,9 @@
         {
             "id": "PUT_CALL_RATIO",
             "name": "Put/Call Ratio (PCCE)",
-            "value": 1.3580150472518324,
+            "value": 1.3242984158290718,
             "status": "Red",
-            "note": "SPY PCR at 1.3580. Extreme retail options hedging (put-buying). High market fear/bearish sentiment.",
+            "note": "SPY PCR at 1.3243. Extreme retail options hedging (put-buying). High market fear/bearish sentiment.",
             "action": "Consider contrarian bullish positioning; watch VIX for confirmation.",
             "score_value": 1.0,
             "source_link": "Data calculated from aggregated SPY options volume: [Yahoo Finance Link](https://finance.yahoo.com/quote/SPY)"
@@ -228,15 +228,15 @@
         }
     ],
     "overall": {
-        "date": "2025-11-15",
-        "score": 6.75,
+        "date": "2025-11-16",
+        "score": 7.25,
         "status": "ELEVATED RISK (MODERATE RISK)",
         "comment": "Caution warranted; mixed signals dominating market trends.",
         "raw_score_list": [
             0.5,
             1.0,
             0.0,
-            0.0,
+            0.5,
             0.0,
             0.0,
             0.5,
@@ -270,16 +270,31 @@
                 "status": "Green"
             }
         ],
-        "daily_narrative": "The Atlas Composite Score registers at 6.75, indicating an ELEVATED RISK (MODERATE RISK) posture. Key indicators driving this assessment include significant leverage and duration concerns. Specifically, FINRA Margin Debt Year-over-Year percentage remains a critical Red flag at 38.52%, signaling an unsustainable expansion of speculative leverage within the equity markets. This is compounded by an Amber status in credit card delinquencies at 305.00, suggesting nascent stress in consumer credit quality, which could eventually translate into broader economic headwinds. The Gold price, often a proxy for safe-haven demand, is also flashing Red at 375.96, reflecting underlying investor anxiety despite relatively stable headline equity indices. These leverage and liquidity indicators collectively point to a market structure with increasing vulnerability to adverse shocks.\nFurther exacerbating the risk profile is the Red status of the Small/Large Cap Ratio (RUT/SPX) at 0.35, indicating a distinct underperformance of smaller, more cyclically sensitive companies relative to larger, more stable counterparts. This divergence suggests a narrowing of market breadth and a flight to quality within equities, which is typically observed during periods of increasing uncertainty. The Put/Call Ratio (PCCE) at 1.36 is also Red, reflecting elevated hedging activity and a growing bearish sentiment among options traders. While the VIX Index remains at an Amber 19.83, not yet signaling extreme fear, this level appears incongruous with the rising leverage and duration risks, particularly the Amber 30-year Treasury yield at 4.70. This discrepancy suggests a degree of market complacency, where headline volatility metrics do not fully capture the underlying structural vulnerabilities, potentially leaving portfolios exposed to sudden repricing events. For investors, this implies a need to scrutinize portfolio exposures beyond headline equity performance, focusing on underlying credit quality, leverage, and market breadth.\nThe global macro and policy tone remains complex, with central bank guidance and economic data releases shaping market expectations. Per Reuters reporting, Federal Reserve hawks continue to press their case, leading traders to bet against a December rate cut, underscoring persistent inflation concerns and a higher-for-longer rate environment. This sentiment is further complicated by the US economic outlook, which, as highlighted by the Financial Times and CNBC, is obscured by shutdown-triggered data gaps, making it challenging to gauge the true health of the economy. Meanwhile, Bloomberg reports on the lack of broad growth in the Euro Area, posing a significant test for the region, with the Financial Times also noting Germany's risk of squandering economic opportunities. UK markets have also experienced volatility, as Bloomberg and the Financial Times detailed, reacting to income tax reports and policy shifts. The bond market, as discussed by Seeking Alpha, appears to be signaling a \"3% world,\" potentially diverging from the Fed's stated intentions. These developments collectively suggest a period of elevated policy uncertainty and uneven global growth prospects. Readers are directed to the News Feed below for the full list of articles reviewed. The Atlas posture would escalate to FULL-STORM should the US 10-Year Yield move above 4.75% or HY OAS widen beyond 400 bps.",
-        "composite_summary": "The Atlas Composite Score of 6.75 signals an ELEVATED RISK (MODERATE RISK) environment, characterized by rising leverage, duration concerns, and narrowing market breadth despite a complacent VIX.",
+        "daily_narrative": "The Atlas Composite Score of 7.25 indicates an ELEVATED RISK (MODERATE RISK) posture, driven by several critical Red and Amber indicators signaling increasing systemic stress. Foremost among these is the significant leverage risk highlighted by the FINRA Margin Debt YOY % at 38.52%, a Red flag indicating an unsustainable expansion of speculative capital. This is compounded by the Red status of the Small/Large Cap Ratio (RUT/SPX) at 0.35, which signifies a pronounced underperformance of smaller, more growth-sensitive companies relative to large caps. This divergence suggests a narrowing of market breadth and a flight to quality within equities, often preceding broader market corrections. Furthermore, the Put/Call Ratio (PCCE) at 1.32 is also Red, indicating a heightened demand for downside protection and a prevailing bearish sentiment among options traders. These leverage and market structure indicators collectively point to a fragile market environment where underlying risk is accumulating despite relatively stable headline indices.\n\nAdding to the leverage concerns, the Gold price (GLD proxy) is Red at 375.96, reflecting a clear flight to safety and an erosion of confidence in traditional assets. While the VIX Index remains Amber at 19.83, it has not yet reached levels indicative of severe panic, creating a potential contradiction where underlying leverage and market breadth issues are present, but broad market volatility has not fully capitulated. This suggests a period of calm before potential turbulence. Duration risk remains elevated, with the US 30yr treasury yield at an Amber 4.70, signaling persistent pressure on long-term borrowing costs. Despite these warning signs, the High Yield OAS remains Green at 309 bps, and Treasury net liquidity is also Green, which could be providing a misleading sense of stability in credit markets. This divergence between rising leverage and duration risks on one hand, and relatively contained credit spreads and liquidity on the other, suggests a market susceptible to rapid re-pricing should any of the underlying pressures intensify. Investors should interpret this as a period requiring heightened vigilance and a defensive posture, as the market's current resilience may be masking significant vulnerabilities.\n\nThe global macro and policy tone reinforces the need for caution. Per Reuters reporting, Wall Street is reining in rate cut bets amid persistent inflation concerns, with Federal Reserve officials emphasizing that inflation remains \"too hot.\" This sentiment is echoed by other Reuters articles noting traders are betting against a December rate cut, indicating a hawkish shift in market expectations for monetary policy. Bloomberg highlights the lack of broad growth as a test for the Euro Area, while also noting Europe is gauging the fallout from potential trade chaos, particularly concerning future US policy. Conversely, Bloomberg also reports ECB's Rehn acknowledging the risk of slowing inflation, suggesting a more nuanced stance from European central bankers compared to their US counterparts. On the trade front, Reuters reported Switzerland securing a US tariff rate cut, indicating some bilateral trade progress amidst broader geopolitical uncertainties. Overall, the external environment points to a prolonged period of higher-for-longer interest rates in the US, coupled with geopolitical and trade uncertainties, which could exacerbate the leverage and duration risks identified by Atlas indicators. Readers are directed to the News Feed below for the full list of articles reviewed. The Atlas posture would escalate to FULL-STORM if the US 10-Year Yield moves above 4.75% or HY OAS widens beyond 400 bps.",
+        "composite_summary": "The Atlas Composite Score of 7.25 indicates an ELEVATED RISK (MODERATE RISK) posture, driven by escalating leverage and market breadth concerns, signaling a fragile market susceptible to rapid re-pricing.",
         "key_actions": [
-            "Reduce exposure to highly leveraged entities and speculative growth assets.",
-            "Increase allocation to defensive sectors and high-quality, dividend-paying equities.",
-            "Implement tactical hedges to mitigate downside risk, particularly in equity and credit portfolios.",
-            "Closely monitor credit spreads, especially High Yield OAS, for early signs of systemic stress.",
-            "Re-evaluate duration exposure, favoring shorter-duration fixed income assets to manage interest rate risk."
+            "Reduce exposure to highly leveraged assets and speculative growth equities.",
+            "Increase allocation to defensive sectors with stable cash flows and strong balance sheets.",
+            "Implement tactical hedging strategies to mitigate downside equity risk, particularly through options.",
+            "Closely monitor credit spreads, especially High Yield OAS, for signs of widening that would signal deteriorating credit conditions.",
+            "Manage duration risk by favoring shorter-duration fixed income instruments and re-evaluating long-duration bond exposures."
         ],
         "news": [
+            {
+                "title": "Wall St reins in rate cut bets on inflation concerns",
+                "url": "https://www.ft.com/content/5b2e8aa2-e26d-4094-aa77-c4c7c9e5865e",
+                "snippet": "Contextual article. Click title for details."
+            },
+            {
+                "title": "Financial Times: Home",
+                "url": "https://www.ft.com/",
+                "snippet": "Contextual article. Click title for details."
+            },
+            {
+                "title": "Econ World | News Reshaping The Global Economy | Reuters",
+                "url": "https://www.reuters.com/markets/econ-world/",
+                "snippet": "Contextual article. Click title for details."
+            },
             {
                 "title": "World Economy Latest: Lack of Broad Growth Is Test for Euro Area ...",
                 "url": "https://www.bloomberg.com/news/articles/2025-11-15/world-economy-latest-lack-of-broad-growth-is-test-for-euro-area",
@@ -291,13 +306,18 @@
                 "snippet": "Contextual article. Click title for details."
             },
             {
-                "title": "Germany risks squandering a golden opportunity",
-                "url": "https://www.ft.com/content/096b7930-3535-4ac9-8eb5-fb7b50f33bc0",
+                "title": "Europe Gauges Fallout From Trump's Year of Trade Chaos ...",
+                "url": "https://www.bloomberg.com/news/articles/2025-11-15/europe-gauges-fallout-from-trump-s-year-of-trade-chaos",
                 "snippet": "Contextual article. Click title for details."
             },
             {
-                "title": "US economic outlook obscured by shutdown-triggered data gap",
-                "url": "https://www.ft.com/content/1932bcda-0cde-4e5a-bd96-0216b6990616",
+                "title": "ECB's Rehn Says Must Account for Risk of Slowing Inflation ...",
+                "url": "https://www.bloomberg.com/news/articles/2025-11-15/ecb-s-rehn-says-must-account-for-risk-of-slowing-inflation",
+                "snippet": "Contextual article. Click title for details."
+            },
+            {
+                "title": "Switzerland wins US tariff rate cut to 15%, pledges $200 billion in ...",
+                "url": "https://www.reuters.com/business/retail-consumer/details-swiss-us-trade-deal-could-emerge-friday-2025-11-14/",
                 "snippet": "Contextual article. Click title for details."
             },
             {
@@ -306,31 +326,11 @@
                 "snippet": "Contextual article. Click title for details."
             },
             {
-                "title": "Financial Times: Home",
-                "url": "https://www.ft.com/",
-                "snippet": "Contextual article. Click title for details."
-            },
-            {
                 "title": "September jobs report will be out Thursday as first data since ...",
                 "url": "https://www.cnbc.com/2025/11/14/heres-where-things-stand-on-when-the-government-will-start-releasing-key-economic-reports.html",
                 "snippet": "Contextual article. Click title for details."
-            },
-            {
-                "title": "Bloomberg - Business News, Stock Markets, Finance, Breaking ...",
-                "url": "https://www.bloomberg.com/",
-                "snippet": "Contextual article. Click title for details."
-            },
-            {
-                "title": "UK Markets Swing Wildly on Income Tax Reports",
-                "url": "https://www.bloomberg.com/news/live-blog/2025-11-14/ftse-100-live-budget-rachel-reeves-pound-bonds-trump-tariffs-what-s-moving-uk-markets-right-now-markets-today",
-                "snippet": "Contextual article. Click title for details."
-            },
-            {
-                "title": "UK politics as it happened \u2014 Gilts sell off on tax plan U-turn",
-                "url": "https://www.ft.com/content/abfe8e95-e7c2-4bcd-bd72-b5fe03e9481d",
-                "snippet": "Contextual article. Click title for details."
             }
         ],
-        "news_context_raw": "1. [World Economy Latest: Lack of Broad Growth Is Test for Euro Area ...](https://www.bloomberg.com/news/articles/2025-11-15/world-economy-latest-lack-of-broad-growth-is-test-for-euro-area)\n2. [As Fed hawks press their case, traders bet against December cut ...](https://www.reuters.com/business/feds-schmid-inflation-is-too-hot-policy-is-where-it-should-be-2025-11-14/)\n3. [Germany risks squandering a golden opportunity](https://www.ft.com/content/096b7930-3535-4ac9-8eb5-fb7b50f33bc0)\n4. [US economic outlook obscured by shutdown-triggered data gap](https://www.ft.com/content/1932bcda-0cde-4e5a-bd96-0216b6990616)\n5. [The 3% World: The Bond Market Tells What The FED Won't Say (But ...](https://seekingalpha.com/article/4843782-the-3-percent-world-the-bond-market-tells-what-the-fed-wont-say-but-markets-dont-care)\n6. [Financial Times: Home](https://www.ft.com/)\n7. [September jobs report will be out Thursday as first data since ...](https://www.cnbc.com/2025/11/14/heres-where-things-stand-on-when-the-government-will-start-releasing-key-economic-reports.html)\n8. [Bloomberg - Business News, Stock Markets, Finance, Breaking ...](https://www.bloomberg.com/)\n9. [UK Markets Swing Wildly on Income Tax Reports](https://www.bloomberg.com/news/live-blog/2025-11-14/ftse-100-live-budget-rachel-reeves-pound-bonds-trump-tariffs-what-s-moving-uk-markets-right-now-markets-today)\n10. [UK politics as it happened \u2014 Gilts sell off on tax plan U-turn](https://www.ft.com/content/abfe8e95-e7c2-4bcd-bd72-b5fe03e9481d)"
+        "news_context_raw": "1. [Wall St reins in rate cut bets on inflation concerns](https://www.ft.com/content/5b2e8aa2-e26d-4094-aa77-c4c7c9e5865e)\n2. [Financial Times: Home](https://www.ft.com/)\n3. [Econ World | News Reshaping The Global Economy | Reuters](https://www.reuters.com/markets/econ-world/)\n4. [World Economy Latest: Lack of Broad Growth Is Test for Euro Area ...](https://www.bloomberg.com/news/articles/2025-11-15/world-economy-latest-lack-of-broad-growth-is-test-for-euro-area)\n5. [As Fed hawks press their case, traders bet against December cut ...](https://www.reuters.com/business/feds-schmid-inflation-is-too-hot-policy-is-where-it-should-be-2025-11-14/)\n6. [Europe Gauges Fallout From Trump's Year of Trade Chaos ...](https://www.bloomberg.com/news/articles/2025-11-15/europe-gauges-fallout-from-trump-s-year-of-trade-chaos)\n7. [ECB's Rehn Says Must Account for Risk of Slowing Inflation ...](https://www.bloomberg.com/news/articles/2025-11-15/ecb-s-rehn-says-must-account-for-risk-of-slowing-inflation)\n8. [Switzerland wins US tariff rate cut to 15%, pledges $200 billion in ...](https://www.reuters.com/business/retail-consumer/details-swiss-us-trade-deal-could-emerge-friday-2025-11-14/)\n9. [The 3% World: The Bond Market Tells What The FED Won't Say (But ...](https://seekingalpha.com/article/4843782-the-3-percent-world-the-bond-market-tells-what-the-fed-wont-say-but-markets-dont-care)\n10. [September jobs report will be out Thursday as first data since ...](https://www.cnbc.com/2025/11/14/heres-where-things-stand-on-when-the-government-will-start-releasing-key-economic-reports.html)"
     }
 }

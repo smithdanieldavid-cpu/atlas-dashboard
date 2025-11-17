@@ -53,6 +53,7 @@
             "id": "WTI_CRUDE",
             "name": "WTI crude oil ($/bbl)",
 <<<<<<< HEAD
+<<<<<<< HEAD
             "value": 60.040000915527344,
             "status": "Green",
             "note": "WTI Crude at $60.04/bbl. Normal price range, favorable for growth.",
@@ -60,8 +61,11 @@
             "score_value": 0.0,
 =======
             "value": 59.7400016784668,
+=======
+            "value": 59.709999084472656,
+>>>>>>> 0375547 (analysis)
             "status": "Amber",
-            "note": "WTI Crude at $59.74/bbl. Low price indicates global slowdown or demand weakness.",
+            "note": "WTI Crude at $59.71/bbl. Low price indicates global slowdown or demand weakness.",
             "action": "Monitor global growth indicators.",
             "score_value": 0.5,
 >>>>>>> ccd11bb (narrative)
@@ -71,6 +75,7 @@
             "id": "AUDUSD",
             "name": "AUD/USD exchange rate",
 <<<<<<< HEAD
+<<<<<<< HEAD
             "value": 0.6507874727249146,
             "status": "Green",
             "note": "AUDUSD at 0.6508. Stable, suggesting moderate risk appetite.",
@@ -78,6 +83,9 @@
             "score_value": 0.0,
 =======
             "value": 0.649350643157959,
+=======
+            "value": 0.6494349837303162,
+>>>>>>> 0375547 (analysis)
             "status": "Amber",
             "note": "AUDUSD at 0.6494. Weakness signals higher global risk aversion.",
             "action": "Monitor commodity markets and China growth data.",
@@ -226,6 +234,7 @@
             "id": "SMALL_LARGE_RATIO",
             "name": "Small/Large Cap Ratio (RUT/SPX)",
 <<<<<<< HEAD
+<<<<<<< HEAD
             "value": 0.3533592035383526,
             "status": "Red",
             "note": "Small/Large Cap ratio at 0.3534. Severe small-cap underperformance. Recessionary signal/high risk-off sentiment.",
@@ -234,6 +243,11 @@
             "status": "Red",
             "note": "Small/Large Cap ratio at 0.3513. Severe small-cap underperformance. Recessionary signal/high risk-off sentiment.",
 >>>>>>> ccd11bb (narrative)
+=======
+            "value": 0.3511194871956992,
+            "status": "Red",
+            "note": "Small/Large Cap ratio at 0.3511. Severe small-cap underperformance. Recessionary signal/high risk-off sentiment.",
+>>>>>>> 0375547 (analysis)
             "action": "Avoid small-cap exposure entirely. Favour high-quality large-caps.",
             "score_value": 1.5,
             "source_link": "https://finance.yahoo.com/quote/%5ERUT"
@@ -241,6 +255,7 @@
         {
             "id": "PUT_CALL_RATIO",
             "name": "Put/Call Ratio (PCCE)",
+<<<<<<< HEAD
 <<<<<<< HEAD
             "value": 1.0434927601439532,
             "status": "Red",
@@ -250,6 +265,11 @@
             "status": "Red",
             "note": "SPY PCR at 1.0364. Extreme retail options hedging (put-buying). High market fear/bearish sentiment.",
 >>>>>>> ccd11bb (narrative)
+=======
+            "value": 1.0351107294432373,
+            "status": "Red",
+            "note": "SPY PCR at 1.0351. Extreme retail options hedging (put-buying). High market fear/bearish sentiment.",
+>>>>>>> 0375547 (analysis)
             "action": "Consider contrarian bullish positioning; watch VIX for confirmation.",
             "score_value": 1.0,
             "source_link": "Data calculated from aggregated SPY options volume: [Yahoo Finance Link](https://finance.yahoo.com/quote/SPY)"
@@ -345,6 +365,7 @@
             }
         ],
 <<<<<<< HEAD
+<<<<<<< HEAD
         "daily_narrative": "Gemini API call failed: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",
         "composite_summary": "Failure",
         "key_actions": [
@@ -357,12 +378,16 @@
 =======
         "daily_narrative": "Atlas indicators signal a SEVERE RISK posture, driven by a Composite Score of 8.25. The most critical Red indicators are concentrated in leverage and risk appetite, pointing to increasing systemic vulnerability. Specifically, FINRA Margin Debt YOY % stands at a concerning 38.52%, indicating substantial investor leverage that could amplify market downturns. Concurrently, the Small/Large Cap Ratio (RUT/SPX) at 0.35 is firmly in Red territory, reflecting a significant and sustained underperformance of riskier small-cap equities relative to large caps, signaling a clear shift away from speculative assets and towards perceived safety. The Put/Call Ratio (PCCE) at 1.04 further reinforces this bearish sentiment, indicating heightened hedging activity and a preference for downside protection among options traders. The Gold price, a traditional safe-haven asset, is also Red at 371.65, reinforcing a flight to quality and a defensive posture among investors. These indicators collectively highlight a market increasingly vulnerable to deleveraging events and a broad-based reduction in risk-taking, with underlying structural risks accumulating.\nA notable contradiction exists between these escalating risk indicators and certain market segments. While the VIX Index is Amber at 22.43, signaling elevated volatility expectations, it has not yet reached extreme levels typically associated with a full-blown market panic, despite the underlying structural leverage and risk aversion evident in margin debt and small-cap underperformance. This suggests a potential for delayed volatility expression. Similarly, High Yield OAS remains Green at 307.00 bps, indicating corporate credit spreads are relatively contained, which appears incongruous with the Red indicators for leverage and risk aversion. This divergence implies that while individual investor leverage is high and risk appetite is clearly deteriorating in equity segments, the broader credit market may be exhibiting a degree of complacency or is lagging in its reaction to these accumulating risks. For investors, this environment necessitates a proactive approach to risk management, focusing on reducing exposure to highly leveraged positions and assets sensitive to shifts in market sentiment, as the current calm in credit spreads may not persist if underlying leverage unwinds, posing significant portfolio risks.\nThe external macro environment presents a mixed but generally cautious tone, with central bank guidance taking center stage. As highlighted by Reuters, the Financial Times, and Morningstar, Federal Reserve Governor Waller has explicitly advocated for a December rate cut, citing a weakening job market. This dovish stance from a prominent Fed official could temper expectations for higher-for-longer rates, potentially offering some relief to duration-sensitive assets, but simultaneously underscores concerns about underlying economic deceleration. Despite this, CNBC reports the dollar inching higher as investors brace for a deluge of U.S. economic data, suggesting a potential safe-haven bid or anticipation of robust figures that could challenge the dovish narrative. Elsewhere, Reuters indicates the Euro zone is projected to grow faster than initially expected, though this is tempered by concerns over defense spending. Bloomberg also draws attention to elevated borrowing costs faced by African nations, reflecting broader global credit market disparities. J.P. Morgan's 2026 outlook, as covered by Morningstar, emphasizes themes of AI, fragmentation, and inflation, pointing to a complex investment landscape ahead. These external factors, particularly the nuanced central bank communication and mixed economic signals, contribute to the prevailing uncertainty. Readers are directed to the News Feed below for the full list of articles reviewed. The Atlas posture would escalate to FULL-STORM upon a US 10-Year Yield move above 4.75% or HY OAS widening beyond 400 bps.",
         "composite_summary": "Atlas indicators signal a SEVERE RISK posture, driven by escalating investor leverage and deteriorating risk appetite, despite contained credit spreads and a moderately elevated VIX.",
+=======
+        "daily_narrative": "Atlas indicators signal a SEVERE RISK posture, driven by a composite score of 8.25. Critical Red indicators highlight significant leverage and market breadth concerns. Specifically, FINRA Margin Debt Year-over-Year percentage remains elevated at 38.52%, indicating substantial speculative activity and increased systemic leverage within the equity market. This is compounded by a Red status in the Small/Large Cap Ratio (RUT/SPX) at 0.35, suggesting a narrowing market leadership and a lack of broad participation, which historically precedes periods of increased volatility and corrections. While Treasury net liquidity remains Green, providing a degree of systemic stability, the Amber VIX at 22.43, though not extreme, indicates underlying market unease that contradicts the apparent calm in headline equity indices. This divergence suggests that while immediate liquidity may be sufficient, the market's structural vulnerabilities are growing due to concentrated risk-taking.\nFurther contributing to the SEVERE RISK posture is the Red status of the Put/Call Ratio (PCCE) at 1.04, reflecting increased hedging demand or speculative bearish positioning, and the Amber status of credit card delinquencies at 305, pointing to nascent stress in consumer balance sheets. The Gold price, a traditional safe-haven asset, is also Red at 371.65, reinforcing a risk-off sentiment among some investors. A notable contradiction lies in the High Yield OAS remaining Green at 307.00 bps, which suggests credit markets are not yet fully pricing in the leverage and breadth concerns evident elsewhere. Similarly, the US 10-year Treasury yield is Green at 4.11%, while the 30-year yield is Amber at 4.70%, indicating some duration risk at the long end but not a broad-based bond market sell-off. For investors, this environment implies a heightened need for vigilance. The market's apparent resilience, as reflected in stable headline equity indices and benign credit spreads, masks significant underlying fragilities driven by elevated leverage and narrowing market participation. Portfolios should prioritize defensive positioning and risk reduction, as the current setup suggests a potential for rapid repricing should a catalyst emerge.\nThe global macro and policy tone presents a mixed but increasingly dovish picture from central banks. As reported by Reuters, the Financial Times, and Morningstar, Federal Reserve Governor Waller's recent comments advocating for a December rate cut, citing a weak job market, signal a potential shift towards easing monetary policy earlier than previously anticipated. This dovish sentiment could provide some near-term support for risk assets, though CNBC highlights that the dollar is strengthening as investors brace for a deluge of upcoming U.S. economic data, indicating continued market sensitivity to economic fundamentals. Globally, Reuters projects faster-than-expected growth for the Euro zone, yet Bloomberg's reporting on Africa's high borrowing costs underscores persistent global financial fragmentation and debt challenges in developing economies. Furthermore, Bloomberg also notes Wall Street's focus on building hedges against long-term systemic risks like health-cost spirals, while J.P. Morgan's 2026 outlook, as covered by Morningstar, emphasizes the complex interplay of AI, fragmentation, and inflation. These external factors suggest a nuanced environment where central bank dovishness might contend with underlying economic vulnerabilities and geopolitical complexities. Readers are directed to the News Feed below for the full list of articles reviewed. The Atlas posture would escalate to FULL-STORM should the US 10-Year Yield move above 4.75% or HY OAS widen beyond 400 bps.",
+        "composite_summary": "Atlas maintains a SEVERE RISK posture, driven by elevated leverage and narrowing market breadth, despite some contradictory signals from volatility and credit spreads.",
+>>>>>>> 0375547 (analysis)
         "key_actions": [
-            "Reduce exposure to highly leveraged assets and speculative equities.",
-            "Increase allocation to defensive sectors and high-quality fixed income.",
-            "Implement tactical hedging strategies to mitigate downside equity risk.",
-            "Closely monitor High Yield OAS for signs of credit market deterioration.",
-            "Re-evaluate duration exposure given mixed signals from Fed commentary and long-term yields."
+            "Reduce overall portfolio leverage and maintain higher cash allocations to enhance liquidity.",
+            "Shift portfolio bias towards defensive sectors and high-quality assets with strong balance sheets.",
+            "Implement tactical hedging strategies to mitigate downside risk, particularly in concentrated equity exposures.",
+            "Closely monitor credit spreads, especially High Yield OAS, for early signs of widening that would confirm broader credit deterioration.",
+            "Manage duration risk by scrutinizing exposure to long-dated fixed income, given the Amber status of the US 30yr yield."
         ],
         "news": [
             {

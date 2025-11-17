@@ -24,9 +24,9 @@
         {
             "id": "EURUSD",
             "name": "EUR/USD exchange rate",
-            "value": 1.1631964445114136,
+            "value": 1.1610356569290161,
             "status": "Green",
-            "note": "EUR/USD is at 1.1632. Normal range.",
+            "note": "EUR/USD is at 1.1610. Normal range.",
             "action": "No change.",
             "score_value": 0.0,
             "source_link": "https://finance.yahoo.com/quote/EURUSD=X"
@@ -34,9 +34,9 @@
         {
             "id": "WTI_CRUDE",
             "name": "WTI crude oil ($/bbl)",
-            "value": 0.0,
+            "value": 59.43000030517578,
             "status": "Amber",
-            "note": "WTI Crude at $0.00/bbl. Low price indicates global slowdown or demand weakness.",
+            "note": "WTI Crude at $59.43/bbl. Low price indicates global slowdown or demand weakness.",
             "action": "Monitor global growth indicators.",
             "score_value": 0.5,
             "source_link": "https://finance.yahoo.com/quote/CL=F"
@@ -44,9 +44,9 @@
         {
             "id": "AUDUSD",
             "name": "AUD/USD exchange rate",
-            "value": 0.6535093188285828,
+            "value": 0.6526989340782166,
             "status": "Green",
-            "note": "AUDUSD at 0.6535. Stable, suggesting moderate risk appetite.",
+            "note": "AUDUSD at 0.6527. Stable, suggesting moderate risk appetite.",
             "action": "No change.",
             "score_value": 0.0,
             "source_link": "https://finance.yahoo.com/quote/AUDUSD=X"
@@ -159,9 +159,9 @@
         {
             "id": "ASX_200",
             "name": "ASX 200 index",
-            "value": 8634.5,
+            "value": 8636.400390625,
             "status": "Green",
-            "note": "ASX 200 Index at 8,634. Stable price action.",
+            "note": "ASX 200 Index at 8,636. Stable price action.",
             "action": "No change.",
             "score_value": 0.0,
             "source_link": "https://finance.yahoo.com/quote/%5EAXJO"
@@ -228,7 +228,7 @@
         }
     ],
     "overall": {
-        "date": "2025-11-16",
+        "date": "2025-11-17",
         "score": 7.25,
         "status": "ELEVATED RISK (MODERATE RISK)",
         "comment": "Caution warranted; mixed signals dominating market trends.",
@@ -270,67 +270,67 @@
                 "status": "Green"
             }
         ],
-        "daily_narrative": "The Atlas Composite Score indicates an ELEVATED RISK (MODERATE RISK) posture, currently standing at 7.25. A primary driver of this elevated risk is the significant increase in market leverage, evidenced by the Red status of FINRA Margin Debt YOY % at 38.52%. This substantial rise in margin debt suggests an increasing appetite for speculative positions, potentially amplifying market volatility and downside risk should sentiment shift abruptly. Such elevated leverage can lead to forced selling during market downturns, creating a feedback loop that accelerates price declines. Concurrently, the Small/Large Cap Ratio (RUT/SPX) is also Red at 0.35, indicating a narrowing of market leadership and a potential divergence in underlying market health. This suggests that broader market participation is waning, with performance increasingly concentrated in a few large-cap names, making the overall market structure vulnerable to concentrated selling pressure and reducing the breadth of potential upside.\n\nFurther contributing to the risk profile is the Amber status of the US 30yr treasury yield at 4.70%, reflecting persistent duration risk and higher borrowing costs across the yield curve. This indicates that long-term funding costs remain elevated, posing challenges for highly indebted entities and potentially dampening future economic activity. While the VIX Index remains Amber at 19.83, suggesting implied volatility has not yet fully reflected the underlying leverage and duration risks, the Red status of the Put/Call Ratio at 1.32 indicates increased hedging activity or a growing bearish sentiment among some market participants. This apparent contradiction\u2014a relatively subdued VIX despite significant leverage, narrowing market breadth, and higher long-term yields\u2014suggests a potential for complacency in certain segments of the market. This leaves portfolios susceptible to abrupt corrections if these underlying pressures intensify, particularly as the Gold price also registers Red, often a signal of underlying uncertainty. Investors should interpret this as a clear signal to prioritize capital preservation and reduce exposure to highly leveraged or speculative assets, focusing instead on quality and resilience.\n\nThe global macro and policy tone reinforces a cautious outlook, as highlighted by recent reporting. The Financial Times and Reuters indicate that Wall Street is reining in rate cut expectations due to persistent inflation concerns, with Federal Reserve officials maintaining a hawkish stance. This aligns with the Amber status of the US 30yr treasury yield, reflecting market anticipation of higher-for-longer rates and the associated duration risk. While Investopedia suggests factors that could sustain the bull market, Morningstar and MarketWatch underscore significant economic questions looming this week, particularly concerning delayed data releases that could introduce further market volatility. Adding to the structural concerns, the Wall Street Journal discusses the potential strain on the bond market from trillions in new AI-related debt, which could exacerbate existing leverage and duration risks, directly correlating with Atlas's Red indicator for FINRA Margin Debt. Furthermore, Bloomberg reports on Europe's assessment of potential trade disruptions, introducing an additional layer of geopolitical uncertainty that could impact global supply chains and economic stability. These external factors, particularly the inflation narrative, rising debt, and trade tensions, provide a challenging backdrop for the current market structure observed in Atlas indicators, suggesting that the underlying risks are not merely idiosyncratic but are being reinforced by broader macroeconomic trends. Readers are directed to the News Feed below for the full list of articles reviewed.\n\nThe posture would escalate to FULL-STORM should the US 10-Year Yield move above 4.75% or HY OAS widen beyond 400 bps.",
-        "composite_summary": "Atlas maintains an ELEVATED RISK (MODERATE RISK) posture, driven by escalating market leverage and duration risk, despite a relatively subdued VIX, necessitating a defensive portfolio stance.",
+        "daily_narrative": "The Atlas Composite Score registers at 7.25, indicating an ELEVATED RISK (MODERATE RISK) posture. This assessment is primarily driven by several critical Red and Amber indicators signaling heightened leverage and underlying market fragility. Specifically, the year-over-year change in FINRA Margin Debt, a key leverage metric, remains in the Red at 38.52%, reflecting an unsustainable build-up of speculative positions. Concurrently, the Small/Large Cap Ratio (RUT/SPX) is also Red at 0.35, indicating a significant underperformance of smaller, more growth-sensitive companies relative to larger, more stable counterparts, a classic sign of risk aversion and liquidity preference for quality. The Put/Call Ratio (PCCE) at 1.32, another Red indicator, points to increased hedging activity and bearish sentiment among options traders. While the VIX Index remains Amber at 19.83, not yet signaling extreme panic, its proximity to the 20-threshold, coupled with the Red status of Gold prices (375.96), suggests a disconnect where implied volatility is not fully reflecting the underlying stress evident in leverage and sentiment indicators. This divergence implies a potential for rapid market adjustments should a catalyst emerge.\n\nThe current environment presents a nuanced picture where traditional volatility measures like the VIX are not fully aligning with other critical risk signals. The Amber VIX, despite rising leverage (FINRA Margin Debt) and a clear shift towards defensive positioning (Small/Large Cap Ratio, Put/Call Ratio, Gold price), suggests a degree of complacency or a delayed reaction in broad market volatility. This contradiction implies that while headline indices may appear stable, the market's internal structure is exhibiting signs of stress, particularly concerning duration and credit quality. The US 30-year Treasury yield, at an Amber 4.70%, highlights persistent duration risk, while Amber credit card delinquencies at 305.00 signal emerging consumer credit stress, impacting broader economic liquidity. For investors, this means that while broad market indices might not yet reflect severe distress, the underlying conditions point to a market increasingly vulnerable to deleveraging events and shifts in risk appetite. Portfolios should prioritize resilience over aggressive growth, focusing on capital preservation and liquidity.\n\nThe global macro landscape reinforces a cautious tone, with central bank actions and economic data points creating a complex environment. As highlighted by Reuters, Japan's economy contracted for the first time in six quarters, while the Bank of Japan governor's warnings about prolonged loose policy risks, per Reuters minutes, underscore ongoing monetary policy challenges. Concerns over potential Federal Reserve policy shifts, influenced by upcoming US data, are weighing on Asian currencies, as reported by the Wall Street Journal, and impacting gold prices, according to Reuters. Meanwhile, the Financial Times warns that a run on stablecoins could compel the ECB to reconsider interest rates, adding another layer of uncertainty to global monetary policy. In emerging markets, Bloomberg reports that African nations face the highest borrowing costs globally, though some African central banks are beginning to cut rates as inflation cools. The Financial Times also explores strategies for navigating potential market bubbles, suggesting a broader investor awareness of elevated valuations. These developments collectively point to a period of heightened sensitivity to policy guidance and economic indicators, with implications for global capital flows and risk asset performance. Readers are directed to the News Feed below for the full list of articles reviewed. The posture would escalate to FULL-STORM should the US 10-Year Yield move above 4.75% or HY OAS widen beyond 400 bps.",
+        "composite_summary": "The Atlas Composite Score of 7.25 signals an ELEVATED RISK (MODERATE RISK) posture, driven by elevated leverage and underlying market fragility despite a relatively subdued VIX.",
         "key_actions": [
             "Reduce exposure to highly leveraged assets and speculative growth equities.",
-            "Increase allocation to defensive sectors with stable cash flows and strong balance sheets.",
-            "Implement tactical hedging strategies to mitigate downside risk, particularly in equity portfolios.",
-            "Closely monitor credit spreads, especially High Yield OAS, for early signs of credit deterioration.",
-            "Re-evaluate and reduce duration exposure in fixed income portfolios given persistent yield pressures."
+            "Increase allocation to defensive sectors and high-quality fixed income with shorter duration.",
+            "Implement tactical hedging strategies to mitigate downside risk, particularly in equity and credit portfolios.",
+            "Closely monitor credit spreads, especially High Yield OAS, for signs of further widening.",
+            "Re-evaluate rate-sensitive exposures given persistent duration risk indicated by long-term Treasury yields."
         ],
         "news": [
             {
-                "title": "Wall Street reins in rate cut bets due to inflation concerns",
-                "url": "https://www.ft.com/content/5b2e8aa2-e26d-4094-aa77-c4c7c9e5865e",
+                "title": "Africa Pays the Highest Costs in the World to Borrow Money ...",
+                "url": "https://www.bloomberg.com/news/articles/2025-11-17/africa-pays-the-highest-costs-in-the-world-to-borrow-money",
                 "snippet": "Contextual article. Click title for details."
             },
             {
-                "title": "As Fed hawks press their case, traders bet against December cut ...",
-                "url": "https://www.reuters.com/business/feds-schmid-inflation-is-too-hot-policy-is-where-it-should-be-2025-11-14/",
+                "title": "A run on stablecoins could force ECB to rethink interest rates, warns ...",
+                "url": "https://www.ft.com/content/d6dd3640-7790-4598-ad1c-9838419c4c4c",
                 "snippet": "Contextual article. Click title for details."
             },
             {
-                "title": "The Three Factors This Wall Street Expert Says Will Keep the Bull ...",
-                "url": "https://www.investopedia.com/this-expert-says-3-factors-will-keep-the-bull-market-running-into-2026-11850044",
+                "title": "Morning Bid: Nvidia earnings likely to overshadow delayed US data ...",
+                "url": "https://www.reuters.com/world/china/global-markets-view-europe-2025-11-17/",
                 "snippet": "Contextual article. Click title for details."
             },
             {
-                "title": "Europe Gauges Fallout From Trump's Year of Trade Chaos ...",
-                "url": "https://www.bloomberg.com/news/articles/2025-11-15/europe-gauges-fallout-from-trump-s-year-of-trade-chaos",
+                "title": "How to hide from a bubble",
+                "url": "https://www.ft.com/content/bf06e291-44b6-4116-8319-a98e35d7cd48",
                 "snippet": "Contextual article. Click title for details."
             },
             {
-                "title": "Markets - Bloomberg",
-                "url": "https://www.bloomberg.com/markets",
+                "title": "Singapore Dollar Weakens on Worry Over U.S. Data, Possible Fed ...",
+                "url": "https://www.wsj.com/finance/currencies/asian-currencies-mostly-weaken-as-fed-officials-hawkish-remarks-weigh-32afd70d?gaa_at=eafs&gaa_n=AWEtsqeqoLqYM3dFlya7sgthHdxGNpLaHQnHuXyDdbEBmYx6x2psyvpMWAtr&gaa_ts=691aca41&gaa_sig=JkAKJENo3e26hKtmzWV78FTEZ8EgN8FBrAUTZnPKgdk8TUJkjKAC1xpjA6lifVYIpnDgFh28H7jDLWvaoiJ60w%3D%3D",
                 "snippet": "Contextual article. Click title for details."
             },
             {
-                "title": "How Trillions in New AI Debt Will Test the Bond Market - WSJ's Take ...",
-                "url": "https://www.wsj.com/podcasts/take-on-the-week/how-trillions-in-new-ai-debt-will-test-the-bond-market/c2826a94-789e-49e6-8eca-36365b8bb5a7?gaa_at=eafs&gaa_n=AWEtsqc6sDk276Y7snAJSlGZMi_WfvnyUJJkLMv7RK3ND6ZcjbsY-qrLUyK8&gaa_ts=691a1fce&gaa_sig=Tf8e5cxrx-1onDxdn8-filKrYe_BXKrBUMdDS_ofPQ7tHQAjQMZcfmNrgx7fDibCf1qYyutwR7aXFoXG42523Q%3D%3D",
+                "title": "Gold slips as dollar gains, focus on US data for more Fed cues ...",
+                "url": "https://www.reuters.com/world/india/gold-holds-steady-focus-turns-us-data-more-fed-cues-2025-11-17/",
                 "snippet": "Contextual article. Click title for details."
             },
             {
-                "title": "Will the Fed's minutes throw any new light on US interest rates?",
-                "url": "https://www.ft.com/content/bb8fcdd6-78d3-4d99-bf15-9f6043554597",
+                "title": "Japan's economy contracts for first time in six quarters on tariff hit ...",
+                "url": "https://www.reuters.com/world/asia-pacific/japans-economy-contracts-first-time-six-quarters-2025-11-17/",
                 "snippet": "Contextual article. Click title for details."
             },
             {
-                "title": "The stock market faces big questions about the economy this week ...",
-                "url": "https://www.morningstar.com/news/marketwatch/20251116100/thestock-market-faces-big-questions-about-the-economy-this-week-how-to-be-strategic-as-delayed-data-comes-out",
+                "title": "BOJ governor warned panel of prolonged loose policy risks, minutes ...",
+                "url": "https://www.reuters.com/world/asia-pacific/boj-governor-warned-panel-prolonged-loose-policy-risks-minutes-show-2025-11-17/",
                 "snippet": "Contextual article. Click title for details."
             },
             {
-                "title": "The stock market faces big questions about the economy this week ...",
-                "url": "https://www.marketwatch.com/story/the-stock-market-faces-big-questions-about-the-economy-this-week-how-to-be-strategic-as-delayed-data-comes-out-fd7f5e2c?gaa_at=eafs&gaa_n=AWEtsqdlifGWoo1ERC-HMWI26GYzzYPqL3eFNsrPhCeBqAq6VnWQ1B3rmwm6&gaa_ts=691a1fce&gaa_sig=p4qdBK-NY6Y_66Sl8zP3FqX7A4WfLAuz4p5ef6rJj0synUTitJ87HI1b6HSlcNQZEQUgUrnut-0bhnZ_WsGOBg%3D%3D",
+                "title": "African Central Banks Set to Cut Interest Rates as Inflation Cools ...",
+                "url": "https://www.bloomberg.com/news/articles/2025-11-17/african-central-banks-set-to-cut-interest-rates-as-inflation-cools",
                 "snippet": "Contextual article. Click title for details."
             },
             {
-                "title": "Econ World | News Reshaping The Global Economy | Reuters",
-                "url": "https://www.reuters.com/markets/econ-world/",
+                "title": "Transcript: UK bond market wades through Budget uncertainty",
+                "url": "https://www.ft.com/content/0ed556fa-d5e0-40f8-b9dd-f2b80d8f365a",
                 "snippet": "Contextual article. Click title for details."
             }
         ],
-        "news_context_raw": "1. [Wall Street reins in rate cut bets due to inflation concerns](https://www.ft.com/content/5b2e8aa2-e26d-4094-aa77-c4c7c9e5865e)\n2. [As Fed hawks press their case, traders bet against December cut ...](https://www.reuters.com/business/feds-schmid-inflation-is-too-hot-policy-is-where-it-should-be-2025-11-14/)\n3. [The Three Factors This Wall Street Expert Says Will Keep the Bull ...](https://www.investopedia.com/this-expert-says-3-factors-will-keep-the-bull-market-running-into-2026-11850044)\n4. [Europe Gauges Fallout From Trump's Year of Trade Chaos ...](https://www.bloomberg.com/news/articles/2025-11-15/europe-gauges-fallout-from-trump-s-year-of-trade-chaos)\n5. [Markets - Bloomberg](https://www.bloomberg.com/markets)\n6. [How Trillions in New AI Debt Will Test the Bond Market - WSJ's Take ...](https://www.wsj.com/podcasts/take-on-the-week/how-trillions-in-new-ai-debt-will-test-the-bond-market/c2826a94-789e-49e6-8eca-36365b8bb5a7?gaa_at=eafs&gaa_n=AWEtsqc6sDk276Y7snAJSlGZMi_WfvnyUJJkLMv7RK3ND6ZcjbsY-qrLUyK8&gaa_ts=691a1fce&gaa_sig=Tf8e5cxrx-1onDxdn8-filKrYe_BXKrBUMdDS_ofPQ7tHQAjQMZcfmNrgx7fDibCf1qYyutwR7aXFoXG42523Q%3D%3D)\n7. [Will the Fed's minutes throw any new light on US interest rates?](https://www.ft.com/content/bb8fcdd6-78d3-4d99-bf15-9f6043554597)\n8. [The stock market faces big questions about the economy this week ...](https://www.morningstar.com/news/marketwatch/20251116100/thestock-market-faces-big-questions-about-the-economy-this-week-how-to-be-strategic-as-delayed-data-comes-out)\n9. [The stock market faces big questions about the economy this week ...](https://www.marketwatch.com/story/the-stock-market-faces-big-questions-about-the-economy-this-week-how-to-be-strategic-as-delayed-data-comes-out-fd7f5e2c?gaa_at=eafs&gaa_n=AWEtsqdlifGWoo1ERC-HMWI26GYzzYPqL3eFNsrPhCeBqAq6VnWQ1B3rmwm6&gaa_ts=691a1fce&gaa_sig=p4qdBK-NY6Y_66Sl8zP3FqX7A4WfLAuz4p5ef6rJj0synUTitJ87HI1b6HSlcNQZEQUgUrnut-0bhnZ_WsGOBg%3D%3D)\n10. [Econ World | News Reshaping The Global Economy | Reuters](https://www.reuters.com/markets/econ-world/)"
+        "news_context_raw": "1. [Africa Pays the Highest Costs in the World to Borrow Money ...](https://www.bloomberg.com/news/articles/2025-11-17/africa-pays-the-highest-costs-in-the-world-to-borrow-money)\n2. [A run on stablecoins could force ECB to rethink interest rates, warns ...](https://www.ft.com/content/d6dd3640-7790-4598-ad1c-9838419c4c4c)\n3. [Morning Bid: Nvidia earnings likely to overshadow delayed US data ...](https://www.reuters.com/world/china/global-markets-view-europe-2025-11-17/)\n4. [How to hide from a bubble](https://www.ft.com/content/bf06e291-44b6-4116-8319-a98e35d7cd48)\n5. [Singapore Dollar Weakens on Worry Over U.S. Data, Possible Fed ...](https://www.wsj.com/finance/currencies/asian-currencies-mostly-weaken-as-fed-officials-hawkish-remarks-weigh-32afd70d?gaa_at=eafs&gaa_n=AWEtsqeqoLqYM3dFlya7sgthHdxGNpLaHQnHuXyDdbEBmYx6x2psyvpMWAtr&gaa_ts=691aca41&gaa_sig=JkAKJENo3e26hKtmzWV78FTEZ8EgN8FBrAUTZnPKgdk8TUJkjKAC1xpjA6lifVYIpnDgFh28H7jDLWvaoiJ60w%3D%3D)\n6. [Gold slips as dollar gains, focus on US data for more Fed cues ...](https://www.reuters.com/world/india/gold-holds-steady-focus-turns-us-data-more-fed-cues-2025-11-17/)\n7. [Japan's economy contracts for first time in six quarters on tariff hit ...](https://www.reuters.com/world/asia-pacific/japans-economy-contracts-first-time-six-quarters-2025-11-17/)\n8. [BOJ governor warned panel of prolonged loose policy risks, minutes ...](https://www.reuters.com/world/asia-pacific/boj-governor-warned-panel-prolonged-loose-policy-risks-minutes-show-2025-11-17/)\n9. [African Central Banks Set to Cut Interest Rates as Inflation Cools ...](https://www.bloomberg.com/news/articles/2025-11-17/african-central-banks-set-to-cut-interest-rates-as-inflation-cools)\n10. [Transcript: UK bond market wades through Budget uncertainty](https://www.ft.com/content/0ed556fa-d5e0-40f8-b9dd-f2b80d8f365a)"
     }
 }

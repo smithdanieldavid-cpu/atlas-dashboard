@@ -4,9 +4,15 @@
         {
             "id": "VIX",
             "name": "VIX Index",
+<<<<<<< HEAD
             "value": 21.719999313354492,
             "status": "Amber",
             "note": "VIX at 21.72 (2025-11-17 4:00 PM EST). Elevated volatility. Monitor daily swings.",
+=======
+            "value": 22.43000030517578,
+            "status": "Amber",
+            "note": "VIX at 22.43 (2025-11-17 4:00 PM EST). Elevated volatility. Monitor daily swings.",
+>>>>>>> ccd11bb (narrative)
             "action": "Monitor news flow; review volatility exposure.",
             "score_value": 1.0,
             "source_link": "https://www.cboe.com/vix/"
@@ -14,9 +20,15 @@
         {
             "id": "GOLD_PRICE",
             "name": "Gold price (GLD proxy)",
+<<<<<<< HEAD
             "value": 374.1700134277344,
             "status": "Red",
             "note": "Gold (GLD) at $374.17. Signals extreme flight to safety or high inflation expectations.",
+=======
+            "value": 371.65008544921875,
+            "status": "Red",
+            "note": "Gold (GLD) at $371.65. Signals extreme flight to safety or high inflation expectations.",
+>>>>>>> ccd11bb (narrative)
             "action": "Maintain gold position as a core hedge; reduce risk assets.",
             "score_value": 1.0,
             "source_link": "https://finance.yahoo.com/quote/GLD"
@@ -24,9 +36,15 @@
         {
             "id": "EURUSD",
             "name": "EUR/USD exchange rate",
+<<<<<<< HEAD
             "value": 1.1595547199249268,
             "status": "Green",
             "note": "EUR/USD is at 1.1596. Normal range.",
+=======
+            "value": 1.159151554107666,
+            "status": "Green",
+            "note": "EUR/USD is at 1.1592. Normal range.",
+>>>>>>> ccd11bb (narrative)
             "action": "No change.",
             "score_value": 0.0,
             "source_link": "https://finance.yahoo.com/quote/EURUSD=X"
@@ -34,21 +52,37 @@
         {
             "id": "WTI_CRUDE",
             "name": "WTI crude oil ($/bbl)",
+<<<<<<< HEAD
             "value": 60.040000915527344,
             "status": "Green",
             "note": "WTI Crude at $60.04/bbl. Normal price range, favorable for growth.",
             "action": "No change.",
             "score_value": 0.0,
+=======
+            "value": 59.7400016784668,
+            "status": "Amber",
+            "note": "WTI Crude at $59.74/bbl. Low price indicates global slowdown or demand weakness.",
+            "action": "Monitor global growth indicators.",
+            "score_value": 0.5,
+>>>>>>> ccd11bb (narrative)
             "source_link": "https://finance.yahoo.com/quote/CL=F"
         },
         {
             "id": "AUDUSD",
             "name": "AUD/USD exchange rate",
+<<<<<<< HEAD
             "value": 0.6507874727249146,
             "status": "Green",
             "note": "AUDUSD at 0.6508. Stable, suggesting moderate risk appetite.",
             "action": "No change.",
             "score_value": 0.0,
+=======
+            "value": 0.649350643157959,
+            "status": "Amber",
+            "note": "AUDUSD at 0.6494. Weakness signals higher global risk aversion.",
+            "action": "Monitor commodity markets and China growth data.",
+            "score_value": 0.5,
+>>>>>>> ccd11bb (narrative)
             "source_link": "https://finance.yahoo.com/quote/AUDUSD=X"
         },
         {
@@ -94,9 +128,15 @@
         {
             "id": "TREASURY_LIQUIDITY",
             "name": "Treasury net liquidity",
+<<<<<<< HEAD
             "value": 5626644.441,
             "status": "Green",
             "note": "Net Liquidity at $5626644B. Liquidity is robust and supportive of risk assets.",
+=======
+            "value": 5626642.828,
+            "status": "Green",
+            "note": "Net Liquidity at $5626643B. Liquidity is robust and supportive of risk assets.",
+>>>>>>> ccd11bb (narrative)
             "action": "No change.",
             "score_value": 0.0,
             "source_link": "https://fred.stlouisfed.org/series/WALCL"
@@ -149,9 +189,15 @@
         {
             "id": "SPX_INDEX",
             "name": "S&P 500 index",
+<<<<<<< HEAD
             "value": 6700.240234375,
             "status": "Green",
             "note": "S&P 500 Index at 6,700. Strong market momentum.",
+=======
+            "value": 6672.41015625,
+            "status": "Green",
+            "note": "S&P 500 Index at 6,672. Strong market momentum.",
+>>>>>>> ccd11bb (narrative)
             "action": "No change.",
             "score_value": 0.0,
             "source_link": "https://finance.yahoo.com/quote/%5EGSPC"
@@ -179,9 +225,15 @@
         {
             "id": "SMALL_LARGE_RATIO",
             "name": "Small/Large Cap Ratio (RUT/SPX)",
+<<<<<<< HEAD
             "value": 0.3533592035383526,
             "status": "Red",
             "note": "Small/Large Cap ratio at 0.3534. Severe small-cap underperformance. Recessionary signal/high risk-off sentiment.",
+=======
+            "value": 0.3513084357402246,
+            "status": "Red",
+            "note": "Small/Large Cap ratio at 0.3513. Severe small-cap underperformance. Recessionary signal/high risk-off sentiment.",
+>>>>>>> ccd11bb (narrative)
             "action": "Avoid small-cap exposure entirely. Favour high-quality large-caps.",
             "score_value": 1.5,
             "source_link": "https://finance.yahoo.com/quote/%5ERUT"
@@ -189,9 +241,15 @@
         {
             "id": "PUT_CALL_RATIO",
             "name": "Put/Call Ratio (PCCE)",
+<<<<<<< HEAD
             "value": 1.0434927601439532,
             "status": "Red",
             "note": "SPY PCR at 1.0435. Extreme retail options hedging (put-buying). High market fear/bearish sentiment.",
+=======
+            "value": 1.0363579541402927,
+            "status": "Red",
+            "note": "SPY PCR at 1.0364. Extreme retail options hedging (put-buying). High market fear/bearish sentiment.",
+>>>>>>> ccd11bb (narrative)
             "action": "Consider contrarian bullish positioning; watch VIX for confirmation.",
             "score_value": 1.0,
             "source_link": "Data calculated from aggregated SPY options volume: [Yahoo Finance Link](https://finance.yahoo.com/quote/SPY)"
@@ -228,16 +286,28 @@
         }
     ],
     "overall": {
+<<<<<<< HEAD
         "date": "2025-11-17",
         "score": 7.25,
         "status": "ELEVATED RISK (MODERATE RISK)",
         "comment": "Caution warranted; mixed signals dominating market trends.",
+=======
+        "date": "2025-11-18",
+        "score": 8.25,
+        "status": "SEVERE RISK (HIGH RISK)",
+        "comment": "Aggressive risk-off posture; defensive allocation advised.",
+>>>>>>> ccd11bb (narrative)
         "raw_score_list": [
             1.0,
             1.0,
             0.0,
+<<<<<<< HEAD
             0.0,
             0.0,
+=======
+            0.5,
+            0.5,
+>>>>>>> ccd11bb (narrative)
             0.0,
             0.5,
             0.0,
@@ -259,7 +329,11 @@
         "escalation_watch": [
             {
                 "name": "VIX Index",
+<<<<<<< HEAD
                 "value": "21.72",
+=======
+                "value": "22.43",
+>>>>>>> ccd11bb (narrative)
                 "threshold": "Above 18.0",
                 "status": "Amber"
             },
@@ -270,6 +344,7 @@
                 "status": "Green"
             }
         ],
+<<<<<<< HEAD
         "daily_narrative": "Gemini API call failed: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",
         "composite_summary": "Failure",
         "key_actions": [
@@ -279,6 +354,21 @@
             {
                 "title": "Trump to talk up economy in meeting with McDonald's owners ...",
                 "url": "https://www.reuters.com/world/us/trump-talk-up-economy-meeting-with-mcdonalds-owners-operators-2025-11-17/",
+=======
+        "daily_narrative": "Atlas indicators signal a SEVERE RISK posture, driven by a Composite Score of 8.25. The most critical Red indicators are concentrated in leverage and risk appetite, pointing to increasing systemic vulnerability. Specifically, FINRA Margin Debt YOY % stands at a concerning 38.52%, indicating substantial investor leverage that could amplify market downturns. Concurrently, the Small/Large Cap Ratio (RUT/SPX) at 0.35 is firmly in Red territory, reflecting a significant and sustained underperformance of riskier small-cap equities relative to large caps, signaling a clear shift away from speculative assets and towards perceived safety. The Put/Call Ratio (PCCE) at 1.04 further reinforces this bearish sentiment, indicating heightened hedging activity and a preference for downside protection among options traders. The Gold price, a traditional safe-haven asset, is also Red at 371.65, reinforcing a flight to quality and a defensive posture among investors. These indicators collectively highlight a market increasingly vulnerable to deleveraging events and a broad-based reduction in risk-taking, with underlying structural risks accumulating.\nA notable contradiction exists between these escalating risk indicators and certain market segments. While the VIX Index is Amber at 22.43, signaling elevated volatility expectations, it has not yet reached extreme levels typically associated with a full-blown market panic, despite the underlying structural leverage and risk aversion evident in margin debt and small-cap underperformance. This suggests a potential for delayed volatility expression. Similarly, High Yield OAS remains Green at 307.00 bps, indicating corporate credit spreads are relatively contained, which appears incongruous with the Red indicators for leverage and risk aversion. This divergence implies that while individual investor leverage is high and risk appetite is clearly deteriorating in equity segments, the broader credit market may be exhibiting a degree of complacency or is lagging in its reaction to these accumulating risks. For investors, this environment necessitates a proactive approach to risk management, focusing on reducing exposure to highly leveraged positions and assets sensitive to shifts in market sentiment, as the current calm in credit spreads may not persist if underlying leverage unwinds, posing significant portfolio risks.\nThe external macro environment presents a mixed but generally cautious tone, with central bank guidance taking center stage. As highlighted by Reuters, the Financial Times, and Morningstar, Federal Reserve Governor Waller has explicitly advocated for a December rate cut, citing a weakening job market. This dovish stance from a prominent Fed official could temper expectations for higher-for-longer rates, potentially offering some relief to duration-sensitive assets, but simultaneously underscores concerns about underlying economic deceleration. Despite this, CNBC reports the dollar inching higher as investors brace for a deluge of U.S. economic data, suggesting a potential safe-haven bid or anticipation of robust figures that could challenge the dovish narrative. Elsewhere, Reuters indicates the Euro zone is projected to grow faster than initially expected, though this is tempered by concerns over defense spending. Bloomberg also draws attention to elevated borrowing costs faced by African nations, reflecting broader global credit market disparities. J.P. Morgan's 2026 outlook, as covered by Morningstar, emphasizes themes of AI, fragmentation, and inflation, pointing to a complex investment landscape ahead. These external factors, particularly the nuanced central bank communication and mixed economic signals, contribute to the prevailing uncertainty. Readers are directed to the News Feed below for the full list of articles reviewed. The Atlas posture would escalate to FULL-STORM upon a US 10-Year Yield move above 4.75% or HY OAS widening beyond 400 bps.",
+        "composite_summary": "Atlas indicators signal a SEVERE RISK posture, driven by escalating investor leverage and deteriorating risk appetite, despite contained credit spreads and a moderately elevated VIX.",
+        "key_actions": [
+            "Reduce exposure to highly leveraged assets and speculative equities.",
+            "Increase allocation to defensive sectors and high-quality fixed income.",
+            "Implement tactical hedging strategies to mitigate downside equity risk.",
+            "Closely monitor High Yield OAS for signs of credit market deterioration.",
+            "Re-evaluate duration exposure given mixed signals from Fed commentary and long-term yields."
+        ],
+        "news": [
+            {
+                "title": "Fed's Waller says weak job market justifies rate cut in December ...",
+                "url": "https://www.reuters.com/business/finance/feds-waller-says-weak-job-market-justifies-rate-cut-december-2025-11-17/",
+>>>>>>> ccd11bb (narrative)
                 "snippet": "Contextual article. Click title for details."
             },
             {
@@ -302,6 +392,7 @@
                 "snippet": "Contextual article. Click title for details."
             },
             {
+<<<<<<< HEAD
                 "title": "Africa Pays the Highest Costs in the World to Borrow Money ...",
                 "url": "https://www.bloomberg.com/news/articles/2025-11-17/africa-pays-the-highest-costs-in-the-world-to-borrow-money",
                 "snippet": "Contextual article. Click title for details."
@@ -328,5 +419,33 @@
             }
         ],
         "news_context_raw": "1. [Trump to talk up economy in meeting with McDonald's owners ...](https://www.reuters.com/world/us/trump-talk-up-economy-meeting-with-mcdonalds-owners-operators-2025-11-17/)\n2. [Dollar inches higher as investors brace for U.S. data deluge](https://www.cnbc.com/2025/11/17/dollar-inches-higher-as-investors-brace-for-us-data-deluge.html)\n3. [Bloomberg - Business News, Stock Markets, Finance, Breaking ...](https://www.bloomberg.com/)\n4. [Wall Street Risk Engineers Build Hedge for Health-Cost Spiral ...](https://www.bloomberg.com/news/articles/2025-11-17/wall-street-risk-engineers-build-hedge-for-health-cost-spiral)\n5. [TSX flat as investors analyze inflation data, eye Nvidia's results ...](https://www.reuters.com/world/americas/tsx-futures-flat-ahead-canadas-inflation-data-2025-11-17/)\n6. [Africa Pays the Highest Costs in the World to Borrow Money ...](https://www.bloomberg.com/news/articles/2025-11-17/africa-pays-the-highest-costs-in-the-world-to-borrow-money)\n7. [Euro zone to grow faster than expected, but defence spending ...](https://www.reuters.com/business/euro-zone-grow-faster-than-expected-2025-eu-commission-2025-11-17/)\n8. [J.P. Morgan Private Bank Unveils 2026 Outlook: Investing at the ...](https://www.morningstar.com/news/pr-newswire/20251117ny25639/jp-morgan-private-bank-unveils-2026-outlook-investing-at-the-crossroads-of-ai-fragmentation-and-inflation)\n9. [Watch Inflation Risk to the Upside: Allier - Bloomberg](https://www.bloomberg.com/news/videos/2025-11-17/inflation-risk-to-the-upside-allier-video)\n10. [3 Big Ideas to Help Investors Prepare for 2026 | Morningstar](https://www.morningstar.com/markets/3-big-ideas-help-investors-prepare-2026)"
+=======
+                "title": "Fed's Waller calls for December rate cut to bolster labour market",
+                "url": "https://www.ft.com/content/935ff9f7-0a8d-4c74-b348-5ac1db8a8a3e",
+                "snippet": "Contextual article. Click title for details."
+            },
+            {
+                "title": "Africa Pays the Highest Costs in the World to Borrow Money ...",
+                "url": "https://www.bloomberg.com/news/articles/2025-11-17/africa-pays-the-highest-costs-in-the-world-to-borrow-money",
+                "snippet": "Contextual article. Click title for details."
+            },
+            {
+                "title": "Euro zone to grow faster than expected, but defence spending ...",
+                "url": "https://www.reuters.com/business/euro-zone-grow-faster-than-expected-2025-eu-commission-2025-11-17/",
+                "snippet": "Contextual article. Click title for details."
+            },
+            {
+                "title": "Fed's Waller backs December rate cut - and he's 'unlikely' to change ...",
+                "url": "https://www.morningstar.com/news/marketwatch/2025111795/feds-waller-backs-december-rate-cut-and-hes-unlikely-to-change-his-mind-heres-why",
+                "snippet": "Contextual article. Click title for details."
+            },
+            {
+                "title": "J.P. Morgan Private Bank Unveils 2026 Outlook: Investing at the ...",
+                "url": "https://www.morningstar.com/news/pr-newswire/20251117ny25639/jp-morgan-private-bank-unveils-2026-outlook-investing-at-the-crossroads-of-ai-fragmentation-and-inflation",
+                "snippet": "Contextual article. Click title for details."
+            }
+        ],
+        "news_context_raw": "1. [Fed's Waller says weak job market justifies rate cut in December ...](https://www.reuters.com/business/finance/feds-waller-says-weak-job-market-justifies-rate-cut-december-2025-11-17/)\n2. [Dollar inches higher as investors brace for U.S. data deluge](https://www.cnbc.com/2025/11/17/dollar-inches-higher-as-investors-brace-for-us-data-deluge.html)\n3. [Bloomberg - Business News, Stock Markets, Finance, Breaking ...](https://www.bloomberg.com/)\n4. [Wall Street Risk Engineers Build Hedge for Health-Cost Spiral ...](https://www.bloomberg.com/news/articles/2025-11-17/wall-street-risk-engineers-build-hedge-for-health-cost-spiral)\n5. [TSX flat as investors analyze inflation data, eye Nvidia's results ...](https://www.reuters.com/world/americas/tsx-futures-flat-ahead-canadas-inflation-data-2025-11-17/)\n6. [Fed's Waller calls for December rate cut to bolster labour market](https://www.ft.com/content/935ff9f7-0a8d-4c74-b348-5ac1db8a8a3e)\n7. [Africa Pays the Highest Costs in the World to Borrow Money ...](https://www.bloomberg.com/news/articles/2025-11-17/africa-pays-the-highest-costs-in-the-world-to-borrow-money)\n8. [Euro zone to grow faster than expected, but defence spending ...](https://www.reuters.com/business/euro-zone-grow-faster-than-expected-2025-eu-commission-2025-11-17/)\n9. [Fed's Waller backs December rate cut - and he's 'unlikely' to change ...](https://www.morningstar.com/news/marketwatch/2025111795/feds-waller-backs-december-rate-cut-and-hes-unlikely-to-change-his-mind-heres-why)\n10. [J.P. Morgan Private Bank Unveils 2026 Outlook: Investing at the ...](https://www.morningstar.com/news/pr-newswire/20251117ny25639/jp-morgan-private-bank-unveils-2026-outlook-investing-at-the-crossroads-of-ai-fragmentation-and-inflation)"
+>>>>>>> ccd11bb (narrative)
     }
 }

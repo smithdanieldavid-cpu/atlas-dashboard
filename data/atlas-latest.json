@@ -34,9 +34,9 @@
         {
             "id": "WTI_CRUDE",
             "name": "WTI crude oil ($/bbl)",
-            "value": 59.75,
+            "value": 59.650001525878906,
             "status": "Amber",
-            "note": "WTI Crude at $59.75/bbl. Low price indicates global slowdown or demand weakness.",
+            "note": "WTI Crude at $59.65/bbl. Low price indicates global slowdown or demand weakness.",
             "action": "Monitor global growth indicators.",
             "score_value": 0.5,
             "source_link": "https://finance.yahoo.com/quote/CL=F"
@@ -44,9 +44,9 @@
         {
             "id": "AUDUSD",
             "name": "AUD/USD exchange rate",
-            "value": 0.6495615243911743,
+            "value": 0.6495193243026733,
             "status": "Amber",
-            "note": "AUDUSD at 0.6496. Weakness signals higher global risk aversion.",
+            "note": "AUDUSD at 0.6495. Weakness signals higher global risk aversion.",
             "action": "Monitor commodity markets and China growth data.",
             "score_value": 0.5,
             "source_link": "https://finance.yahoo.com/quote/AUDUSD=X"
@@ -125,8 +125,8 @@
             "id": "SNAP_BENEFITS",
             "name": "SNAP benefits (MoM % change)",
             "value": [
-                111.15,
-                97.391
+                132.923,
+                111.221
             ],
             "status": "N/A",
             "note": "",
@@ -270,14 +270,14 @@
                 "status": "Green"
             }
         ],
-        "daily_narrative": "The Atlas Composite Score registers SEVERE RISK at 8.25, driven by escalating concerns across leverage, liquidity, and duration metrics. A primary driver of this elevated posture is the significant increase in FINRA Margin Debt, currently at 38.52% year-over-year, signaling an unsustainable expansion of speculative leverage within the equity market. This is compounded by a deteriorating Small/Large Cap Ratio, which stands at 0.35, indicating a pronounced preference for larger, more liquid assets and a withdrawal of capital from smaller, growth-oriented segments. This divergence suggests a contraction in broad market liquidity and a flight to perceived safety, which is further corroborated by a Put/Call Ratio of 1.03, reflecting increased hedging activity or a shift towards bearish sentiment.\n\nDespite these clear signals of underlying stress, certain indicators present a contradictory picture that warrants careful monitoring. The VIX Index, while Amber at 22.38, has not yet reached a Red status, suggesting a degree of market complacency or a delayed recognition of the systemic leverage and liquidity risks building beneath the surface. Similarly, the High Yield OAS remains in Green territory at 307 bps, which appears incongruous with the Red signals from margin debt and small-cap underperformance. This divergence implies that while equity market participants are exhibiting caution and deleveraging in specific segments, credit markets have not yet fully priced in the potential for wider distress. The Amber status of the US 30-year Treasury yield at 4.74% highlights persistent duration risk, even as the US 10-year yield remains Green, indicating a flattening pressure that could signal future economic deceleration. For investors, this environment necessitates a proactive reduction of exposure to highly leveraged or illiquid assets and a defensive posture, as the market's current calm in some areas may be masking deeper vulnerabilities.\n\nThe global macro and policy tone presents a nuanced picture, with central bank guidance signaling a potential pivot towards easing while broader market sentiment remains cautious. Per Reuters and the Financial Times, Federal Reserve Governor Waller has indicated that a weakening job market could justify a December rate cut, a stance reiterated across multiple reports including Morningstar. This dovish commentary from a key Fed official suggests a potential shift in monetary policy, aiming to bolster the labor market. Concurrently, CNBC reports that the dollar is strengthening as investors anticipate a deluge of US economic data, highlighting market sensitivity to incoming information that could influence the Fed's trajectory. Bloomberg reporting on global financial conditions notes that African nations face exceptionally high borrowing costs, underscoring persistent global financial fragmentation and risk aversion in emerging markets. Reuters also projects faster-than-expected growth for the Eurozone, though this is tempered by increased defense spending, indicating a complex interplay of economic recovery and geopolitical considerations. J.P. Morgan Private Bank's 2026 outlook, as reported by Morningstar, emphasizes investing at the crossroads of AI, fragmentation, and inflation, aligning with the current environment of technological disruption and persistent price pressures. Investors should consult the News Feed below for the full list of articles reviewed. The Atlas posture would escalate to FULL-STORM if the US 10-Year Yield moves above 4.75% or HY OAS widens beyond 400 bps.",
-        "composite_summary": "The Atlas Composite Score of 8.25 indicates a SEVERE RISK environment, driven by elevated leverage and deteriorating liquidity, despite some contradictory signals from volatility and credit spreads.",
+        "daily_narrative": "The Atlas Composite Score stands at 8.25, signaling a SEVERE RISK posture. This elevated risk is primarily driven by critical Red indicators in Leverage and Liquidity, alongside persistent Duration concerns. Specifically, the FINRA Margin Debt YOY % at 38.52 is a significant Red flag, indicating substantial leverage accumulation within the equity market, which amplifies vulnerability to market corrections. Concurrently, the Small/Large Cap Ratio (RUT/SPX) at 0.35, also a Red indicator, points to a notable divergence in market performance, suggesting a flight from smaller, more growth-oriented companies towards larger, more established entities. This implies tightening liquidity conditions or reduced risk appetite for the broader market, particularly for segments reliant on easier credit. The Put/Call Ratio (PCCE) at 1.03 further reinforces this, indicating increased demand for downside protection and a shift towards a more cautious sentiment among options traders.\n\nDespite these clear signs of underlying stress, the VIX Index remains at an Amber status of 22.38, not yet reflecting a full panic. This presents a critical contradiction: while leverage is high and risk appetite for smaller firms is waning, broad market volatility, as measured by the VIX, has not fully escalated. This divergence suggests a potential complacency or a delayed reaction to the systemic risks building beneath the surface, possibly due to the S&P 500 and ASX 200 indices remaining in Green status. However, the Amber status of the US 30yr treasury yield at 4.74% highlights ongoing duration risk, indicating that long-term funding costs remain elevated and could pressure valuations across asset classes. For investors, this environment necessitates a focus on capital preservation and a critical assessment of portfolio exposures to highly leveraged or liquidity-sensitive assets, as the market may not be fully pricing in the underlying fragilities.\n\nThe global macro and policy tone presents a nuanced picture, with central bank guidance signaling potential shifts while broader economic risks persist. As highlighted by Reuters, the Financial Times, and Morningstar, Federal Reserve Governor Waller has advocated for a December rate cut, citing a weakening job market. This dovish commentary from a Fed official suggests a potential easing of monetary policy, which could provide some relief to financial conditions but also acknowledges underlying economic softness. Concurrently, CNBC reports a strengthening dollar as investors await a deluge of US data, indicating a cautious stance ahead of key economic releases. Bloomberg's reporting on Wall Street's efforts to hedge against health-cost spirals and the high borrowing costs faced by African nations underscores specific systemic risks and global credit pressures, respectively. While Reuters also notes the Eurozone is projected to grow faster than expected, this is tempered by implications for defense spending, adding another layer of fiscal consideration. J.P. Morgan Private Bank's 2026 outlook, as reported by Morningstar, emphasizes themes of AI, fragmentation, and inflation, aligning with long-term strategic investment considerations. Readers are directed to the News Feed below for the full list of articles reviewed. The Atlas posture would escalate to FULL-STORM should the US 10-Year Yield move above 4.75% or HY OAS widen beyond 400 bps.",
+        "composite_summary": "The Atlas Composite Score of 8.25 indicates a SEVERE RISK environment, driven by elevated leverage, weakening risk appetite in smaller capitalization segments, and persistent duration concerns, despite a relatively contained VIX.",
         "key_actions": [
-            "Reduce exposure to highly leveraged sectors and speculative growth assets.",
-            "Increase allocation to defensive sectors and high-quality fixed income.",
-            "Implement tactical hedging strategies to mitigate equity downside risk, particularly in small-cap and high-beta segments.",
-            "Monitor credit spreads, especially High Yield OAS, for signs of widening that would confirm broader credit market stress.",
-            "Manage duration risk by favoring shorter-to-intermediate term fixed income and maintaining vigilance on long-end Treasury yields."
+            "Actively reduce portfolio leverage, particularly in segments showing high margin debt growth.",
+            "Shift portfolio bias towards defensive sectors and high-quality assets with robust balance sheets.",
+            "Implement tactical hedging strategies to mitigate downside risk, especially given the elevated Put/Call Ratio.",
+            "Closely monitor credit spreads, particularly High Yield OAS, for early signs of broader credit market deterioration.",
+            "Re-evaluate and manage exposure to rate-sensitive assets, given the Amber status of the US 30yr treasury yield and potential for continued duration risk."
         ],
         "news": [
             {

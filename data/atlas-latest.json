@@ -24,9 +24,9 @@
         {
             "id": "EURUSD",
             "name": "EUR/USD exchange rate",
-            "value": 1.1595547199249268,
+            "value": 1.1599582433700562,
             "status": "Green",
-            "note": "EUR/USD is at 1.1596. Normal range.",
+            "note": "EUR/USD is at 1.1600. Normal range.",
             "action": "No change.",
             "score_value": 0.0,
             "source_link": "https://finance.yahoo.com/quote/EURUSD=X"
@@ -34,9 +34,9 @@
         {
             "id": "WTI_CRUDE",
             "name": "WTI crude oil ($/bbl)",
-            "value": 59.650001525878906,
+            "value": 59.31999969482422,
             "status": "Amber",
-            "note": "WTI Crude at $59.65/bbl. Low price indicates global slowdown or demand weakness.",
+            "note": "WTI Crude at $59.32/bbl. Low price indicates global slowdown or demand weakness.",
             "action": "Monitor global growth indicators.",
             "score_value": 0.5,
             "source_link": "https://finance.yahoo.com/quote/CL=F"
@@ -44,9 +44,9 @@
         {
             "id": "AUDUSD",
             "name": "AUD/USD exchange rate",
-            "value": 0.6495193243026733,
+            "value": 0.6478362679481506,
             "status": "Amber",
-            "note": "AUDUSD at 0.6495. Weakness signals higher global risk aversion.",
+            "note": "AUDUSD at 0.6478. Weakness signals higher global risk aversion.",
             "action": "Monitor commodity markets and China growth data.",
             "score_value": 0.5,
             "source_link": "https://finance.yahoo.com/quote/AUDUSD=X"
@@ -125,8 +125,8 @@
             "id": "SNAP_BENEFITS",
             "name": "SNAP benefits (MoM % change)",
             "value": [
-                132.923,
-                111.221
+                111.15,
+                97.391
             ],
             "status": "N/A",
             "note": "",
@@ -159,9 +159,9 @@
         {
             "id": "ASX_200",
             "name": "ASX 200 index",
-            "value": 8636.400390625,
+            "value": 8469.099609375,
             "status": "Green",
-            "note": "ASX 200 Index at 8,636. Stable price action.",
+            "note": "ASX 200 Index at 8,469. Stable price action.",
             "action": "No change.",
             "score_value": 0.0,
             "source_link": "https://finance.yahoo.com/quote/%5EAXJO"
@@ -179,7 +179,7 @@
         {
             "id": "SMALL_LARGE_RATIO",
             "name": "Small/Large Cap Ratio (RUT/SPX)",
-            "value": 0.3509042307496413,
+            "value": 0.350904669824493,
             "status": "Red",
             "note": "Small/Large Cap ratio at 0.3509. Severe small-cap underperformance. Recessionary signal/high risk-off sentiment.",
             "action": "Avoid small-cap exposure entirely. Favour high-quality large-caps.",
@@ -189,9 +189,9 @@
         {
             "id": "PUT_CALL_RATIO",
             "name": "Put/Call Ratio (PCCE)",
-            "value": 1.033183960885219,
+            "value": 1.3117559433022188,
             "status": "Red",
-            "note": "SPY PCR at 1.0332. Extreme retail options hedging (put-buying). High market fear/bearish sentiment.",
+            "note": "SPY PCR at 1.3118. Extreme retail options hedging (put-buying). High market fear/bearish sentiment.",
             "action": "Consider contrarian bullish positioning; watch VIX for confirmation.",
             "score_value": 1.0,
             "source_link": "Data calculated from aggregated SPY options volume: [Yahoo Finance Link](https://finance.yahoo.com/quote/SPY)"
@@ -270,24 +270,24 @@
                 "status": "Green"
             }
         ],
-        "daily_narrative": "The Atlas Composite Score stands at 8.25, signaling a SEVERE RISK posture. This elevated risk is primarily driven by critical Red indicators in Leverage and Liquidity, alongside persistent Duration concerns. Specifically, the FINRA Margin Debt YOY % at 38.52 is a significant Red flag, indicating substantial leverage accumulation within the equity market, which amplifies vulnerability to market corrections. Concurrently, the Small/Large Cap Ratio (RUT/SPX) at 0.35, also a Red indicator, points to a notable divergence in market performance, suggesting a flight from smaller, more growth-oriented companies towards larger, more established entities. This implies tightening liquidity conditions or reduced risk appetite for the broader market, particularly for segments reliant on easier credit. The Put/Call Ratio (PCCE) at 1.03 further reinforces this, indicating increased demand for downside protection and a shift towards a more cautious sentiment among options traders.\n\nDespite these clear signs of underlying stress, the VIX Index remains at an Amber status of 22.38, not yet reflecting a full panic. This presents a critical contradiction: while leverage is high and risk appetite for smaller firms is waning, broad market volatility, as measured by the VIX, has not fully escalated. This divergence suggests a potential complacency or a delayed reaction to the systemic risks building beneath the surface, possibly due to the S&P 500 and ASX 200 indices remaining in Green status. However, the Amber status of the US 30yr treasury yield at 4.74% highlights ongoing duration risk, indicating that long-term funding costs remain elevated and could pressure valuations across asset classes. For investors, this environment necessitates a focus on capital preservation and a critical assessment of portfolio exposures to highly leveraged or liquidity-sensitive assets, as the market may not be fully pricing in the underlying fragilities.\n\nThe global macro and policy tone presents a nuanced picture, with central bank guidance signaling potential shifts while broader economic risks persist. As highlighted by Reuters, the Financial Times, and Morningstar, Federal Reserve Governor Waller has advocated for a December rate cut, citing a weakening job market. This dovish commentary from a Fed official suggests a potential easing of monetary policy, which could provide some relief to financial conditions but also acknowledges underlying economic softness. Concurrently, CNBC reports a strengthening dollar as investors await a deluge of US data, indicating a cautious stance ahead of key economic releases. Bloomberg's reporting on Wall Street's efforts to hedge against health-cost spirals and the high borrowing costs faced by African nations underscores specific systemic risks and global credit pressures, respectively. While Reuters also notes the Eurozone is projected to grow faster than expected, this is tempered by implications for defense spending, adding another layer of fiscal consideration. J.P. Morgan Private Bank's 2026 outlook, as reported by Morningstar, emphasizes themes of AI, fragmentation, and inflation, aligning with long-term strategic investment considerations. Readers are directed to the News Feed below for the full list of articles reviewed. The Atlas posture would escalate to FULL-STORM should the US 10-Year Yield move above 4.75% or HY OAS widen beyond 400 bps.",
-        "composite_summary": "The Atlas Composite Score of 8.25 indicates a SEVERE RISK environment, driven by elevated leverage, weakening risk appetite in smaller capitalization segments, and persistent duration concerns, despite a relatively contained VIX.",
+        "daily_narrative": "The Atlas Composite Score currently stands at 8.25, signaling a SEVERE RISK posture for institutional portfolios. This elevated risk environment is primarily driven by critical Red indicators in leverage and market breadth, which together point to a significant increase in systemic fragility. Specifically, FINRA Margin Debt YOY % is alarmingly elevated at 38.52%, indicating an aggressive and potentially unsustainable accumulation of speculative leverage within the market. This level of margin debt suggests that a substantial portion of recent market gains may be fueled by borrowed capital, making equity positions highly vulnerable to any downturn. Concurrently, the Small/Large Cap Ratio (RUT/SPX) at 0.35 is a stark Red flag, reflecting a severe and persistent deterioration in market breadth. This divergence signifies a flight from smaller, more growth-oriented companies towards larger, potentially more stable entities, indicating that underlying market health is considerably weaker than headline indices might imply. Such narrowing leadership masks broader systemic vulnerabilities and suggests that the market's resilience is concentrated in a few large-cap names, leaving the broader market susceptible to sharp corrections.\n\nFurthermore, the Amber status of the US 30yr treasury yield at 4.74% highlights building duration risk, nearing critical thresholds and signaling potential for further yield increases that could significantly pressure fixed income portfolios. Despite this pronounced SEVERE RISK posture, certain indicators present a contradictory picture. The VIX Index, while elevated at an Amber 22.38, does not yet reflect the extreme panic typically associated with a full-blown market crisis, potentially indicating delayed or underappreciated systemic risk. Similarly, Treasury net liquidity remains Green, suggesting ample system-level liquidity, which may be temporarily masking the underlying leverage risks highlighted by Red margin debt and Amber credit card delinquencies. The elevated Put/Call Ratio (PCCE) at 1.31, a Red indicator, confirms a strong defensive bias among investors, while the Red status of Gold price at 371.65 underscores a clear flight to safety. These contradictions imply that while immediate liquidity may appear stable, increasing leverage and deteriorating market structure create a fragile environment where a rapid repricing of risk remains a significant threat, particularly for portfolios with unhedged duration or concentrated growth exposures.\n\nThe global macro environment is characterized by intensifying market routs and cautious central bank stances, as highlighted by Morningstar and Bloomberg reporting on widespread declines across asset classes, from technology to cryptocurrencies and even gold. This broad-based sell-off suggests a significant shift in investor sentiment, moving away from risk assets. Central banks in various regions, including Hungary and Australia, are signaling a sustained focus on inflation and a potential for holding key rates steady for longer, as reported by Bloomberg and Reuters. This hawkish bias, or at least a lack of dovish pivot, contributes to the duration risk identified by Atlas indicators. The discussion around affordability and tariffs, per Bloomberg, also points to underlying economic pressures that could exacerbate market downturns, particularly if consumer spending power is further eroded. Investors should note the consistent theme of market fragility and central bank vigilance across these reports, reinforcing the need for defensive positioning. For the full list of articles reviewed, please refer to the News Feed below. An escalation to FULL-STORM would be triggered by the US 10-Year Yield moving above 4.75% or High Yield OAS widening beyond 400 bps.",
+        "composite_summary": "The Atlas Composite Score of 8.25 indicates a SEVERE RISK environment, driven by escalating leverage, deteriorating market breadth, and building duration risk, despite pockets of apparent liquidity.",
         "key_actions": [
-            "Actively reduce portfolio leverage, particularly in segments showing high margin debt growth.",
-            "Shift portfolio bias towards defensive sectors and high-quality assets with robust balance sheets.",
-            "Implement tactical hedging strategies to mitigate downside risk, especially given the elevated Put/Call Ratio.",
-            "Closely monitor credit spreads, particularly High Yield OAS, for early signs of broader credit market deterioration.",
-            "Re-evaluate and manage exposure to rate-sensitive assets, given the Amber status of the US 30yr treasury yield and potential for continued duration risk."
+            "Reduce overall portfolio leverage and rebalance towards lower-volatility assets.",
+            "Increase allocation to defensive sectors and high-quality fixed income with shorter duration.",
+            "Implement tactical hedging strategies, particularly against equity downside and potential credit spread widening.",
+            "Actively monitor credit spreads, especially High Yield OAS, for signs of further deterioration in corporate credit health.",
+            "Review and de-risk rate-sensitive exposures, given the Amber status of the 30-year yield and central bank hawkishness."
         ],
         "news": [
             {
-                "title": "Fed's Waller says weak job market justifies rate cut in December ...",
-                "url": "https://www.reuters.com/business/finance/feds-waller-says-weak-job-market-justifies-rate-cut-december-2025-11-17/",
+                "title": "Dow Jones Top Markets Headlines at 1 AM ET: Market Rout ...",
+                "url": "https://www.morningstar.com/news/dow-jones/20251118408/dow-jones-top-markets-headlines-at-1-am-et-market-rout-intensifies-sweeping-up-everything-from-tech-to-crypto-to-gold-fed",
                 "snippet": "Contextual article. Click title for details."
             },
             {
-                "title": "Dollar inches higher as investors brace for U.S. data deluge",
-                "url": "https://www.cnbc.com/2025/11/17/dollar-inches-higher-as-investors-brace-for-us-data-deluge.html",
+                "title": "Global Stocks Slide as Bitcoin Hits Trigger Point: Markets Wrap",
+                "url": "https://www.bloomberg.com/news/articles/2025-11-17/asian-stocks-set-for-declines-as-selloff-deepens-markets-wrap",
                 "snippet": "Contextual article. Click title for details."
             },
             {
@@ -296,41 +296,41 @@
                 "snippet": "Contextual article. Click title for details."
             },
             {
-                "title": "Wall Street Risk Engineers Build Hedge for Health-Cost Spiral ...",
-                "url": "https://www.bloomberg.com/news/articles/2025-11-17/wall-street-risk-engineers-build-hedge-for-health-cost-spiral",
+                "title": "EMEA Morning Briefing: Market Rout Intensifies | Morningstar",
+                "url": "https://www.morningstar.com/news/dow-jones/2025111836/emea-morning-briefing-market-rout-intensifies",
                 "snippet": "Contextual article. Click title for details."
             },
             {
-                "title": "TSX flat as investors analyze inflation data, eye Nvidia's results ...",
-                "url": "https://www.reuters.com/world/americas/tsx-futures-flat-ahead-canadas-inflation-data-2025-11-17/",
+                "title": "AI: You Don't Need Burry to Know Which Way the Bubble Blows ...",
+                "url": "https://www.bloomberg.com/opinion/newsletters/2025-11-18/ai-you-don-t-need-burry-to-know-which-way-the-bubble-blows",
                 "snippet": "Contextual article. Click title for details."
             },
             {
-                "title": "Fed's Waller calls for December rate cut to bolster labour market",
-                "url": "https://www.ft.com/content/935ff9f7-0a8d-4c74-b348-5ac1db8a8a3e",
+                "title": "Hungary to Hold Key Rate With Inflation in Focus: Decision Guide ...",
+                "url": "https://www.bloomberg.com/news/articles/2025-11-18/hungary-to-hold-key-rate-with-inflation-in-focus-decision-guide",
                 "snippet": "Contextual article. Click title for details."
             },
             {
-                "title": "Africa Pays the Highest Costs in the World to Borrow Money ...",
-                "url": "https://www.bloomberg.com/news/articles/2025-11-17/africa-pays-the-highest-costs-in-the-world-to-borrow-money",
+                "title": "How Affordability Disrupted Trump's Economic Case for Tariffs",
+                "url": "https://www.bloomberg.com/news/newsletters/2025-11-17/tariffs-and-trump-and-affordability",
                 "snippet": "Contextual article. Click title for details."
             },
             {
-                "title": "Euro zone to grow faster than expected, but defence spending ...",
-                "url": "https://www.reuters.com/business/euro-zone-grow-faster-than-expected-2025-eu-commission-2025-11-17/",
+                "title": "POLL Bank Indonesia to hold rates steady at 4.75% on November ...",
+                "url": "https://www.reuters.com/world/asia-pacific/bank-indonesia-hold-rates-steady-475-november-19-cut-next-month-2025-11-17/",
                 "snippet": "Contextual article. Click title for details."
             },
             {
-                "title": "Fed's Waller backs December rate cut - and he's 'unlikely' to change ...",
-                "url": "https://www.morningstar.com/news/marketwatch/2025111795/feds-waller-backs-december-rate-cut-and-hes-unlikely-to-change-his-mind-heres-why",
+                "title": "Australia's central bank could hold policy steady for longer if data ...",
+                "url": "https://www.reuters.com/world/asia-pacific/australias-central-bank-could-hold-policy-steady-longer-if-data-comes-strong-2025-11-18/",
                 "snippet": "Contextual article. Click title for details."
             },
             {
-                "title": "J.P. Morgan Private Bank Unveils 2026 Outlook: Investing at the ...",
-                "url": "https://www.morningstar.com/news/pr-newswire/20251117ny25639/jp-morgan-private-bank-unveils-2026-outlook-investing-at-the-crossroads-of-ai-fragmentation-and-inflation",
+                "title": "FTSE 100 Poised to Extend Drop After Worst Day Since April - Live ...",
+                "url": "https://www.bloomberg.com/news/live-blog/2025-11-17/ftse-100-live-pound-gilts-uk-budget-oil-gold-bitcoin-trump-tariffs-what-s-moving-uk-markets-right-now-markets-today",
                 "snippet": "Contextual article. Click title for details."
             }
         ],
-        "news_context_raw": "1. [Fed's Waller says weak job market justifies rate cut in December ...](https://www.reuters.com/business/finance/feds-waller-says-weak-job-market-justifies-rate-cut-december-2025-11-17/)\n2. [Dollar inches higher as investors brace for U.S. data deluge](https://www.cnbc.com/2025/11/17/dollar-inches-higher-as-investors-brace-for-us-data-deluge.html)\n3. [Bloomberg - Business News, Stock Markets, Finance, Breaking ...](https://www.bloomberg.com/)\n4. [Wall Street Risk Engineers Build Hedge for Health-Cost Spiral ...](https://www.bloomberg.com/news/articles/2025-11-17/wall-street-risk-engineers-build-hedge-for-health-cost-spiral)\n5. [TSX flat as investors analyze inflation data, eye Nvidia's results ...](https://www.reuters.com/world/americas/tsx-futures-flat-ahead-canadas-inflation-data-2025-11-17/)\n6. [Fed's Waller calls for December rate cut to bolster labour market](https://www.ft.com/content/935ff9f7-0a8d-4c74-b348-5ac1db8a8a3e)\n7. [Africa Pays the Highest Costs in the World to Borrow Money ...](https://www.bloomberg.com/news/articles/2025-11-17/africa-pays-the-highest-costs-in-the-world-to-borrow-money)\n8. [Euro zone to grow faster than expected, but defence spending ...](https://www.reuters.com/business/euro-zone-grow-faster-than-expected-2025-eu-commission-2025-11-17/)\n9. [Fed's Waller backs December rate cut - and he's 'unlikely' to change ...](https://www.morningstar.com/news/marketwatch/2025111795/feds-waller-backs-december-rate-cut-and-hes-unlikely-to-change-his-mind-heres-why)\n10. [J.P. Morgan Private Bank Unveils 2026 Outlook: Investing at the ...](https://www.morningstar.com/news/pr-newswire/20251117ny25639/jp-morgan-private-bank-unveils-2026-outlook-investing-at-the-crossroads-of-ai-fragmentation-and-inflation)"
+        "news_context_raw": "1. [Dow Jones Top Markets Headlines at 1 AM ET: Market Rout ...](https://www.morningstar.com/news/dow-jones/20251118408/dow-jones-top-markets-headlines-at-1-am-et-market-rout-intensifies-sweeping-up-everything-from-tech-to-crypto-to-gold-fed)\n2. [Global Stocks Slide as Bitcoin Hits Trigger Point: Markets Wrap](https://www.bloomberg.com/news/articles/2025-11-17/asian-stocks-set-for-declines-as-selloff-deepens-markets-wrap)\n3. [Bloomberg - Business News, Stock Markets, Finance, Breaking ...](https://www.bloomberg.com/)\n4. [EMEA Morning Briefing: Market Rout Intensifies | Morningstar](https://www.morningstar.com/news/dow-jones/2025111836/emea-morning-briefing-market-rout-intensifies)\n5. [AI: You Don't Need Burry to Know Which Way the Bubble Blows ...](https://www.bloomberg.com/opinion/newsletters/2025-11-18/ai-you-don-t-need-burry-to-know-which-way-the-bubble-blows)\n6. [Hungary to Hold Key Rate With Inflation in Focus: Decision Guide ...](https://www.bloomberg.com/news/articles/2025-11-18/hungary-to-hold-key-rate-with-inflation-in-focus-decision-guide)\n7. [How Affordability Disrupted Trump's Economic Case for Tariffs](https://www.bloomberg.com/news/newsletters/2025-11-17/tariffs-and-trump-and-affordability)\n8. [POLL Bank Indonesia to hold rates steady at 4.75% on November ...](https://www.reuters.com/world/asia-pacific/bank-indonesia-hold-rates-steady-475-november-19-cut-next-month-2025-11-17/)\n9. [Australia's central bank could hold policy steady for longer if data ...](https://www.reuters.com/world/asia-pacific/australias-central-bank-could-hold-policy-steady-longer-if-data-comes-strong-2025-11-18/)\n10. [FTSE 100 Poised to Extend Drop After Worst Day Since April - Live ...](https://www.bloomberg.com/news/live-blog/2025-11-17/ftse-100-live-pound-gilts-uk-budget-oil-gold-bitcoin-trump-tariffs-what-s-moving-uk-markets-right-now-markets-today)"
     }
 }

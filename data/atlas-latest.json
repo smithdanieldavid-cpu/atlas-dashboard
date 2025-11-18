@@ -4,9 +4,9 @@
         {
             "id": "VIX",
             "name": "VIX Index",
-            "value": 23.700000762939453,
+            "value": 23.18000030517578,
             "status": "Amber",
-            "note": "VIX at 23.70 (2025-11-18 4:00 PM EST). Elevated volatility. Monitor daily swings.",
+            "note": "VIX at 23.18 (2025-11-18 4:00 PM EST). Elevated volatility. Monitor daily swings.",
             "action": "Monitor news flow; review volatility exposure.",
             "score_value": 1.0,
             "source_link": "https://www.cboe.com/vix/"
@@ -14,9 +14,9 @@
         {
             "id": "GOLD_PRICE",
             "name": "Gold price (GLD proxy)",
-            "value": 371.6499938964844,
+            "value": 374.7099914550781,
             "status": "Red",
-            "note": "Gold (GLD) at $371.65. Signals extreme flight to safety or high inflation expectations.",
+            "note": "Gold (GLD) at $374.71. Signals extreme flight to safety or high inflation expectations.",
             "action": "Maintain gold position as a core hedge; reduce risk assets.",
             "score_value": 1.0,
             "source_link": "https://finance.yahoo.com/quote/GLD"
@@ -24,9 +24,9 @@
         {
             "id": "EURUSD",
             "name": "EUR/USD exchange rate",
-            "value": 1.160092830657959,
+            "value": 1.1587486267089844,
             "status": "Green",
-            "note": "EUR/USD is at 1.1601. Normal range.",
+            "note": "EUR/USD is at 1.1587. Normal range.",
             "action": "No change.",
             "score_value": 0.0,
             "source_link": "https://finance.yahoo.com/quote/EURUSD=X"
@@ -34,9 +34,9 @@
         {
             "id": "WTI_CRUDE",
             "name": "WTI crude oil ($/bbl)",
-            "value": 60.040000915527344,
+            "value": 60.52000045776367,
             "status": "Green",
-            "note": "WTI Crude at $60.04/bbl. Normal price range, favorable for growth.",
+            "note": "WTI Crude at $60.52/bbl. Normal price range, favorable for growth.",
             "action": "No change.",
             "score_value": 0.0,
             "source_link": "https://finance.yahoo.com/quote/CL=F"
@@ -44,9 +44,9 @@
         {
             "id": "AUDUSD",
             "name": "AUD/USD exchange rate",
-            "value": 0.6511688828468323,
+            "value": 0.6517630219459534,
             "status": "Green",
-            "note": "AUDUSD at 0.6512. Stable, suggesting moderate risk appetite.",
+            "note": "AUDUSD at 0.6518. Stable, suggesting moderate risk appetite.",
             "action": "No change.",
             "score_value": 0.0,
             "source_link": "https://finance.yahoo.com/quote/AUDUSD=X"
@@ -84,9 +84,9 @@
         {
             "id": "HY_OAS",
             "name": "High yield OAS (bps)",
-            "value": 307.0,
+            "value": 313.0,
             "status": "Green",
-            "note": "HY OAS at 307 bps. Spreads are tight. Indicates low corporate default risk.",
+            "note": "HY OAS at 313 bps. Spreads are tight. Indicates low corporate default risk.",
             "action": "No change.",
             "score_value": 0.0,
             "source_link": "https://fred.stlouisfed.org/series/BAMLH0A0HYM2"
@@ -149,9 +149,9 @@
         {
             "id": "SPX_INDEX",
             "name": "S&P 500 index",
-            "value": 6672.41015625,
+            "value": 6657.3701171875,
             "status": "Green",
-            "note": "S&P 500 Index at 6,672. Strong market momentum.",
+            "note": "S&P 500 Index at 6,657. Strong market momentum.",
             "action": "No change.",
             "score_value": 0.0,
             "source_link": "https://finance.yahoo.com/quote/%5EGSPC"
@@ -179,9 +179,9 @@
         {
             "id": "SMALL_LARGE_RATIO",
             "name": "Small/Large Cap Ratio (RUT/SPX)",
-            "value": 0.350904669824493,
+            "value": 0.35465987457803094,
             "status": "Red",
-            "note": "Small/Large Cap ratio at 0.3509. Severe small-cap underperformance. Recessionary signal/high risk-off sentiment.",
+            "note": "Small/Large Cap ratio at 0.3547. Severe small-cap underperformance. Recessionary signal/high risk-off sentiment.",
             "action": "Avoid small-cap exposure entirely. Favour high-quality large-caps.",
             "score_value": 1.5,
             "source_link": "https://finance.yahoo.com/quote/%5ERUT"
@@ -189,9 +189,9 @@
         {
             "id": "PUT_CALL_RATIO",
             "name": "Put/Call Ratio (PCCE)",
-            "value": 1.3117559433022188,
+            "value": 1.0228034870884233,
             "status": "Red",
-            "note": "SPY PCR at 1.3118. Extreme retail options hedging (put-buying). High market fear/bearish sentiment.",
+            "note": "SPY PCR at 1.0228. Extreme retail options hedging (put-buying). High market fear/bearish sentiment.",
             "action": "Consider contrarian bullish positioning; watch VIX for confirmation.",
             "score_value": 1.0,
             "source_link": "Data calculated from aggregated SPY options volume: [Yahoo Finance Link](https://finance.yahoo.com/quote/SPY)"
@@ -259,7 +259,7 @@
         "escalation_watch": [
             {
                 "name": "VIX Index",
-                "value": "23.70",
+                "value": "23.18",
                 "threshold": "Above 18.0",
                 "status": "Amber"
             },
@@ -270,10 +270,14 @@
                 "status": "Green"
             }
         ],
-        "daily_narrative": "Gemini API call failed: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",
-        "composite_summary": "Failure",
+        "daily_narrative": "The Atlas Composite Score currently stands at 7.25, indicating an ELEVATED RISK (MODERATE RISK) posture. This assessment is primarily driven by several critical Red and Amber indicators signaling heightened leverage and duration risks within the financial system. Specifically, the FINRA Margin Debt YOY % at 38.52% remains a significant Red flag, pointing to substantial embedded leverage that could amplify market corrections. Concurrently, the Small/Large Cap Ratio (RUT/SPX) at 0.35 is also Red, reflecting a pronounced flight to quality and a preference for larger, more stable companies over growth-oriented small caps, which is indicative of underlying duration and growth concerns. This divergence suggests investors are increasingly wary of riskier segments of the market, positioning defensively against potential economic deceleration or tighter financial conditions.\nFurther contributing to the elevated risk profile are Amber indicators such as the US 30yr treasury yield at 4.74%, signaling persistent upward pressure on long-term borrowing costs and impacting duration-sensitive assets. Credit card delinquencies, at 305.00, also register Amber, highlighting a deteriorating consumer credit environment that could translate into broader economic weakness and increased default risk. A notable contradiction exists with the VIX Index, which, despite being Amber at 23.18, does not fully reflect the severity implied by the Red flags in leverage and small-cap underperformance. This suggests a potential underestimation of systemic risk by broad market volatility measures, possibly due to concentrated market leadership or ongoing hedging activities. For investors, this environment necessitates a focus on capital preservation, reduced leverage, and a bias towards high-quality, shorter-duration assets, as the market may be susceptible to abrupt shifts if underlying stresses materialize.\nThe global macro and policy tone reinforces this cautious outlook, with a clear narrative of market stress and central bank vigilance. Bloomberg and Morningstar reporting highlights a broad market rout, with declines sweeping across equities, including tech, and extending to crypto and gold, indicating a pervasive risk-off sentiment. European shares are also falling, partly due to ongoing AI concerns, as noted by Morningstar. Central bank commentary, as reported by Reuters, points to a deep policy divide within the Federal Reserve regarding future actions, while the Bank of England's Pill does not anticipate significant shifts in rate views given persistent high pay growth, signaling continued hawkishness. Reuters also notes that Gilts are losing their edge, further underscoring the challenges in fixed income markets. These external developments align with our internal indicators, suggesting a period of heightened uncertainty and potential for further market re-pricing. Readers are directed to the News Feed below for the full list of articles reviewed.\nThe posture would escalate to FULL-STORM upon a US 10-Year Yield move above 4.75% or HY OAS widening beyond 400 bps.",
+        "composite_summary": "The Atlas Composite Score of 7.25 signals an ELEVATED RISK (MODERATE RISK) environment, driven by escalating leverage and duration concerns despite a potentially complacent volatility index.",
         "key_actions": [
-            "- Review API call and data structure."
+            "Reduce overall portfolio leverage, particularly in highly speculative or growth-oriented assets.",
+            "Increase allocation to defensive sectors and high-quality, dividend-paying equities.",
+            "Implement tactical hedges to mitigate downside risk, focusing on options strategies or inverse ETFs.",
+            "Closely monitor credit spreads, especially in high-yield markets, for early signs of widening distress.",
+            "Shorten duration exposure in fixed income portfolios to minimize sensitivity to rising interest rates."
         ],
         "news": [
             {
@@ -282,8 +286,8 @@
                 "snippet": "Contextual article. Click title for details."
             },
             {
-                "title": "Dow Jones Top Markets Headlines at 1 AM ET: Market Rout ...",
-                "url": "https://www.morningstar.com/news/dow-jones/20251118408/dow-jones-top-markets-headlines-at-1-am-et-market-rout-intensifies-sweeping-up-everything-from-tech-to-crypto-to-gold-fed",
+                "title": "Stock Market Today: Dow, S&P Live Updates for November 18 ...",
+                "url": "https://www.bloomberg.com/news/articles/2025-11-17/asian-stocks-set-for-declines-as-selloff-deepens-markets-wrap",
                 "snippet": "Contextual article. Click title for details."
             },
             {
@@ -302,6 +306,11 @@
                 "snippet": "Contextual article. Click title for details."
             },
             {
+                "title": "BoE's Pill does not expect much shift in rate view given high pay ...",
+                "url": "https://www.reuters.com/sustainability/sustainable-finance-reporting/boes-pill-says-he-cannot-place-too-much-weight-latest-data-2025-11-18/",
+                "snippet": "Contextual article. Click title for details."
+            },
+            {
                 "title": "FTSE 100 Live: UK Stocks Set for Fourth Day of Losses in Global ...",
                 "url": "https://www.bloomberg.com/news/live-blog/2025-11-18/ftse-100-bitcoin-price-stocks-selloff-reeves-uk-budget-what-s-moving-uk-markets-right-now-markets-today",
                 "snippet": "Contextual article. Click title for details."
@@ -312,21 +321,16 @@
                 "snippet": "Contextual article. Click title for details."
             },
             {
-                "title": "Market Pullback: Healthy Reset, Not Bursting Stock Bubble ...",
-                "url": "https://seekingalpha.com/article/4844884-market-pullback-healthy-reset-not-bursting-stock-bubble",
-                "snippet": "Contextual article. Click title for details."
-            },
-            {
                 "title": "Gilts lose their edge but not yet their attraction | Reuters",
                 "url": "https://www.reuters.com/markets/europe/gilts-lose-their-edge-not-yet-their-attraction-2025-11-18/",
                 "snippet": "Contextual article. Click title for details."
             },
             {
-                "title": "EMEA Morning Briefing: Market Rout Intensifies | Morningstar",
-                "url": "https://www.morningstar.com/news/dow-jones/2025111836/emea-morning-briefing-market-rout-intensifies",
+                "title": "Dow Jones Top Markets Headlines at 9 PM ET: Market Rout ...",
+                "url": "https://www.morningstar.com/news/dow-jones/202511179493/dow-jones-top-markets-headlines-at-9-pm-et-market-rout-intensifies-sweeping-up-everything-from-tech-to-crypto-to-gold-sp",
                 "snippet": "Contextual article. Click title for details."
             }
         ],
-        "news_context_raw": "1. [As data flow revives, Fed still faces a deep policy divide | Reuters](https://www.reuters.com/business/data-flow-revives-fed-still-faces-deep-policy-divide-2025-11-18/)\n2. [Dow Jones Top Markets Headlines at 1 AM ET: Market Rout ...](https://www.morningstar.com/news/dow-jones/20251118408/dow-jones-top-markets-headlines-at-1-am-et-market-rout-intensifies-sweeping-up-everything-from-tech-to-crypto-to-gold-fed)\n3. [Bloomberg - Business News, Stock Markets, Finance, Breaking ...](https://www.bloomberg.com/)\n4. [CEF Insights: Global High Income: Nuveen's Strategy And Outlook ...](https://seekingalpha.com/article/4844883-cef-insights-global-high-income-nuveen-strategy-outlook)\n5. [European Midday Briefing: Shares Fall as AI Concerns Continue to ...](https://www.morningstar.com/news/dow-jones/202511182083/european-midday-briefing-shares-fall-as-ai-concerns-continue-to-weigh)\n6. [FTSE 100 Live: UK Stocks Set for Fourth Day of Losses in Global ...](https://www.bloomberg.com/news/live-blog/2025-11-18/ftse-100-bitcoin-price-stocks-selloff-reeves-uk-budget-what-s-moving-uk-markets-right-now-markets-today)\n7. [Carillon Chartwell Short Duration High Yield Fund Q3 2025 ...](https://seekingalpha.com/article/4844919-carillon-chartwell-short-duration-high-yield-fund-q3-2025-commentary)\n8. [Market Pullback: Healthy Reset, Not Bursting Stock Bubble ...](https://seekingalpha.com/article/4844884-market-pullback-healthy-reset-not-bursting-stock-bubble)\n9. [Gilts lose their edge but not yet their attraction | Reuters](https://www.reuters.com/markets/europe/gilts-lose-their-edge-not-yet-their-attraction-2025-11-18/)\n10. [EMEA Morning Briefing: Market Rout Intensifies | Morningstar](https://www.morningstar.com/news/dow-jones/2025111836/emea-morning-briefing-market-rout-intensifies)"
+        "news_context_raw": "1. [As data flow revives, Fed still faces a deep policy divide | Reuters](https://www.reuters.com/business/data-flow-revives-fed-still-faces-deep-policy-divide-2025-11-18/)\n2. [Stock Market Today: Dow, S&P Live Updates for November 18 ...](https://www.bloomberg.com/news/articles/2025-11-17/asian-stocks-set-for-declines-as-selloff-deepens-markets-wrap)\n3. [Bloomberg - Business News, Stock Markets, Finance, Breaking ...](https://www.bloomberg.com/)\n4. [CEF Insights: Global High Income: Nuveen's Strategy And Outlook ...](https://seekingalpha.com/article/4844883-cef-insights-global-high-income-nuveen-strategy-outlook)\n5. [European Midday Briefing: Shares Fall as AI Concerns Continue to ...](https://www.morningstar.com/news/dow-jones/202511182083/european-midday-briefing-shares-fall-as-ai-concerns-continue-to-weigh)\n6. [BoE's Pill does not expect much shift in rate view given high pay ...](https://www.reuters.com/sustainability/sustainable-finance-reporting/boes-pill-says-he-cannot-place-too-much-weight-latest-data-2025-11-18/)\n7. [FTSE 100 Live: UK Stocks Set for Fourth Day of Losses in Global ...](https://www.bloomberg.com/news/live-blog/2025-11-18/ftse-100-bitcoin-price-stocks-selloff-reeves-uk-budget-what-s-moving-uk-markets-right-now-markets-today)\n8. [Carillon Chartwell Short Duration High Yield Fund Q3 2025 ...](https://seekingalpha.com/article/4844919-carillon-chartwell-short-duration-high-yield-fund-q3-2025-commentary)\n9. [Gilts lose their edge but not yet their attraction | Reuters](https://www.reuters.com/markets/europe/gilts-lose-their-edge-not-yet-their-attraction-2025-11-18/)\n10. [Dow Jones Top Markets Headlines at 9 PM ET: Market Rout ...](https://www.morningstar.com/news/dow-jones/202511179493/dow-jones-top-markets-headlines-at-9-pm-et-market-rout-intensifies-sweeping-up-everything-from-tech-to-crypto-to-gold-sp)"
     }
 }

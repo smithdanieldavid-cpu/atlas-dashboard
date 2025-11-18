@@ -4,9 +4,9 @@
         {
             "id": "VIX",
             "name": "VIX Index",
-            "value": 22.3799991607666,
+            "value": 23.700000762939453,
             "status": "Amber",
-            "note": "VIX at 22.38 (2025-11-17 4:00 PM EST). Elevated volatility. Monitor daily swings.",
+            "note": "VIX at 23.70 (2025-11-18 4:00 PM EST). Elevated volatility. Monitor daily swings.",
             "action": "Monitor news flow; review volatility exposure.",
             "score_value": 1.0,
             "source_link": "https://www.cboe.com/vix/"
@@ -24,9 +24,9 @@
         {
             "id": "EURUSD",
             "name": "EUR/USD exchange rate",
-            "value": 1.1599582433700562,
+            "value": 1.160092830657959,
             "status": "Green",
-            "note": "EUR/USD is at 1.1600. Normal range.",
+            "note": "EUR/USD is at 1.1601. Normal range.",
             "action": "No change.",
             "score_value": 0.0,
             "source_link": "https://finance.yahoo.com/quote/EURUSD=X"
@@ -34,21 +34,21 @@
         {
             "id": "WTI_CRUDE",
             "name": "WTI crude oil ($/bbl)",
-            "value": 59.31999969482422,
-            "status": "Amber",
-            "note": "WTI Crude at $59.32/bbl. Low price indicates global slowdown or demand weakness.",
-            "action": "Monitor global growth indicators.",
-            "score_value": 0.5,
+            "value": 60.040000915527344,
+            "status": "Green",
+            "note": "WTI Crude at $60.04/bbl. Normal price range, favorable for growth.",
+            "action": "No change.",
+            "score_value": 0.0,
             "source_link": "https://finance.yahoo.com/quote/CL=F"
         },
         {
             "id": "AUDUSD",
             "name": "AUD/USD exchange rate",
-            "value": 0.6478362679481506,
-            "status": "Amber",
-            "note": "AUDUSD at 0.6478. Weakness signals higher global risk aversion.",
-            "action": "Monitor commodity markets and China growth data.",
-            "score_value": 0.5,
+            "value": 0.6511688828468323,
+            "status": "Green",
+            "note": "AUDUSD at 0.6512. Stable, suggesting moderate risk appetite.",
+            "action": "No change.",
+            "score_value": 0.0,
             "source_link": "https://finance.yahoo.com/quote/AUDUSD=X"
         },
         {
@@ -229,15 +229,15 @@
     ],
     "overall": {
         "date": "2025-11-18",
-        "score": 8.25,
-        "status": "SEVERE RISK (HIGH RISK)",
-        "comment": "Aggressive risk-off posture; defensive allocation advised.",
+        "score": 7.25,
+        "status": "ELEVATED RISK (MODERATE RISK)",
+        "comment": "Caution warranted; mixed signals dominating market trends.",
         "raw_score_list": [
             1.0,
             1.0,
             0.0,
-            0.5,
-            0.5,
+            0.0,
+            0.0,
             0.0,
             0.5,
             0.0,
@@ -259,7 +259,7 @@
         "escalation_watch": [
             {
                 "name": "VIX Index",
-                "value": "22.38",
+                "value": "23.70",
                 "threshold": "Above 18.0",
                 "status": "Amber"
             },
@@ -270,24 +270,20 @@
                 "status": "Green"
             }
         ],
-        "daily_narrative": "The Atlas Composite Score currently stands at 8.25, signaling a SEVERE RISK posture for institutional portfolios. This elevated risk environment is primarily driven by critical Red indicators in leverage and market breadth, which together point to a significant increase in systemic fragility. Specifically, FINRA Margin Debt YOY % is alarmingly elevated at 38.52%, indicating an aggressive and potentially unsustainable accumulation of speculative leverage within the market. This level of margin debt suggests that a substantial portion of recent market gains may be fueled by borrowed capital, making equity positions highly vulnerable to any downturn. Concurrently, the Small/Large Cap Ratio (RUT/SPX) at 0.35 is a stark Red flag, reflecting a severe and persistent deterioration in market breadth. This divergence signifies a flight from smaller, more growth-oriented companies towards larger, potentially more stable entities, indicating that underlying market health is considerably weaker than headline indices might imply. Such narrowing leadership masks broader systemic vulnerabilities and suggests that the market's resilience is concentrated in a few large-cap names, leaving the broader market susceptible to sharp corrections.\n\nFurthermore, the Amber status of the US 30yr treasury yield at 4.74% highlights building duration risk, nearing critical thresholds and signaling potential for further yield increases that could significantly pressure fixed income portfolios. Despite this pronounced SEVERE RISK posture, certain indicators present a contradictory picture. The VIX Index, while elevated at an Amber 22.38, does not yet reflect the extreme panic typically associated with a full-blown market crisis, potentially indicating delayed or underappreciated systemic risk. Similarly, Treasury net liquidity remains Green, suggesting ample system-level liquidity, which may be temporarily masking the underlying leverage risks highlighted by Red margin debt and Amber credit card delinquencies. The elevated Put/Call Ratio (PCCE) at 1.31, a Red indicator, confirms a strong defensive bias among investors, while the Red status of Gold price at 371.65 underscores a clear flight to safety. These contradictions imply that while immediate liquidity may appear stable, increasing leverage and deteriorating market structure create a fragile environment where a rapid repricing of risk remains a significant threat, particularly for portfolios with unhedged duration or concentrated growth exposures.\n\nThe global macro environment is characterized by intensifying market routs and cautious central bank stances, as highlighted by Morningstar and Bloomberg reporting on widespread declines across asset classes, from technology to cryptocurrencies and even gold. This broad-based sell-off suggests a significant shift in investor sentiment, moving away from risk assets. Central banks in various regions, including Hungary and Australia, are signaling a sustained focus on inflation and a potential for holding key rates steady for longer, as reported by Bloomberg and Reuters. This hawkish bias, or at least a lack of dovish pivot, contributes to the duration risk identified by Atlas indicators. The discussion around affordability and tariffs, per Bloomberg, also points to underlying economic pressures that could exacerbate market downturns, particularly if consumer spending power is further eroded. Investors should note the consistent theme of market fragility and central bank vigilance across these reports, reinforcing the need for defensive positioning. For the full list of articles reviewed, please refer to the News Feed below. An escalation to FULL-STORM would be triggered by the US 10-Year Yield moving above 4.75% or High Yield OAS widening beyond 400 bps.",
-        "composite_summary": "The Atlas Composite Score of 8.25 indicates a SEVERE RISK environment, driven by escalating leverage, deteriorating market breadth, and building duration risk, despite pockets of apparent liquidity.",
+        "daily_narrative": "Gemini API call failed: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",
+        "composite_summary": "Failure",
         "key_actions": [
-            "Reduce overall portfolio leverage and rebalance towards lower-volatility assets.",
-            "Increase allocation to defensive sectors and high-quality fixed income with shorter duration.",
-            "Implement tactical hedging strategies, particularly against equity downside and potential credit spread widening.",
-            "Actively monitor credit spreads, especially High Yield OAS, for signs of further deterioration in corporate credit health.",
-            "Review and de-risk rate-sensitive exposures, given the Amber status of the 30-year yield and central bank hawkishness."
+            "- Review API call and data structure."
         ],
         "news": [
             {
-                "title": "Dow Jones Top Markets Headlines at 1 AM ET: Market Rout ...",
-                "url": "https://www.morningstar.com/news/dow-jones/20251118408/dow-jones-top-markets-headlines-at-1-am-et-market-rout-intensifies-sweeping-up-everything-from-tech-to-crypto-to-gold-fed",
+                "title": "As data flow revives, Fed still faces a deep policy divide | Reuters",
+                "url": "https://www.reuters.com/business/data-flow-revives-fed-still-faces-deep-policy-divide-2025-11-18/",
                 "snippet": "Contextual article. Click title for details."
             },
             {
-                "title": "Global Stocks Slide as Bitcoin Hits Trigger Point: Markets Wrap",
-                "url": "https://www.bloomberg.com/news/articles/2025-11-17/asian-stocks-set-for-declines-as-selloff-deepens-markets-wrap",
+                "title": "Dow Jones Top Markets Headlines at 1 AM ET: Market Rout ...",
+                "url": "https://www.morningstar.com/news/dow-jones/20251118408/dow-jones-top-markets-headlines-at-1-am-et-market-rout-intensifies-sweeping-up-everything-from-tech-to-crypto-to-gold-fed",
                 "snippet": "Contextual article. Click title for details."
             },
             {
@@ -296,41 +292,41 @@
                 "snippet": "Contextual article. Click title for details."
             },
             {
+                "title": "CEF Insights: Global High Income: Nuveen's Strategy And Outlook ...",
+                "url": "https://seekingalpha.com/article/4844883-cef-insights-global-high-income-nuveen-strategy-outlook",
+                "snippet": "Contextual article. Click title for details."
+            },
+            {
+                "title": "European Midday Briefing: Shares Fall as AI Concerns Continue to ...",
+                "url": "https://www.morningstar.com/news/dow-jones/202511182083/european-midday-briefing-shares-fall-as-ai-concerns-continue-to-weigh",
+                "snippet": "Contextual article. Click title for details."
+            },
+            {
+                "title": "FTSE 100 Live: UK Stocks Set for Fourth Day of Losses in Global ...",
+                "url": "https://www.bloomberg.com/news/live-blog/2025-11-18/ftse-100-bitcoin-price-stocks-selloff-reeves-uk-budget-what-s-moving-uk-markets-right-now-markets-today",
+                "snippet": "Contextual article. Click title for details."
+            },
+            {
+                "title": "Carillon Chartwell Short Duration High Yield Fund Q3 2025 ...",
+                "url": "https://seekingalpha.com/article/4844919-carillon-chartwell-short-duration-high-yield-fund-q3-2025-commentary",
+                "snippet": "Contextual article. Click title for details."
+            },
+            {
+                "title": "Market Pullback: Healthy Reset, Not Bursting Stock Bubble ...",
+                "url": "https://seekingalpha.com/article/4844884-market-pullback-healthy-reset-not-bursting-stock-bubble",
+                "snippet": "Contextual article. Click title for details."
+            },
+            {
+                "title": "Gilts lose their edge but not yet their attraction | Reuters",
+                "url": "https://www.reuters.com/markets/europe/gilts-lose-their-edge-not-yet-their-attraction-2025-11-18/",
+                "snippet": "Contextual article. Click title for details."
+            },
+            {
                 "title": "EMEA Morning Briefing: Market Rout Intensifies | Morningstar",
                 "url": "https://www.morningstar.com/news/dow-jones/2025111836/emea-morning-briefing-market-rout-intensifies",
                 "snippet": "Contextual article. Click title for details."
-            },
-            {
-                "title": "AI: You Don't Need Burry to Know Which Way the Bubble Blows ...",
-                "url": "https://www.bloomberg.com/opinion/newsletters/2025-11-18/ai-you-don-t-need-burry-to-know-which-way-the-bubble-blows",
-                "snippet": "Contextual article. Click title for details."
-            },
-            {
-                "title": "Hungary to Hold Key Rate With Inflation in Focus: Decision Guide ...",
-                "url": "https://www.bloomberg.com/news/articles/2025-11-18/hungary-to-hold-key-rate-with-inflation-in-focus-decision-guide",
-                "snippet": "Contextual article. Click title for details."
-            },
-            {
-                "title": "How Affordability Disrupted Trump's Economic Case for Tariffs",
-                "url": "https://www.bloomberg.com/news/newsletters/2025-11-17/tariffs-and-trump-and-affordability",
-                "snippet": "Contextual article. Click title for details."
-            },
-            {
-                "title": "POLL Bank Indonesia to hold rates steady at 4.75% on November ...",
-                "url": "https://www.reuters.com/world/asia-pacific/bank-indonesia-hold-rates-steady-475-november-19-cut-next-month-2025-11-17/",
-                "snippet": "Contextual article. Click title for details."
-            },
-            {
-                "title": "Australia's central bank could hold policy steady for longer if data ...",
-                "url": "https://www.reuters.com/world/asia-pacific/australias-central-bank-could-hold-policy-steady-longer-if-data-comes-strong-2025-11-18/",
-                "snippet": "Contextual article. Click title for details."
-            },
-            {
-                "title": "FTSE 100 Poised to Extend Drop After Worst Day Since April - Live ...",
-                "url": "https://www.bloomberg.com/news/live-blog/2025-11-17/ftse-100-live-pound-gilts-uk-budget-oil-gold-bitcoin-trump-tariffs-what-s-moving-uk-markets-right-now-markets-today",
-                "snippet": "Contextual article. Click title for details."
             }
         ],
-        "news_context_raw": "1. [Dow Jones Top Markets Headlines at 1 AM ET: Market Rout ...](https://www.morningstar.com/news/dow-jones/20251118408/dow-jones-top-markets-headlines-at-1-am-et-market-rout-intensifies-sweeping-up-everything-from-tech-to-crypto-to-gold-fed)\n2. [Global Stocks Slide as Bitcoin Hits Trigger Point: Markets Wrap](https://www.bloomberg.com/news/articles/2025-11-17/asian-stocks-set-for-declines-as-selloff-deepens-markets-wrap)\n3. [Bloomberg - Business News, Stock Markets, Finance, Breaking ...](https://www.bloomberg.com/)\n4. [EMEA Morning Briefing: Market Rout Intensifies | Morningstar](https://www.morningstar.com/news/dow-jones/2025111836/emea-morning-briefing-market-rout-intensifies)\n5. [AI: You Don't Need Burry to Know Which Way the Bubble Blows ...](https://www.bloomberg.com/opinion/newsletters/2025-11-18/ai-you-don-t-need-burry-to-know-which-way-the-bubble-blows)\n6. [Hungary to Hold Key Rate With Inflation in Focus: Decision Guide ...](https://www.bloomberg.com/news/articles/2025-11-18/hungary-to-hold-key-rate-with-inflation-in-focus-decision-guide)\n7. [How Affordability Disrupted Trump's Economic Case for Tariffs](https://www.bloomberg.com/news/newsletters/2025-11-17/tariffs-and-trump-and-affordability)\n8. [POLL Bank Indonesia to hold rates steady at 4.75% on November ...](https://www.reuters.com/world/asia-pacific/bank-indonesia-hold-rates-steady-475-november-19-cut-next-month-2025-11-17/)\n9. [Australia's central bank could hold policy steady for longer if data ...](https://www.reuters.com/world/asia-pacific/australias-central-bank-could-hold-policy-steady-longer-if-data-comes-strong-2025-11-18/)\n10. [FTSE 100 Poised to Extend Drop After Worst Day Since April - Live ...](https://www.bloomberg.com/news/live-blog/2025-11-17/ftse-100-live-pound-gilts-uk-budget-oil-gold-bitcoin-trump-tariffs-what-s-moving-uk-markets-right-now-markets-today)"
+        "news_context_raw": "1. [As data flow revives, Fed still faces a deep policy divide | Reuters](https://www.reuters.com/business/data-flow-revives-fed-still-faces-deep-policy-divide-2025-11-18/)\n2. [Dow Jones Top Markets Headlines at 1 AM ET: Market Rout ...](https://www.morningstar.com/news/dow-jones/20251118408/dow-jones-top-markets-headlines-at-1-am-et-market-rout-intensifies-sweeping-up-everything-from-tech-to-crypto-to-gold-fed)\n3. [Bloomberg - Business News, Stock Markets, Finance, Breaking ...](https://www.bloomberg.com/)\n4. [CEF Insights: Global High Income: Nuveen's Strategy And Outlook ...](https://seekingalpha.com/article/4844883-cef-insights-global-high-income-nuveen-strategy-outlook)\n5. [European Midday Briefing: Shares Fall as AI Concerns Continue to ...](https://www.morningstar.com/news/dow-jones/202511182083/european-midday-briefing-shares-fall-as-ai-concerns-continue-to-weigh)\n6. [FTSE 100 Live: UK Stocks Set for Fourth Day of Losses in Global ...](https://www.bloomberg.com/news/live-blog/2025-11-18/ftse-100-bitcoin-price-stocks-selloff-reeves-uk-budget-what-s-moving-uk-markets-right-now-markets-today)\n7. [Carillon Chartwell Short Duration High Yield Fund Q3 2025 ...](https://seekingalpha.com/article/4844919-carillon-chartwell-short-duration-high-yield-fund-q3-2025-commentary)\n8. [Market Pullback: Healthy Reset, Not Bursting Stock Bubble ...](https://seekingalpha.com/article/4844884-market-pullback-healthy-reset-not-bursting-stock-bubble)\n9. [Gilts lose their edge but not yet their attraction | Reuters](https://www.reuters.com/markets/europe/gilts-lose-their-edge-not-yet-their-attraction-2025-11-18/)\n10. [EMEA Morning Briefing: Market Rout Intensifies | Morningstar](https://www.morningstar.com/news/dow-jones/2025111836/emea-morning-briefing-market-rout-intensifies)"
     }
 }

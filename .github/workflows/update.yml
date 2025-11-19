@@ -1,91 +1,99 @@
-# .github/workflows/update.yml
-# This workflow runs the Atlas Python script daily, commits the new JSON data,
-# and pushes it back to the repository, updating the GitHub Pages site.
+# This workflow runs the Atlas Python script daily, updates the necessary files,
+# and then directly deploys the new version via GitHub Pages artifacts.
+#
+# CRITICAL CHANGES:
+# 1. Removed the 'git push' step (Step 5 of your original file) to fix the deployment conflict.
+# 2. Added the two required jobs/steps for GitHub Pages deployment (Job: deploy-site).
 
 name: 📊 Daily Atlas Update
 
 # Controls when the workflow is triggered
 on:
   # 1. Manual trigger (for easy testing)
-  workflow_dispatch: 
-  
-  # 2. Scheduled trigger (runs daily at 00:00 UTC)
+  workflow_dispatch:
+ 
+  # 2. Scheduled trigger (runs 3 times daily)
   schedule:
-    # Runs every day at 6:00 AM UTC
-    - cron: '0 6 * * *'
-    # Runs every day at 12:00 PM (noon) UTC
-    - cron: '0 12 * * *'
-    # Runs every day at 6:00 PM UTC
-    - cron: '0 18 * * *'
+    - cron: '0 6 * * *' # 6:00 AM UTC
+    - cron: '0 12 * * *' # 12:00 PM (noon) UTC
+    - cron: '0 18 * * *' # 6:00 PM UTC
 
 jobs:
   run-atlas-update:
     runs-on: ubuntu-latest
     
-    # Permissions required to check out code and push commits
+    # Permissions required only for checkout/reading secrets in this job
     permissions:
-      contents: write 
-
+      contents: read 
+      
     steps:
       # 1. Checkout the repository code
       - name: ⬇️ Checkout Repository
         uses: actions/checkout@v4
         with:
-          # Ensure full history is fetched for future git operations
-          fetch-depth: 0 
+          # Only fetch the latest commit, as we are no longer pushing data back here
+          fetch-depth: 1 
 
       # 2. Setup Python environment
       - name: 🐍 Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.11' # Use a stable, recent version
+          python-version: '3.11'
 
-      # 3. Install dependencies (FIXED: Now installs from requirements.txt, which includes google-api-python-client)
+      # 3. Install dependencies
       - name: 📦 Install Python dependencies
         run: |
-          # Install all necessary packages from the requirements.txt file
           python -m pip install --upgrade pip
-          pip install -r requirements.txt # Uses your comprehensive requirements file!
+          pip install -r requirements.txt
 
-      # 4. Execute the Python script (ADDED: Explicit Python path for environment safety)
+      # 4. Execute the Python script
+      # This step must update the JSON data and any dependent static HTML files.
       - name: 🏃 Run Atlas Update Script
-        # THIS SECTION EXPOSES ALL NECESSARY SECRETS AS ENVIRONMENT VARIABLES
-        # CRITICAL FIX: Using the explicit virtual environment path for reliability.
         run: python3 update_atlas.py
-        # THIS SECTION EXPOSES ALL NECESSARY SECRETS AS ENVIRONMENT VARIABLES
-
         env:
           # CORE KEYS
           FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           
-          # NEWS INTEGRATION KEYS (Used by news_fetcher.py)
+          # NEWS INTEGRATION KEYS
           GOOGLE_SEARCH_API_KEY: ${{ secrets.GOOGLE_SEARCH_API_KEY }}
           GOOGLE_SEARCH_CX: ${{ secrets.GOOGLE_SEARCH_CX }}
           
-          # ADDITIONAL INDICATOR KEYS (Used by fetch_indicator_data inside update_atlas.py)
+          # ADDITIONAL INDICATOR KEYS
           VIX_API_KEY: ${{ secrets.VIX_API_KEY }}
           GOLD_API_KEY: ${{ secrets.GOLD_API_KEY }}
           FX_API_KEY: ${{ secrets.FX_API_KEY }}
           
-      # 5. Commit and Push changes
-      - name: 💾 Commit and Push new data
-        run: |
-          # Configure Git user for the commit
-          git config user.name 'github-actions[bot]'
-          git config user.email 'github-actions[bot]@users.noreply.github.com'
-          
-          # Check if the JSON files were modified
-          if [ -n "$(git status --porcelain data/atlas-latest.json data/atlas-archive.json)" ]; then
-            # Add the modified files
-            git add data/atlas-latest.json data/atlas-archive.json
-            
-            # Commit the changes
-            git commit -m "🤖 Atlas Update: New data for $(date +%Y-%m-%d)"
-            
-            # Push the changes back to the remote branch
-            git push
-          else
-            echo "No changes detected in JSON files. Skipping commit."
-          fi
-          
+      # 5. COMMIT AND PUSH STEP REMOVED: 
+      # The git push step was removed to prevent the workflow chain from breaking.
+      
+      # 6. Upload static site files for deployment (CRITICAL STEP 1: Uploading the artifact)
+      # This uploads the entire working directory (including the new data) for deployment.
+      - name: 📦 Upload Pages Artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # This path must contain your index.html and the data/ directory.
+          path: './'
+
+
+  deploy-site:
+    # This deployment job only runs AFTER the run-atlas-update job successfully finishes.
+    needs: run-atlas-update
+    
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+      
+    runs-on: ubuntu-latest
+    
+    # Grant necessary permissions for deployment
+    permissions:
+      contents: read
+      pages: write # <--- Essential for deployment
+      id-token: write # <--- Essential for deployment
+
+    steps:
+      # 1. Deploy the uploaded artifact (CRITICAL STEP 2: Deploying the artifact)
+      - name: 🚀 Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

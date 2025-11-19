@@ -4,9 +4,9 @@
         {
             "id": "VIX",
             "name": "VIX Index",
-            "value": 23.18000030517578,
+            "value": 24.690000534057617,
             "status": "Amber",
-            "note": "VIX at 23.18 (2025-11-18 4:00 PM EST). Elevated volatility. Monitor daily swings.",
+            "note": "VIX at 24.69 (2025-11-18 4:00 PM EST). Elevated volatility. Monitor daily swings.",
             "action": "Monitor news flow; review volatility exposure.",
             "score_value": 1.0,
             "source_link": "https://www.cboe.com/vix/"
@@ -14,9 +14,9 @@
         {
             "id": "GOLD_PRICE",
             "name": "Gold price (GLD proxy)",
-            "value": 374.7099914550781,
+            "value": 374.3500061035156,
             "status": "Red",
-            "note": "Gold (GLD) at $374.71. Signals extreme flight to safety or high inflation expectations.",
+            "note": "Gold (GLD) at $374.35. Signals extreme flight to safety or high inflation expectations.",
             "action": "Maintain gold position as a core hedge; reduce risk assets.",
             "score_value": 1.0,
             "source_link": "https://finance.yahoo.com/quote/GLD"
@@ -24,9 +24,9 @@
         {
             "id": "EURUSD",
             "name": "EUR/USD exchange rate",
-            "value": 1.1587486267089844,
+            "value": 1.1583458185195923,
             "status": "Green",
-            "note": "EUR/USD is at 1.1587. Normal range.",
+            "note": "EUR/USD is at 1.1583. Normal range.",
             "action": "No change.",
             "score_value": 0.0,
             "source_link": "https://finance.yahoo.com/quote/EURUSD=X"
@@ -34,9 +34,9 @@
         {
             "id": "WTI_CRUDE",
             "name": "WTI crude oil ($/bbl)",
-            "value": 60.52000045776367,
+            "value": 60.470001220703125,
             "status": "Green",
-            "note": "WTI Crude at $60.52/bbl. Normal price range, favorable for growth.",
+            "note": "WTI Crude at $60.47/bbl. Normal price range, favorable for growth.",
             "action": "No change.",
             "score_value": 0.0,
             "source_link": "https://finance.yahoo.com/quote/CL=F"
@@ -44,19 +44,19 @@
         {
             "id": "AUDUSD",
             "name": "AUD/USD exchange rate",
-            "value": 0.6517630219459534,
-            "status": "Green",
-            "note": "AUDUSD at 0.6518. Stable, suggesting moderate risk appetite.",
-            "action": "No change.",
-            "score_value": 0.0,
+            "value": 0.6483402252197266,
+            "status": "Amber",
+            "note": "AUDUSD at 0.6483. Weakness signals higher global risk aversion.",
+            "action": "Monitor commodity markets and China growth data.",
+            "score_value": 0.5,
             "source_link": "https://finance.yahoo.com/quote/AUDUSD=X"
         },
         {
             "id": "3Y_YIELD",
             "name": "US 3yr treasury yield",
-            "value": 3.61,
+            "value": 3.6,
             "status": "Green",
-            "note": "Yield at 3.61%. Normal short-term rate environment.",
+            "note": "Yield at 3.60%. Normal short-term rate environment.",
             "action": "No change.",
             "score_value": 0.0,
             "source_link": "https://www.treasury.gov/resource-center/data-chart-center/interest-rates/"
@@ -64,9 +64,9 @@
         {
             "id": "30Y_YIELD",
             "name": "US 30yr treasury yield",
-            "value": 4.74,
+            "value": 4.73,
             "status": "Amber",
-            "note": "Yield at 4.74%. Elevated long-term yields reflecting fiscal risk/inflation concerns.",
+            "note": "Yield at 4.73%. Elevated long-term yields reflecting fiscal risk/inflation concerns.",
             "action": "Watch the 5.0% threshold. Limit long duration locks.",
             "score_value": 0.5,
             "source_link": "https://www.treasury.gov/resource-center/data-chart-center/interest-rates/"
@@ -74,9 +74,9 @@
         {
             "id": "10Y_YIELD",
             "name": "US 10yr treasury yield",
-            "value": 4.14,
+            "value": 4.13,
             "status": "Green",
-            "note": "Yield at 4.14%. Normal long-term rate environment.",
+            "note": "Yield at 4.13%. Normal long-term rate environment.",
             "action": "No change.",
             "score_value": 0.0,
             "source_link": "https://www.treasury.gov/resource-center/data-chart-center/interest-rates/"
@@ -94,9 +94,9 @@
         {
             "id": "TREASURY_LIQUIDITY",
             "name": "Treasury net liquidity",
-            "value": 5626642.828,
+            "value": 5626645.095,
             "status": "Green",
-            "note": "Net Liquidity at $5626643B. Liquidity is robust and supportive of risk assets.",
+            "note": "Net Liquidity at $5626645B. Liquidity is robust and supportive of risk assets.",
             "action": "No change.",
             "score_value": 0.0,
             "source_link": "https://fred.stlouisfed.org/series/WALCL"
@@ -149,9 +149,9 @@
         {
             "id": "SPX_INDEX",
             "name": "S&P 500 index",
-            "value": 6657.3701171875,
+            "value": 6617.31982421875,
             "status": "Green",
-            "note": "S&P 500 Index at 6,657. Strong market momentum.",
+            "note": "S&P 500 Index at 6,617. Strong market momentum.",
             "action": "No change.",
             "score_value": 0.0,
             "source_link": "https://finance.yahoo.com/quote/%5EGSPC"
@@ -159,9 +159,9 @@
         {
             "id": "ASX_200",
             "name": "ASX 200 index",
-            "value": 8469.099609375,
+            "value": 8459.7998046875,
             "status": "Green",
-            "note": "ASX 200 Index at 8,469. Stable price action.",
+            "note": "ASX 200 Index at 8,460. Stable price action.",
             "action": "No change.",
             "score_value": 0.0,
             "source_link": "https://finance.yahoo.com/quote/%5EAXJO"
@@ -179,9 +179,9 @@
         {
             "id": "SMALL_LARGE_RATIO",
             "name": "Small/Large Cap Ratio (RUT/SPX)",
-            "value": 0.35465987457803094,
+            "value": 0.35493826090106967,
             "status": "Red",
-            "note": "Small/Large Cap ratio at 0.3547. Severe small-cap underperformance. Recessionary signal/high risk-off sentiment.",
+            "note": "Small/Large Cap ratio at 0.3549. Severe small-cap underperformance. Recessionary signal/high risk-off sentiment.",
             "action": "Avoid small-cap exposure entirely. Favour high-quality large-caps.",
             "score_value": 1.5,
             "source_link": "https://finance.yahoo.com/quote/%5ERUT"
@@ -189,9 +189,9 @@
         {
             "id": "PUT_CALL_RATIO",
             "name": "Put/Call Ratio (PCCE)",
-            "value": 1.0228034870884233,
+            "value": 1.3679165182361905,
             "status": "Red",
-            "note": "SPY PCR at 1.0228. Extreme retail options hedging (put-buying). High market fear/bearish sentiment.",
+            "note": "SPY PCR at 1.3679. Extreme retail options hedging (put-buying). High market fear/bearish sentiment.",
             "action": "Consider contrarian bullish positioning; watch VIX for confirmation.",
             "score_value": 1.0,
             "source_link": "Data calculated from aggregated SPY options volume: [Yahoo Finance Link](https://finance.yahoo.com/quote/SPY)"
@@ -228,8 +228,8 @@
         }
     ],
     "overall": {
-        "date": "2025-11-18",
-        "score": 7.25,
+        "date": "2025-11-19",
+        "score": 7.75,
         "status": "ELEVATED RISK (MODERATE RISK)",
         "comment": "Caution warranted; mixed signals dominating market trends.",
         "raw_score_list": [
@@ -237,7 +237,7 @@
             1.0,
             0.0,
             0.0,
-            0.0,
+            0.5,
             0.0,
             0.5,
             0.0,
@@ -259,27 +259,47 @@
         "escalation_watch": [
             {
                 "name": "VIX Index",
-                "value": "23.18",
+                "value": "24.69",
                 "threshold": "Above 18.0",
                 "status": "Amber"
             },
             {
                 "name": "10Y Yield",
-                "value": "4.14",
+                "value": "4.13",
                 "threshold": "Above 4.0%",
                 "status": "Green"
             }
         ],
-        "daily_narrative": "The Atlas Composite Score currently stands at 7.25, indicating an ELEVATED RISK (MODERATE RISK) posture. This assessment is primarily driven by several critical Red and Amber indicators signaling heightened leverage and duration risks within the financial system. Specifically, the FINRA Margin Debt YOY % at 38.52% remains a significant Red flag, pointing to substantial embedded leverage that could amplify market corrections. Concurrently, the Small/Large Cap Ratio (RUT/SPX) at 0.35 is also Red, reflecting a pronounced flight to quality and a preference for larger, more stable companies over growth-oriented small caps, which is indicative of underlying duration and growth concerns. This divergence suggests investors are increasingly wary of riskier segments of the market, positioning defensively against potential economic deceleration or tighter financial conditions.\nFurther contributing to the elevated risk profile are Amber indicators such as the US 30yr treasury yield at 4.74%, signaling persistent upward pressure on long-term borrowing costs and impacting duration-sensitive assets. Credit card delinquencies, at 305.00, also register Amber, highlighting a deteriorating consumer credit environment that could translate into broader economic weakness and increased default risk. A notable contradiction exists with the VIX Index, which, despite being Amber at 23.18, does not fully reflect the severity implied by the Red flags in leverage and small-cap underperformance. This suggests a potential underestimation of systemic risk by broad market volatility measures, possibly due to concentrated market leadership or ongoing hedging activities. For investors, this environment necessitates a focus on capital preservation, reduced leverage, and a bias towards high-quality, shorter-duration assets, as the market may be susceptible to abrupt shifts if underlying stresses materialize.\nThe global macro and policy tone reinforces this cautious outlook, with a clear narrative of market stress and central bank vigilance. Bloomberg and Morningstar reporting highlights a broad market rout, with declines sweeping across equities, including tech, and extending to crypto and gold, indicating a pervasive risk-off sentiment. European shares are also falling, partly due to ongoing AI concerns, as noted by Morningstar. Central bank commentary, as reported by Reuters, points to a deep policy divide within the Federal Reserve regarding future actions, while the Bank of England's Pill does not anticipate significant shifts in rate views given persistent high pay growth, signaling continued hawkishness. Reuters also notes that Gilts are losing their edge, further underscoring the challenges in fixed income markets. These external developments align with our internal indicators, suggesting a period of heightened uncertainty and potential for further market re-pricing. Readers are directed to the News Feed below for the full list of articles reviewed.\nThe posture would escalate to FULL-STORM upon a US 10-Year Yield move above 4.75% or HY OAS widening beyond 400 bps.",
-        "composite_summary": "The Atlas Composite Score of 7.25 signals an ELEVATED RISK (MODERATE RISK) environment, driven by escalating leverage and duration concerns despite a potentially complacent volatility index.",
+        "daily_narrative": "The Atlas Composite Score currently stands at 7.75, indicating an ELEVATED RISK (MODERATE RISK) posture. This assessment is primarily driven by several critical Red and Amber indicators signaling heightened leverage, duration sensitivity, and underlying market fragility. Specifically, the FINRA Margin Debt YOY % at 38.52 remains a significant Red flag, pointing to excessive speculative leverage within the system. Concurrently, the Small/Large Cap Ratio (RUT/SPX) at 0.35, also Red, underscores a clear risk-off sentiment, with investors favoring larger, more stable companies over smaller, growth-oriented ones, suggesting a narrowing of market breadth. This is further corroborated by a Red Put/Call Ratio (PCCE) of 1.37, indicating increased hedging activity or a growing bearish bias among options traders. The Gold price, acting as a traditional safe-haven asset, is also Red at 374.35, reflecting a demand for defensive assets amidst uncertainty.\nA notable contradiction lies in the VIX Index, which, despite being Amber at 24.69, does not fully reflect the severity implied by the Red leverage and market sentiment indicators. This suggests that while underlying market stress is accumulating, headline volatility might be suppressed by concentrated market performance or a delayed recognition of systemic risks. Furthermore, the US 30yr treasury yield at 4.73 is Amber, signaling elevated duration risk and proximity to critical thresholds, yet the High Yield OAS remains Green at 313.00, indicating that corporate credit spreads have not yet widened significantly. This divergence suggests a potential disconnect where consumer credit stress, evidenced by Amber credit card delinquencies at 305.00, is rising, but its impact on broader corporate credit markets is either delayed or being absorbed. For investors, this environment necessitates a cautious approach, as high leverage and narrowing market leadership increase vulnerability to sudden shifts, while the relatively contained VIX could foster complacency. Portfolios should prioritize resilience, given the underlying structural fragilities.\nThe global macro and policy tone reflects a cautious sentiment, with equity markets experiencing declines across various regions, as highlighted by Bloomberg's reporting on the FTSE 100 and broader stock market performance, with AI concerns contributing to a sell-off in European shares per Morningstar. While some market participants, as noted by Bloomberg, view the current downturn as a healthy correction rather than a precursor to a bear market, central bank commentary suggests persistent inflationary pressures. Reuters indicates that despite a revival in data flow, the Federal Reserve continues to face a deep policy divide, while the Bank of England's Pill does not anticipate a significant shift in rate views given high pay growth. Furthermore, Bloomberg's coverage of the Reserve Bank of India's inflation miss places global inflation forecasts under scrutiny. In this environment, some investment strategies, as discussed by Seeking Alpha, are focusing on global high-income and short-duration high-yield funds, signaling a search for yield with managed duration. Readers are directed to the News Feed below for the full list of articles reviewed. A move of the US 10-Year Yield above 4.75% or HY OAS widening beyond 400 bps would escalate the posture to FULL-STORM.",
+        "composite_summary": "The Atlas Composite Score of 7.75 signals an ELEVATED RISK (MODERATE RISK) environment, characterized by rising leverage, narrowing market breadth, and increasing duration sensitivity, warranting a defensive portfolio stance.",
         "key_actions": [
-            "Reduce overall portfolio leverage, particularly in highly speculative or growth-oriented assets.",
+            "Reduce exposure to highly leveraged assets and speculative growth sectors.",
             "Increase allocation to defensive sectors and high-quality, dividend-paying equities.",
-            "Implement tactical hedges to mitigate downside risk, focusing on options strategies or inverse ETFs.",
-            "Closely monitor credit spreads, especially in high-yield markets, for early signs of widening distress.",
-            "Shorten duration exposure in fixed income portfolios to minimize sensitivity to rising interest rates."
+            "Implement tactical hedging strategies to mitigate downside risk, particularly against equity market drawdowns.",
+            "Closely monitor credit spreads, especially High Yield OAS, for signs of widening that would indicate deteriorating credit conditions.",
+            "Manage duration risk by favoring shorter-duration fixed income instruments and assessing sensitivity to rising long-term yields."
         ],
         "news": [
+            {
+                "title": "FTSE 100 Live: UK Stocks Set for Fourth Day of Losses in Global ...",
+                "url": "https://www.bloomberg.com/news/live-blog/2025-11-18/ftse-100-bitcoin-price-stocks-selloff-reeves-uk-budget-what-s-moving-uk-markets-right-now-markets-today",
+                "snippet": "Contextual article. Click title for details."
+            },
+            {
+                "title": "Bob Diamond Sees Healthy Correction, Not Bear Market Precursor ...",
+                "url": "https://www.bloomberg.com/news/articles/2025-11-19/bob-diamond-sees-healthy-correction-not-bear-market-precursor",
+                "snippet": "Contextual article. Click title for details."
+            },
+            {
+                "title": "RBI's Big Inflation Miss Puts India Forecasts Under Scrutiny ...",
+                "url": "https://www.bloomberg.com/news/articles/2025-11-19/rbi-s-big-inflation-misses-put-india-s-forecasts-under-scrutiny",
+                "snippet": "Contextual article. Click title for details."
+            },
+            {
+                "title": "Economics - Bloomberg",
+                "url": "https://www.bloomberg.com/economics-v2",
+                "snippet": "Contextual article. Click title for details."
+            },
             {
                 "title": "As data flow revives, Fed still faces a deep policy divide | Reuters",
                 "url": "https://www.reuters.com/business/data-flow-revives-fed-still-faces-deep-policy-divide-2025-11-18/",
@@ -288,11 +308,6 @@
             {
                 "title": "Stock Market Today: Dow, S&P Live Updates for November 18 ...",
                 "url": "https://www.bloomberg.com/news/articles/2025-11-17/asian-stocks-set-for-declines-as-selloff-deepens-markets-wrap",
-                "snippet": "Contextual article. Click title for details."
-            },
-            {
-                "title": "Bloomberg - Business News, Stock Markets, Finance, Breaking ...",
-                "url": "https://www.bloomberg.com/",
                 "snippet": "Contextual article. Click title for details."
             },
             {
@@ -311,26 +326,11 @@
                 "snippet": "Contextual article. Click title for details."
             },
             {
-                "title": "FTSE 100 Live: UK Stocks Set for Fourth Day of Losses in Global ...",
-                "url": "https://www.bloomberg.com/news/live-blog/2025-11-18/ftse-100-bitcoin-price-stocks-selloff-reeves-uk-budget-what-s-moving-uk-markets-right-now-markets-today",
-                "snippet": "Contextual article. Click title for details."
-            },
-            {
                 "title": "Carillon Chartwell Short Duration High Yield Fund Q3 2025 ...",
                 "url": "https://seekingalpha.com/article/4844919-carillon-chartwell-short-duration-high-yield-fund-q3-2025-commentary",
                 "snippet": "Contextual article. Click title for details."
-            },
-            {
-                "title": "Gilts lose their edge but not yet their attraction | Reuters",
-                "url": "https://www.reuters.com/markets/europe/gilts-lose-their-edge-not-yet-their-attraction-2025-11-18/",
-                "snippet": "Contextual article. Click title for details."
-            },
-            {
-                "title": "Dow Jones Top Markets Headlines at 9 PM ET: Market Rout ...",
-                "url": "https://www.morningstar.com/news/dow-jones/202511179493/dow-jones-top-markets-headlines-at-9-pm-et-market-rout-intensifies-sweeping-up-everything-from-tech-to-crypto-to-gold-sp",
-                "snippet": "Contextual article. Click title for details."
             }
         ],
-        "news_context_raw": "1. [As data flow revives, Fed still faces a deep policy divide | Reuters](https://www.reuters.com/business/data-flow-revives-fed-still-faces-deep-policy-divide-2025-11-18/)\n2. [Stock Market Today: Dow, S&P Live Updates for November 18 ...](https://www.bloomberg.com/news/articles/2025-11-17/asian-stocks-set-for-declines-as-selloff-deepens-markets-wrap)\n3. [Bloomberg - Business News, Stock Markets, Finance, Breaking ...](https://www.bloomberg.com/)\n4. [CEF Insights: Global High Income: Nuveen's Strategy And Outlook ...](https://seekingalpha.com/article/4844883-cef-insights-global-high-income-nuveen-strategy-outlook)\n5. [European Midday Briefing: Shares Fall as AI Concerns Continue to ...](https://www.morningstar.com/news/dow-jones/202511182083/european-midday-briefing-shares-fall-as-ai-concerns-continue-to-weigh)\n6. [BoE's Pill does not expect much shift in rate view given high pay ...](https://www.reuters.com/sustainability/sustainable-finance-reporting/boes-pill-says-he-cannot-place-too-much-weight-latest-data-2025-11-18/)\n7. [FTSE 100 Live: UK Stocks Set for Fourth Day of Losses in Global ...](https://www.bloomberg.com/news/live-blog/2025-11-18/ftse-100-bitcoin-price-stocks-selloff-reeves-uk-budget-what-s-moving-uk-markets-right-now-markets-today)\n8. [Carillon Chartwell Short Duration High Yield Fund Q3 2025 ...](https://seekingalpha.com/article/4844919-carillon-chartwell-short-duration-high-yield-fund-q3-2025-commentary)\n9. [Gilts lose their edge but not yet their attraction | Reuters](https://www.reuters.com/markets/europe/gilts-lose-their-edge-not-yet-their-attraction-2025-11-18/)\n10. [Dow Jones Top Markets Headlines at 9 PM ET: Market Rout ...](https://www.morningstar.com/news/dow-jones/202511179493/dow-jones-top-markets-headlines-at-9-pm-et-market-rout-intensifies-sweeping-up-everything-from-tech-to-crypto-to-gold-sp)"
+        "news_context_raw": "1. [FTSE 100 Live: UK Stocks Set for Fourth Day of Losses in Global ...](https://www.bloomberg.com/news/live-blog/2025-11-18/ftse-100-bitcoin-price-stocks-selloff-reeves-uk-budget-what-s-moving-uk-markets-right-now-markets-today)\n2. [Bob Diamond Sees Healthy Correction, Not Bear Market Precursor ...](https://www.bloomberg.com/news/articles/2025-11-19/bob-diamond-sees-healthy-correction-not-bear-market-precursor)\n3. [RBI's Big Inflation Miss Puts India Forecasts Under Scrutiny ...](https://www.bloomberg.com/news/articles/2025-11-19/rbi-s-big-inflation-misses-put-india-s-forecasts-under-scrutiny)\n4. [Economics - Bloomberg](https://www.bloomberg.com/economics-v2)\n5. [As data flow revives, Fed still faces a deep policy divide | Reuters](https://www.reuters.com/business/data-flow-revives-fed-still-faces-deep-policy-divide-2025-11-18/)\n6. [Stock Market Today: Dow, S&P Live Updates for November 18 ...](https://www.bloomberg.com/news/articles/2025-11-17/asian-stocks-set-for-declines-as-selloff-deepens-markets-wrap)\n7. [CEF Insights: Global High Income: Nuveen's Strategy And Outlook ...](https://seekingalpha.com/article/4844883-cef-insights-global-high-income-nuveen-strategy-outlook)\n8. [European Midday Briefing: Shares Fall as AI Concerns Continue to ...](https://www.morningstar.com/news/dow-jones/202511182083/european-midday-briefing-shares-fall-as-ai-concerns-continue-to-weigh)\n9. [BoE's Pill does not expect much shift in rate view given high pay ...](https://www.reuters.com/sustainability/sustainable-finance-reporting/boes-pill-says-he-cannot-place-too-much-weight-latest-data-2025-11-18/)\n10. [Carillon Chartwell Short Duration High Yield Fund Q3 2025 ...](https://seekingalpha.com/article/4844919-carillon-chartwell-short-duration-high-yield-fund-q3-2025-commentary)"
     }
 }

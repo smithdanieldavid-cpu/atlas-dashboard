@@ -433,6 +433,8 @@ def fetch_indicator_data(indicator_id):
                 # 2. CONVERT PERCENTAGE TO BASIS POINTS FOR SPREADS/DELINQUENCIES
                 if indicator_id in ["HY_OAS", "CREDIT_CARD_DELINQUENCIES"]:
                     value = float(value) * 100.0
+
+                print(f"Success: Fetched {indicator_id} ({value}) from FRED.")
                     
                 # 3. RETURN FINAL FLOAT
                 return float(value)
@@ -664,10 +666,14 @@ def _update_indicator_sources(indicators):
     FINRA_LINK = "https://www.finra.org/investors/market-and-financial-data/margin-statistics"
     
     YFINANCE_SOURCES = {
-        "VIX": YFINANCE_BASE + "%5EVIX/", "GOLD_PRICE": YFINANCE_BASE + "GLD/", 
-        "SPX_INDEX": YFINANCE_BASE + "%5EGSPC/", "ASX_200": YFINANCE_BASE + "%5EAXJO/",
-        "WTI_CRUDE": YFINANCE_BASE + "USO/", "AUDUSD": YFINANCE_BASE + "AUDUSD=X/",
-        "SMALL_LARGE_RATIO": YFINANCE_BASE + "%5ERUT/", "EURUSD": YFINANCE_BASE + "EURUSD=X/"
+        "VIX": YFINANCE_BASE + "%5EVIX/", 
+        "GOLD_PRICE": YFINANCE_BASE + "GLD/", 
+        "SPX_INDEX": YFINANCE_BASE + "%5EGSPC/", 
+        "ASX_200": YFINANCE_BASE + "%5EAXJO/",
+        "WTI_CRUDE": YFINANCE_BASE + "USO/", 
+        "AUDUSD": YFINANCE_BASE + "AUDUSD=X/",
+        "SMALL_LARGE_RATIO": YFINANCE_BASE + "%5ERUT/", 
+        "EURUSD": YFINANCE_BASE + "EURUSD=X/"
     }
    
     FRED_SOURCES = {
@@ -800,7 +806,7 @@ def score_vix_index(value):
 
 def score_3y_yield(value):
     """US 3-yr Treasury yield Scoring - Measures short-term rate risk/Fed policy risk."""
-    source_link = "https://www.treasury.gov/resource-center/data-chart-center/interest-rates/"
+    source_link = "https://fred.stlouisfed.org/series/DGS3"
     status = "Green"
     note = f"Yield at {value:.2f}%. Normal short-term rate environment."
     action = "No change."
@@ -819,7 +825,7 @@ def score_3y_yield(value):
 
 def score_10y_yield(value):
     """US 10-yr Treasury yield Scoring - Measures duration risk and long-term risk-free rate."""
-    source_link = "https://www.treasury.gov/resource-center/data-chart-center/interest-rates/"
+    source_link = "https://fred.stlouisfed.org/series/DGS10"
     status = "Green"
     note = f"Yield at {value:.2f}%. Normal long-term rate environment."
     action = "No change."
@@ -842,7 +848,7 @@ def score_30y_yield(value):
     note = f"Yield at {value:.2f}%. Normal long-term rate environment."
     action = "No change."
     score = 0.0
-    source_link = "https://www.treasury.gov/resource-center/data-chart-center/interest-rates/"
+    source_link = "https://fred.stlouisfed.org/series/DGS30"
     if value >= 5.00: 
         status = "Red"
         note = f"Yield at {value:.2f}%. Long-term yields are aggressively priced. Fiscal concerns are dominant."

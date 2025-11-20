@@ -4,9 +4,9 @@
         {
             "id": "VIX",
             "name": "VIX Index",
-            "value": 20.81999969482422,
+            "value": 21.15999984741211,
             "status": "Amber",
-            "note": "VIX at 20.82 (2025-11-20 4:00 PM EST). Elevated volatility. Monitor daily swings.",
+            "note": "VIX at 21.16 (2025-11-20 4:00 PM EST). Elevated volatility. Monitor daily swings.",
             "action": "Monitor news flow; review volatility exposure.",
             "score_value": 1.0,
             "source_link": "https://www.cboe.com/vix/"
@@ -24,9 +24,9 @@
         {
             "id": "EURUSD",
             "name": "EUR/USD exchange rate",
-            "value": 1.1526048183441162,
+            "value": 1.1530035734176636,
             "status": "Green",
-            "note": "EUR/USD is at 1.1526. Normal range.",
+            "note": "EUR/USD is at 1.1530. Normal range.",
             "action": "No change.",
             "score_value": 0.0,
             "source_link": "https://finance.yahoo.com/quote/EURUSD=X"
@@ -34,9 +34,9 @@
         {
             "id": "WTI_CRUDE",
             "name": "WTI crude oil ($/bbl)",
-            "value": 59.58000183105469,
+            "value": 59.7400016784668,
             "status": "Amber",
-            "note": "WTI Crude at $59.58/bbl. Low price indicates global slowdown or demand weakness.",
+            "note": "WTI Crude at $59.74/bbl. Low price indicates global slowdown or demand weakness.",
             "action": "Monitor global growth indicators.",
             "score_value": 0.5,
             "source_link": "https://finance.yahoo.com/quote/CL=F"
@@ -44,9 +44,9 @@
         {
             "id": "AUDUSD",
             "name": "AUD/USD exchange rate",
-            "value": 0.6480041146278381,
+            "value": 0.6486346125602722,
             "status": "Amber",
-            "note": "AUDUSD at 0.6480. Weakness signals higher global risk aversion.",
+            "note": "AUDUSD at 0.6486. Weakness signals higher global risk aversion.",
             "action": "Monitor commodity markets and China growth data.",
             "score_value": 0.5,
             "source_link": "https://finance.yahoo.com/quote/AUDUSD=X"
@@ -59,7 +59,7 @@
             "note": "Yield at 3.58%. Normal short-term rate environment.",
             "action": "No change.",
             "score_value": 0.0,
-            "source_link": "https://www.treasury.gov/resource-center/data-chart-center/interest-rates/"
+            "source_link": "https://fred.stlouisfed.org/series/DGS3"
         },
         {
             "id": "30Y_YIELD",
@@ -69,7 +69,7 @@
             "note": "Yield at 4.74%. Elevated long-term yields reflecting fiscal risk/inflation concerns.",
             "action": "Watch the 5.0% threshold. Limit long duration locks.",
             "score_value": 0.5,
-            "source_link": "https://www.treasury.gov/resource-center/data-chart-center/interest-rates/"
+            "source_link": "https://fred.stlouisfed.org/series/DGS30"
         },
         {
             "id": "10Y_YIELD",
@@ -79,7 +79,7 @@
             "note": "Yield at 4.12%. Normal long-term rate environment.",
             "action": "No change.",
             "score_value": 0.0,
-            "source_link": "https://www.treasury.gov/resource-center/data-chart-center/interest-rates/"
+            "source_link": "https://fred.stlouisfed.org/series/DGS10"
         },
         {
             "id": "HY_OAS",
@@ -259,7 +259,7 @@
         "escalation_watch": [
             {
                 "name": "VIX Index",
-                "value": "20.82",
+                "value": "21.16",
                 "threshold": "Above 18.0",
                 "status": "Amber"
             },
@@ -270,16 +270,21 @@
                 "status": "Green"
             }
         ],
-        "daily_narrative": "Atlas indicators signal a SEVERE RISK posture, driven by a Composite Score of 8.25. Critical Red indicators highlight significant leverage and market breadth concerns. FINRA Margin Debt YOY % is firmly in Red territory at 38.52%, indicating elevated speculative activity and potential systemic leverage risk. Concurrently, the Small/Large Cap Ratio (RUT/SPX) is also Red at 0.35, signaling a pronounced deterioration in market breadth and a flight from smaller, more growth-sensitive companies towards larger, more stable entities. This divergence suggests that while headline indices like the S&P 500 remain Green, the underlying health of the equity market is eroding, with speculative excesses building in certain segments. The Put/Call Ratio (PCCE) at 1.35, also Red, further underscores a rising demand for downside protection, reflecting increasing investor apprehension despite the apparent calm in broader market volatility. These leverage and breadth metrics collectively point to a market structure that is increasingly fragile and susceptible to sudden corrections.\nA notable contradiction emerges with the VIX Index, which remains Amber at 20.82, not yet reflecting the full extent of the leverage and sentiment risks identified. This suggests a potential complacency or a delayed reaction in broad market volatility, even as underlying systemic risks accumulate. While the US 10yr Treasury Yield and High Yield OAS remain Green, indicating contained duration and credit spread risks for now, the Amber status of the US 30yr Treasury Yield at 4.74% suggests some pressure on the long end of the curve. Gold prices, a traditional safe-haven asset, are Red at 374.96, indicating a flight to safety or increased demand for store-of-value assets amidst perceived uncertainty. For investors, this environment necessitates a highly defensive stance, as the market's apparent resilience masks significant underlying vulnerabilities related to leverage and deteriorating market internals. Portfolios should prioritize capital preservation over aggressive growth, given the increasing fragility indicated by these core Atlas metrics.\nThe global macroeconomic landscape presents a mixed but generally hawkish tone from central banks, as highlighted by recent reporting. Reuters indicates that the US economy likely added jobs at a moderate pace in September, a factor that could influence the Federal Reserve's policy trajectory. However, Morgan Stanley, via CNBC, cautions that the Fed's outlook remains clouded by persistent inflation and potential jobless risks, suggesting a complex path forward. This sentiment is echoed by Reuters reporting that traders are dialing back expectations for US rate cuts, contributing to a stronger dollar and a dip in gold prices. Internationally, central banks are maintaining a vigilant stance; the ECB, per Reuters, requires a material change in the economic outlook before considering rate cuts, while the Bank of Japan is reportedly poised for a December rate hike, albeit with a finely balanced decision. In Australia, Bloomberg highlights that the job market remains too tight to achieve inflation targets, reinforcing the global challenge of bringing inflation under control without stifling growth. These developments collectively suggest a prolonged period of higher-for-longer interest rates and continued monetary policy tightening across major economies, directing readers to the News Feed below for the full list of articles reviewed. The Atlas posture would escalate to FULL-STORM should the US 10-Year Yield move above 4.75% or HY OAS widen beyond 400 bps.",
-        "composite_summary": "Atlas indicators signal a SEVERE RISK environment, characterized by elevated leverage and deteriorating market breadth, despite contained headline volatility and credit spreads.",
+        "daily_narrative": "The Atlas Composite Score of 8.25 signals a SEVERE RISK posture, driven by critical Red and Amber indicators across leverage, liquidity, and duration. A primary concern is the escalating leverage risk, evidenced by the FINRA Margin Debt YOY % flashing Red at 38.52%, indicating significant speculative positioning within equity markets. This is further corroborated by a Red Small/Large Cap Ratio (RUT/SPX) at 0.35, suggesting a pronounced flight to quality within equities, where larger, more stable companies are favored over smaller, more growth-sensitive ones. Additionally, a Red Put/Call Ratio (PCCE) at 1.35 implies heightened speculative activity or an increased demand for downside protection that could precede market instability. These indicators collectively point to a market structure increasingly vulnerable to sharp corrections, as excessive leverage amplifies downside risks and a narrowing market breadth signals underlying fragility. The Amber status of credit card delinquencies at 305.00 further underscores a potential strain on consumer balance sheets, adding another layer to the overall leverage concerns.\n\nDespite these pronounced leverage warnings, the VIX Index remains at an Amber 21.16, not yet signaling extreme panic, which presents a notable contradiction: market participants appear complacent about underlying systemic fragility. This divergence suggests that while speculative activity is high, the immediate perception of volatility risk is contained, potentially underestimating the potential for rapid unwinding. From a liquidity perspective, while Treasury net liquidity remains Green, the Gold price (GLD proxy) is Red at 374.96, indicating a persistent demand for safe-haven assets, which often precedes broader market stress or reflects inflation concerns, even in the absence of overt liquidity crunch signals. Duration risk is also present, with the US 30yr treasury yield at an Amber 4.74%, signaling sensitivity at the long end of the curve, even as shorter-term yields remain Green. For investors, this environment necessitates a highly defensive posture, prioritizing capital preservation over aggressive growth, given the elevated leverage and speculative positioning that could lead to abrupt market dislocations, particularly if the VIX were to reprice higher to reflect the underlying risks.\n\nThe global macro and policy tone remains cautious, reinforcing the Atlas indicators' emphasis on risk. As highlighted by Reuters and Bloomberg, European Central Bank (ECB) official Makhlouf indicated that \"pretty compelling evidence\" or a \"material outlook change\" would be necessary for rate cuts, signaling a sustained hawkish stance. Concurrently, Reuters reports the Bank of Japan (BOJ) is poised for a potential rate hike in December, though the decision remains finely balanced, introducing further uncertainty into global monetary policy. In Australia, Bloomberg notes that the job market is \"too tight to keep inflation at target,\" suggesting the Reserve Bank of Australia (RBA) may face continued pressure to maintain restrictive policy. Domestically, Reuters reporting on the US economy suggests a moderate pace of job additions in September, indicating a resilient but potentially cooling labor market. However, Morgan Stanley, as reported by CNBC, cautions that the Federal Reserve's outlook is \"clouded by inflation and jobless risks,\" underscoring the complex trade-offs facing policymakers. This collective central bank posture suggests a higher-for-longer interest rate environment globally, which will continue to pressure highly leveraged entities and could exacerbate the risks identified by Atlas's internal indicators. Readers are directed to the News Feed below for the full list of articles reviewed. The Atlas posture would escalate to FULL-STORM should the US 10-Year Yield move above 4.75%.",
+        "composite_summary": "The market is currently in a SEVERE RISK posture, characterized by elevated leverage and speculative positioning that contradict contained volatility, demanding a highly defensive investment approach.",
         "key_actions": [
-            "Reduce overall portfolio leverage and maintain higher cash allocations.",
-            "Shift equity exposure towards defensive sectors and high-quality, dividend-paying companies.",
-            "Implement tactical hedges against potential equity market downturns, utilizing options or inverse ETFs.",
-            "Closely monitor credit spreads, particularly High Yield OAS, for early signs of broader credit market stress.",
-            "Re-evaluate duration exposure, favoring shorter-duration fixed income assets to mitigate interest rate risk."
+            "Reduce overall portfolio leverage and re-evaluate margin-dependent strategies.",
+            "Shift equity exposure towards defensive sectors with strong balance sheets and stable cash flows.",
+            "Implement tactical hedging strategies to protect against potential equity market corrections and credit spread widening.",
+            "Closely monitor high-yield credit spreads for any signs of widening beyond current levels, indicating increasing credit risk.",
+            "Manage duration risk by scrutinizing exposure to long-dated fixed income and rate-sensitive assets, given the Amber status of the US 30yr treasury yield."
         ],
         "news": [
+            {
+                "title": "ECB Move Would Need Pretty Compelling Evidence, Makhlouf Tells ...",
+                "url": "https://www.bloomberg.com/news/articles/2025-11-20/ecb-move-would-need-pretty-compelling-evidence-makhlouf-tells-reuters?srnd=homepage-americas",
+                "snippet": "Contextual article. Click title for details."
+            },
             {
                 "title": "Bloomberg - Business News, Stock Markets, Finance, Breaking ...",
                 "url": "https://www.bloomberg.com/",
@@ -293,11 +298,6 @@
             {
                 "title": "CNBC: Stock Markets, Business News, Financials, Earnings",
                 "url": "https://www.cnbc.com/",
-                "snippet": "Contextual article. Click title for details."
-            },
-            {
-                "title": "Gold dips as dollar gains, traders dial back US rate-cut bets | Reuters",
-                "url": "https://www.reuters.com/world/india/gold-eases-dollar-gains-traders-dial-back-us-rate-cut-bets-2025-11-20/",
                 "snippet": "Contextual article. Click title for details."
             },
             {
@@ -331,6 +331,6 @@
                 "snippet": "Contextual article. Click title for details."
             }
         ],
-        "news_context_raw": "1. [Bloomberg - Business News, Stock Markets, Finance, Breaking ...](https://www.bloomberg.com/)\n2. [US economy likely added jobs at a moderate pace in September ...](https://www.reuters.com/world/us/us-economy-likely-added-jobs-moderate-pace-september-2025-11-20/)\n3. [CNBC: Stock Markets, Business News, Financials, Earnings](https://www.cnbc.com/)\n4. [Gold dips as dollar gains, traders dial back US rate-cut bets | Reuters](https://www.reuters.com/world/india/gold-eases-dollar-gains-traders-dial-back-us-rate-cut-bets-2025-11-20/)\n5. [The Polymarket Effect: How Prediction Markets Are Beating The ...](https://www.forbes.com/sites/jasonwingard/2025/11/19/the-polymarket-effect-how-prediction-markets-are-beating-the-experts/)\n6. [Morgan Stanley: Fed outlook clouded by inflation and jobless risks](https://www.cnbc.com/video/2025/11/20/morgan-stanley-fed-outlook-clouded-by-inflation-and-jobless-risks.html)\n7. [BOJ set to hike interest rates in December, but decision on knife ...](https://www.reuters.com/world/asia-pacific/boj-set-hike-interest-rates-december-decision-knife-edge-2025-11-20/)\n8. [ECB's Makhlouf says material outlook change is needed for rate cut ...](https://www.reuters.com/business/finance/ecbs-makhlouf-says-material-outlook-change-is-needed-rate-cut-2025-11-20/)\n9. [Australia's Job Market Is Too Tight to Keep Inflation at Target, RBA ...](https://www.bloomberg.com/news/articles/2025-11-20/rba-says-job-market-is-too-tight-to-keep-inflation-at-target)\n10. [Trump's Long-Shot Quest to Turn the Tide as the Asian Century ...](https://www.bloomberg.com/news/newsletters/2025-11-19/trump-s-long-shot-quest-to-turn-the-tide-as-the-asian-century-rolls-on)"
+        "news_context_raw": "1. [ECB Move Would Need Pretty Compelling Evidence, Makhlouf Tells ...](https://www.bloomberg.com/news/articles/2025-11-20/ecb-move-would-need-pretty-compelling-evidence-makhlouf-tells-reuters?srnd=homepage-americas)\n2. [Bloomberg - Business News, Stock Markets, Finance, Breaking ...](https://www.bloomberg.com/)\n3. [US economy likely added jobs at a moderate pace in September ...](https://www.reuters.com/world/us/us-economy-likely-added-jobs-moderate-pace-september-2025-11-20/)\n4. [CNBC: Stock Markets, Business News, Financials, Earnings](https://www.cnbc.com/)\n5. [The Polymarket Effect: How Prediction Markets Are Beating The ...](https://www.forbes.com/sites/jasonwingard/2025/11/19/the-polymarket-effect-how-prediction-markets-are-beating-the-experts/)\n6. [Morgan Stanley: Fed outlook clouded by inflation and jobless risks](https://www.cnbc.com/video/2025/11/20/morgan-stanley-fed-outlook-clouded-by-inflation-and-jobless-risks.html)\n7. [BOJ set to hike interest rates in December, but decision on knife ...](https://www.reuters.com/world/asia-pacific/boj-set-hike-interest-rates-december-decision-knife-edge-2025-11-20/)\n8. [ECB's Makhlouf says material outlook change is needed for rate cut ...](https://www.reuters.com/business/finance/ecbs-makhlouf-says-material-outlook-change-is-needed-rate-cut-2025-11-20/)\n9. [Australia's Job Market Is Too Tight to Keep Inflation at Target, RBA ...](https://www.bloomberg.com/news/articles/2025-11-20/rba-says-job-market-is-too-tight-to-keep-inflation-at-target)\n10. [Trump's Long-Shot Quest to Turn the Tide as the Asian Century ...](https://www.bloomberg.com/news/newsletters/2025-11-19/trump-s-long-shot-quest-to-turn-the-tide-as-the-asian-century-rolls-on)"
     }
 }

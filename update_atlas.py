@@ -400,7 +400,10 @@ def fetch_indicator_data(indicator_id):
     """
     
     FRED_FALLBACK_VALUE = {
-        "3Y_YIELD": 3.50, "30Y_YIELD": 4.25, "10Y_YIELD": 4.30, "HY_OAS": 380.0,
+        "3Y_YIELD": 3.50, 
+        "30Y_YIELD": 4.25, 
+        "10Y_YIELD": 4.30, 
+        "HY_OAS": 380.0,
         "TREASURY_LIQUIDITY": 100.0,
         "SOFR_OIS": 25.0,
         "BANK_CDS": 85.0,
@@ -409,9 +412,9 @@ def fetch_indicator_data(indicator_id):
 
     # --- FRED API CALLS (Single-Point Fetch) ---
     fred_series_map = {
-        "3Y_YIELD": FRED_3YR_ID, 
-        "30Y_YIELD": FRED_30YR_ID,
-        "10Y_YIELD": FRED_10YR_ID, 
+        "DGS3": FRED_3YR_ID, 
+        "DGS30": FRED_30YR_ID,
+        "DGS10": FRED_10YR_ID, 
         "HY_OAS": FRED_HYOAS_ID,
         "BANK_CDS": FRED_BANK_CDS_ID, 
         "CREDIT_CARD_DELINQUENCIES": FRED_CONSUMER_DELINQ_ID,
@@ -425,7 +428,8 @@ def fetch_indicator_data(indicator_id):
         if fred: 
             try:
                 # 1. FETCH RAW VALUE
-                value = fred.get_series_latest_release(series_id).iloc[-1]
+                series = fred.get_series(series_id)
+                value = float(series.iloc[-1])
                     
                 # 2. CONVERT PERCENTAGE TO BASIS POINTS FOR SPREADS/DELINQUENCIES
                 if indicator_id in ["HY_OAS", "CREDIT_CARD_DELINQUENCIES"]:

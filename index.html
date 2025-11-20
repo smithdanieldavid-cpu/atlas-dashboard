@@ -91,9 +91,14 @@
             <div class="text-center text-gray-400">Loading overall status...</div>
         </div>
 
-        <div class="mb-8 p-5 bg-white border border-gray-200 rounded-xl shadow-sm">
+        <div class="mb-8 p-5 bg-white border border-gray-200 rounded-xl shadow-sm relative" data-clamp>
             <h2 class="text-xl font-extrabold text-gray-900 mb-2">Atlas observes the global engine</h2>
-            <p class="text-gray-700 leading-relaxed">
+          
+            <!-- The content wrapper that will be clamped -->
+            <div class="content overflow-hidden transition-[max-height] duration-500 ease-in-out" 
+                 data-clamp-content
+                 style="max-height: 9rem;">  <!-- <-- initial clamp height; change if needed -->
+              <p class="text-gray-700 leading-relaxed">
                 The architecture of global capital and the world economy remain subordinate to
                 movements in the US economy. Global markets are vulnerable to uncertainty and exposed to sudden
                 fluctuations. The goal is to track data and stay ahead of the unknown.
@@ -103,15 +108,32 @@
                 everything from commodities and equities to capital flows.
                 <br><br>
                 The Atlas composite score offers a simple, transparent rounded measure of systemic risk to quantify potential
-                threats.
-                <br><br>
-                Atlas tracks macro and micro market indicators. Each indicator is checked against its own pre-defined
+                threats. Atlas tracks macro and micro market indicators. Each indicator is checked against its own pre-defined
                 stress thresholds and assigned an individual risk score. The system then sums all individual scores to create
                 the final composite score. The final score maps directly to one of four risk postures to guide your
                 portfolio's tactical defense.
                 <br><br>
-            </p>
-        </div>
+              </p>
+            </div>
+          
+            <!-- gradient fade at bottom when collapsed -->
+            <div aria-hidden="true" class="pointer-events-none absolute left-0 right-0 bottom-12 h-12 bg-gradient-to-t from-white to-transparent transition-opacity duration-300" data-clamp-fade></div>
+          
+            <!-- toggle button -->
+            <div class="mt-4 flex justify-end">
+              <button type="button"
+                      class="inline-flex items-center px-4 py-2 border border-gray-200 rounded-md text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                      data-clamp-toggle
+                      aria-expanded="false"
+                      aria-controls="">
+                <span data-clamp-label>Read more</span>
+                <!-- chevron -->
+                <svg data-clamp-icon class="ml-2 h-4 w-4 transition-transform duration-300" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                  <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z" clip-rule="evenodd" />
+                </svg>
+              </button>
+            </div>
+          </div>
 
         <main class="grid grid-cols-1 lg:grid-cols-3 gap-6">
 
@@ -293,6 +315,92 @@
         });
     </script>
     <script src="scripts/atlas.js" defer></script>
+
+    <script>
+        (function () {
+          const CLAMP_PX = 9 * 16; // clamp height in pixels (9rem * 16px default root). Change as needed.
+          // Initialize all clamp components on the page
+          document.querySelectorAll('[data-clamp]').forEach((root, idx) => {
+            const content = root.querySelector('[data-clamp-content]');
+            const btn = root.querySelector('[data-clamp-toggle]');
+            const label = root.querySelector('[data-clamp-label]');
+            const icon = root.querySelector('[data-clamp-icon]');
+            const fade = root.querySelector('[data-clamp-fade]');
+      
+            if (!content || !btn) return;
+      
+            // Accessibility: link button to content
+            const contentId = `clamp-content-${idx}`;
+            content.id = contentId;
+            btn.setAttribute('aria-controls', contentId);
+      
+            // Initial collapsed state
+            let expanded = false;
+      
+            // Utility to update UI after measuring heights
+            function update() {
+              const fullHeight = content.scrollHeight;
+              if (!expanded) {
+                // If content fits inside clamp, hide the toggle and fade
+                if (fullHeight <= CLAMP_PX) {
+                  content.style.maxHeight = fullHeight + 'px';
+                  btn.style.display = 'none';
+                  if (fade) fade.style.opacity = 0;
+                } else {
+                  content.style.maxHeight = CLAMP_PX + 'px';
+                  btn.style.display = ''; // show
+                  if (fade) fade.style.opacity = 1;
+                }
+                btn.setAttribute('aria-expanded', 'false');
+                label.textContent = 'Read more';
+                icon.style.transform = 'rotate(0deg)';
+              } else {
+                // expanded: animate to full height (set pixel height so transition works)
+                content.style.maxHeight = fullHeight + 'px';
+                btn.setAttribute('aria-expanded', 'true');
+                label.textContent = 'Show less';
+                icon.style.transform = 'rotate(180deg)';
+                if (fade) fade.style.opacity = 0;
+              }
+            }
+      
+            // Toggle handler
+            btn.addEventListener('click', (e) => {
+              expanded = !expanded;
+              update();
+      
+              // After expanding, remove max-height constraint so if content grows later it's natural.
+              if (expanded) {
+                // wait for transition to finish, then set maxHeight to none (so it can grow)
+                const onTransitionEnd = () => {
+                  content.style.maxHeight = 'none';
+                  content.removeEventListener('transitionend', onTransitionEnd);
+                };
+                content.addEventListener('transitionend', onTransitionEnd);
+              } else {
+                // collapsing: set explicit clamp height to allow animation
+                // small tick to ensure style applied
+                requestAnimationFrame(() => {
+                  content.style.maxHeight = CLAMP_PX + 'px';
+                });
+              }
+            });
+      
+            // Re-evaluate on load and window resize
+            window.addEventListener('load', update);
+            window.addEventListener('resize', () => {
+              // reset max-height to none briefly to get accurate scrollHeight, then call update
+              content.style.maxHeight = 'none';
+              // delay a tick so browser recalculates
+              setTimeout(update, 50);
+            });
+      
+            // initial update
+            update();
+          });
+        })();
+      </script>
+      
 </body>
 
 </html>

@@ -4,19 +4,19 @@
         {
             "id": "VIX",
             "name": "VIX Index",
-            "value": 21.170000076293945,
-            "status": "Amber",
-            "note": "VIX at 21.17 (2025-11-20 4:00 PM EST). Elevated volatility. Monitor daily swings.",
-            "action": "Monitor news flow; review volatility exposure.",
-            "score_value": 1.0,
+            "value": 26.420000076293945,
+            "status": "Red",
+            "note": "VIX at 26.42 (2025-11-20 4:00 PM EST). Extreme volatility and market fear. High risk.",
+            "action": "Implement maximum protective hedges; reduce highly volatile positions.",
+            "score_value": 2.0,
             "source_link": "https://www.cboe.com/vix/"
         },
         {
             "id": "GOLD_PRICE",
             "name": "Gold price (GLD proxy)",
-            "value": 374.9599914550781,
+            "value": 374.8500061035156,
             "status": "Red",
-            "note": "Gold (GLD) at $374.96. Signals extreme flight to safety or high inflation expectations.",
+            "note": "Gold (GLD) at $374.85. Signals extreme flight to safety or high inflation expectations.",
             "action": "Maintain gold position as a core hedge; reduce risk assets.",
             "score_value": 1.0,
             "source_link": "https://finance.yahoo.com/quote/GLD"
@@ -24,9 +24,9 @@
         {
             "id": "EURUSD",
             "name": "EUR/USD exchange rate",
-            "value": 1.1528706550598145,
+            "value": 1.1532695293426514,
             "status": "Green",
-            "note": "EUR/USD is at 1.1529. Normal range.",
+            "note": "EUR/USD is at 1.1533. Normal range.",
             "action": "No change.",
             "score_value": 0.0,
             "source_link": "https://finance.yahoo.com/quote/EURUSD=X"
@@ -34,9 +34,9 @@
         {
             "id": "WTI_CRUDE",
             "name": "WTI crude oil ($/bbl)",
-            "value": 59.900001525878906,
+            "value": 58.529998779296875,
             "status": "Amber",
-            "note": "WTI Crude at $59.90/bbl. Low price indicates global slowdown or demand weakness.",
+            "note": "WTI Crude at $58.53/bbl. Low price indicates global slowdown or demand weakness.",
             "action": "Monitor global growth indicators.",
             "score_value": 0.5,
             "source_link": "https://finance.yahoo.com/quote/CL=F"
@@ -44,9 +44,9 @@
         {
             "id": "AUDUSD",
             "name": "AUD/USD exchange rate",
-            "value": 0.6486766934394836,
+            "value": 0.6451196670532227,
             "status": "Amber",
-            "note": "AUDUSD at 0.6487. Weakness signals higher global risk aversion.",
+            "note": "AUDUSD at 0.6451. Weakness signals higher global risk aversion.",
             "action": "Monitor commodity markets and China growth data.",
             "score_value": 0.5,
             "source_link": "https://finance.yahoo.com/quote/AUDUSD=X"
@@ -54,9 +54,9 @@
         {
             "id": "3Y_YIELD",
             "name": "US 3yr treasury yield",
-            "value": 3.58,
+            "value": 3.59,
             "status": "Green",
-            "note": "Yield at 3.58%. Normal short-term rate environment.",
+            "note": "Yield at 3.59%. Normal short-term rate environment.",
             "action": "No change.",
             "score_value": 0.0,
             "source_link": "https://fred.stlouisfed.org/series/DGS3"
@@ -64,9 +64,9 @@
         {
             "id": "30Y_YIELD",
             "name": "US 30yr treasury yield",
-            "value": 4.74,
+            "value": 4.75,
             "status": "Amber",
-            "note": "Yield at 4.74%. Elevated long-term yields reflecting fiscal risk/inflation concerns.",
+            "note": "Yield at 4.75%. Elevated long-term yields reflecting fiscal risk/inflation concerns.",
             "action": "Watch the 5.0% threshold. Limit long duration locks.",
             "score_value": 0.5,
             "source_link": "https://fred.stlouisfed.org/series/DGS30"
@@ -74,9 +74,9 @@
         {
             "id": "10Y_YIELD",
             "name": "US 10yr treasury yield",
-            "value": 4.12,
+            "value": 4.13,
             "status": "Green",
-            "note": "Yield at 4.12%. Normal long-term rate environment.",
+            "note": "Yield at 4.13%. Normal long-term rate environment.",
             "action": "No change.",
             "score_value": 0.0,
             "source_link": "https://fred.stlouisfed.org/series/DGS10"
@@ -84,9 +84,9 @@
         {
             "id": "HY_OAS",
             "name": "High yield OAS (bps)",
-            "value": 320.0,
+            "value": 317.0,
             "status": "Green",
-            "note": "HY OAS at 320 bps. Spreads are tight. Indicates low corporate default risk.",
+            "note": "HY OAS at 317 bps. Spreads are tight. Indicates low corporate default risk.",
             "action": "No change.",
             "score_value": 0.0,
             "source_link": "https://fred.stlouisfed.org/series/BAMLH0A0HYM2"
@@ -94,9 +94,9 @@
         {
             "id": "TREASURY_LIQUIDITY",
             "name": "Treasury net liquidity",
-            "value": 5626644.871,
+            "value": 5613350.48,
             "status": "Green",
-            "note": "Net Liquidity at $5626645B. Liquidity is robust and supportive of risk assets.",
+            "note": "Net Liquidity at $5613350B. Liquidity is robust and supportive of risk assets.",
             "action": "No change.",
             "score_value": 0.0,
             "source_link": "https://fred.stlouisfed.org/series/WALCL"
@@ -125,8 +125,8 @@
             "id": "SNAP_BENEFITS",
             "name": "SNAP benefits (MoM % change)",
             "value": [
-                111.15,
-                97.391
+                132.923,
+                111.221
             ],
             "status": "N/A",
             "note": "",
@@ -149,9 +149,9 @@
         {
             "id": "SPX_INDEX",
             "name": "S&P 500 index",
-            "value": 6642.16015625,
+            "value": 6538.759765625,
             "status": "Green",
-            "note": "S&P 500 Index at 6,642. Strong market momentum.",
+            "note": "S&P 500 Index at 6,539. Strong market momentum.",
             "action": "No change.",
             "score_value": 0.0,
             "source_link": "https://finance.yahoo.com/quote/%5EGSPC"
@@ -159,9 +159,9 @@
         {
             "id": "ASX_200",
             "name": "ASX 200 index",
-            "value": 8552.7001953125,
+            "value": 8432.5,
             "status": "Green",
-            "note": "ASX 200 Index at 8,553. Stable price action.",
+            "note": "ASX 200 Index at 8,432. Stable price action.",
             "action": "No change.",
             "score_value": 0.0,
             "source_link": "https://finance.yahoo.com/quote/%5EAXJO"
@@ -179,9 +179,9 @@
         {
             "id": "SMALL_LARGE_RATIO",
             "name": "Small/Large Cap Ratio (RUT/SPX)",
-            "value": 0.3534828786639324,
+            "value": 0.35253043375664045,
             "status": "Red",
-            "note": "Small/Large Cap ratio at 0.3535. Severe small-cap underperformance. Recessionary signal/high risk-off sentiment.",
+            "note": "Small/Large Cap ratio at 0.3525. Severe small-cap underperformance. Recessionary signal/high risk-off sentiment.",
             "action": "Avoid small-cap exposure entirely. Favour high-quality large-caps.",
             "score_value": 1.5,
             "source_link": "https://finance.yahoo.com/quote/%5ERUT"
@@ -189,9 +189,9 @@
         {
             "id": "PUT_CALL_RATIO",
             "name": "Put/Call Ratio (PCCE)",
-            "value": 1.3549633503582805,
+            "value": 1.6636532960433554,
             "status": "Red",
-            "note": "SPY PCR at 1.3550. Extreme retail options hedging (put-buying). High market fear/bearish sentiment.",
+            "note": "SPY PCR at 1.6637. Extreme retail options hedging (put-buying). High market fear/bearish sentiment.",
             "action": "Consider contrarian bullish positioning; watch VIX for confirmation.",
             "score_value": 1.0,
             "source_link": "Data calculated from aggregated SPY options volume: [Yahoo Finance Link](https://finance.yahoo.com/quote/SPY)"
@@ -228,12 +228,12 @@
         }
     ],
     "overall": {
-        "date": "2025-11-20",
-        "score": 8.25,
+        "date": "2025-11-21",
+        "score": 9.25,
         "status": "SEVERE RISK (HIGH RISK)",
         "comment": "Aggressive risk-off posture; defensive allocation advised.",
         "raw_score_list": [
-            1.0,
+            2.0,
             1.0,
             0.0,
             0.5,
@@ -259,26 +259,35 @@
         "escalation_watch": [
             {
                 "name": "VIX Index",
-                "value": "21.17",
+                "value": "26.42",
                 "threshold": "Above 18.0",
-                "status": "Amber"
+                "status": "Red"
             },
             {
                 "name": "10Y Yield",
-                "value": "4.12",
+                "value": "4.13",
                 "threshold": "Above 4.0%",
                 "status": "Green"
             }
         ],
-        "daily_narrative": "Gemini API call failed: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",
-        "composite_summary": "Failure",
+        "daily_narrative": "The Atlas Composite Score of 9.25 indicates a SEVERE RISK posture, driven by critical Red and Amber indicators across leverage, liquidity, and duration. Leverage risk is notably elevated, with FINRA Margin Debt YOY % at 38.52% (Red), signaling aggressive speculative positioning within the market. Concurrently, liquidity concerns are highlighted by a VIX Index at 26.42 (Red) and a Put/Call Ratio (PCCE) of 1.66 (Red), both suggesting heightened market anxiety and a bearish tilt in options activity. The Gold price, often a safe-haven proxy, is also Red at 374.85, reinforcing underlying risk aversion. Duration risk is present as the US 30yr treasury yield stands at 4.75% (Amber), reaching a critical level, even as the 10yr yield remains Green. These indicators collectively point to a market operating with significant underlying fragility, where speculative leverage is high and protective sentiment is building.\nA notable contradiction exists between these elevated risk signals and certain market metrics. While the VIX, Gold, and Put/Call Ratio flash Red, the S&P 500 and ASX 200 indices remain Green, indicating robust headline equity performance. Furthermore, Treasury net liquidity is Green, suggesting ample system-wide liquidity, and High Yield OAS is also Green at 317 bps, implying credit markets are not yet exhibiting widespread stress. This divergence suggests that market strength may be concentrated, masking underlying vulnerabilities. The Small/Large Cap Ratio (RUT/SPX) at 0.35 (Red) further supports this, indicating poor market breadth and a lack of participation beyond large-cap leaders. For investors, this environment implies that while broad market indices may appear resilient, the underlying structure is increasingly fragile, susceptible to rapid corrections should sentiment shift or liquidity conditions tighten unexpectedly. The elevated margin debt, coupled with a high VIX, creates a feedback loop where any significant market downturn could trigger forced deleveraging, exacerbating volatility.\nThe global macro and policy tone presents a mixed picture, reflecting both persistent optimism and emerging caution. As highlighted by Morningstar and Bloomberg, market sentiment continues to be buoyed by the perceived strength of artificial intelligence, with Morningstar even boosting S&P 500 forecasts and Bloomberg noting a restart in the AI rally led by Nvidia. Corporate performance also appears robust, with CNBC reporting Walmart's increased sales and earnings forecasts. However, central bank rhetoric, per Reuters, indicates a cautious stance, with Fed officials, including Governor Goolsbee, expressing uneasiness on rate cuts and emphasizing financial stability considerations. Reuters also points to \"stale\" September jobs data, suggesting a moderate pace of job additions, which presents mixed signals for the Federal Reserve's policy path. Divergent global monetary policy is evident, with Bloomberg reporting South Africa cutting rates, contrasting with the Fed's cautious posture. Despite pockets of market optimism, particularly in tech, the broader policy landscape suggests central banks are vigilant regarding inflation and financial stability, creating a complex backdrop for risk assets. Readers are directed to the News Feed below for the full list of articles reviewed. The posture would escalate to FULL-STORM upon a US 10-Year Yield move above 4.75% or HY OAS widening beyond 400 bps.",
+        "composite_summary": "The Atlas Composite Score of 9.25 signals a SEVERE RISK environment, characterized by elevated leverage and liquidity concerns despite resilient headline equity performance and ample system liquidity.",
         "key_actions": [
-            "- Review API call and data structure."
+            "Reduce overall portfolio leverage and monitor margin debt trends closely.",
+            "Increase allocation to defensive sectors and high-quality fixed income.",
+            "Implement tactical hedging strategies to mitigate potential downside volatility.",
+            "Closely monitor credit spreads, particularly High Yield OAS, for signs of deterioration.",
+            "Re-evaluate duration exposure given the Amber status of the 30-year treasury yield."
         ],
         "news": [
             {
-                "title": "Focus turns to US jobs data as Nvidia blows away bubble fears ...",
-                "url": "https://www.reuters.com/world/china/global-markets-wrapup-1-pix-2025-11-20/",
+                "title": "There's no turning back on AI now, this firm says as it boosts S&P ...",
+                "url": "https://www.morningstar.com/news/marketwatch/20251120188/theres-no-turning-back-on-ai-now-this-firm-says-as-it-boosts-sp-500-forecast",
+                "snippet": "Contextual article. Click title for details."
+            },
+            {
+                "title": "Walmart hikes sales and earnings forecast as it attracts shoppers ...",
+                "url": "https://www.cnbc.com/2025/11/20/walmart-wmt-q3-2026-earnings.html",
                 "snippet": "Contextual article. Click title for details."
             },
             {
@@ -292,41 +301,36 @@
                 "snippet": "Contextual article. Click title for details."
             },
             {
-                "title": "CNBC: Stock Markets, Business News, Financials, Earnings",
-                "url": "https://www.cnbc.com/",
+                "title": "Fed's Goolsbee repeats he is uneasy on rate cuts | Reuters",
+                "url": "https://www.reuters.com/business/feds-goolsbee-repeats-he-is-uneasy-rate-cuts-2025-11-20/",
                 "snippet": "Contextual article. Click title for details."
             },
             {
-                "title": "The Polymarket Effect: How Prediction Markets Are Beating The ...",
-                "url": "https://www.forbes.com/sites/jasonwingard/2025/11/19/the-polymarket-effect-how-prediction-markets-are-beating-the-experts/",
+                "title": "South Africa Cuts Rates After Lower Inflation Goal Endorsed ...",
+                "url": "https://www.bloomberg.com/news/articles/2025-11-20/south-africa-cuts-key-rate-after-lower-inflation-goal-endorsed",
                 "snippet": "Contextual article. Click title for details."
             },
             {
-                "title": "Gold Claws Back Losses Despite Wider Market Appetite for Risk ...",
-                "url": "https://www.bloomberg.com/news/articles/2025-11-19/gold-claws-back-losses-despite-wider-market-appetite-for-risk",
+                "title": "Trading Day: Nvidia sparkle vanishes, Wall Street slammed | Reuters",
+                "url": "https://www.reuters.com/world/china/global-markets-trading-day-graphic-2025-11-20/",
                 "snippet": "Contextual article. Click title for details."
             },
             {
-                "title": "Markets - Bloomberg",
-                "url": "https://www.bloomberg.com/markets",
+                "title": "'Stale' September jobs data is mixed news for a divided Fed | Reuters",
+                "url": "https://www.reuters.com/business/traders-see-fed-track-skip-december-rate-cut-2025-11-20/",
                 "snippet": "Contextual article. Click title for details."
             },
             {
-                "title": "Morgan Stanley: Fed outlook clouded by inflation and jobless risks",
-                "url": "https://www.cnbc.com/video/2025/11/20/morgan-stanley-fed-outlook-clouded-by-inflation-and-jobless-risks.html",
+                "title": "Nvidia Restarts AI Rally as Investors Turn to Jobs Report - Bloomberg",
+                "url": "https://www.bloomberg.com/news/newsletters/2025-11-20/nvidia-restarts-ai-rally-as-investors-turn-to-jobs-report",
                 "snippet": "Contextual article. Click title for details."
             },
             {
-                "title": "BOJ set to hike interest rates in December, but decision on knife ...",
-                "url": "https://www.reuters.com/world/asia-pacific/boj-set-hike-interest-rates-december-decision-knife-edge-2025-11-20/",
-                "snippet": "Contextual article. Click title for details."
-            },
-            {
-                "title": "ECB's Makhlouf says material outlook change is needed for rate cut ...",
-                "url": "https://www.reuters.com/business/finance/ecbs-makhlouf-says-material-outlook-change-is-needed-rate-cut-2025-11-20/",
+                "title": "Fed officials eye financial stability as they debate next rate move ...",
+                "url": "https://www.reuters.com/business/finance/feds-cook-sees-risk-outsized-asset-price-declines-2025-11-20/",
                 "snippet": "Contextual article. Click title for details."
             }
         ],
-        "news_context_raw": "1. [Focus turns to US jobs data as Nvidia blows away bubble fears ...](https://www.reuters.com/world/china/global-markets-wrapup-1-pix-2025-11-20/)\n2. [Bloomberg - Business News, Stock Markets, Finance, Breaking ...](https://www.bloomberg.com/)\n3. [US economy likely added jobs at a moderate pace in September ...](https://www.reuters.com/world/us/us-economy-likely-added-jobs-moderate-pace-september-2025-11-20/)\n4. [CNBC: Stock Markets, Business News, Financials, Earnings](https://www.cnbc.com/)\n5. [The Polymarket Effect: How Prediction Markets Are Beating The ...](https://www.forbes.com/sites/jasonwingard/2025/11/19/the-polymarket-effect-how-prediction-markets-are-beating-the-experts/)\n6. [Gold Claws Back Losses Despite Wider Market Appetite for Risk ...](https://www.bloomberg.com/news/articles/2025-11-19/gold-claws-back-losses-despite-wider-market-appetite-for-risk)\n7. [Markets - Bloomberg](https://www.bloomberg.com/markets)\n8. [Morgan Stanley: Fed outlook clouded by inflation and jobless risks](https://www.cnbc.com/video/2025/11/20/morgan-stanley-fed-outlook-clouded-by-inflation-and-jobless-risks.html)\n9. [BOJ set to hike interest rates in December, but decision on knife ...](https://www.reuters.com/world/asia-pacific/boj-set-hike-interest-rates-december-decision-knife-edge-2025-11-20/)\n10. [ECB's Makhlouf says material outlook change is needed for rate cut ...](https://www.reuters.com/business/finance/ecbs-makhlouf-says-material-outlook-change-is-needed-rate-cut-2025-11-20/)"
+        "news_context_raw": "1. [There's no turning back on AI now, this firm says as it boosts S&P ...](https://www.morningstar.com/news/marketwatch/20251120188/theres-no-turning-back-on-ai-now-this-firm-says-as-it-boosts-sp-500-forecast)\n2. [Walmart hikes sales and earnings forecast as it attracts shoppers ...](https://www.cnbc.com/2025/11/20/walmart-wmt-q3-2026-earnings.html)\n3. [Bloomberg - Business News, Stock Markets, Finance, Breaking ...](https://www.bloomberg.com/)\n4. [US economy likely added jobs at a moderate pace in September ...](https://www.reuters.com/world/us/us-economy-likely-added-jobs-moderate-pace-september-2025-11-20/)\n5. [Fed's Goolsbee repeats he is uneasy on rate cuts | Reuters](https://www.reuters.com/business/feds-goolsbee-repeats-he-is-uneasy-rate-cuts-2025-11-20/)\n6. [South Africa Cuts Rates After Lower Inflation Goal Endorsed ...](https://www.bloomberg.com/news/articles/2025-11-20/south-africa-cuts-key-rate-after-lower-inflation-goal-endorsed)\n7. [Trading Day: Nvidia sparkle vanishes, Wall Street slammed | Reuters](https://www.reuters.com/world/china/global-markets-trading-day-graphic-2025-11-20/)\n8. ['Stale' September jobs data is mixed news for a divided Fed | Reuters](https://www.reuters.com/business/traders-see-fed-track-skip-december-rate-cut-2025-11-20/)\n9. [Nvidia Restarts AI Rally as Investors Turn to Jobs Report - Bloomberg](https://www.bloomberg.com/news/newsletters/2025-11-20/nvidia-restarts-ai-rally-as-investors-turn-to-jobs-report)\n10. [Fed officials eye financial stability as they debate next rate move ...](https://www.reuters.com/business/finance/feds-cook-sees-risk-outsized-asset-price-declines-2025-11-20/)"
     }
 }

@@ -1,0 +1,21 @@
+version: 0.2
+phases:
+  install:
+    commands:
+      # Install required Python packages for the CodeBuild environment
+      - echo Installing dependencies...
+      - pip install -r requirements.txt
+  pre_build:
+    commands:
+      # This is where you would run unit tests for your Python code
+      - echo Running unit tests...
+      # - python manage.py test  (Example for a Django/Flask app)
+  build:
+    commands:
+      # This is often empty for Python apps, as they are typically not compiled
+      - echo Running build step...
+artifacts:
+  files:
+    # Package all files needed by Elastic Beanstalk (**)
+    - '**/*' 
+  discard-paths: yes # Keep the root of the repo as the root of the artifact

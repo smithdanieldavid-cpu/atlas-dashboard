@@ -1,21 +1,31 @@
 version: 0.2
+
 phases:
   install:
+    runtime-versions:
+      # Use the Python version your app was built with (e.g., 3.11)
+      python: 3.11 
     commands:
-      # Install required Python packages for the CodeBuild environment
       - echo Installing dependencies...
       - pip install -r requirements.txt
+  
   pre_build:
     commands:
-      # This is where you would run unit tests for your Python code
-      - echo Running unit tests...
-      # - python manage.py test  (Example for a Django/Flask app)
+      # You can keep unit tests here if you have them
+      - echo Running pre-build steps...
+  
   build:
     commands:
-      # This is often empty for Python apps, as they are typically not compiled
-      - echo Running build step...
+      - echo Running the Atlas Update Script...
+      # CRITICAL: Execute your script here
+      - python update_atlas.py
+      # The script will generate data/atlas-latest.json
+      # The script will generate data/atlas-archive.json (based on snippet)
+
 artifacts:
   files:
-    # Package all files needed by Elastic Beanstalk (**)
-    - '**/*' 
-  discard-paths: yes # Keep the root of the repo as the root of the artifact
+    # Save the output files from the script
+    - 'data/atlas-latest.json'
+    - 'data/atlas-archive.json'
+  # Set the artifact path if you want to upload the output to a specific S3 location
+  # discard-paths: yes

@@ -1,31 +1,68 @@
 version: 0.2
+# Defines the CodeBuild version (0.2 is the latest standard)
+
+# Environment variables are best set in the AWS CodeBuild project configuration
+# for security, but we list the keys here as a reminder of what is needed.
+# These will need to be configured as environment variables or secrets in the 
+# CodeBuild project settings (e.g., pulling from AWS Secrets Manager or Parameter Store).
+env:
+  # NOTE: The values below are placeholders. You MUST configure these keys 
+  # in your AWS CodeBuild Project Environment variables section.
+  variables:
+    FRED_API_KEY: "CODEBUILD_SECRET_FRED"
+    GEMINI_API_KEY: "CODEBUILD_SECRET_GEMINI"
+    
+    # NEWS INTEGRATION KEYS
+    GOOGLE_SEARCH_API_KEY: "CODEBUILD_SECRET_GOOGLE_SEARCH"
+    GOOGLE_SEARCH_CX: "CODEBUILD_SECRET_GOOGLE_CX"
+    
+    # ADDITIONAL INDICATOR KEYS
+    VIX_API_KEY: "CODEBUILD_SECRET_VIX"
+    GOLD_API_KEY: "CODEBUILD_SECRET_GOLD"
+    FX_API_KEY: "CODEBUILD_SECRET_FX"
 
 phases:
   install:
+    # 1. Specify the Python runtime version
     runtime-versions:
-      # Use the Python version your app was built with (e.g., 3.11)
-      python: 3.11 
+      python: 3.11
+    
+    # 2. Install Python dependencies
     commands:
-      - echo Installing dependencies...
+      - echo "Installing Python dependencies from requirements.txt..."
       - pip install -r requirements.txt
-  
+
   pre_build:
     commands:
-      # You can keep unit tests here if you have them
-      - echo Running pre-build steps...
-  
+      - echo "Pre-build phase complete. Starting script execution..."
+      # Optional: Add pre-checks or linting here if needed.
+
   build:
     commands:
-      - echo Running the Atlas Update Script...
-      # CRITICAL: Execute your script here
-      - python update_atlas.py
-      # The script will generate data/atlas-latest.json
-      # The script will generate data/atlas-archive.json (based on snippet)
+      # 1. Execute the main Python script
+      # This script fetches data, processes it, and saves the output to the root directory's data/ folder.
+      - echo "Running Atlas Update Script (update_atlas.py)..."
+      # Using 'python3' explicitly is best practice in CodeBuild to ensure the correct version is used.
+      - python3 update_atlas.py
+      - echo "Script execution finished."
+      
+  post_build:
+    commands:
+      - echo "Build completed. Artifacts prepared."
 
+# Defines which files are output as artifacts to be passed to the next stage 
+# (e.g., AWS S3 for hosting via CloudFront, or AWS CodeDeploy for EC2).
 artifacts:
+  # Base directory for deployment - we assume the static files are in the repository root.
+  # This setting ('base-directory: .') determines the root of your deployment package,
+  # which aligns with your "existing build path" context.
+  base-directory: .
   files:
-    # Save the output files from the script
-    - 'data/atlas-latest.json'
-    - 'data/atlas-archive.json'
-  # Set the artifact path if you want to upload the output to a specific S3 location
-  # discard-paths: yes
+    # CRITICAL: For a static website, you must include ALL files needed to render the site.
+    - 'index.html'      # Your main entry point
+    - 'data/**/*'       # Includes your generated JSON files (atlas-latest.json, archive, etc.)
+    - 'styles/**/*'     # If you have separate CSS/assets (use glob for recursive)
+    - 'scripts/**/*'    # If you have separate JS/scripts
+    - '**/*.css'        # Catch any standalone CSS files in the root
+    - '**/*.js'         # Catch any standalone JS files in the root
+    # Note: If your directory structure is different, adjust the paths above.
